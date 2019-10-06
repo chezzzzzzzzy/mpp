@@ -1,1 +1,4 @@
 .DS_Store
+.gitignore
+spaces.sql
+users.sql
