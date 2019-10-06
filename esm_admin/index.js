@@ -6,3 +6,5 @@ $(".select-name").on("change",function(){
         $(".message").html("<h5>Diese Produktekonfiguration ist für den CH-Strassenverkehr Zugelassen: <span class='green'>Yes</span></h5>");
     }
   });
+
+  

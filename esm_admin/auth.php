@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -35,40 +35,30 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg bg-light">
         <a class="navbar-brand" href="auth.php">
             <div class="authLogo">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
             </div>
-
         </a>
         <span class="navbar-text ml-auto">
             Exchange Space Management
         </span>
-
     </nav>
-
     <?php
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    // echo "Logged in already";
+    ?>
 
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already";
-    ?>    
-    
     <?php } else {
-        // echo "Please login.";
-        
-    ?> 
+    // echo "Please login.";
 
+    ?>
         <div class="container">
-
             <div class="row">
-
                 <div class="col-lg-3"></div>
-
                 <div class="col-lg-6 authForm">
-
                     <form action="authVerification.php" method="POST">
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -83,10 +73,8 @@
                                     placeholder="Password">
                             </div>
                         </div>
-
                         <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label"></label>
-
                             <div class="col-sm-10 ">
                                 <button type="submit" class="btn btn-primary">Sign in</button>
                             </div>
@@ -96,11 +84,8 @@
                 <div class="col-lg-3"></div>
             </div>
         </div>
-        
     <?php }
-    ?>
-
-
+?>
 
 </body>
 

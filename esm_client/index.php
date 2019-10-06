@@ -50,7 +50,6 @@ $sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, r
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-
     <title>User | ESM</title>
 </head>
 

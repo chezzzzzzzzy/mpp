@@ -49,20 +49,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests<span class="sr-only">(current)</span></a>
                 </li>
-                
-
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
-
                 <a href="terminate.php">Logout</a>
-
-
             </span>
         </div>
     </nav>
-
-
 
 
     <script>
@@ -71,13 +64,8 @@
                 // header("Location: auth.php");
                 // session_destroy();
                 // $_SESSION['loggedin'] = false;
-
-               
-            
-            
             ?>
         }
-                            
     </script>
 
     <?php
@@ -177,11 +165,8 @@
                         }
 
                         ?>
-
                         
-                    </thead>
-
-                  
+                    </thead> 
                 </table>
             </div>
 

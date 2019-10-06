@@ -1,5 +1,6 @@
 <?php 
     session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +48,9 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="requestForm.php">Request <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="requestForm.php">Request (Space)<span class="sr-only">(current)</span></a>
                 </li>
+            
                 <li class="nav-item active">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
@@ -76,7 +78,7 @@
 
                     <div class="row">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-10">
                             <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number"
                                 name="ticketNumber" method="post" required>
                         </div>
@@ -84,145 +86,226 @@
                         <br>
                         <br>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-2">
                             <button type="submit" class="btn btn-primary ordinalButton" method="post">Check</button>
                         </div>
                     </div>
                 </form>
-                <br>
-                <br>
-                <br>
+              
             </div>
 
+            <?php        
+  
+                func(); 
+                function func()
+                {
+                    require 'connection.php';
 
-          
-                <table class="table">
-                    <thead>
-                        <?php          
-                            // if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['ticketNumber']))
-                            // {
-                                func();
-                            // }   
-                            function func()
-                            {
+                    $temp = $_POST['ticketNumber']; 
+                    $sql = "SELECT * FROM `spaces` WHERE `id` = $temp";
 
-                                $temp = $_POST['ticketNumber']; 
-                                $sql = "SELECT * FROM `spaces` WHERE `id` = $temp";
-                                $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
-    
-                                if($result = mysqli_query($link, $sql)){
-    
-                                    if(mysqli_num_rows($result) > 0){
-                                        
-                                            while($row = mysqli_fetch_array($result)){
+                    
 
 
-                                            echo "<div class='col-lg-12 statusBox'>";
+                    if($result = mysqli_query($conn, $sql)){
 
-                                                echo "<div class='row'>";
+                        
 
-                                                    echo "<div class='col-lg-2'>";
-                                                    echo "<h5>Ticket Number</h5>";
-                                                    echo "<h2>" . $row['id'] . "</h2>";
-                                                    echo "</div>";
+                        if(mysqli_num_rows($result) > 0){
+                            
+                                while($row = mysqli_fetch_array($result)){
+
                                     
-                                                    echo "<div class='col-lg-1'></div>";
-                                                        
-                                                    echo "<div class='col-lg-8'>"; 
+                                    ?>
+                                    
 
-                                                        echo "<div class='row'>";
-                                                            echo "<div class='col-lg-4'>";    
-                                                            echo "<h5>Rack Size (Breadth)</h5>";   
-                                                            echo "<h2>" . $row['rack_size_breadth'] . "</h2>";
-                                                            echo "</div>";   
-                                                            
-                                                            echo "<div class='col-lg-2'></div>"; 
-        
-                                                            echo "<div class='col-lg-4'>";    
-                                                            echo "<h5>Rack Size (Length)</h5>";   
-                                                            echo "<h2>" . $row['rack_size_length'] . "</h2>";
-                                                            echo "</div>";  
-                                                        echo "</div>";  
+                                    <div class="col-lg-12">
+                                        <!-- <h1>Your Request</h1> -->
+                                    </div>
 
-                                                        echo "<div class='row topSpaceLow'>";
-                                                            echo "<div class='col-lg-4'>";    
-                                                            echo "<h5>Breaker Size</h5>";   
-                                                            echo "<h2>" . $row['breaker_size'] . "</h2>";
-                                                            echo "</div>";   
-        
-                                                            echo "<div class='col-lg-2'></div>"; 
-                                                        
-                                                            echo "<div class='col-lg-4'>";    
-                                                            echo "<h5>Breaker Quantity</h5>";   
-                                                            echo "<h2>" . $row['breaker_quantity'] . "</h2>";
-                                                            echo "</div>";  
-                                                        echo "</div>";  
+                                    <div class="col-lg-12">
 
-                                                        echo "<h5 class='topSpaceLow'>PDB Feeds</h5>";
-                                                        echo "<h2>" . $row['pdb_feeds'] . "</h2>";
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5>Ticket Number</h5>
+                                                        <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <h5>Status</h5>
+                                                        <?php echo "<h2>" . $row['status'] . "</h2>"; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         
+                                            <div class="col-lg-12 topSpace">
+                                                <h3><b>Requested</b></h3>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5>Rack Size (Breadth)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5>Rack Size (Length)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5>PDB Feeds</h5>   
+                                                        <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
+                                                    </div>
+                                                </div>
 
-                                                        echo "<h5 class='topSpaceLow'>Location</h5>";
-                                                        echo "<h2>" . $row['location'] . "</h2>";
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Breaker Size</h5>   
+                                                        <?php echo "<h2>" . $row['breaker_size'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Breaker Quantity</h5>   
+                                                        <?php echo "<h2>" . $row['breaker_quantity'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Power</h5>   
+                                                        <h2>AC</h2>
+                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
+                                                    </div>
+                                                </div>
 
-                                                        echo "<h5 class='topSpaceLow'>Location</h5>";
-                                                        echo "<h2>" . $row['room'] . "</h2>";
+                                                
 
-                                                        echo "<h5 class='topSpaceLow'>Time / Date</h5>";
-                                                        echo "<h2>" . $row['time_date'] . "</h2>";
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <h5 class="topSpaceLow">Location</h5>
+                                                        <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
-                                                        echo "<h5 class='topSpaceLow'>Status</h5>";
-                                                        echo "<h2>" . $row['status'] . "</h2>";
+                                                        <h5 class="topSpaceLow">Room</h5>
+                                                        <?php echo "<h2>" . $row['room'] . "</h2>";?>
 
-                                                        if ($row['status'] == "In Progress") {
+                                                        <h5 class="topSpaceLow">Time / Date</h5>
+                                                        <?php echo "<h2>" . $row['time_date'] . "</h2>";?>
+                                                    </div>
+                                                </div>
 
-                                                            echo "<form>
-                                                        <div class='form-group'>
-                                                            <h5 class='topSpaceLow'>Image Upload</h5>
-                                                            <input type='file' class='form-control-file' id='exampleFormControlFile1'
-                                                                onchange='readURL(this);''>
-                                                            <img id='blah'>
+                                                <br>
+                                                <hr>
+                                                
+                                                <h3><b>Given</b></h3>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5>Rack Size (Breadth)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5>Rack Size (Length)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                  
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Breaker Size</h5>   
+                                                        <?php echo "<h2>" . $row['breaker_size'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Breaker Quantity</h5>   
+                                                        <?php echo "<h2>" . $row['breaker_quantity'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                               
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">Power</h5>   
+                                                        <h2>AC</h2>
+                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">PDB Feeds</h5>   
+                                                        <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5 class="topSpaceLow">PDU Feeds</h5>   
+                                                        <?php echo "<h2>" . $row['pdu_feeds'] . "</h2>";?>
+                                                    </div>
+                                                 
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <h5 class="topSpaceLow">Location</h5>
+                                                        <?php echo "<h2>" . $row['location'] . "</h2>";?>
+
+                                                        <h5 class="topSpaceLow">Room</h5>
+                                                        <?php echo "<h2>" . $row['room'] . "</h2>";?>
+
+                                                        <h5 class="topSpaceLow">Rack Location</h5>
+                                                        <?php echo "<h2>AA45</h2>";?>
+
+                                                        <h5 class="topSpaceLow">Checklist</h5>
+                                                        <div class='custom-control custom-checkbox'>
+                                                            <input type='checkbox' class='custom-control-input' id='customCheck1' disabled>
+                                                            <label class='custom-control-label' for='customCheck1'>Checked installation</label><br>
+                                                            <label class='custom-control-label' for='customCheck1'>Checked xxx</label><br>
+                                                            <label class='custom-control-label' for='customCheck1'>Checked xxx</label>
+
                                                         </div>
-                                                        </form>";
-                                                        echo "<button type='submit' class='btn btn-primary ordinalButton' method='post'>Submit</button>";
 
-                                                        }
+                                                    </div>
+                                                </div>
 
-                                                        
+                                            
+                                       
 
-                                                    echo "</div>";  
-                                                echo "</div>";
-                                            echo "</div>";
+                                                <?php if ($row['status'] == "In Progress") {
 
+                                                echo "<form>
+                                                    <div class='form-group'>
+                                                    <h5 class='topSpaceLow'>Image Upload</h5>
+                                                    <input type='file' class='form-control-file' multiple id='exampleFormControlFile1'
+                                                        onchange='readURL(this);''>
+                                                    <img id='blah'>
+                                                    </div>
+                                                    </form>";
+                                                    echo "<button type='submit' class='btn btn-primary ordinalButton' method='post'>Submit</button>";
 
+                                                } ?>
 
-                         
+                                            </div>
+                                        </div>
 
-                                           
-                                           
-                                           
+                                    </div>
+                                    <?php
 
-                                            // echo "<tr>";
-                                            //     echo "<td>" . $row['id'] . "</td>";
-                                            //     echo "<td>" . $row['rack_size_breadth'] . "</td>";
-                                            //     echo "<td>" . $row['rack_size_length'] . "</td>";
-                                            //     echo "<td>" . $row['breaker_quantity'] . "</td>";
-                                            //     echo "<td>" . $row['breaker_size'] . "</td>";
-                                            //     echo "<td>" . $row['pdb_feeds'] . "</td>";
-                                            //     echo "<td>" . $row['location'] . "</td>";
-                                            //     echo "<td>" . $row['room'] . "</td>";
-                                            //     echo "<td>" . $row['time_date'] . "</td>";
-                                            //     echo "<td>" . $row['status'] . "</td>";
-
-                                            // echo "</tr>";
-                                        }
-                                        // Free result set
-                                        mysqli_free_result($result);
-                                    }
                                 }
-                            }
-                        ?>
-                    </thead>
-                </table>
+                        }        
+                    }                 
+                }
+
+                ?>
+
+
+           
+
+            
+
+                                         
+
+
+       
             <!-- </div> -->
         </div>
     </div>

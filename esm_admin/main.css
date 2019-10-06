@@ -83,3 +83,12 @@ img {
 }
 
 
+.ordinalButton:focus {
+    background-color: white;
+    border: #da3744 2px solid; 
+    color: #da3744;
+}
+
+
+
+
