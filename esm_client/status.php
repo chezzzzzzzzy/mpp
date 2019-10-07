@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="requestForm.php">Request (Space)<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="requestForm.php">Request<span class="sr-only">(current)</span></a>
                 </li>
             
                 <li class="nav-item active">
@@ -145,12 +145,12 @@
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <h5>Rack Size (Breadth)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "</h2>";?>
+                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
                                                         <h5>Rack Size (Length)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_length'] . "</h2>";?>
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">  
@@ -185,7 +185,7 @@
                                                         <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Room</h5>
-                                                        <?php echo "<h2>" . $row['room'] . "</h2>";?>
+                                                        <?php echo "<h2>PCM " . $row['room'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Time / Date</h5>
                                                         <?php echo "<h2>" . $row['time_date'] . "</h2>";?>
@@ -199,13 +199,13 @@
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <h5>Rack Size (Breadth)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "</h2>";?>
+                                                        <h5>Rack Size (Breadth)</h5>  
+                                                        <?php echo "<h2>" . $row['rack_size_breadth'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
                                                         <h5>Rack Size (Length)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_length'] . "</h2>";?>
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                   
@@ -236,34 +236,62 @@
                                                         <h5 class="topSpaceLow">PDB Feeds</h5>   
                                                         <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
                                                     </div>
-                                                    <div class="col-lg-1"></div>
-                                                    <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">PDU Feeds</h5>   
-                                                        <?php echo "<h2>" . $row['pdu_feeds'] . "</h2>";?>
-                                                    </div>
+                                                 
                                                  
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12">
                                                         <h5 class="topSpaceLow">Location</h5>
                                                         <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Room</h5>
-                                                        <?php echo "<h2>" . $row['room'] . "</h2>";?>
+                                                        <?php echo "<h2>PCM " . $row['room'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Rack Location</h5>
                                                         <?php echo "<h2>AA45</h2>";?>
 
-                                                        <h5 class="topSpaceLow">Checklist</h5>
-
-                                                        <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
-                                                        <label class="custom-control-label" for="defaultUncheckedDisabled2">Added power</label>
-                                                        <br>
-                                                        <input type="checkbox" class="custom-control-input" id="defaultCheckedDisabled2" checked disabled>
-                                                        <label class="custom-control-label" for="defaultCheckedDisabled2">Added racks</label>
-                                                        </div>
+                                                        <h5 class="topSpaceLow">SLA</h5>
+                                                        <table class="table table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Timestamp</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                            <td><h2>Submitted</h2></td>
+                                                            <td><?php echo "<h2>" . $row['time_date'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td><h2>In Progress</h2></td>
+                                                            <td><?php echo "<h2>" . $row['timestamp_inprogress'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td><h2>Assigned</h2></td>
+                                                            <td><?php echo "<h2>" . $row['timestamp_assigned'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td><h2>Plan?</h2></td>
+                                                            <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td><h2>Completed</h2></td>
+                                                            <td><?php echo "<h2>" . $row['timestamp_completed'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td><h2>Closed</h2></td>
+                                                            <td><?php echo "<h2>" . $row['timestamp_closed'] . "</h2>";?>
+                                                            </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        </table>
 
                                                         
 
@@ -273,22 +301,47 @@
                                             
                                        
 
-                                                <?php if ($row['status'] == "In Progress") {
+                                                <?php 
+                                                
+                                               
+                                                
+                                                if ($row['status'] == "Submitted") {
+                                                    echo "<h2>Submitted status</h2>";
 
-                                                echo "<form>
-                                                        <div class='form-group'>
-                                                            <h5 class='topSpaceLow'>Image Upload</h5>
-                                                            <input id='file-input' type='file' multiple>
-                                                            <div id='preview'></div>
-                                                        </div>
+
+                                                } 
+                                                
+                                                if ($row['status'] == "Assigned") {
+                                                    echo "<h2>Assigned status</h2>";
+
+                                                }
+                                                if ($row['status'] == "In Progress") {
+
+                                                 
+                                                } 
+
+                                                if ($row['status'] == "Installed") {
+                                                    echo "<form>
+                                                    <div class='form-group'>
+                                                    <h5 class='topSpaceLow'>Image Upload</h5>
+                                                    on breaker, equip, flooring 
+                                                    <input id='browse' type='file' onchange='previewFiles()' multiple>
+                                                    <div id='preview'></div>
+                                                    </div>
                                                     </form>";
-                                                    echo "<button type='submit' class='btn btn-primary ordinalButton' method='post'>Submit</button>";
+                                                    echo "<button type='submit' class='btn btn-primary ordinalButton marginDec' method='post'>Submit</button>";
+                                                }
 
-                                                } ?>
+                                                if ($row['status'] == "Completed") {
+                                                    echo "<div class='topSpaceMid'></div>";
+                                                 
 
-                                                    <!-- <input type='file' class='form-control-file' multiple id='exampleFormControlFile1'
-                                                        onchange='readURL(this);''>
-                                                     <img id='blah'> -->
+                                                    echo "<button type='submit' class='btn btn-primary ordinalButton marginDec' method='post'>Completed</button>";
+
+                                                    
+                                                } 
+                                                
+                                                ?>
 
                                             </div>
                                         </div>

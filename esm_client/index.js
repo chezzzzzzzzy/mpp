@@ -53,16 +53,16 @@ $(document).ready(function() {
     $("div#form1").slideDown('slow');
     $("div#form1").append($("#form_submit").append($("<div/>", {
     id: 'head'
-    }).append($("<h3/>").text("Registration Form" + i)), $("<input/>", {
+    }).append($("<h3/>").text("Rack" + i)), $("<input/>", {
     type: 'text',
-    placeholder: 'Name' + i,
+    placeholder: 'xxx' + i,
     name: 'name_' + i
     }), $("<br/>"), $("<input/>", {
     type: 'text',
-    placeholder: 'Email' + i,
+    placeholder: 'xxx' + i,
     name: 'email_' + i
     }), $("<br/>"), $("<textarea/>", {
-    placeholder: 'Message' + i,
+    placeholder: 'xxx' + i,
     type: 'text',
     name: 'msg_' + i
     }), $("<br/>"), $("<hr/>"), $("<br/>")))
@@ -72,38 +72,47 @@ $(document).ready(function() {
 	
 
 
-	
 
-
-	function previewImages() {
+	function previewFiles() {
 
 		var preview = document.querySelector('#preview');
-		
-		if (this.files) {
-		  [].forEach.call(this.files, readAndPreview);
-		}
+		var files   = document.querySelector('input[type=file]').files;
 	  
 		function readAndPreview(file) {
 	  
 		  // Make sure `file.name` matches our extensions criteria
-		  if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-			return alert(file.name + " is not an image");
-		  } // else...
-		  
-		  var reader = new FileReader();
-		  
-		  reader.addEventListener("load", function() {
-			var image = new Image();
-			image.height = 100;
-			image.title  = file.name;
-			image.src    = this.result;
-			preview.appendChild(image);
-		  });
-		  
-		  reader.readAsDataURL(file);
-		  
+		  if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+			var reader = new FileReader();
+			
+	  
+			reader.addEventListener("load", function () {
+			  var image = new Image();
+			  image.height = 200;
+			  image.title = file.name;
+			  image.style.marginTop = '10px';
+
+			  image.style.marginRight = '10px';
+			  image.style.borderRadius = '3px';
+
+
+
+			  image.src = this.result;
+			  preview.appendChild( image );
+			}, false);
+	  
+			reader.readAsDataURL(file);
+		  }
+	  
+		}
+	  
+		if (files) {
+		  [].forEach.call(files, readAndPreview);
 		}
 	  
 	  }
-	  
-	  document.querySelector('#file-input').addEventListener("change", previewImages);
+
+
+	  $(document).ready(function() {
+		$('#js-date').datepicker();
+	});
+	

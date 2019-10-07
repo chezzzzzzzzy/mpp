@@ -130,7 +130,11 @@
                                                     <option value='Submitted' id='submitted'>Submitted</option>
                                                     <option value='In Progress' id='inProgress'>In Progress</option>
                                                     <option value='Assigned' id='assigned'>Assigned</option>
-                                                    <option value='Installed' id='installed'>Installed</option>
+                                                    <option value='x' id='assigned'>x</option>
+
+                                                    <option value='Completed' id='installed'>Completed</option>
+                                                    <option value='Closed' id='installed'>Closed</option>
+
                                                 </select>
                                             </div>                
                                         </form>

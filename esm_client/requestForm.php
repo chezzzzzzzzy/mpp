@@ -18,14 +18,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
         crossorigin="anonymous"></script>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+       
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
     <link rel="stylesheet" href="form1.css">
 
 
@@ -50,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="requestForm.php">Request (Space)<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="requestForm.php">Request<span class="sr-only">(current)</span></a>
                 </li>
              
                 <li class="nav-item">
@@ -129,9 +127,12 @@
 
             <div class="col-lg-12">
 
+          
+
 
                     <ul id="progressbar">
-                        <li class="active">Personal Information</li>
+                        <li class="active">Type</li>
+                        <li>Personal Information</li>
                         <li>Racks</li>
                         <li>Technical Information</li>
                         <li>Confirmation</li>
@@ -142,7 +143,7 @@
             </div>
             <div class="col-lg-12">
 
-                <form action="index.php" id="msform" method="post" class="needs-validation" novalidate>
+                <form action="index.php" id="msform" method="post" class="needs-validation">
 
                     <!-- <ul id="progressbar">
                         <li class="active">Personal Information</li>
@@ -150,6 +151,47 @@
                         <li>Technical Information</li>
                         <li>Confirmation</li>
                     </ul> -->
+                    <fieldset>  
+                    <h2 class="fs-title">Type</h2>
+                    <h3 class="fs-subtitle">Please kindly select from the following forms</h3>
+                    <!-- <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary">Space</button>
+                    <button type="button" class="btn btn-secondary">Power</button>
+
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Others
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="#">FDF</a>
+                            <a class="dropdown-item" href="#">Cable Tray</a>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off"> Power
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Space
+                        </label>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Others
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="#">FDF</a>
+                            
+                            <a class="dropdown-item" href="#">Cable Tray</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="button" name="next" class="next action-button" value="Next" />
+
+
+                    </fieldset>
 
                     <fieldset>
                     <h2 class="fs-title">Personal Information</h2>
@@ -166,30 +208,33 @@
                     <label for="inputState">Reason<span class="requiredField">*</span></label>
                     <input type="text" name="requestorReason" placeholder="" />
 
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
-                    </fieldset>
-                    <fieldset>
 
+                    </fieldset>
+
+                    <fieldset>
 
                         <h2 class="fs-title">Number Of Racks</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following field</h3>
 
                         <div id="selected_form_code">
-                            <select id="select_btn">
+                            <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
+                            <select id="select_btn" class="form-control">
                                 <option value="0">Select below</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                                <option value="5">Five</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+
                             </select>
                         </div>
-
-
-                 
-
-
-
 
                         <!-- <h2 class="fs-title">Number Of Racks</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following field</h3>
@@ -217,53 +262,51 @@
 
 
                     <div class="row">
-
-                        <div class="col-lg-3">
-                            <a href="#">Rack 1</a>
+                        <!-- <div class="col-lg-3">
+                            <a href="#" class="rackCount">Rack 1</a>
                             <br>
-                            <a href="#">Rack 2</a>
                             <br>
-                            <a href="#">Rack 3</a>
+                            <a href="#" class="rackCount">Rack 2</a>
                             <br>
-                            <a href="#">Rack 4</a>
                             <br>
-                            <a href="#">Rack 5</a>
+                            <a href="#" class="rackCount">Rack 3</a>
+                            <br>
+                            <br>
+                            <a href="#" class="rackCount">Rack 4</a>
+                            <br>
+                            <br>
+                            <a href="#" class="rackCount">Rack 5</a>
 
-
-
-
-                            
-                        </div>
-                        <div class="col-lg-9">
+                        </div> -->
+                        <div class="col-lg-12">
                             <div id="form1"> </div>
 
                             <div class="form-group">
-                        <label for="power">Power<span class="requiredField">*</span></label>
+                        <label for="power">Power Type<span class="requiredField">*</span></label>
                         <br>
 
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary active">
-                                <input type="radio" name="acdc" id="AC" autocomplete="off" checked> AC
+                                <input type="radio" name="powerType" id="AC" autocomplete="off" checked> AC
                             </label>
                          
                             <label class="btn btn-secondary">
-                                <input type="radio" name="acdc" id="DC" autocomplete="off"> DC
+                                <input type="radio" name="powerType" id="DC" autocomplete="off"> DC
                             </label>
                         </div>
 
                     </div>
 
                     <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)<span class="requiredField">*</span></label>
+                        <label for="rackSize">Rack Size (Length in mm)<span class="requiredField">*</span></label>
                         <input type="text" id="rackSizeLength"
                             placeholder="Enter rack size (length)" name="rackSizeLength" required>
-
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)<span class="requiredField">*</span></label>
+                        <label for="rackSize">Rack Size (Breadth in mm)<span class="requiredField">*</span></label>
                         <input type="text" id="rackSizeBreadth"
                             placeholder="Enter rack size (breadth)" name="rackSizeBreadth" required>
                         <div class="valid-feedback">Valid.</div>
@@ -284,13 +327,36 @@
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
+               
+
                     <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <input type="text" id="pdbFeeds" placeholder="Enter PDB feeds"
-                            name="pdbFeeds">
+                        <label for="startDate">Start Date<span class="requiredField">*</span></label>
+                    
+                            <div class="input-group date" data-provide="datepicker">
+                                <input type="text" id="data-date">
+                                <div class="input-group-addon">
+                                </div>
+                            </div>
+
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="endDate">End Date<span class="requiredField">*</span></label>
+                    
+                            <div class="input-group date" data-provide="datepicker">
+                                <input type="text" id="data-date">
+                                <div class="input-group-addon">
+                                </div>
+                            </div>
+
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+
+
+                    
 
                    
 
@@ -339,8 +405,8 @@
                     <h3 class="fs-subtitle">Please kindly review the following</h3>
 
               
-                    
-                   
+                    <h5><b>Rack 1</b></h5>
+
                     <div class="form-group">
                         <label for="rackSize">Power</label>
                         <h2>AC</h2>
@@ -349,12 +415,12 @@
 
                     <div class="form-group">
                         <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5</h2>
+                        <h2>5<span class='units'>mm</span></h2>
                     </div>
 
                     <div class="form-group">
                         <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5</h2>
+                        <h2>5<span class='units'>mm</span></h2>
 
                        
                     </div>
@@ -376,6 +442,102 @@
                         <h2>A</h2>
 
                     
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Preferred Location</label>
+                        <h2>Changi Exchange</h2>
+
+                        
+                    </div>
+
+                    <hr class="specialHr">
+
+                    <h5><b>Rack 2</b></h5>
+
+                    <div class="form-group">
+                        <label for="rackSize">Power</label>
+                        <h2>AC</h2>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rackSize">Rack Size (Length)</label>
+                        <h2>5<span class='units'>mm</span></h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rackSize">Rack Size (Breadth)</label>
+                        <h2>5<span class='units'>mm</span></h2>
+
+                    
+                    </div>
+
+                    <div class="form-group">
+                        <label for="breakerSize">Breaker Size</label>
+                        <h2>5</h2>
+
+                    
+                    </div>
+                    <div class="form-group">
+                        <label for="breakerQuantity">Breaker Quantity</label>
+                        <h2>5</h2>
+
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="pdbFeeds">PDB Feeds</label>
+                        <h2>A</h2>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Preferred Location</label>
+                        <h2>Changi Exchange</h2>
+
+                        
+                    </div>
+
+                    <hr class="specialHr">
+
+                    <h5><b>Rack 3</b></h5>
+
+                    <div class="form-group">
+                        <label for="rackSize">Power</label>
+                        <h2>AC</h2>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rackSize">Rack Size (Length)</label>
+                        <h2>5<span class='units'>mm</span></h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rackSize">Rack Size (Breadth)</label>
+                        <h2>5<span class='units'>mm</span></h2>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="breakerSize">Breaker Size</label>
+                        <h2>5</h2>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="breakerQuantity">Breaker Quantity</label>
+                        <h2>5</h2>
+
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="pdbFeeds">PDB Feeds</label>
+                        <h2>A</h2>
+
+
                     </div>
 
                     <div class="form-group">
