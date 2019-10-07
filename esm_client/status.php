@@ -153,7 +153,7 @@
                                                         <?php echo "<h2>" . $row['rack_size_length'] . "</h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-3">  
                                                         <h5>PDB Feeds</h5>   
                                                         <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
                                                     </div>
@@ -256,13 +256,16 @@
                                                         <?php echo "<h2>AA45</h2>";?>
 
                                                         <h5 class="topSpaceLow">Checklist</h5>
-                                                        <div class='custom-control custom-checkbox'>
-                                                            <input type='checkbox' class='custom-control-input' id='customCheck1' disabled>
-                                                            <label class='custom-control-label' for='customCheck1'>Checked installation</label><br>
-                                                            <label class='custom-control-label' for='customCheck1'>Checked xxx</label><br>
-                                                            <label class='custom-control-label' for='customCheck1'>Checked xxx</label>
 
+                                                        <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" disabled>
+                                                        <label class="custom-control-label" for="defaultUncheckedDisabled2">Added power</label>
+                                                        <br>
+                                                        <input type="checkbox" class="custom-control-input" id="defaultCheckedDisabled2" checked disabled>
+                                                        <label class="custom-control-label" for="defaultCheckedDisabled2">Added racks</label>
                                                         </div>
+
+                                                        
 
                                                     </div>
                                                 </div>
@@ -273,16 +276,19 @@
                                                 <?php if ($row['status'] == "In Progress") {
 
                                                 echo "<form>
-                                                    <div class='form-group'>
-                                                    <h5 class='topSpaceLow'>Image Upload</h5>
-                                                    <input type='file' class='form-control-file' multiple id='exampleFormControlFile1'
-                                                        onchange='readURL(this);''>
-                                                    <img id='blah'>
-                                                    </div>
+                                                        <div class='form-group'>
+                                                            <h5 class='topSpaceLow'>Image Upload</h5>
+                                                            <input id='file-input' type='file' multiple>
+                                                            <div id='preview'></div>
+                                                        </div>
                                                     </form>";
                                                     echo "<button type='submit' class='btn btn-primary ordinalButton' method='post'>Submit</button>";
 
                                                 } ?>
+
+                                                    <!-- <input type='file' class='form-control-file' multiple id='exampleFormControlFile1'
+                                                        onchange='readURL(this);''>
+                                                     <img id='blah'> -->
 
                                             </div>
                                         </div>
