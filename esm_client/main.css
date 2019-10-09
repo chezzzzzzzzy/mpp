@@ -161,11 +161,23 @@ h1 {
 }
 
 
-footer {
-    text-align: center;
-    
+.selectorButton {
+    border-radius: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 180px;
+    color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
 }
 
+.selectorButton:hover {
+    background-color: #da3744;
+    border: none;   
+    border-radius: 500px;
+    color: white;
+}
 
 #serverImg {
     max-width: 60%;
@@ -265,5 +277,31 @@ a:hover {
 
 .table-borderless {
     margin-left: -10px;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+.topSpaceLarge {
+    margin-top: 350px;
+}
+
+
+
+
+.datepicker table tr td.active, .datepicker table tr td.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#da3744), to(#da3744));
+}
+
+.dropdown-menu {
+    border: none;
+    text-align: center;
+}
+
+.dropdown-menu li{
+    border-radius: 100px;
+    border: 2px solid #da3744;
+    margin-top: 15px;
 }
 

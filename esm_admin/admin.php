@@ -46,9 +46,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.php">All Requests<span class="sr-only">(current)</span></a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="spaceRequests.php">Space</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="powerRequests.php">Power</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="otherRequests.php">Others</a>
+                </li>
+                
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->

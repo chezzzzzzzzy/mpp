@@ -132,10 +132,10 @@
 
 
                 <ul id="progressbar">
-                    <li class="active">Type</li>
+                    <li class="active">Personal Information</li>
                     <li>Racks</li>
                     <li>Technical Information</li>
-                    <li>Confirmation</li>
+                    <!-- <li>Confirmation</li> -->
                 </ul>
 
 
@@ -180,7 +180,7 @@
                         <div id="selected_form_code">
                             <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
                             <select id="select_btn" class="form-control">
-                                <option value="0">Select below</option>
+                                <option value="0">Please choose</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -221,22 +221,7 @@
 
 
                         <div class="row">
-                            <!-- <div class="col-lg-3">
-                            <a href="#" class="rackCount">Rack 1</a>
-                            <br>
-                            <br>
-                            <a href="#" class="rackCount">Rack 2</a>
-                            <br>
-                            <br>
-                            <a href="#" class="rackCount">Rack 3</a>
-                            <br>
-                            <br>
-                            <a href="#" class="rackCount">Rack 4</a>
-                            <br>
-                            <br>
-                            <a href="#" class="rackCount">Rack 5</a>
-
-                        </div> -->
+                           
                             <div class="col-lg-12">
                                 
 
@@ -248,7 +233,6 @@
                                         <label class="btn btn-secondary active">
                                             <input type="radio" name="powerType" id="AC" autocomplete="off" checked> AC
                                         </label>
-
                                         <label class="btn btn-secondary">
                                             <input type="radio" name="powerType" id="DC" autocomplete="off"> DC
                                         </label>
@@ -256,7 +240,7 @@
 
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="rackSize">Rack Size (Length in mm)<span
                                             class="requiredField">*</span></label>
                                     <input type="text" id="rackSizeLength" placeholder="Enter rack size (length)"
@@ -288,7 +272,7 @@
                                         name="breakerQuantity" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
+                                </div> -->
 
 
                                 <div class="form-group">
@@ -324,7 +308,7 @@
 
                                 <div class="form-group">
                                     <label for="inputState">Preferred Location</label>
-                                    <select id="inputState" class="form-control" name="location">
+                                    <select id="inputState" class="form-control" name="locationExchange">
                                         <option value="No Preference" selected>No Preference</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
@@ -348,6 +332,10 @@
                                     </select>
                                 </div>
 
+                                <br>
+                                <hr class="specialHr">
+                                <br>
+
                                 <div id="form1"> </div>
 
 
@@ -362,10 +350,10 @@
 
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
                     </fieldset>
-                    <fieldset>
+                    <!-- <fieldset>
                         <h2 class="fs-title">Confirmation</h2>
                         <h3 class="fs-subtitle">Please kindly review the following</h3>
 
@@ -517,7 +505,7 @@
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
-                    </fieldset>
+                    </fieldset> -->
 
                 </form>
 

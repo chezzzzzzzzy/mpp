@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="requestForm.php">Request<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
             
                 <li class="nav-item active">
@@ -153,10 +153,7 @@
                                                         <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
-                                                    <div class="col-lg-3">  
-                                                        <h5>PDB Feeds</h5>   
-                                                        <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
-                                                    </div>
+                                                    
                                                 </div>
 
                                                 <div class="row">
@@ -171,7 +168,7 @@
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Power</h5>   
+                                                        <h5 class="topSpaceLow">Power Type</h5>   
                                                         <h2>AC</h2>
                                                         <?php echo "<h2>" . $row['power'] . "</h2>";?>
                                                     </div>
@@ -181,7 +178,7 @@
 
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <h5 class="topSpaceLow">Location</h5>
+                                                        <h5 class="topSpaceLow">Preferred Location</h5>
                                                         <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Room</h5>
@@ -227,7 +224,7 @@
 
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Power</h5>   
+                                                        <h5 class="topSpaceLow">Power Type</h5>   
                                                         <h2>AC</h2>
                                                         <?php echo "<h2>" . $row['power'] . "</h2>";?>
                                                     </div>
