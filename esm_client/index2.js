@@ -11,7 +11,7 @@ $(document).ready(function () {
         // Below Function Creates Input Fields Dynamically
         create(sel_value);
         // Appending Submit Button To Form
-        $("#form_submit").append( "<a href='allForms.php'>Test</a>" );
+        $("#form_submit").append( "<a href='allForms.php'>Submit (Test)</a>" );
       }
     });
     function create(sel_value) {

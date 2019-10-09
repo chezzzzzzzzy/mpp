@@ -145,14 +145,6 @@
 
                 <form action="index.php" id="msform" method="post" class="needs-validation">
 
-                    <!-- <ul id="progressbar">
-                        <li class="active">Personal Information</li>
-                        <li>Racks</li>
-                        <li>Technical Information</li>
-                        <li>Confirmation</li>
-                    </ul> -->
-
-
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
@@ -195,23 +187,7 @@
                             </select>
                         </div>
 
-                        <!-- <h2 class="fs-title">Number Of Racks</h2>
-                        <h3 class="fs-subtitle">Please kindly complete the following field</h3>
-                        <div class="form-group">
-                            <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                            <select id="inputState" class="form-control" name="room">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div> -->
+  
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>

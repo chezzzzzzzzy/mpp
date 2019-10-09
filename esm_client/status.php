@@ -149,17 +149,23 @@
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
-                                                        <h5>Rack Size (Length)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
+                                                        <h5>Breaker Size</h5>   
+                                                        <?php echo "<h2>" . $row['breaker_size'] . "</h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3">
+                                                        <h5>Power Type</h5>   
+                                                        <h2>AC</h2>
+                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
+                                                    </div>
                                                     
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Breaker Size</h5>   
-                                                        <?php echo "<h2>" . $row['breaker_size'] . "</h2>";?>
+                                                       
+                                                        <h5 class="topSpaceLow">Rack Size (Length)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
@@ -167,22 +173,25 @@
                                                         <?php echo "<h2>" . $row['breaker_quantity'] . "</h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
-                                                    <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Power Type</h5>   
-                                                        <h2>AC</h2>
-                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
-                                                    </div>
+                                                    
                                                 </div>
 
                                                 
 
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <h5 class="topSpaceLow">Preferred Location</h5>
+                                                        <h5 class="topSpaceLow">Preferred Exchange</h5>
                                                         <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
-                                                        <h5 class="topSpaceLow">Room</h5>
-                                                        <?php echo "<h2>PCM " . $row['room'] . "</h2>";?>
+                                                        <h5 class="topSpaceLow">Start Date</h5>
+                                                        <?php echo "<h2>" . $row['startDate'] . "</h2>";?>
+                                                        <?php echo "<h2>11/11/11</h2>";?>
+
+
+                                                        <h5 class="topSpaceLow">End Date</h5>
+                                                        <?php echo "<h2>" . $row['endDate'] . "</h2>";?>
+                                                        <?php echo "<h2>11/11/11</h2>";?>
+
 
                                                         <h5 class="topSpaceLow">Time / Date</h5>
                                                         <?php echo "<h2>" . $row['time_date'] . "</h2>";?>
@@ -201,45 +210,48 @@
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
-                                                        <h5>Rack Size (Length)</h5>   
-                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
-                                                    </div>
-                                                    <div class="col-lg-1"></div>
-                                                  
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Breaker Size</h5>   
+                                                        <h5>Breaker Size</h5>   
                                                         <?php echo "<h2>" . $row['breaker_size'] . "</h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
                                                     <div class="col-lg-3">
+                                                        <h5>Power Type</h5>   
+                                                        <h2>AC</h2>
+                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
+                                                    </div>
+                                                  
+                                                </div>
+
+                                                <div class="row">
+                                                   
+                                                    <div class="col-lg-3 ">
+                                                        <h5 class="topSpaceLow">Rack Size (Length)</h5>   
+                                                        <?php echo "<h2>" . $row['rack_size_length'] . "<span class='units'>mm</span></h2>";?>
+                                                    </div>
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-3 ">
                                                         <h5 class="topSpaceLow">Breaker Quantity</h5>   
                                                         <?php echo "<h2>" . $row['breaker_quantity'] . "</h2>";?>
                                                     </div>
                                                     <div class="col-lg-1"></div>
-                                               
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <h5 class="topSpaceLow">Power Type</h5>   
-                                                        <h2>AC</h2>
-                                                        <?php echo "<h2>" . $row['power'] . "</h2>";?>
-                                                    </div>
-                                                    <div class="col-lg-1"></div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-3 ">
                                                         <h5 class="topSpaceLow">PDB Feeds</h5>   
                                                         <?php echo "<h2>" . $row['pdb_feeds'] . "</h2>";?>
                                                     </div>
                                                  
+                                               
+                                                </div>
+
+                                                <div class="row">
+                                                   
+                                                    <div class="col-lg-1"></div>
+                                                    
                                                  
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-lg-12">
-                                                        <h5 class="topSpaceLow">Location</h5>
+                                                        <h5 class="topSpaceLow">Exchange</h5>
                                                         <?php echo "<h2>" . $row['location'] . "</h2>";?>
 
                                                         <h5 class="topSpaceLow">Room</h5>
@@ -247,6 +259,15 @@
 
                                                         <h5 class="topSpaceLow">Rack Location</h5>
                                                         <?php echo "<h2>AA45</h2>";?>
+
+                                                        <h5 class="topSpaceLow">Start Date</h5>
+                                                        <?php echo "<h2>" . $row['startDate'] . "</h2>";?>
+                                                        <?php echo "<h2>11/11/11</h2>";?>
+
+
+                                                        <h5 class="topSpaceLow">End Date</h5>
+                                                        <?php echo "<h2>" . $row['endDate'] . "</h2>";?>
+                                                        <?php echo "<h2>11/11/11</h2>";?>
 
                                                         <h5 class="topSpaceLow">SLA</h5>
                                                         <table class="table table-borderless">
@@ -321,7 +342,6 @@
                                                     echo "<form>
                                                     <div class='form-group'>
                                                     <h5 class='topSpaceLow'>Image Upload</h5>
-                                                    on breaker, equip, flooring 
                                                     <input id='browse' type='file' onchange='previewFiles()' multiple>
                                                     <div id='preview'></div>
                                                     </div>

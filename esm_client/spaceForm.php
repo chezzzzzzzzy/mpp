@@ -22,6 +22,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+
+
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
@@ -145,15 +149,7 @@
 
                 <form action="index.php" id="msform" method="post" class="needs-validation">
 
-                    <!-- <ul id="progressbar">
-                        <li class="active">Personal Information</li>
-                        <li>Racks</li>
-                        <li>Technical Information</li>
-                        <li>Confirmation</li>
-                    </ul> -->
-
-
-                    <fieldset>
+                    <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
                         <label for="inputState">Name<span class="requiredField">*</span></label>
@@ -168,11 +164,13 @@
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
                         <input type="text" name="requestorReason" placeholder="" />
 
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <!-- <p><a class="btn btn-primary" id="next">next</a></p> -->
+
+                        <input type="button" id="next" name="next" class="next action-button" value="Next" />
 
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset id="noOfRacks">
 
                         <h2 class="fs-title">Number Of Racks</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following field</h3>
@@ -180,8 +178,8 @@
                         <div id="selected_form_code">
                             <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
                             <select id="select_btn" class="form-control">
-                                <option value="0">Please choose</option>
-                                <option value="1">1</option>
+                                <!-- <option value="0">Please choose</option> -->
+                                <option value="1" selected="selected">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -195,23 +193,7 @@
                             </select>
                         </div>
 
-                        <!-- <h2 class="fs-title">Number Of Racks</h2>
-                        <h3 class="fs-subtitle">Please kindly complete the following field</h3>
-                        <div class="form-group">
-                            <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                            <select id="inputState" class="form-control" name="room">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div> -->
+              
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -331,10 +313,10 @@
                                         <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
                                     </select>
                                 </div>
-
+<!-- 
                                 <br>
                                 <hr class="specialHr">
-                                <br>
+                                <br> -->
 
                                 <div id="form1"> </div>
 

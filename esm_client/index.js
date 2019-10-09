@@ -30,6 +30,9 @@ function readURL(input) {
 }
 
 $(document).ready(function () {
+
+  
+
   $('select#select_btn').change(function () {
     var sel_value = $('option:selected').val();
     if (sel_value == 0) {
@@ -42,7 +45,7 @@ $(document).ready(function () {
       // Below Function Creates Input Fields Dynamically
       create(sel_value);
       // Appending Submit Button To Form
-      $("#form_submit").append( "<a href='allForms.php'>Test</a>" );
+      $("#form_submit").append( "<a href='allForms.php'>Submit</a>" );
     }
   });
   function create(sel_value) {
@@ -127,6 +130,80 @@ function previewFiles() {
 }
 
 
+// datepicker 
 $(document).ready(function () {
   $('#js-date').datepicker();
 });
+
+
+
+// // form validation mover
+// $(document).ready(function(){
+// 	$('#next').click(function(){
+// 		current_fs = $('#personalInformation');
+// 		next_fs = $('#noOfRacks');
+// 		next_fs.show();
+// 		current_fs.hide();
+// 	});
+
+//  	$('#previous').click(function(){
+// 		current_fs = $('#personalInformation');
+// 		next_fs = $('#noOfRacks');
+// 		next_fs.show();
+// 		current_fs.hide();
+// 	});
+// });
+
+// // form validation
+// $("#next").click(function(){
+//   var form = $("#testVForm");
+//   form.validate({
+//     rules: {
+//       requestorName: {
+//         required: true,
+//         minlength: 6,
+//       },
+//       requestorEmail: {
+//         required: true,
+//       },
+//       requestorDepartment: {
+//         required: true,
+//       },
+//       requestorReason: {
+//         required: true,
+//       },
+      
+//     },
+//     messages: {
+//       requestorName: {
+//         required: "requestorName required",
+//       },
+//       requestorEmail: {
+//         required: "requestorEmail required",
+//       },
+//       requestorDepartment: {
+//         required: "requestorDepartment required",
+//       },
+//       requestorReason: {
+//         required: "requestorReason required",
+//       },
+      
+//     }
+//   });
+//   if (form.valid() == true){
+//     current_fs = $('#personalInformation');
+//     next_fs = $('#noOfRacks');
+//     next_fs.show();
+//     current_fs.hide();
+//   }
+// });
+
+
+
+
+
+
+
+
+
+

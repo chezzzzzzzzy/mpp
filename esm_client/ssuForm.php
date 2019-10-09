@@ -22,8 +22,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+
+
     <!-- dependencies -->
-    <script type="text/javascript" src="index2.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
 
@@ -65,21 +69,73 @@
 
     <div class="container">
 
-        <h1>Request for Power</h1>
+        <h1>Request for SSU</h1>
+
+        <!-- <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form id="msform">
+                    <ul id="progressbar">
+                        <li class="active">Personal Details</li>
+                        <li>Social Profiles</li>
+                        <li>Social Profiles</li>
+                        <li>Account Setup</li>
+                    </ul>
+                    <fieldset>
+                        <h2 class="fs-title">Personal Details</h2>
+                        <h3 class="fs-subtitle">Tell us something more about you</h3>
+                        <input type="text" name="fname" placeholder="First Name"/>
+                        <input type="text" name="lname" placeholder="Last Name"/>
+                        <input type="text" name="phone" placeholder="Phone"/>
+                        <input type="button" name="next" class="next action-button" value="Next"/>
+                    </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Social Profiles</h2>
+                        <h3 class="fs-subtitle">Your presence on the social network</h3>
+                        <input type="text" name="twitter" placeholder="Twitter"/>
+                        <input type="text" name="facebook" placeholder="Facebook"/>
+                        <input type="text" name="gplus" placeholder="Google Plus"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="next" class="next action-button" value="Next"/>
+                    </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Social Profiles</h2>
+                        <h3 class="fs-subtitle">Your presence on the social network</h3>
+                        <input type="text" name="twitter" placeholder="Twitter"/>
+                        <input type="text" name="facebook" placeholder="Facebook"/>
+                        <input type="text" name="gplus" placeholder="Google Plus"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="next" class="next action-button" value="Next"/>
+                    </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Create your account</h2>
+                        <h3 class="fs-subtitle">Fill in your credentials</h3>
+                        <input type="text" name="email" placeholder="Email"/>
+                        <input type="password" name="pass" placeholder="Password"/>
+                        <input type="password" name="cpass" placeholder="Confirm Password"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                    </fieldset>
+                </form>
+            
+            </div>
+        </div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+        <script  src="./form1.js"></script>
+
+
+        -->
+
         <div class="row">
 
             <div class="col-lg-12">
 
-
-
-
                 <ul id="progressbar">
-                    <li class="active">Details</li>
-                    <li>Powered Racks</li>
+                    <li class="active">Personal Information</li>
                     <li>Technical Information</li>
-                    <!-- <li>Confirmation</li> -->
                 </ul>
-
 
 
             </div>
@@ -87,14 +143,7 @@
 
                 <form action="index.php" id="msform" method="post" class="needs-validation">
 
-                    <!-- <ul id="progressbar">
-                        <li class="active">Personal Information</li>
-                        <li>Racks</li>
-                        <li>Technical Information</li>
-                        <li>Confirmation</li>
-                    </ul> -->
-
-                    <fieldset>
+                    <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
                         <label for="inputState">Name<span class="requiredField">*</span></label>
@@ -109,66 +158,58 @@
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
                         <input type="text" name="requestorReason" placeholder="" />
 
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="button" id="next" name="next" class="next action-button" value="Next" />
 
                     </fieldset>
 
-                    <fieldset>
-
-                        <h2 class="fs-title">Number Of Racks To Be Powered</h2>
-                        <h3 class="fs-subtitle">Please kindly complete the following field</h3>
-
-                        <div id="selected_form_code">
-                            <label for="inputState">Number Of Racks To Be Powered<span
-                                    class="requiredField">*</span></label>
-                            <select id="select_btn" class="form-control">
-                                <option value="0">Select below</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-
-                            </select>
-                        </div>
-
-                        <!-- <h2 class="fs-title">Number Of Racks</h2>
-                        <h3 class="fs-subtitle">Please kindly complete the following field</h3>
-                        <div class="form-group">
-                            <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                            <select id="inputState" class="form-control" name="room">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div> -->
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        <input type="button" name="next" class="next action-button" value="Next" />
-                    </fieldset>
+                   
                     <fieldset>
                         <h2 class="fs-title">Technical Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
 
 
                         <div class="row">
-
+                           
                             <div class="col-lg-12">
-                            <div class="form-group">
+
+                                <div class="form-group">
+                                    <label for="rackSize">Number of Ports<span
+                                            class="requiredField">*</span></label>
+                                    <input type="text" id="rackSizeLength" placeholder="Enter number of ports"
+                                        name="xxx" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="inputState">Transmission Type</label>
+                                    <select id="inputState" class="form-control" name="transmissionType">
+                                        <option value="2mb" selected>2M/b</option>
+                                        <option value="2mhz">2Mhz</option>
+                                    </select>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="inputState">Resistance ???</label>
+                                    <select id="inputState" class="form-control" name="transmissionType">
+                                        <option value="75ohms" selected>75Ω</option>
+                                        <option value="120ohms">120Ω</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">Room</label>
+                                    <select id="inputState" class="form-control" name="transmissionType">
+                                        <option value="pcm1" selected disabled>PCM 1</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
                                     <label for="inputState">Exchange</label>
-                                    <select id="inputState" class="form-control" name="location">
-                                        <option value="Please select below" selected>Please select below</option>
+                                    <select id="inputState" class="form-control" name="locationExchange">
+                                        <option value="No Preference" selected>No Preference</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
                                         <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
@@ -190,8 +231,14 @@
                                         <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
                                     </select>
                                 </div>
+<!-- 
+                                <br>
+                                <hr class="specialHr">
+                                <br> -->
 
-                                <div id="form2"></div>
+                                <div id="form1"> </div>
+
+
 
                             </div>
 
@@ -207,158 +254,158 @@
 
                     </fieldset>
                     <!-- <fieldset>
-                    <h2 class="fs-title">Confirmation</h2>
-                    <h3 class="fs-subtitle">Please kindly review the following</h3>
-
-              
-                    <h5><b>Rack 1</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
+                        <h2 class="fs-title">Confirmation</h2>
+                        <h3 class="fs-subtitle">Please kindly review the following</h3>
 
 
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
+                        <h5><b>Rack 1</b></h5>
 
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-
-                       
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-                       
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
-
-                    
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
-
-                    <hr class="specialHr">
-
-                    <h5><b>Rack 2</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
+                        <div class="form-group">
+                            <label for="rackSize">Power</label>
+                            <h2>AC</h2>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Length)</label>
+                            <h2>5<span class='units'>mm</span></h2>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-
-                    
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-                    
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Breadth)</label>
+                            <h2>5<span class='units'>mm</span></h2>
 
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
-
-                    <hr class="specialHr">
-
-                    <h5><b>Rack 3</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
+                        <div class="form-group">
+                            <label for="breakerSize">Breaker Size</label>
+                            <h2>5</h2>
 
 
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
+                        </div>
+                        <div class="form-group">
+                            <label for="breakerQuantity">Breaker Quantity</label>
+                            <h2>5</h2>
 
 
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
+                        </div>
+                        <div class="form-group">
+                            <label for="pdbFeeds">PDB Feeds</label>
+                            <h2>A</h2>
 
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
+                        <div class="form-group">
+                            <label for="inputState">Preferred Location</label>
+                            <h2>Changi Exchange</h2>
 
 
+                        </div>
 
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                        <hr class="specialHr">
 
-                </fieldset> -->
+                        <h5><b>Rack 2</b></h5>
+
+                        <div class="form-group">
+                            <label for="rackSize">Power</label>
+                            <h2>AC</h2>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Length)</label>
+                            <h2>5<span class='units'>mm</span></h2>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Breadth)</label>
+                            <h2>5<span class='units'>mm</span></h2>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="breakerSize">Breaker Size</label>
+                            <h2>5</h2>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="breakerQuantity">Breaker Quantity</label>
+                            <h2>5</h2>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="pdbFeeds">PDB Feeds</label>
+                            <h2>A</h2>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputState">Preferred Location</label>
+                            <h2>Changi Exchange</h2>
+
+
+                        </div>
+
+                        <hr class="specialHr">
+
+                        <h5><b>Rack 3</b></h5>
+
+                        <div class="form-group">
+                            <label for="rackSize">Power</label>
+                            <h2>AC</h2>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Length)</label>
+                            <h2>5<span class='units'>mm</span></h2>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rackSize">Rack Size (Breadth)</label>
+                            <h2>5<span class='units'>mm</span></h2>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="breakerSize">Breaker Size</label>
+                            <h2>5</h2>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="breakerQuantity">Breaker Quantity</label>
+                            <h2>5</h2>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="pdbFeeds">PDB Feeds</label>
+                            <h2>A</h2>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputState">Preferred Location</label>
+                            <h2>Changi Exchange</h2>
+
+
+                        </div>
+
+
+
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+
+                    </fieldset> -->
 
                 </form>
 
