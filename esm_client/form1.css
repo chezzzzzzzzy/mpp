@@ -111,10 +111,10 @@
 }
 
 
-/*progressbar*/
+/*normalForm*/
 
 
-#progressbar {
+#normalForm {
     margin-bottom: 30px;
     overflow: hidden;
     /*CSS counters to number the steps*/
@@ -123,7 +123,8 @@
     padding-left: 0px;
 }
 
-#progressbar li {
+
+#normalForm li {
     list-style-type: none;
     color: black;
     text-transform: uppercase;
@@ -136,7 +137,7 @@
     font-weight: bold;
 }
 
-#progressbar li:before {
+#normalForm li:before {
     content: counter(step);
     counter-increment: step;
     width: 24px;
@@ -155,8 +156,8 @@
     
 }
 
-/*progressbar connectors*/
-#progressbar li:after {
+/*normalForm connectors*/
+#normalForm li:after {
     content: '';
     width: 100%;
     height: 2px;
@@ -169,7 +170,7 @@
     
 }
 
-#progressbar li:first-child:after {
+#normalForm li:first-child:after {
     /*connector not needed before the first step*/
     content: none;
     
@@ -177,7 +178,7 @@
 
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before, #progressbar li.active:after {
+#normalForm li.active:before, #normalForm li.active:after {
     transition: All 0.5s ease-in;
     -webkit-transition: All 0.5s ease-in;
     -moz-transition: All 0.5s ease-in;
@@ -185,6 +186,10 @@
     background: #da3744;
     color: white;
 }
+
+
+
+
 
 
 /* Not relevant to this form */

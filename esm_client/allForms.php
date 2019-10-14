@@ -62,6 +62,8 @@
         </div>
     </nav>
 
+    <!-- <img src="test.png" class="test"> -->
+
 
     <div class="container">
 
@@ -72,7 +74,7 @@
 
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">Request Type</h1>
-                <h5 class="centerAlign x1">Here you can find all the forms you need to request for resources</h5>
+                <h5 class="centerAlign x1">All the forms you need to request for resources</h5>
             </div>
             <div class="col-lg-3"></div>
 
@@ -100,13 +102,15 @@
                 <!-- <a href="othersForm.php"><button class="selectorButton">Others</button></a> -->
 
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle selectorButton" type="button" data-toggle="dropdown">Others
+                    <button class="btn dropdown-toggle selectorButton" type="button" data-toggle="dropdown">More
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li class="selectorButton"><a href="fdfForm.php">FDF</a></li>
-                        <li class="selectorButton"><a href="ssuForm.php">SSU</a></li>
-                        <li class="selectorButton"><a href="cableTrayForm.php">Cable Tray</a></li>
+                        <a href="fdfForm.php"><button class="selectorButton">FDF</button></a>
+                        <a href="ssuForm.php"><button class="selectorButton">SSU</button></a>
+                        <a href="cableTrayForm.php"><button class="selectorButton">Cable Tray</button></a>
+                        <a href="generalForm.php"><button class="selectorButton">Others</button></a>
 
+                      
                     </ul>
                 </div>
             </div>
@@ -125,6 +129,12 @@
 
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer>
+
 
 </body>
 

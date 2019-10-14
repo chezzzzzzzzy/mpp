@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +35,8 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-
-
-
-
     <title>User | ESM</title>
+    
 </head>
 
 <body>
@@ -70,6 +72,8 @@
     <div class="container">
 
         <h1>Request for Space</h1>
+        <p class="formDescription">The Space request form allows you to request for the installation of ... </p>
+
 
         <!-- <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -135,7 +139,7 @@
 
 
 
-                <ul id="progressbar">
+                <ul id="normalForm">
                     <li class="active">Personal Information</li>
                     <li>Racks</li>
                     <li>Technical Information</li>
@@ -147,7 +151,7 @@
             </div>
             <div class="col-lg-12">
 
-                <form action="index.php" id="msform" method="post" class="needs-validation">
+                <form action="spaceFormProcess.php" id="msform" method="post" class="needs-validation">
 
                     <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
@@ -284,12 +288,8 @@
                                 </div>
 
 
-
-
-
-
                                 <div class="form-group">
-                                    <label for="inputState">Preferred Location</label>
+                                    <label for="inputState">Preferred Exchange</label>
                                     <select id="inputState" class="form-control" name="locationExchange">
                                         <option value="No Preference" selected>No Preference</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
@@ -313,23 +313,13 @@
                                         <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
                                     </select>
                                 </div>
-<!-- 
-                                <br>
-                                <hr class="specialHr">
-                                <br> -->
-
-                                <div id="form1"> </div>
 
 
+                                <div id="form1">
+                                </div>
 
                             </div>
-
-
                         </div>
-
-
-
-
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -491,8 +481,10 @@
 
                 </form>
 
-                <form action="#" id="form_submit" method="post" name="form_submit">
+                <form action="spaceFormProcess.php" id="form_submit" method="post" name="form_submit">
                     <!-- Dynamic Registration Form Fields Creates Here -->
+                        
+
                 </form>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>

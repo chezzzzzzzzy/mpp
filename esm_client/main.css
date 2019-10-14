@@ -4,6 +4,12 @@
     
 }
 
+/* .test {
+    max-width: 1000px;
+    margin-left: 200px;
+    margin-right: auto
+} */
+
 
 .rackCount {
     padding-top: 10px;
@@ -145,6 +151,31 @@ h1 {
 }
 
 .ordinalButton:focus {
+    background-color: white;
+    border: #da3744 2px solid; 
+    color: #da3744;
+}
+
+
+.ordinalButton2 {
+    /* background-color: black; */
+    background-color: #da3744;
+    font-weight: 500;
+    border: #da3744 2px solid;   
+    width: 120px;
+    border-radius: 500px;
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.ordinalButton2:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;   
+    border-radius: 500px;
+
+}
+
+.ordinalButton2:focus {
     background-color: white;
     border: #da3744 2px solid; 
     color: #da3744;
@@ -309,10 +340,8 @@ a:hover {
     text-align: center;
 }
 
-.dropdown-menu li{
-    border-radius: 100px;
-    border: 2px solid #da3744;
-    margin-top: 15px;
+.dropdown-menu a button {
+    margin-top: 10px;
 }
 
 .rackInfoBox {
@@ -335,4 +364,16 @@ a:hover {
 .topSpaceLow {
     margin-top: 25px;
 }
+
+
+.form-control{
+    height: 50px;
+}
+
+
+.formDescription {
+    margin-top: -40px;
+    margin-bottom: 50px;
+}
+
 

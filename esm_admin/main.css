@@ -90,5 +90,97 @@ img {
 }
 
 
+.centerAlign {
+    text-align: center;
+}
+
+
+.topSpaceMid {
+    margin-top: 50px;
+}
+
+.topSpace {
+    margin-top: 50px;
+}
+
+
+.topSpaceLow {
+    margin-top: 25px;
+}
+
+.topSpaceLarge {
+    margin-top: 200px;
+}
+
+.x1 {
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+.centerAlign2 {
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+.ordinalButton {
+    /* background-color: black; */
+    background-color: white;
+    font-weight: 500;
+    border: #da3744 2px solid;   
+    width: 120px;
+    border-radius: 500px;
+    color: #da3744;
+}
+
+.ordinalButton:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;   
+    border-radius: 500px;
+
+}
+
+.selectorButton {
+    border-radius: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 180px;
+    color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
+}
+
+.selectorButton:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;
+    border-radius: 500px;
+    color: white;
+}
+
+.selectorButton a {
+    color: #da3744;
+}
+
+
+
+
+#serverImg {
+    max-width: 100%;
+    margin-top: 100px;
+    margin-right: auto;
+}
+
+
+.dropdown-menu {
+    border: none;
+    text-align: center;
+}
+
+.dropdown-menu a button {
+    margin-top: 10px;
+}
 
 

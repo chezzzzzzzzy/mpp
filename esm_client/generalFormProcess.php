@@ -1,7 +1,36 @@
-<?php 
-    session_start();
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "password";
+$dbname = "singtel_esm";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$requestorName = $_POST['requestorName'];
+$requestorEmail = $_POST['requestorEmail'];
+$requestorDepartment = $_POST['requestorDepartment'];
+$requestorReason = $_POST['requestorReason'];
+$query = $_POST['query'];
+
+
+// Attempt insert query execution
+$sql = "INSERT INTO generalRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, query) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$query')";
+
+if (mysqli_query($conn, $sql)) {
+    // echo "New record created successfully";
+   } else {
+    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+   }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +57,6 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-
     <title>User | ESM</title>
 </head>
 
@@ -41,19 +69,21 @@
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
             </div>
         </a>
-        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
-            
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+         
+
+
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management
@@ -62,45 +92,35 @@
     </nav>
 
 
-
     <div class="container">
 
-
-
         <div class="row">
+
+            <div class="col-lg-3"></div>
+
             <div class="col-lg-12">
-                <h1 class="centerAlign topSpaceLarge">Status Check</h1>
-                <h5 class="centerAlign x1">Check on the status of your request</h5>
+                <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
+                <h5 class="centerAlign x1">Your request has been submitted</h5>
+                <br>
+                <br>
+                <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
+                <h2 class="centerAlign x1"><b>XXX</b></h2>
+                
                 
             </div>
+            <div class="col-lg-3"></div>
 
-          
+
         </div>
 
-        <form action="" method="POST">
-            <div class="row">
-                <div class="col-lg-10">
-                <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number" name="ticketNumber" method="post" required>
-                </div>
-                <div class="col-lg-2">
-                    <button type="submit" class="btn  selectorButton" method="post">Check</button>
-                </div>
-                <div class="col-lg-12 topSpaceMid"></div>
-                <?php        
-                    require 'hold4.php'; // fdfRequestStatus
-                    require 'hold5.php'; // ssuRequestStatus
-                    require 'hold6.php'; // cableTrayRequestStatus
-                    require 'hold7.php'; // powerRequestStatus
 
-                ?>
-            </div>
-        </form>
+        <br>
+        <br>
 
 
-
-
-      
+       
     </div>
+
 </body>
 
 </html>

@@ -26,7 +26,23 @@ $(document).ready(function () {
             type: 'text',
             placeholder: 'Rack ' + i + ' - Enter rack location',
             name: 'name_' + i
+          }),
+
+          
+          $("<label/>").text("Breaker Size"),
+          $("<input/>", {
+            type: 'text',
+            placeholder: 'Rack ' + i + ' - Enter breaker size',
+            name: 'name_' + i
+          }),
+
+          $("<label/>").text("Breaker Quantity"),
+          $("<input/>", {
+            type: 'text',
+            placeholder: 'Rack ' + i + ' - Enter breaker quantity',
+            name: 'name_' + i
           })
+          
           
   
   

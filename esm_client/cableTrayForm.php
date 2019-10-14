@@ -29,7 +29,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="form1.css">
+    <link rel="stylesheet" href="othersForm.css">
 
 
 
@@ -70,12 +70,14 @@
     <div class="container">
 
         <h1>Request for Cable Tray</h1>
+        <p class="formDescription">The Cable Tray request form allows you to request for the installation of ... </p>
+
 
         <div class="row">
 
             <div class="col-lg-12">
 
-                <ul id="progressbar">
+                <ul id="othersForm">
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
@@ -84,7 +86,7 @@
             </div>
             <div class="col-lg-12">
 
-                <form action="index.php" id="msform" method="post" class="needs-validation">
+                <form action="cableTrayFormProcess.php" id="msform" method="post" class="needs-validation">
 
                     <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
@@ -118,7 +120,7 @@
                                     <label for="rackSize">Rack Location<span
                                             class="requiredField">*</span></label>
                                     <input type="text" id="rackSizeLength" placeholder="Enter rack location"
-                                        name="xxx" required>
+                                        name="rackLocation" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -127,25 +129,38 @@
                                     <label for="rackSize">FDF Rack Location<span
                                             class="requiredField">*</span></label>
                                     <input type="text" id="rackSizeLength" placeholder="Enter FDF rack location"
-                                        name="xxx" required>
+                                        name="fdfRackLocation" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Room</label>
-                                    <select id="inputState" class="form-control" name="transmissionType">
-                                        <option value="pcm1" selected>PCM 1</option>
-                                        <option value="pcm2" >PCM 2</option>
+                                    <label for="startDate">End Date<span class="requiredField">*</span></label>
+
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" id="data-date" name="endDate">
+                                        <div class="input-group-addon">
+                                        </div>
+                                    </div>
+
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">Room<span class="requiredField">*</span></label>
+                                    <select id="inputState" class="form-control" name="room">
+                                        <option value="1" selected>PCM 1</option>
+                                        <option value="2" >PCM 2</option>
 
                                     </select>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="inputState">Exchange</label>
-                                    <select id="inputState" class="form-control" name="locationExchange">
-                                        <option value="No Preference" selected>No Preference</option>
+                                    <label for="inputState">Exchange<span class="requiredField">*</span></label>
+                                    <select id="inputState" class="form-control" name="exchange">
+                                        <option value="No Preference" selected>Please select below</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
                                         <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
@@ -184,6 +199,7 @@
 
 
 
+                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -198,7 +214,7 @@
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-                <script src="./form1.js"></script>
+                <script src="./othersForm.js"></script>
 
 
 

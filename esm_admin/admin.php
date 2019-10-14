@@ -49,20 +49,13 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="spaceRequests.php">Space</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="powerRequests.php">Power</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="otherRequests.php">Others</a>
-                </li>
+              
                 
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
+
             </span>
         </div>
     </nav>
@@ -85,109 +78,93 @@
     ?>     
     
     <div class="container">
-    
 
 
-        <h1>All Requests</h1>
+<div class="row">
 
-        <div class="row">
+    <div class="col-lg-3"></div>
 
-
-            <div class="col-lg-12">
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 1%">Ticket Number</th>
-                            <th scope="col" style="width: 1%">Rack Size (Breadth)</th>
-                            <th scope="col" style="width: 1%">Rack Size (Length)</th>
-                            <th scope="col" style="width: 1%">Breaker Quantity</th>
-                            <th scope="col" style="width: 1%">Breaker Size</th>
-                            <th scope="col" style="width: 1%">PDB Feeds</th>
-                            <th scope="col" style="width: 1%">Location</th>
-                            <th scope="col" style="width: 1%">Room</th>
-                            <th scope="col" style="width: 4%">Time / Date</th>
-                            <th scope="col" style="width: 1%">Status</th>
-                            <th scope="col" style="width: 10%">Options</th>
-
-                        </tr>
-                        <?php 
-
-                            $sql = "SELECT * FROM spaces";
-                            $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
-
-                            if($result = mysqli_query($link, $sql)){
-
-                            if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['rack_size_breadth'] . "</td>";
-                                        echo "<td>" . $row['rack_size_length'] . "</td>";
-                                        echo "<td>" . $row['breaker_quantity'] . "</td>";
-                                        echo "<td>" . $row['breaker_size'] . "</td>";
-                                        echo "<td>" . $row['pdb_feeds'] . "</td>";
-                                        echo "<td>" . $row['location'] . "</td>";
-                                        echo "<td>" . $row['room'] . "</td>";
-                                        echo "<td>" . $row['time_date'] . "</td>";
-                                        echo "<td>" . $row['status'] . "</td>";
-
-                                        echo "<td>
-                                        <form action='index.php' method='post'>                       
-                                            <div class='form-group'>
-                                                <select id='inputState' class='form-control' name='statusUpdate' onchange='this.form.submit()'>
-                                                    <option selected value=''>Select Below</option>
-                                                    <option value='Submitted' id='submitted'>Submitted</option>
-                                                    <option value='In Progress' id='inProgress'>In Progress</option>
-                                                    <option value='Assigned' id='assigned'>Assigned</option>
-                                                    <option value='x' id='assigned'>x</option>
-
-                                                    <option value='Completed' id='installed'>Completed</option>
-                                                    <option value='Closed' id='installed'>Closed</option>
-
-                                                </select>
-                                            </div>                
-                                        </form>
-                                    </td>";
-
-
-
-                                        // foreach ($row['id'] as $index => $id) {
-                                        //     $sqlUpdate = "UPDATE spaces SET status='".$_POST['ststatusUpdate'][$index]."'";
-                                        //     $result=mysql_query($sqlUpdate);
-
-                                        // }
-
-                                   
-            
-                                        
-                
-
-                        ?>
-
-                        <?php
-
-                       
-                        ?>
-
-                        <?php
-                                    echo "</tr>";
-                                }
-                                // Free result set
-                                mysqli_free_result($result);
-                            }
-                        }
-
-                        ?>
-                        
-                    </thead> 
-                </table>
-            </div>
-
-
-
-        </div>
+    <div class="col-lg-12">
+        <h1 class="centerAlign topSpaceLarge">All Requests</h1>
+        <h5 class="centerAlign x1">Submitted requests from users</h5>
     </div>
+    <div class="col-lg-3"></div>
+
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <a href="spaceRequests.php"><button class="selectorButton">Space</button></a>
+        <p class="centerAlign2">For new spaces</p>
+    </div>
+
+    <div class="col-lg-2">
+        <a href="powerRequests.php"><button class="selectorButton">Power</button></a>
+        <p class="centerAlign2">For additional power</p>
+    </div>
+
+    <div class="col-lg-2">
+        <a href="ssuRequests.php"><button class="selectorButton">SSU</button></a>
+        <p class="centerAlign2"></p>
+    </div>
+
+    <div class="col-lg-2">
+        <a href="fdfRequests.php"><button class="selectorButton">FDF</button></a>
+        <p class="centerAlign2"></p>
+    </div>
+
+    <div class="col-lg-2">
+        <a href="cableTrayRequests.php"><button class="selectorButton">Cable Tray</button></a>
+        <p class="centerAlign2"></p>
+    </div>
+
+    <div class="col-lg-2">
+        <a href="generalRequests.php"><button class="selectorButton">Others</button></a>
+        <p class="centerAlign2"></p>
+    </div>
+
+
+    <!-- <div class="col-lg-2">
+        <a href="othersForm.php"><button class="selectorButton">Others</button></a>
+
+        <div class="dropdown">
+            <button class="btn dropdown-toggle selectorButton" type="button" data-toggle="dropdown">More
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <a href="fdfForm.php"><button class="selectorButton">FDF</button></a>
+                <a href="ssuForm.php"><button class="selectorButton">SSU</button></a>
+                <a href="cableTrayForm.php"><button class="selectorButton">Cable Tray</button></a>
+                <a href="generalForm.php"><button class="selectorButton">Others</button></a>
+
+              
+            </ul>
+        </div>
+    </div> -->
+    <div class="col-lg-3"></div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-lg-3"></div>
+
+    <div class="col-lg-6">
+        <!-- <img src="server2.svg" id="serverImg"> -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player 
+    src="https://assets4.lottiefiles.com/datafiles/6WfDdm3ooQTEs1L/data.json" mode="bounce" background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay >
+</lottie-player>
+
+
+    </div>
+    <div class="col-lg-3"></div>
+
+
+</div>
+</div>
 
 
 
@@ -196,8 +173,11 @@
     }
     ?>
 
+<br>
+<br>
+<br>
+<footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer>
 
-    
 </body>
 
 </html>

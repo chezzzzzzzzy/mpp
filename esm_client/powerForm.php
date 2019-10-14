@@ -66,6 +66,8 @@
     <div class="container">
 
         <h1>Request for Power</h1>
+        <p class="formDescription">The Power request form allows you to request for the installation of ... </p>
+
         <div class="row">
 
             <div class="col-lg-12">
@@ -73,7 +75,7 @@
 
 
 
-                <ul id="progressbar">
+                <ul id="normalForm">
                     <li class="active">Details</li>
                     <li>Powered Racks</li>
                     <li>Technical Information</li>
@@ -122,7 +124,7 @@
                             <label for="inputState">Number Of Racks To Be Powered<span
                                     class="requiredField">*</span></label>
                             <select id="select_btn" class="form-control">
-                                <option value="0">Select below</option>
+                                <option value="0">Please select below</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -164,7 +166,25 @@
 
                         <div class="row">
 
+                        
+
                             <div class="col-lg-12">
+
+                            <div class="form-group">
+                                    <label for="power">Power Type<span class="requiredField">*</span></label>
+                                    <br>
+
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="powerType" id="AC" autocomplete="off" checked> AC
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="powerType" id="DC" autocomplete="off"> DC
+                                        </label>
+                                    </div>
+
+                                </div>
+
                             <div class="form-group">
                                     <label for="inputState">Exchange</label>
                                     <select id="inputState" class="form-control" name="location">

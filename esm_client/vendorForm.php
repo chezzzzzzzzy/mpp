@@ -29,7 +29,9 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="othersForm.css">
+    <link rel="stylesheet" href="form1.css">
+
+
 
 
     <title>User | ESM</title>
@@ -67,19 +69,24 @@
 
     <div class="container">
 
-        <h1>Request for FDF</h1>
-        <p class="formDescription">The Fibre Distribution Framework (FDF) request form allows you to request for the installation of ... </p>
+        <h1>External Vendor Request</h1>
+        <p class="formDescription">This form is meant for exteral vendors to input their request</p>
+
 
         <div class="row">
+
             <div class="col-lg-12">
-                <ul id="othersForm">
+
+                <ul id="progressbar">
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
+
+
             </div>
             <div class="col-lg-12">
 
-                <form action="fdfFormProcess.php" id="msform" method="post" class="needs-validation">
+                <form action="cableTrayFormProcess.php" id="msform" method="post" class="needs-validation">
 
                     <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
@@ -110,106 +117,41 @@
                             <div class="col-lg-12">
 
                                 <div class="form-group">
-                                    <label for="rackSize">Number of Ports<span
+                                    <label for="rackSize">Request<span
                                             class="requiredField">*</span></label>
-                                    <input type="text" id="numberOfPorts" placeholder="Enter number of ports"
-                                        name="numberOfPorts" required>
+                                    <input type="text" id="rackSizeLength" placeholder="Enter request"
+                                        name="rackLocation" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="rackSize">Number of Cable Ties<span
-                                            class="requiredField">*</span></label>
-                                    <input type="text" id="numberOfCableTies" placeholder="Enter number of cable ties"
-                                        name="numberOfCableTies" required>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="startDate">End Date<span class="requiredField">*</span></label>
-
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" placeholder="Enter end date" name="endDate">
-                                        <div class="input-group-addon">
-                                        </div>
-                                    </div>
-
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputState">Room<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="room">
-                                        <option value="2" selected>PCM 2</option>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="inputState">Exchange<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="exchange">
-                                        <option value="No Preference" selected>Please select below</option>
-                                        <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
-                                        <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
-                                        <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
-                                        <option value="Bukit Panjang Exchange (BP)">Bukit Panjang Exchange (BP)</option>
-                                        <option value="Changi Exchange (CG)">Changi Exchange (CG)</option>
-                                        <option value="East Exchange (ES)">East Exchange (ES)</option>
-                                        <option value="Geylang Exchange (GL)">Geylang Exchange (GL)</option>
-                                        <option value="Hougang Exchange (HG)">Hougang Exchange (HG)</option>
-                                        <option value="Jurong East Exchange (JE)">Jurong East Exchange (JE)</option>
-                                        <option value="Jurong West Exchange (JW)">Jurong West Exchange (JW)</option>
-                                        <option value="Katong Exchange (KT)">Katong Exchange (KT)</option>
-                                        <option value="North Exchange (NT)">North Exchange (NT)</option>
-                                        <option value="Orchard Exchange (OC)">Orchard Exchange (OC)</option>
-                                        <option value="Paya Lebar Exchange (PL)">Paya Lebar Exchange (PL)</option>
-                                        <option value="Pasir Ris Exchange (PR)">Pasir Ris Exchange (PR)</option>
-                                        <option value="Queenstown Exchange (QT)">Queenstown Exchange (QT)</option>
-                                        <option value="Telok Blangah Exchange (TB)">Telok Blangah Exchange (TB)</option>
-                                        <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
-                                        <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
-                                    </select>
                                 </div>
                             </div>
+
+
                         </div>
 
 
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+
+
                         <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
                     </fieldset>
-
-                    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
-
-
+                    
                 </form>
 
-                <form action="fdfFormProcess.php" id="form_submit" method="post" name="form_submit">
+                <form action="#" id="form_submit" method="post" name="form_submit">
                     <!-- Dynamic Registration Form Fields Creates Here -->
                 </form>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-                <script src="./othersForm.js"></script>
-
-
-
-
-
-
+                <script src="./form1.js"></script>
 
 
 
             </div>
-
-          
-
 
 
         </div>

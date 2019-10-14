@@ -11,17 +11,26 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$breakerSize = $_POST[breakerSize];
-$breakerQuantity = $_POST[breakerQuantity];
-$pdbFeeds = $_POST[pdbFeeds];
-$rackSizeLength = $_POST[rackSizeLength];
-$rackSizeBreadth = $_POST[rackSizeBreadth];
-$location = $_POST[location];
-$room = $_POST[room];
+// $breakerSize = $_POST[breakerSize];
+// $breakerQuantity = $_POST[breakerQuantity];
+// $pdbFeeds = $_POST[pdbFeeds];
+// $rackSizeLength = $_POST[rackSizeLength];
+// $rackSizeBreadth = $_POST[rackSizeBreadth];
+// $location = $_POST[location];
+// $room = $_POST[room];
+
+// // Attempt insert query execution
+// $sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, rack_size_length, location, room, pdb_feeds, status) VALUES ($breakerSize,$breakerQuantity, $rackSizeBreadth, $rackSizeLength, '$location', '$room', $pdbFeeds, 'Submitted')";
+
+
+$rackSizeLength_1 = $_POST['rackSizeLength_1'];
+$rackSizeLength_2 = $_POST['rackSizeLength_2'];
+$rackSizeLength_3 = $_POST['rackSizeLength_3'];
+
 
 // Attempt insert query execution
-$sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, rack_size_length, location, room, pdb_feeds, status) VALUES ($breakerSize,$breakerQuantity, $rackSizeBreadth, $rackSizeLength, '$location', '$room', $pdbFeeds, 'Submitted')";
-
+$sql = "INSERT INTO spaceRequests (rackSizeLength_1, rackSizeLength_2, rackSizeLength_3) 
+        VALUES ($rackSizeLength_1, $rackSizeLength_2, $rackSizeLength_3)";
 
 ?>
 
@@ -69,7 +78,7 @@ $sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, r
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="requestForm.php">Request<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
@@ -92,6 +101,14 @@ $sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, r
         <p>Your request has been submitted. Please take note of your ticket number
             and we will get back to you soon.
         </p> 
+        <?php 
+                    if (mysqli_query($conn, $sql)) {
+                            $last_id = mysqli_insert_id($conn);
+                            echo $last_id;
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                ?>
 
         <br>
         <br>
@@ -99,16 +116,11 @@ $sql = "INSERT INTO spaces (breaker_size, breaker_quantity, rack_size_breadth, r
 
         <div class="row">
 
+            
+        
             <div class="col-lg-2">
             <h5>Ticket Number</h5>
-                <h2><?php 
-                    if (mysqli_query($conn, $sql)) {
-                            $last_id = mysqli_insert_id($conn);
-                            echo $last_id;
-                        } else {
-                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                        }
-                ?></h2>
+                <h2>X</h2>
 
             </div>
 

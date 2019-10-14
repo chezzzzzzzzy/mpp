@@ -29,7 +29,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="form1.css">
+    <link rel="stylesheet" href="othersForm.css">
 
 
 
@@ -70,69 +70,16 @@
     <div class="container">
 
         <h1>Request for SSU</h1>
-
-        <!-- <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form id="msform">
-                    <ul id="progressbar">
-                        <li class="active">Personal Details</li>
-                        <li>Social Profiles</li>
-                        <li>Social Profiles</li>
-                        <li>Account Setup</li>
-                    </ul>
-                    <fieldset>
-                        <h2 class="fs-title">Personal Details</h2>
-                        <h3 class="fs-subtitle">Tell us something more about you</h3>
-                        <input type="text" name="fname" placeholder="First Name"/>
-                        <input type="text" name="lname" placeholder="Last Name"/>
-                        <input type="text" name="phone" placeholder="Phone"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
-                    </fieldset>
-                    <fieldset>
-                        <h2 class="fs-title">Social Profiles</h2>
-                        <h3 class="fs-subtitle">Your presence on the social network</h3>
-                        <input type="text" name="twitter" placeholder="Twitter"/>
-                        <input type="text" name="facebook" placeholder="Facebook"/>
-                        <input type="text" name="gplus" placeholder="Google Plus"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
-                    </fieldset>
-                    <fieldset>
-                        <h2 class="fs-title">Social Profiles</h2>
-                        <h3 class="fs-subtitle">Your presence on the social network</h3>
-                        <input type="text" name="twitter" placeholder="Twitter"/>
-                        <input type="text" name="facebook" placeholder="Facebook"/>
-                        <input type="text" name="gplus" placeholder="Google Plus"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
-                    </fieldset>
-                    <fieldset>
-                        <h2 class="fs-title">Create your account</h2>
-                        <h3 class="fs-subtitle">Fill in your credentials</h3>
-                        <input type="text" name="email" placeholder="Email"/>
-                        <input type="password" name="pass" placeholder="Password"/>
-                        <input type="password" name="cpass" placeholder="Confirm Password"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="submit" name="submit" class="submit action-button" value="Submit"/>
-                    </fieldset>
-                </form>
-            
-            </div>
-        </div>
-
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-        <script  src="./form1.js"></script>
+        <p class="formDescription">The Synchronization Supply Unit (SSU) request form allows you to request for the installation of ... </p>
 
 
-        -->
+        
 
         <div class="row">
 
             <div class="col-lg-12">
 
-                <ul id="progressbar">
+                <ul id="othersForm">
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
@@ -141,7 +88,7 @@
             </div>
             <div class="col-lg-12">
 
-                <form action="index.php" id="msform" method="post" class="needs-validation">
+                <form action="ssuFormProcess.php" id="msform" method="post" class="needs-validation">
 
                     <fieldset id="personalInformation" >
                         <h2 class="fs-title">Personal Information</h2>
@@ -175,15 +122,15 @@
                                 <div class="form-group">
                                     <label for="rackSize">Number of Ports<span
                                             class="requiredField">*</span></label>
-                                    <input type="text" id="rackSizeLength" placeholder="Enter number of ports"
-                                        name="xxx" required>
+                                    <input type="text" id="numberOfPorts" placeholder="Enter number of ports"
+                                        name="numberOfPorts" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="inputState">Transmission Type</label>
+                                    <label for="inputState">Transmission Type<span class="requiredField">*</span></label>
                                     <select id="inputState" class="form-control" name="transmissionType">
                                         <option value="2mb" selected>2M/b</option>
                                         <option value="2mhz">2Mhz</option>
@@ -191,25 +138,38 @@
                                 </div>
                                
                                 <div class="form-group">
-                                    <label for="inputState">Resistance ???</label>
-                                    <select id="inputState" class="form-control" name="transmissionType">
-                                        <option value="75ohms" selected>75Ω</option>
-                                        <option value="120ohms">120Ω</option>
+                                    <label for="inputState">Interfacing Type<span class="requiredField">*</span></label>
+                                    <select id="inputState" class="form-control" name="interfacingType">
+                                        <option value="75Ω" selected>75Ω</option>
+                                        <option value="120Ω">120Ω</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Room</label>
-                                    <select id="inputState" class="form-control" name="transmissionType">
-                                        <option value="pcm1" selected disabled>PCM 1</option>
+                                    <label for="startDate">End Date<span class="requiredField">*</span></label>
+
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" id="data-date" name="endDate">
+                                        <div class="input-group-addon">
+                                        </div>
+                                    </div>
+
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">Room<span class="requiredField">*</span></label>
+                                    <select id="inputState" class="form-control" name="room">
+                                        <option value="1">PCM 1</option>
                                     </select>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="inputState">Exchange</label>
-                                    <select id="inputState" class="form-control" name="locationExchange">
-                                        <option value="No Preference" selected>No Preference</option>
+                                    <label for="inputState">Exchange<span class="requiredField">*</span></label>
+                                    <select id="inputState" class="form-control" name="exchange">
+                                        <option value="No Preference" selected>Please select below</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
                                         <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
@@ -248,6 +208,7 @@
 
 
 
+                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -415,7 +376,7 @@
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-                <script src="./form1.js"></script>
+                <script src="./othersForm.js"></script>
 
 
 

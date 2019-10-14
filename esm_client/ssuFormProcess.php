@@ -1,6 +1,41 @@
-<?php 
-    session_start();
-?>  
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "password";
+$dbname = "singtel_esm";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$requestorName = $_POST['requestorName'];
+$requestorEmail = $_POST['requestorEmail'];
+$requestorDepartment = $_POST['requestorDepartment'];
+$requestorReason = $_POST['requestorReason'];
+$numberOfPorts = $_POST['numberOfPorts'];
+$transmissionType = $_POST['transmissionType'];
+$interfacingType = $_POST['interfacingType'];
+$endDate = $_POST['endDate'];
+$room = $_POST['room'];
+$exchange = $_POST['exchange'];
+
+
+// Attempt insert query execution
+$sql = "INSERT INTO ssuRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, numberOfPorts, transmissionType, interfacingType, endDate, room, exchange, requestStatus) 
+        VALUES ('$requestorName', '$requestorEmail', '$requestorDepartment', '$requestorReason', $numberOfPorts, '$transmissionType', '$interfacingType', '$endDate', $room, '$exchange', 'Submitted')";
+
+if (mysqli_query($conn, $sql)) {
+    // echo "New record created successfully";
+   } else {
+    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+   }
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +62,7 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-
-    <title>Admin | ESM</title>
+    <title>User | ESM</title>
 </head>
 
 <body>
@@ -47,72 +81,51 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="admin.php">All Requests</a>
+                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="spaceRequests.php">Space</a>
+                    <a class="nav-link" href="status.php">Status</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="powerRequests.php">Power</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="otherRequests.php">Others</a>
-                </li>
-                
+         
+
+
             </ul>
-            <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
-                <a href="terminate.php">Logout</a>
+            <span class="navbar-text ml-auto">
+                Exchange Space Management
             </span>
         </div>
     </nav>
 
 
-    <script>
-        function logoutPressed() {
-            <?php
-                // header("Location: auth.php");
-                // session_destroy();
-                // $_SESSION['loggedin'] = false;
-            ?>
-        }
-    </script>
-
-    <?php
-
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
-    ?>     
-    
     <div class="container">
-    
-
-
-        <h1>Other Requests</h1>
 
         <div class="row">
 
+            <div class="col-lg-3"></div>
 
             <div class="col-lg-12">
-
+                <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
+                <h5 class="centerAlign x1">Your request has been submitted</h5>
+                <br>
+                <br>
+                <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
+                <h2 class="centerAlign x1"><b>XXX</b></h2>
+                
                 
             </div>
-
+            <div class="col-lg-3"></div>
 
 
         </div>
+
+
+        <br>
+        <br>
+
+
+       
     </div>
 
-
-
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
-
-
-    
 </body>
 
 </html>
-
