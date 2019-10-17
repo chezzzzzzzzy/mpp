@@ -72,7 +72,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
                         alt="singtelLogo.png" class="loginLogo">
                     <h2><b>Login</b></h2>
-                    <h4>Exchange Space Management Portal (Admin)</h4>
+                    <h4>Exchange Space Management Portal (Requestor)</h4>
                     <br>
 
 
