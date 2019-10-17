@@ -39,11 +39,20 @@
     text-align: right;
 
 }
+footer {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+}
 
 
 h1 {
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 32px;
     margin-bottom: 50px;
 }
 
@@ -83,11 +92,55 @@ img {
 }
 
 
+#authForm input {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+
+}
+
+
+#authForm input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #da3744;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+.ordinalButton {
+    /* background-color: black; */
+    background-color: white;
+    font-weight: 500;
+    border: #da3744 2px solid;   
+    width: 120px;
+    border-radius: 500px;
+    color: #da3744;
+    float: right;
+}
+
+.ordinalButton:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;   
+    border-radius: 500px;
+
+}
+
 .ordinalButton:focus {
     background-color: white;
     border: #da3744 2px solid; 
     color: #da3744;
 }
+
 
 
 .centerAlign {
@@ -184,3 +237,18 @@ img {
 }
 
 
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: rgb(255, 255, 255);
+    background-clip: padding-box;
+    border: 1.5px solid #000000;
+    border-radius: .    ;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

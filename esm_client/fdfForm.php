@@ -10,20 +10,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js">
+    </script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js">
+    </script>
 
 
     <!-- dependencies -->
@@ -68,7 +70,8 @@
     <div class="container">
 
         <h1>Request for FDF</h1>
-        <p class="formDescription">The Fibre Distribution Framework (FDF) request form allows you to request for the installation of ... </p>
+        <p class="formDescription">This request form allows you to request for the installation of ... </p>
+
 
         <div class="row">
             <div class="col-lg-12">
@@ -81,9 +84,10 @@
 
                 <form action="fdfFormProcess.php" id="msform" method="post" class="needs-validation">
 
-                    <fieldset id="personalInformation" >
+                    <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
+
                         <label for="inputState">Name<span class="requiredField">*</span></label>
                         <input type="text" name="requestorName" placeholder="" />
 
@@ -97,21 +101,17 @@
                         <input type="text" name="requestorReason" placeholder="" />
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
-
                     </fieldset>
 
-                   
+
                     <fieldset>
                         <h2 class="fs-title">Technical Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
 
                         <div class="row">
-                           
                             <div class="col-lg-12">
-
                                 <div class="form-group">
-                                    <label for="rackSize">Number of Ports<span
-                                            class="requiredField">*</span></label>
+                                    <label for="rackSize">Number of Ports<span class="requiredField">*</span></label>
                                     <input type="text" id="numberOfPorts" placeholder="Enter number of ports"
                                         name="numberOfPorts" required>
                                     <div class="valid-feedback">Valid.</div>
@@ -119,8 +119,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="rackSize">Number of Cable Ties<span
-                                            class="requiredField">*</span></label>
+                                    <label for="rackSize">Number of Cable Ties<span class="requiredField">*</span></label>
                                     <input type="text" id="numberOfCableTies" placeholder="Enter number of cable ties"
                                         name="numberOfCableTies" required>
                                     <div class="valid-feedback">Valid.</div>
@@ -130,13 +129,11 @@
 
                                 <div class="form-group">
                                     <label for="startDate">End Date<span class="requiredField">*</span></label>
-
                                     <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" placeholder="Enter end date" name="endDate">
+                                        <input type="text" id="data-date" placeholder="Enter end date" name="endDate" required>
                                         <div class="input-group-addon">
                                         </div>
                                     </div>
-
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -151,8 +148,8 @@
 
                                 <div class="form-group">
                                     <label for="inputState">Exchange<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="exchange">
-                                        <option value="No Preference" selected>Please select below</option>
+                                    <select required id="inputState" class="form-control" name="exchange" >
+                                        <option value="No Preference">Please select below</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
                                         <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
@@ -173,6 +170,8 @@
                                         <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
                                         <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
                                     </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +179,6 @@
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
 
                     </fieldset>
@@ -190,9 +188,7 @@
 
                 </form>
 
-                <form action="fdfFormProcess.php" id="form_submit" method="post" name="form_submit">
-                    <!-- Dynamic Registration Form Fields Creates Here -->
-                </form>
+            
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
@@ -208,7 +204,7 @@
 
             </div>
 
-          
+
 
 
 

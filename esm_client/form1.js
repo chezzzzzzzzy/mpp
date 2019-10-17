@@ -6,6 +6,15 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function(){
+
+
+	// validate form here for requestor details
+	
+
+	// end of validation
+
+	
+
 	if(animating) return false;
 	animating = true;
 	
@@ -79,5 +88,14 @@ $(".previous").click(function(){
 });
 
 $(".submit").click(function(){
-	return false;
+
+
+
+	console.log("Submit button pressed")
+	document.getElementById("msform").submit();
+	document.getElementById("form_submit").submit();
+	// document.getElementById("form1").submit();
+
+
+	// return false;
 })

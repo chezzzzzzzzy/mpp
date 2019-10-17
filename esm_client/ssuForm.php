@@ -70,7 +70,7 @@
     <div class="container">
 
         <h1>Request for SSU</h1>
-        <p class="formDescription">The Synchronization Supply Unit (SSU) request form allows you to request for the installation of ... </p>
+        <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
 
         
@@ -131,29 +131,32 @@
 
                                 <div class="form-group">
                                     <label for="inputState">Transmission Type<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="transmissionType">
+                                    <select id="inputState" class="form-control" name="transmissionType" required>
                                         <option value="2mb" selected>2M/b</option>
                                         <option value="2mhz">2Mhz</option>
                                     </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
                                
                                 <div class="form-group">
                                     <label for="inputState">Interfacing Type<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="interfacingType">
+                                    <select id="inputState" class="form-control" name="interfacingType" required>
                                         <option value="75Ω" selected>75Ω</option>
                                         <option value="120Ω">120Ω</option>
                                     </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="startDate">End Date<span class="requiredField">*</span></label>
 
                                     <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" name="endDate">
+                                        <input type="text" id="data-date" name="endDate" required>
                                         <div class="input-group-addon">
                                         </div>
                                     </div>
-
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -168,7 +171,7 @@
 
                                 <div class="form-group">
                                     <label for="inputState">Exchange<span class="requiredField">*</span></label>
-                                    <select id="inputState" class="form-control" name="exchange">
+                                    <select id="inputState" class="form-control" name="exchange" required>
                                         <option value="No Preference" selected>Please select below</option>
                                         <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
                                         <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
@@ -190,13 +193,12 @@
                                         <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
                                         <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
                                     </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-<!-- 
-                                <br>
-                                <hr class="specialHr">
-                                <br> -->
 
-                                <div id="form1"> </div>
+
+                                <div id="form1"></div>
 
 
 
@@ -208,7 +210,6 @@
 
 
 
-                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -370,9 +371,6 @@
 
                 </form>
 
-                <form action="#" id="form_submit" method="post" name="form_submit">
-                    <!-- Dynamic Registration Form Fields Creates Here -->
-                </form>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>

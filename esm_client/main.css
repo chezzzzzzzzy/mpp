@@ -311,6 +311,16 @@ a:hover {
     text-align: center;
 }
 
+footer {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
 .centerAlign2 {
     text-align: center;
     margin-left: 25px;
@@ -376,4 +386,25 @@ a:hover {
     margin-bottom: 50px;
 }
 
+
+
+
+.boundingBox {
+    background-color: rgb(234, 234, 234);
+    z-index: -1;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.boundingBox2{
+    background-color: rgb(225, 224, 224);
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 

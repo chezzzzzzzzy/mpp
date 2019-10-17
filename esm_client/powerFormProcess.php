@@ -1,35 +1,63 @@
 <?php
+// general
 $servername = "localhost";
 $username = "root";
 $password = "password";
 $dbname = "singtel_esm";
 
-// Create connection
+// create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+
+// check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+// get data from spaceForm.php
 $requestorName = $_POST['requestorName'];
 $requestorEmail = $_POST['requestorEmail'];
 $requestorDepartment = $_POST['requestorDepartment'];
-$requestorReason = $_POST['requestorReason'];
-$query = $_POST['query'];
+$requestorReason= $_POST['requestorReason'];
+$powerType = $_POST['powerType'];
+$exchange = $_POST['exchange'];
 
 
-// Attempt insert query execution
-$sql = "INSERT INTO generalRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, query) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$query')";
+// get data from powerForm.php
+$rackLocation1 = $_POST['rackLocation1'];
+$rackLocation2 = $_POST['rackLocation2'];
+$rackLocation3 = $_POST['rackLocation3'];
+$rackLocation4 = $_POST['rackLocation4'];
+$rackLocation5 = $_POST['rackLocation5'];
 
+$breakerSize1 = $_POST['breakerSize1'];
+$breakerSize2 = $_POST['breakerSize2'];
+$breakerSize3 = $_POST['breakerSize3'];
+$breakerSize4 = $_POST['breakerSize4'];
+$breakerSize5 = $_POST['breakerSize5'];
+
+$breakerQuantity1 = $_POST['breakerQuantity1'];
+$breakerQuantity2 = $_POST['breakerQuantity2'];
+$breakerQuantity3 = $_POST['breakerQuantity3'];
+$breakerQuantity4 = $_POST['breakerQuantity4'];
+$breakerQuantity5 = $_POST['breakerQuantity5'];
+
+
+// insert into table
+$sql = "INSERT INTO powerRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, exchange, requestStatus, rackLocation1, rackLocation2, rackLocation3, rackLocation4,rackLocation5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$exchange', 'Submitted', '$rackLocation1', '$rackLocation2', '$rackLocation3','$rackLocation4', '$rackLocation5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
+
+
+// insert into table
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
+    // echo "<br>";
+    // echo $sql;
    } else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
    }
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -44,14 +72,14 @@ if (mysqli_query($conn, $sql)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -65,8 +93,8 @@ if (mysqli_query($conn, $sql)) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                    alt="singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -81,7 +109,7 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
-         
+
 
 
             </ul>
@@ -105,8 +133,9 @@ if (mysqli_query($conn, $sql)) {
                 <br>
                 <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
                 <h2 class="centerAlign x1"><b>
+
                 <?php
-                    $sql2 = "SELECT * FROM generalRequests ORDER BY id DESC LIMIT 1";
+                    $sql2 = "SELECT * FROM powerRequests ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
                     if (mysqli_num_rows($result) > 0) {
@@ -118,8 +147,11 @@ if (mysqli_query($conn, $sql)) {
                         echo "0 results";
                     }                
                 ?>
-                </b></h2>                
-                
+                </b></h2>
+
+
+
+
             </div>
             <div class="col-lg-3"></div>
 
@@ -131,9 +163,12 @@ if (mysqli_query($conn, $sql)) {
         <br>
 
 
-       
+
     </div>
 
 </body>
 
 </html>
+
+
+

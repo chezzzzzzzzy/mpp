@@ -70,7 +70,7 @@
     <div class="container">
 
         <h1>Request for Cable Tray</h1>
-        <p class="formDescription">The Cable Tray request form allows you to request for the installation of ... </p>
+        <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
 
         <div class="row">
@@ -187,7 +187,6 @@
                                 <hr class="specialHr">
                                 <br> -->
 
-                                <div id="form1"> </div>
 
 
 
@@ -199,7 +198,6 @@
 
 
 
-                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -208,9 +206,6 @@
                     
                 </form>
 
-                <form action="#" id="form_submit" method="post" name="form_submit">
-                    <!-- Dynamic Registration Form Fields Creates Here -->
-                </form>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>

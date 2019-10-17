@@ -10,27 +10,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
     <!-- dependencies -->
-    <script type="text/javascript" src="index2.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-
-
-
-
     <title>User | ESM</title>
+
 </head>
 
 <body>
@@ -66,7 +62,7 @@
     <div class="container">
 
         <h1>Request for Power</h1>
-        <p class="formDescription">The Power request form allows you to request for the installation of ... </p>
+        <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
         <div class="row">
 
@@ -87,7 +83,7 @@
             </div>
             <div class="col-lg-12">
 
-                <form action="index.php" id="msform" method="post" class="needs-validation">
+                <form action="powerFormProcess.php" id="msform" method="post" class="needs-validation">
 
                     <!-- <ul id="progressbar">
                         <li class="active">Personal Information</li>
@@ -139,23 +135,7 @@
                             </select>
                         </div>
 
-                        <!-- <h2 class="fs-title">Number Of Racks</h2>
-                        <h3 class="fs-subtitle">Please kindly complete the following field</h3>
-                        <div class="form-group">
-                            <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                            <select id="inputState" class="form-control" name="room">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div> -->
+
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -166,26 +146,22 @@
 
                         <div class="row">
 
-                        
+
 
                             <div class="col-lg-12">
 
-                            <div class="form-group">
-                                    <label for="power">Power Type<span class="requiredField">*</span></label>
-                                    <br>
-
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary active">
-                                            <input type="radio" name="powerType" id="AC" autocomplete="off" checked> AC
-                                        </label>
-                                        <label class="btn btn-secondary">
-                                            <input type="radio" name="powerType" id="DC" autocomplete="off"> DC
-                                        </label>
-                                    </div>
-
+                                <div class="form-group">
+                                    <label for="inputState">Power Type<span class="requiredField">*</span></label>
+                                    <select required id="inputState" class="form-control" name="powerType" required>
+                                        <option value="AC">AC</option>
+                                        <option value="DC" selected>DC</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
-                            <div class="form-group">
+
+                                <div class="form-group">
                                     <label for="inputState">Exchange</label>
                                     <select id="inputState" class="form-control" name="location">
                                         <option value="Please select below" selected>Please select below</option>
@@ -211,7 +187,7 @@
                                     </select>
                                 </div>
 
-                                <div id="form2"></div>
+                                <div id="form_submit2"></div>
 
                             </div>
 
@@ -226,163 +202,11 @@
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
                     </fieldset>
-                    <!-- <fieldset>
-                    <h2 class="fs-title">Confirmation</h2>
-                    <h3 class="fs-subtitle">Please kindly review the following</h3>
-
-              
-                    <h5><b>Rack 1</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-
-                       
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-                       
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
-
                     
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
-
-                    <hr class="specialHr">
-
-                    <h5><b>Rack 2</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-
-                    
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-                    
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
-
-                    <hr class="specialHr">
-
-                    <h5><b>Rack 3</b></h5>
-
-                    <div class="form-group">
-                        <label for="rackSize">Power</label>
-                        <h2>AC</h2>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Length)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rackSize">Rack Size (Breadth)</label>
-                        <h2>5<span class='units'>mm</span></h2>
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size</label>
-                        <h2>5</h2>
-
-
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity</label>
-                        <h2>5</h2>
-
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <h2>A</h2>
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputState">Preferred Location</label>
-                        <h2>Changi Exchange</h2>
-
-                        
-                    </div>
-
-
-
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-
-                </fieldset> -->
 
                 </form>
 
-                <form action="#" id="form_submit" method="post" name="form_submit">
+                <form action="powerFormProcess.php" id="form_submit2" method="post" name="form_submit2">
                     <!-- Dynamic Registration Form Fields Creates Here -->
                 </form>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -391,151 +215,66 @@
                 <script src="./form1.js"></script>
 
 
-
-
-
-
-
-
-
-                <!-- <form action="index.php" method="post" class="needs-validation" novalidate >
-
-
-                    <h4><b>Personal Information</b></h4>
-                    <div class="form-group" >
-                        <label for="rackSize">Name<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="rackSizeLength" placeholder="Enter your name"
-                            name="requestorName" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-
-                    <div class="form-group" >
-                        <label for="rackSize">Department<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="rackSizeLength" placeholder="Enter your department"
-                            name="requestorDepartment" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="form-group" >
-                        <label for="rackSize">Reason for Installation<span class="requiredField">*</span></label>
-                        <textarea type="text" class="form-control" id="rackSizeLength" placeholder="Enter your reason for installation"
-                            name="requestorReason" rows="5" required></textarea>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <br>
-                    <br>
-
-                    <h4><b>Technical Information</b></h4>
-
-                    <br>
-                    <br>
-
-                    
-
-
-                    <div class="form-group" >
-                        <label for="rackSize">Rack Size (Length)<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="rackSizeLength" placeholder="Enter rack size (length)"
-                            name="rackSizeLength" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="form-group" >
-                        <label for="rackSize">Rack Size (Breadth)<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="rackSizeBreadth" placeholder="Enter rack size (breadth)"
-                            name="rackSizeBreadth" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breakerSize">Breaker Size<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="breakerSize" placeholder="Enter breaker size"
-                            name="breakerSize" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="breakerQuantity">Breaker Quantity<span class="requiredField">*</span></label>
-                        <input type="text" class="form-control" id="breakerQuantity"
-                            placeholder="Enter breaker quantity" name="breakerQuantity" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pdbFeeds">PDB Feeds</label>
-                        <input type="text" class="form-control" id="pdbFeeds" placeholder="Enter PDB feeds"
-                            name="pdbFeeds">
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="form-group">
-                    <label for="inputState">Preferred Location</label>
-                    <select id="inputState" class="form-control" name="location">
-                        <option value="No Preference" selected>No Preference</option>
-                        <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
-                        <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
-                        <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
-                        <option value="Bukit Panjang Exchange (BP)">Bukit Panjang Exchange (BP)</option>
-                        <option value="Changi Exchange (CG)">Changi Exchange (CG)</option>
-                        <option value="East Exchange (ES)">East Exchange (ES)</option>
-                        <option value="Geylang Exchange (GL)">Geylang Exchange (GL)</option>
-                        <option value="Hougang Exchange (HG)">Hougang Exchange (HG)</option>
-                        <option value="Jurong East Exchange (JE)">Jurong East Exchange (JE)</option>
-                        <option value="Jurong West Exchange (JW)">Jurong West Exchange (JW)</option>
-                        <option value="Katong Exchange (KT)">Katong Exchange (KT)</option>
-                        <option value="North Exchange (NT)">North Exchange (NT)</option>
-                        <option value="Orchard Exchange (OC)">Orchard Exchange (OC)</option>
-                        <option value="Paya Lebar Exchange (PL)">Paya Lebar Exchange (PL)</option>
-                        <option value="Pasir Ris Exchange (PR)">Pasir Ris Exchange (PR)</option>
-                        <option value="Queenstown Exchange (QT)">Queenstown Exchange (QT)</option>
-                        <option value="Telok Blangah Exchange (TB)">Telok Blangah Exchange (TB)</option>
-                        <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
-                        <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
-                    </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                        <select id="inputState" class="form-control" name="room">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-
-
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
-                </form> -->
-
-
             </div>
 
-            <!-- <div class="col-lg-0">
-                <img src="server.svg" id="serverImg">
-            </div> -->
-
-
-
+      
 
         </div>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        $('select#select_btn').change(function() {
+            var sel_value = $('option:selected').val();
+            if (sel_value == 0) {
+                $("#form_submit2").empty(); // Resetting Form
+                $("#form2").css({
+                    'display': 'none'
+                });
+            } else {
+                $("#form_submit2").empty(); //Resetting Form
+                // Below Function Creates Input Fields Dynamically
+                create(sel_value);
+                // Appending Submit Button To Form
+                $("#form_submit2").append("<a href='allForms.php'>Submit (Test)</a>");
+            }
+        });
+
+        function create(sel_value) {
+            for (var i = 1; i <= sel_value; i++) {
+                $("div#form2").slideDown('slow');
+                $("div#form2").append($("#form_submit2").append($("<div/>", {
+                        id: 'head'
+                    }).append($("<h5/>").text("Rack " + i)),
+
+                    $("<label/>").text("Rack Location"),
+                    $("<input/>", {
+                        type: 'text',
+                        placeholder: 'Rack ' + i + ' - Enter rack location',
+                        name: 'rackLocation' + i
+                    }),
+
+
+                    $("<label/>").text("Breaker Size"),
+                    $("<input/>", {
+                        type: 'text',
+                        placeholder: 'Rack ' + i + ' - Enter breaker size',
+                        name: 'breakerSize' + i
+                    }),
+
+                    $("<label/>").text("Breaker Quantity"),
+                    $("<input/>", {
+                        type: 'text',
+                        placeholder: 'Rack ' + i + ' - Enter breaker quantity',
+                        name: 'breakerQuantity' + i
+                    })
+
+
+                    , $("<br/>"), $("<br/>")))
+            }
+        }
+    });
+    </script>
 
 </body>
 

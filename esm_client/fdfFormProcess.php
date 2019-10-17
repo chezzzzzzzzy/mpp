@@ -108,8 +108,21 @@ if (mysqli_query($conn, $sql)) {
                 <br>
                 <br>
                 <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
-                <h2 class="centerAlign x1"><b>XXX</b></h2>
-                
+                <h2 class="centerAlign x1"><b>
+                <?php
+                    $sql2 = "SELECT * FROM fdfRequests ORDER BY id DESC LIMIT 1";
+                    $result = mysqli_query($conn, $sql2);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo $row["id"];
+                        }
+                    } else {
+                        echo "0 results";
+                    }                
+                ?>
+                </b></h2>                
                 
             </div>
             <div class="col-lg-3"></div>

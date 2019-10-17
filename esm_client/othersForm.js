@@ -77,7 +77,13 @@ $(".previous").click(function(){
 		easing: 'easeInOutBack'
 	});
 });
-
 $(".submit").click(function(){
-	return false;
+
+	console.log("Submit button pressed")
+	document.getElementById("msform").submit();
+	document.getElementById("form_submit").submit();
+	document.getElementById("form1").submit();
+
+
+	// return false;
 })

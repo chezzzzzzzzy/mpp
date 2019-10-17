@@ -29,7 +29,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="form1.css">
+    <link rel="stylesheet" href="othersForm.css">
 
 
 
@@ -70,14 +70,14 @@
     <div class="container">
 
         <h1>External Vendor Request</h1>
-        <p class="formDescription">This form is meant for exteral vendors to input their request</p>
+        <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
 
         <div class="row">
 
             <div class="col-lg-12">
 
-                <ul id="progressbar">
+                <ul id="othersForm">
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
@@ -119,8 +119,7 @@
                                 <div class="form-group">
                                     <label for="rackSize">Request<span
                                             class="requiredField">*</span></label>
-                                    <input type="text" id="rackSizeLength" placeholder="Enter request"
-                                        name="rackLocation" required>
+                                            <textarea name="" id="" cols="30" rows="10" name="rackLocation" required></textarea>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -132,7 +131,6 @@
 
 
 
-                        <button type="submit" class="btn btn-primary ordinalButton">Submit</button>
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -141,9 +139,7 @@
                     
                 </form>
 
-                <form action="#" id="form_submit" method="post" name="form_submit">
-                    <!-- Dynamic Registration Form Fields Creates Here -->
-                </form>
+            
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>

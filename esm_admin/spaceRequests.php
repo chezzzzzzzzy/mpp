@@ -133,7 +133,8 @@
                             <th scope="col" style="width: 1%">Power Type</th>
                             <th scope="col" style="width: 1%">Start Date</th>
                             <th scope="col" style="width: 1%">End Date</th>
-                            <th scope="col" style="width: 1%">Preferred Exchange</th>
+                            <th scope="col" style="width: 5%">Exchange</th>
+                            <th scope="col" style="width: 1%">Level</th>
                             <th scope="col" style="width: 3%">Rack Size (Length)</th>
                             <th scope="col" style="width: 3%">Rack Size (Breadth)</th>
                             <th scope="col" style="width: 3%">Breaker Size</th>
@@ -163,7 +164,8 @@
                                         echo "<td>" . $row['powerType'] . "</td>";
                                         echo "<td>" . $row['startDate'] . "</td>";
                                         echo "<td>" . $row['endDate'] . "</td>";
-                                        echo "<td>" . $row['preferredExchange'] . "</td>";
+                                        echo "<td>" . $row['exchange'] . "</td>";
+                                        echo "<td>" . $row['level'] . "</td>";
                                         echo "<td>" . $row['rackSizeLength'] . "</td>";
                                         echo "<td>" . $row['rackSizeBreadth'] . "</td>";
                                         echo "<td>" . $row['breakerSize'] . "</td>";

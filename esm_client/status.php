@@ -27,9 +27,8 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
-
     <title>User | ESM</title>
+
 </head>
 
 <body>
@@ -87,10 +86,12 @@
                 </div>
                 <div class="col-lg-12 topSpaceMid"></div>
                 <?php        
-                    require 'hold4.php'; // fdfRequestStatus
-                    require 'hold5.php'; // ssuRequestStatus
-                    require 'hold6.php'; // cableTrayRequestStatus
-                    require 'hold7.php'; // powerRequestStatus
+                    require 'fdfFormStatus.php'; // fdfRequestStatus
+                    require 'ssuFormStatus.php'; // ssuRequestStatus
+                    require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
+                    require 'powerFormStatus.php'; // powerRequestStatus
+                    require 'generalFormStatus.php'; // generalRequestStatus
+                    require 'spaceFormStatus.php'; // spaceRequestStatus
 
                 ?>
             </div>
@@ -101,6 +102,8 @@
 
       
     </div>
+    <!-- <footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer> -->
+
 </body>
 
 </html>
