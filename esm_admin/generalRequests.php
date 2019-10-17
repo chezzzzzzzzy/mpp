@@ -131,6 +131,8 @@
                             <th scope="col" style="width: 1%">Requestor Department</th>
                             <th scope="col" style="width: 1%">Requestor Reason</th>
                             <th scope="col" style="width: 1%">Query</th>
+                            <th scope="col" style="width: 1%">More Info</th>
+
                          
 
 
@@ -151,6 +153,8 @@
                                         echo "<td>" . $row['requestorDepartment'] . "</td>";
                                         echo "<td>" . $row['requestorReason'] . "</td>";
                                         echo "<td>" . $row['query'] . "</td>";
+                                        echo "<td><button type='submit' class='btn btn-primary ordinalButton'>More</button></td>";
+
                                         
 
 

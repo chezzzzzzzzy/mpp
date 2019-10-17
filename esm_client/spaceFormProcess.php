@@ -151,7 +151,7 @@ if (mysqli_query($conn, $sql)) {
                 <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
                 <h2 class="centerAlign x1"><b>
 
-                <?php
+                        <?php
                     $sql2 = "SELECT * FROM spaceRequests ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
@@ -164,7 +164,49 @@ if (mysqli_query($conn, $sql)) {
                         echo "0 results";
                     }                
                 ?>
-                </b></h2>
+                    </b></h2>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                            <?php
+                    $sql2 = "SELECT * FROM spaceRequests ORDER BY id DESC LIMIT 1";
+                    $result = mysqli_query($conn, $sql2);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo $row["id"];
+                        }
+                    } else {
+                        echo "0 results";
+                    }                
+                ?>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -186,6 +228,3 @@ if (mysqli_query($conn, $sql)) {
 </body>
 
 </html>
-
-
-

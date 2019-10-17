@@ -65,33 +65,16 @@
         <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
         <div class="row">
-
             <div class="col-lg-12">
-
-
-
-
                 <ul id="normalForm">
                     <li class="active">Details</li>
                     <li>Powered Racks</li>
                     <li>Technical Information</li>
-                    <!-- <li>Confirmation</li> -->
                 </ul>
-
-
-
             </div>
             <div class="col-lg-12">
 
                 <form action="powerFormProcess.php" id="msform" method="post" class="needs-validation">
-
-                    <!-- <ul id="progressbar">
-                        <li class="active">Personal Information</li>
-                        <li>Racks</li>
-                        <li>Technical Information</li>
-                        <li>Confirmation</li>
-                    </ul> -->
-
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
@@ -112,7 +95,6 @@
                     </fieldset>
 
                     <fieldset>
-
                         <h2 class="fs-title">Number Of Racks To Be Powered</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following field</h3>
 
@@ -134,7 +116,6 @@
 
                             </select>
                         </div>
-
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
@@ -202,7 +183,7 @@
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
                     </fieldset>
-                    
+
 
                 </form>
 
@@ -217,7 +198,7 @@
 
             </div>
 
-      
+
 
         </div>
     </div>
@@ -236,7 +217,7 @@
                 // Below Function Creates Input Fields Dynamically
                 create(sel_value);
                 // Appending Submit Button To Form
-                $("#form_submit2").append("<a href='allForms.php'>Submit (Test)</a>");
+                // $("#form_submit2").append("<a href='allForms.php'>Submit (Test)</a>");
             }
         });
 

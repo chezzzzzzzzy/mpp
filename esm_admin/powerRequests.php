@@ -1,6 +1,6 @@
 <?php 
     session_start();
-?>  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,34 +14,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
     <style>
-     
     .container {
         margin-left: 30px;
         margin-right: auto;
     }
 
 
-     .table {
-         width: 180%;
-      
+    .table {
+        width: 180%;
 
-     }
 
-    
+    }
     </style>
 
 
@@ -54,8 +51,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                    alt="singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -85,7 +82,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">Others</a>
                 </li>
-                
+
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
@@ -96,23 +93,25 @@
 
 
     <script>
-        function logoutPressed() {
-            <?php
-                // header("Location: auth.php");
-                // session_destroy();
-                // $_SESSION['loggedin'] = false;
-            ?>
-        }
+    function logoutPressed() {
+        <
+        ? php
+            // header("Location: auth.php");
+            // session_destroy();
+            // $_SESSION['loggedin'] = false;
+            ?
+            >
+    }
     </script>
 
     <?php
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         // echo "Logged in already" . $_SESSION['email'];
-    ?>     
-    
+    ?>
+
     <div class="container">
-    
+
 
 
         <h1>Power Requests</h1>
@@ -122,7 +121,7 @@
 
             <div class="col-lg-12">
 
-            <table class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 1%">Ticket Number</th>
@@ -130,14 +129,13 @@
                             <th scope="col" style="width: 1%">Requestor Email</th>
                             <th scope="col" style="width: 1%">Requestor Department</th>
                             <th scope="col" style="width: 1%">Requestor Reason</th>
+                            <th scope="col" style="width: 1%">Power Type</th>
                             <th scope="col" style="width: 1%">Exchange</th>
-                            <th scope="col" style="width: 1%">Room</th>
-                            <th scope="col" style="width: 1%">Rack Location</th>
-                            <th scope="col" style="width: 3%">Breaker Size</th>
-                            <th scope="col" style="width: 3%">Breaker Quantity</th>
-                            <th scope="col" style="width: 2%">Request Timestamp</th>                      
+                            <th scope="col" style="width: 2%">Request Timestamp</th>
                             <th scope="col" style="width: 1%">Request Status</th>
                             <th scope="col" style="width: 1%">Status Update</th>
+                            <th scope="col" style="width: 1%">More Info</th>
+
                         </tr>
                         <?php 
 
@@ -154,11 +152,8 @@
                                         echo "<td>" . $row['requestorEmail'] . "</td>";
                                         echo "<td>" . $row['requestorDepartment'] . "</td>";
                                         echo "<td>" . $row['requestorReason'] . "</td>";
+                                        echo "<td>" . $row['powerType'] . "</td>";
                                         echo "<td>" . $row['exchange'] . "</td>";
-                                        echo "<td>PCM " . $row['room'] . "</td>";
-                                        echo "<td>" . $row['rackLocation'] . "</td>";
-                                        echo "<td>" . $row['breakerSize'] . "</td>";
-                                        echo "<td>" . $row['breakerQuantity'] . "</td>";
                                         echo "<td>" . $row['requestTimestamp'] . "</td>";
                                         echo "<td>" . $row['requestStatus'] . "</td>";
 
@@ -181,6 +176,8 @@
                                             </div>                
                                         </form>
                                     </td>";
+                                    echo "<td><button type='submit' class='btn btn-primary ordinalButton'>More</button></td>";
+
 
 
 
@@ -211,8 +208,8 @@
                         }
 
                         ?>
-                        
-                    </thead> 
+
+                    </thead>
                 </table>
             </div>
 
@@ -229,8 +226,7 @@
     ?>
 
 
-    
+
 </body>
 
 </html>
-

@@ -31,7 +31,7 @@ session_start();
     <link rel="stylesheet" href="main.css">
 
 
-    <title>ESM</title>
+    <title>Admin | ESM</title>
 </head>
 
 <body>
@@ -64,26 +64,26 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
         </div>
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6 authForm">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 authForm">
                 <form action="authVerification.php" method="POST" id="authForm">
 
-                    <fieldset>
+                        <h1>Login</h1>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         <br>
                         <input type="password" class="form-control" id="password" name="password"
                             placeholder="Password">
                         <br>
+                        <a href="#">Forgot your password?</a>
                         <button type="submit" class="btn btn-primary ordinalButton">Login</button>
 
-                    </fieldset>
 
 
 
 
                 </form>
             </div>
-            <div class="col-lg-3"></div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
     <?php }

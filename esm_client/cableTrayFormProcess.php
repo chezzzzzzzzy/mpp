@@ -26,15 +26,11 @@ $exchange = $_POST['exchange'];
 $sql = "INSERT INTO cableTrayRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, rackLocation, fdfRackLocation, endDate, room, exchange, requestStatus) 
         VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$rackLocation', '$fdfRackLocation', '$endDate', $room, '$exchange', 'Submitted')";
 
-
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
    } else {
     // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
    }
-
-  
-
 ?>
 
 
@@ -63,8 +59,8 @@ if (mysqli_query($conn, $sql)) {
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
     <title>User | ESM</title>
+
 </head>
 
 <body>
@@ -88,9 +84,6 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
-
-
-
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management
@@ -113,7 +106,7 @@ if (mysqli_query($conn, $sql)) {
                 <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
                 <h2 class="centerAlign x1"><b>
 
-                <?php
+                        <?php
                     $sql2 = "SELECT * FROM cableTrayRequests ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
@@ -126,15 +119,9 @@ if (mysqli_query($conn, $sql)) {
                         echo "0 results";
                     }                
                 ?>
-                </b></h2>
-
-
-
-
+                    </b></h2>
             </div>
             <div class="col-lg-3"></div>
-
-
         </div>
 
 
