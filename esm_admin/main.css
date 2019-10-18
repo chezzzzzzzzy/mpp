@@ -105,6 +105,10 @@ img {
 }
 
 
+#authForm {
+}
+
+
 #authForm input {
     padding: 30px;
     border: 0px solid #ccc;
@@ -310,4 +314,69 @@ a:hover {
     max-width: 20%;
     margin-bottom: 30px;
     margin-top: 30px;
+}
+
+.selectorButton3 {
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 180px;
+    color: #ffffff;
+    background-color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
+}
+
+.selectorButton3:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;
+    border-radius: 6px;
+    color: white;
+}
+
+.form-control {
+    height: 60px;
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    background-color: rgb(242, 242, 242);
+    background-clip: padding-box;
+    border: 0px solid #ced4da;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid rgb(242, 242, 242);
+
+}
+
+.smallLogo {
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.x {
+    /* margin-left: 100px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+
+}
+
+.x2{
+
 }

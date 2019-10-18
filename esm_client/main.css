@@ -103,12 +103,6 @@ h1 {
 }
 
 
-
-
-
-
-
-
 #preview {
     max-width: 100%;
 }
@@ -202,6 +196,43 @@ h1 {
 
 .selectorButton a {
     color: #da3744;
+}
+
+.selectorButton2 {
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 180px;
+    color: #ffffff;
+    background-color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
+}
+
+.selectorButton2:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;
+    border-radius: 6px;
+    color: white;
+}
+
+.selectorButton3 {
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 180px;
+    color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
+}
+
+.selectorButton3:hover {
+    background-color: #da3744;
+    border: #da3744 2px solid;
+    border-radius: 6px;
+    color: white;
 }
 
 
@@ -376,9 +407,26 @@ footer {
 }
 
 
-.form-control{
-    height: 50px;
+
+.form-control {
+    height: 60px;
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    background-color: rgb(242, 242, 242);
+    background-clip: padding-box;
+    border: 0px solid #ced4da;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+
 
 
 .formDescription {

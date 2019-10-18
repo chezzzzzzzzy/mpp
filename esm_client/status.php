@@ -82,7 +82,7 @@
                 <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number" name="ticketNumber" method="post" required>
                 </div>
                 <div class="col-lg-2">
-                    <button type="submit" class="btn  selectorButton" method="post">Check</button>
+                    <button type="submit" class="btn  selectorButton2" method="post">Check</button>
                 </div>
                 <div class="col-lg-12 topSpaceMid"></div>
                 <?php        

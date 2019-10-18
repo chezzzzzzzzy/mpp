@@ -48,6 +48,30 @@
 
 <body>
 
+
+
+
+    <script>
+    function logoutPressed() {
+        <
+        ?
+        php
+            // header("Location: auth.php");
+            // session_destroy();
+            // $_SESSION['loggedin'] = false;
+            ?
+            >
+    }
+    </script>
+
+    <?php
+
+    
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        // echo "Logged in already" . $_SESSION['email'];
+    ?>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -80,7 +104,10 @@
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="generalRequests.php">Others</a>
+                    <a class="nav-link" href="generalRequests.php">General</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
                 </li>
 
             </ul>
@@ -90,25 +117,6 @@
             </span>
         </div>
     </nav>
-
-
-    <script>
-    function logoutPressed() {
-        <
-        ? php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-    </script>
-
-    <?php
-
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
-    ?>
 
     <div class="container">
 
@@ -137,7 +145,7 @@
                             <th scope="col" style="width: 3%">Exchange</th>
                             <th scope="col" style="width: 2%">Request Timestamp</th>
                             <th scope="col" style="width: 1%">Request Status</th>
-                            <th scope="col" style="width: 1%">Status Update</th>
+                            <th scope="col" style="width: 5%">Status Update</th>
                             <th scope="col" style="width: 1%">More Info</th>
 
 
@@ -186,7 +194,7 @@
                                             </div>                
                                         </form>
                                     </td>";
-                                    echo "<td><button type='submit' class='btn btn-primary ordinalButton'>More</button></td>";
+                                    echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
 
 
 

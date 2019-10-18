@@ -51,6 +51,24 @@
 
 <body>
 
+   
+
+    <script>
+        function logoutPressed() {
+            <?php
+                // header("Location: auth.php");
+                // session_destroy();
+                // $_SESSION['loggedin'] = false;
+            ?>
+        }
+    </script>
+
+    <?php
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        // echo "Logged in already" . $_SESSION['email'];
+    ?>     
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -83,8 +101,12 @@
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="generalRequests.php">Others</a>
+                    <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
+                </li>
+                
                 
             </ul>
             <span class="navbar-text">
@@ -95,27 +117,11 @@
     </nav>
 
 
-    <script>
-        function logoutPressed() {
-            <?php
-                // header("Location: auth.php");
-                // session_destroy();
-                // $_SESSION['loggedin'] = false;
-            ?>
-        }
-    </script>
-
-    <?php
-
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
-    ?>     
-    
     <div class="container">
     
 
 
-        <h1>Others Requests</h1>
+        <h1>General Requests</h1>
 
         <div class="row">
 
@@ -129,8 +135,8 @@
                             <th scope="col" style="width: 1%">Requestor Name</th>
                             <th scope="col" style="width: 1%">Requestor Email</th>
                             <th scope="col" style="width: 1%">Requestor Department</th>
-                            <th scope="col" style="width: 1%">Requestor Reason</th>
-                            <th scope="col" style="width: 1%">Query</th>
+                            <th scope="col" style="width: 5%">Requestor Reason</th>
+                            <th scope="col" style="width: 5%">Query</th>
                             <th scope="col" style="width: 1%">More Info</th>
 
                          
@@ -153,7 +159,7 @@
                                         echo "<td>" . $row['requestorDepartment'] . "</td>";
                                         echo "<td>" . $row['requestorReason'] . "</td>";
                                         echo "<td>" . $row['query'] . "</td>";
-                                        echo "<td><button type='submit' class='btn btn-primary ordinalButton'>More</button></td>";
+                                        echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
 
                                         
 
