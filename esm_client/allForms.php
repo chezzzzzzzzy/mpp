@@ -87,12 +87,12 @@
             <div class="col-lg-3"></div>
 
             <div class="col-lg-2">
-                <a href="spaceForm.php"><button class="selectorButton3">Space</button></a>
+                <a href="spaceForm.php"><button class="selectorButton2">Space</button></a>
                 <p class="centerAlign2">For new spaces</p>
             </div>
 
             <div class="col-lg-2">
-                <a href="powerForm.php"><button class="selectorButton3">Power</button></a>
+                <a href="powerForm.php"><button class="selectorButton2">Power</button></a>
                 <p class="centerAlign2">For additional power</p>
 
             </div>
@@ -102,7 +102,7 @@
                 <!-- <a href="othersForm.php"><button class="selectorButton">Others</button></a> -->
 
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle selectorButton3" type="button" data-toggle="dropdown">More
+                    <button class="btn dropdown-toggle selectorButton2" type="button" data-toggle="dropdown">More
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <a href="fdfForm.php"><button class="selectorButton3">FDF</button></a>

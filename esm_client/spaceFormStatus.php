@@ -82,9 +82,9 @@
 
     <!-- start of rack 1 -->
     <h4 class="topSpaceMid"><b>Rack 1</b>
-    
 
-</h4>
+
+    </h4>
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Size (Length)</h5>

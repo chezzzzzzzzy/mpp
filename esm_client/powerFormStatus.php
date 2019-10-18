@@ -80,20 +80,101 @@
 <!-- start of request -->
 <div class="col-lg-12">
     <h2 class="topSpaceMid"><b>Requested</b></h2>
+
+
+    <!-- start of rack 1 -->
+    <h4 class="topSpaceMid"><b>Rack 1</b></h4>
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
-            <?php echo "<h2>" . $row['x'] . "</h2>"; ?>
+            <?php echo "<h2>" . $row['rackLocation1'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
             <h5>Breaker Size</h5>
-            <?php echo "<h2>" . $row['x'] . "</h2>"; ?>
+            <?php echo "<h2>" . $row['breakerSize1'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
             <h5>Breaker Quantity</h5>
-            <?php echo "<h2>" . $row['x'] . "</h2>"; ?>
+            <?php echo "<h2>" . $row['breakerQuantity1'] . "</h2>"; ?>
         </div>
     </div>
+    <!-- end of rack 1 -->
+
+    <!-- start of rack 2 -->
+    <h4 class="topSpaceMid"><b>Rack 2</b></h4>
+    <div class="row topSpaceLow ">
+        <div class="col-lg-4">
+            <h5>Rack Location</h5>
+            <?php echo "<h2>" . $row['rackLocation2'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Size</h5>
+            <?php echo "<h2>" . $row['breakerSize2'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Quantity</h5>
+            <?php echo "<h2>" . $row['breakerQuantity2'] . "</h2>"; ?>
+        </div>
+    </div>
+    <!-- end of rack 2 -->
+
+    <!-- start of rack 3 -->
+    <h4 class="topSpaceMid"><b>Rack 3</b></h4>
+    <div class="row topSpaceLow ">
+        <div class="col-lg-4">
+            <h5>Rack Location</h5>
+            <?php echo "<h2>" . $row['rackLocation3'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Size</h5>
+            <?php echo "<h2>" . $row['breakerSize3'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Quantity</h5>
+            <?php echo "<h2>" . $row['breakerQuantity3'] . "</h2>"; ?>
+        </div>
+    </div>
+    <!-- end of rack 3 -->
+
+    <!-- start of rack 4 -->
+    <h4 class="topSpaceMid"><b>Rack 4</b></h4>
+    <div class="row topSpaceLow ">
+        <div class="col-lg-4">
+            <h5>Rack Location</h5>
+            <?php echo "<h2>" . $row['rackLocation4'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Size</h5>
+            <?php echo "<h2>" . $row['breakerSize4'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Quantity</h5>
+            <?php echo "<h2>" . $row['breakerQuantity4'] . "</h2>"; ?>
+        </div>
+    </div>
+    <!-- end of rack 4 -->
+
+
+    <!-- start of rack 5 -->
+    <h4 class="topSpaceMid"><b>Rack 5</b></h4>
+    <div class="row topSpaceLow ">
+        <div class="col-lg-4">
+            <h5>Rack Location</h5>
+            <?php echo "<h2>" . $row['rackLocation5'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Size</h5>
+            <?php echo "<h2>" . $row['breakerSize5'] . "</h2>"; ?>
+        </div>
+        <div class="col-lg-4">
+            <h5>Breaker Quantity</h5>
+            <?php echo "<h2>" . $row['breakerQuantity5'] . "</h2>"; ?>
+        </div>
+    </div>
+    <!-- end of rack 5 -->
+
+
+
 
     <h5 class="topSpaceLow">Power Type</h5>
     <?php echo "<h2>" . $row['powerType'] . "</h2>"; ?>
@@ -101,7 +182,7 @@
     <h5 class="topSpaceLow">Exchange</h5>
     <?php echo "<h2>" . $row['exchange'] . "</h2>"; ?>
 
-    <h5 class="topSpaceLow">Request Timestamp</h5>
+    <h5 class="topSpaceLow">Timestamp</h5>
     <?php echo "<h2>" . $row['requestTimestamp'] . "</h2>"; ?>
 </div>
 <!-- end of request -->

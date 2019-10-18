@@ -242,7 +242,7 @@
         ?>
 
     <div class="container">
-        <div class="row x2">
+        <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 authForm">
                 <h2 class="centerAlign"><b>Please Login First 🚨</b></h2>
