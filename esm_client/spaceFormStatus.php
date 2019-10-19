@@ -231,13 +231,12 @@
 
 
 
-
-
-    <h5 class="topSpaceLow">Level</h5>
-    <?php echo "<h2>" . $row['level'] . "</h2>"; ?>
-
     <h5 class="topSpaceLow">Exchange</h5>
     <?php echo "<h2>" . $row['exchange'] . "</h2>"; ?>
+
+
+    <h5 class="topSpaceLow">Room</h5>
+    <?php echo "<h2>" . $row['room'] . "</h2>"; ?>
 
     <h5 class="topSpaceLow">Timestamp</h5>
     <?php echo "<h2>" . $row['requestTimestamp'] . "</h2>"; ?>
@@ -287,11 +286,12 @@
     <h5 class="topSpaceLow">Rack Location</h5>
     <?php echo "<h2>" . $row['rackLocation'] . "</h2>"; ?>
 
-    <h5 class="topSpaceLow">Room</h5>
-    <?php echo "<h2>PCM " . $row['room'] . "</h2>"; ?>
 
     <h5 class="topSpaceLow">Exchange</h5>
     <?php echo "<h2>" . $row['exchange'] . "</h2>"; ?>
+
+    <h5 class="topSpaceLow">Room</h5>
+    <?php echo "<h2>" . $row['room'] . "</h2>"; ?>
 
 
     <h5 class="topSpaceLow">SLA</h5>

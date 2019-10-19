@@ -21,6 +21,8 @@ $requestorDepartment = $_POST['requestorDepartment'];
 $requestorReason= $_POST['requestorReason'];
 $powerType = $_POST['powerType'];
 $exchange = $_POST['exchange'];
+$room = $_POST['room'];
+
 
 
 // get data from powerForm.php
@@ -44,8 +46,8 @@ $breakerQuantity5 = $_POST['breakerQuantity5'];
 
 
 // insert into table
-$sql = "INSERT INTO powerRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, exchange, requestStatus, rackLocation1, rackLocation2, rackLocation3, rackLocation4,rackLocation5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$exchange', 'Submitted', '$rackLocation1', '$rackLocation2', '$rackLocation3','$rackLocation4', '$rackLocation5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
+$sql = "INSERT INTO powerRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, exchange, room,  requestStatus, rackLocation1, rackLocation2, rackLocation3, rackLocation4,rackLocation5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$exchange', '$room' , 'Submitted', '$rackLocation1', '$rackLocation2', '$rackLocation3','$rackLocation4', '$rackLocation5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
 
 
 // insert into table

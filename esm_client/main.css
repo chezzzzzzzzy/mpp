@@ -456,3 +456,10 @@ footer {
     margin-right: 10px;
 }
 
+#subcat option{
+    display:none;
+}
+
+#subcat option.label{
+    display:block;
+}

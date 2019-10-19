@@ -20,7 +20,7 @@ $requestorEmail = $_POST['requestorEmail'];
 $requestorDepartment = $_POST['requestorDepartment'];
 $requestorReason= $_POST['requestorReason'];
 $powerType = $_POST['powerType'];
-$level = $_POST['level'];
+$room = $_POST['room'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 $exchange = $_POST['exchange'];
@@ -60,8 +60,8 @@ $breakerQuantity5 = $_POST['breakerQuantity5'];
 
 
 // insert into table
-$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, level, startDate, endDate, exchange, requestStatus, rackSizeLength_1, rackSizeLength_2, rackSizeLength_3, rackSizeLength_4,rackSizeLength_5, rackSizeBreadth_1, rackSizeBreadth_2, rackSizeBreadth_3, rackSizeBreadth_4, rackSizeBreadth_5, breakerSize_1, breakerSize_2, breakerSize_3, breakerSize_4, breakerSize_5, breakerQuantity_1, breakerQuantity_2, breakerQuantity_3, breakerQuantity_4, breakerQuantity_5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', $level, '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
+$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, room, startDate, endDate, exchange, requestStatus, rackSizeLength_1, rackSizeLength_2, rackSizeLength_3, rackSizeLength_4,rackSizeLength_5, rackSizeBreadth_1, rackSizeBreadth_2, rackSizeBreadth_3, rackSizeBreadth_4, rackSizeBreadth_5, breakerSize_1, breakerSize_2, breakerSize_3, breakerSize_4, breakerSize_5, breakerQuantity_1, breakerQuantity_2, breakerQuantity_3, breakerQuantity_4, breakerQuantity_5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
 
 
 // insert into table

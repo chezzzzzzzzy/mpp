@@ -143,29 +143,104 @@
 
 
                                 <div class="form-group">
-                                    <label for="inputState">Exchange</label>
-                                    <select id="inputState" class="form-control" name="location">
-                                        <option value="Please select below" selected>Please select below</option>
-                                        <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
-                                        <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
-                                        <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
-                                        <option value="Bukit Panjang Exchange (BP)">Bukit Panjang Exchange (BP)</option>
-                                        <option value="Changi Exchange (CG)">Changi Exchange (CG)</option>
-                                        <option value="East Exchange (ES)">East Exchange (ES)</option>
-                                        <option value="Geylang Exchange (GL)">Geylang Exchange (GL)</option>
-                                        <option value="Hougang Exchange (HG)">Hougang Exchange (HG)</option>
-                                        <option value="Jurong East Exchange (JE)">Jurong East Exchange (JE)</option>
-                                        <option value="Jurong West Exchange (JW)">Jurong West Exchange (JW)</option>
-                                        <option value="Katong Exchange (KT)">Katong Exchange (KT)</option>
-                                        <option value="North Exchange (NT)">North Exchange (NT)</option>
-                                        <option value="Orchard Exchange (OC)">Orchard Exchange (OC)</option>
-                                        <option value="Paya Lebar Exchange (PL)">Paya Lebar Exchange (PL)</option>
-                                        <option value="Pasir Ris Exchange (PR)">Pasir Ris Exchange (PR)</option>
-                                        <option value="Queenstown Exchange (QT)">Queenstown Exchange (QT)</option>
-                                        <option value="Telok Blangah Exchange (TB)">Telok Blangah Exchange (TB)</option>
-                                        <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
-                                        <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
+                                    <label for="inputState">Preferred Exchange<span
+                                            class="requiredField">*</span></label>
+
+                                    <select id="cat" name="exchange" class="form-control">
+                                        <option value>No Preferrnce</option>
+                                        <option value="AM">Ang Mo Kio Exchange (AM)</option>
+                                        <option value="AR">Ayer Rajah Exchange (AR)</option>
+                                        <option value="BD">Bedok Exchange (BD)</option>
+                                        <option value="BP">Bukit Panjang Exchange (BP)</option>
+                                        <option value="CG">Changi Exchange (CG)</option>
+                                        <option value="CY">??</option>
+                                        <option value="ES">East Exchange (ES)</option>
+                                        <option value="GL">Geylang Exchange (GL)</option>
+                                        <option value="HG">Hougang Exchange (HG)</option>
+                                        <option value="JE">Jurong East Exchange (JE)</option>
+                                        <option value="JW">Jurong West Exchange (JW)</option>
+                                        <option value="KT">Katong Exchange (KT)</option>
+                                        <option value="NT">North Exchange (NT)</option>
+                                        <option value="OC">Orchard Exchange (OC)</option>
+                                        <option value="PL">Paya Lebar Exchange (PL)</option>
+                                        <option value="PR">Pasir Ris Exchange (PR)</option>
+                                        <option value="QT">Queenstown Exchange (QT)</option>
+                                        <option value="TB">Telok Blangah Exchange (TB)</option>
+                                        <option value="TP">Tampines Exchange (TP)</option>
+                                        <option value="TS">Tuas Exchange (TS)</option>
+
+
                                     </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">Preferred Room<span class="requiredField">*</span></label>
+
+                                    <select id="subcat" name="room" disabled="disabled" class="form-control">
+                                        <option class="lablel" value>No Preference</option>
+                                        <option rel="AM" value="AM Level 4 PCM 1">AM Level 4 PCM 1</option>
+                                        <option rel="AM" value="AM3A Level 3 PCM 2">AM3A Level 3 PCM 2</option>
+
+                                        <option rel="AR" value="AR Level 1 PCM 1">AR Level 1 PCM 1</option>
+                                        <option rel="AR" value="AR05C Level 5 PCM 2">AR05C Level 5 PCM 2</option>
+
+                                        <option rel="BD" value="BD Level 1 PCM 1<">BD Level 1 PCM 1</option>
+                                        <option rel="BD" value="BDN1 Level 1 PCM 1">BDN1 Level 1 PCM 1</option>
+                                        <option rel="BD" value="BD033 Level 3 PCM 1<">BD033 Level 3 PCM 1</option>
+                                        <option rel="BD" value="BD5C5 Level 5 PCM 2">BD5C5 Level 5 PCM 2</option>
+
+                                        <option rel="BP" value="BP Level 1 PCM 1<">BP Level 1 PCM 1</option>
+                                        <option rel="BP" value="BPN Level 2 PCM 1">BPN Level 2 PCM 1</option>
+                                        <option rel="BP" value="P3A Level 3 PCM 2<">BP3A Level 3 PCM 2</option>
+
+                                        <option rel="CG" value="CG Level 1 PCM 1">CG Level 1 PCM 1</option>
+
+                                        <option rel="ES" value="ES Level 4 PCM 1">ES Level 4 PCM 1</option>
+                                        <option rel="ES" value="ES2A Level 2 PCM 2<">ES2A Level 2 PCM 2</option>
+
+                                        <option rel="GL" value="GL Level 1 PCM 1">GL Level 1 PCM 1</option>
+                                        <option rel="GL" value="GLN Level 2 PCM 1">GLN Level 2 PCM 1</option>
+
+                                        <option rel="HG" value="HG Level 2 PCM 1">HG Level 2 PCM 1</option>
+
+                                        <option rel="JE" value="JE Level 1 PCM 1">JE Level 1 PCM 1</option>
+                                        <option rel="JE" value="JE Level 2 PCM 3">JE Level 2 PCM 3</option>
+
+                                        <option rel="JW" value="JW Level 2 PCM 1">JW Level 2 PCM 1</option>
+                                        <option rel="JW" value="JW03 Level 3 PCM 1">JW03 Level 3 PCM 1</option>
+                                        <option rel="JW" value="JW3A Level 3 PCM 2">JW3A Level 3 PCM 2</option>
+
+                                        <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
+
+                                        <option rel="KT" value="NT Level 3 PCM 1">NT Level 3 PCM 1</option>
+
+                                        <option rel="OC" value="OC Level 2 PCM 1">OC Level 2 PCM 1</option>
+                                        <option rel="OC" value="OCT Level 2 PCM 1">OCT Level 2 PCM 1</option>
+                                        <option rel="OC" value="OCN Level 3 PCM 1">OCN Level 3 PCM 1</option>
+                                        <option rel="OC" value="OC3A Level 3 PCM 2">OC3A Level 3 PCM 2</option>
+
+                                        <option rel="PL" value="PL Level 1 PCM 1">PL Level 1 PCM 1</option>
+
+                                        <option rel="PR" value="PR Level 2 PCM 1">PR Level 2 PCM 1</option>
+
+                                        <option rel="QT" value="QT Level 2 PCM 1">QT Level 2 PCM 1</option>
+
+                                        <option rel="TB" value="TB Level 1 PCM 1">TB Level 1 PCM 1</option>
+
+                                        <option rel="TP" value="TP Level 1 PCM 1">TP Level 1 PCM 1</option>
+                                        <option rel="TP" value="TP3A Level 3 PCM 2">TP3A Level 3 PCM 2</option>
+
+
+                                        <option rel="TS" value="TS Level 1 PCM 1">TS Level 1 PCM 1</option>
+                                        <option rel="TS" value="TS2C Level 2 PCM 2">TS2C Level 2 PCM 2</option>
+
+
+
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
                                 <div id="form_submit2"></div>
@@ -254,6 +329,22 @@
                     , $("<br/>"), $("<br/>")))
             }
         }
+    });
+
+    $(function() {
+
+        var $cat = $("#cat"),
+            $subcat = $("#subcat");
+
+        $cat.on("change", function() {
+            var _rel = $(this).val();
+            $subcat.find("option").attr("style", "");
+            $subcat.val("");
+            if (!_rel) return $subcat.prop("disabled", true);
+            $subcat.find("[rel=" + _rel + "]").show();
+            $subcat.prop("disabled", false);
+        });
+
     });
     </script>
 
