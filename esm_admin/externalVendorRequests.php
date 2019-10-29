@@ -35,12 +35,23 @@
     }
 
 
-     .table {
-         width: 180%;
-      
+    @media screen and (max-width: 2560px) {
+        .table {
+            width: 180%;
+        }
+    }
 
-     }
+    @media screen and (min-width: 2560px) {
+        .table {
+            width: 250%;
+        }
+    }
 
+    @media screen and (min-width: 3000px) {
+        .table {
+            width: 280%;
+        }
+    }
     
     </style>
 

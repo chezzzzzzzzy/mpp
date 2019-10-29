@@ -1,33 +1,28 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "password";
-$dbname = "singtel_esm";
 
+require 'connection.php';
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 $statusUpdate = $_POST['statusUpdate'];
 
-$sql2 = "SELECT * FROM spaces";
+$sql2 = "SELECT * FROM spaceRequests";
 if ($result2 = mysqli_query($conn, $sql2)) {
     while($row = mysqli_fetch_array($result2)) {
-        $rowSpec = $row['id'];
+        $rowSpec = $row['requestId'];
+        echo $rowSpec;
     }
-}
+}       
+
+
 
 // Attempt insert query execution
-$sql = "UPDATE spaces SET status='$statusUpdate' WHERE id = $rowSpec";
-$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+$sql = "UPDATE spaceRequests SET requestStatus='$statusUpdate' WHERE requestId = '$rowSpec'";
+// echo $sql;
+// echo "<br>";
 
-header("Location: admin.php");
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+header("Location: spaceRequests.php");
 
 
 
 ?>
-

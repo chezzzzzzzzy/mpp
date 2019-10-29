@@ -143,17 +143,27 @@
 
 
                                 <div class="form-group">
-                                    <label for="inputState">Preferred Exchange<span
-                                            class="requiredField">*</span></label>
+                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" id="data-date" name="startDate" required>
+                                        <div class="input-group-addon"></div>
+                                    </div>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="inputState">Exchange<span class="requiredField">*</span></label>
 
                                     <select id="cat" name="exchange" class="form-control">
-                                        <option value>No Preferrnce</option>
+                                        <option value>Please select below</option>
                                         <option value="AM">Ang Mo Kio Exchange (AM)</option>
                                         <option value="AR">Ayer Rajah Exchange (AR)</option>
                                         <option value="BD">Bedok Exchange (BD)</option>
                                         <option value="BP">Bukit Panjang Exchange (BP)</option>
                                         <option value="CG">Changi Exchange (CG)</option>
-                                        <option value="CY">??</option>
+                                        <option value="POC">Pickering Operations Complex (POC)</option>
                                         <option value="ES">East Exchange (ES)</option>
                                         <option value="GL">Geylang Exchange (GL)</option>
                                         <option value="HG">Hougang Exchange (HG)</option>
@@ -176,26 +186,29 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Preferred Room<span class="requiredField">*</span></label>
+                                    <label for="inputState">Room<span class="requiredField">*</span></label>
 
                                     <select id="subcat" name="room" disabled="disabled" class="form-control">
-                                        <option class="lablel" value>No Preference</option>
+                                        <option class="lablel" value>Please select below</option>
                                         <option rel="AM" value="AM Level 4 PCM 1">AM Level 4 PCM 1</option>
                                         <option rel="AM" value="AM3A Level 3 PCM 2">AM3A Level 3 PCM 2</option>
 
                                         <option rel="AR" value="AR Level 1 PCM 1">AR Level 1 PCM 1</option>
                                         <option rel="AR" value="AR05C Level 5 PCM 2">AR05C Level 5 PCM 2</option>
 
-                                        <option rel="BD" value="BD Level 1 PCM 1<">BD Level 1 PCM 1</option>
+                                        <option rel="BD" value="BD Level 1 PCM 1">BD Level 1 PCM 1</option>
                                         <option rel="BD" value="BDN1 Level 1 PCM 1">BDN1 Level 1 PCM 1</option>
                                         <option rel="BD" value="BD033 Level 3 PCM 1<">BD033 Level 3 PCM 1</option>
                                         <option rel="BD" value="BD5C5 Level 5 PCM 2">BD5C5 Level 5 PCM 2</option>
 
-                                        <option rel="BP" value="BP Level 1 PCM 1<">BP Level 1 PCM 1</option>
+                                        <option rel="BP" value="BP Level 1 PCM 1">BP Level 1 PCM 1</option>
                                         <option rel="BP" value="BPN Level 2 PCM 1">BPN Level 2 PCM 1</option>
                                         <option rel="BP" value="P3A Level 3 PCM 2<">BP3A Level 3 PCM 2</option>
 
                                         <option rel="CG" value="CG Level 1 PCM 1">CG Level 1 PCM 1</option>
+
+                                        <option rel="POC" value="POC Level 8 PCM 1">POC Level 8 PCM 1</option>
+                                        <option rel="POC" value="POC Level 7 PCM 1">POC07 Level 7 PCM 1</option>
 
                                         <option rel="ES" value="ES Level 4 PCM 1">ES Level 4 PCM 1</option>
                                         <option rel="ES" value="ES2A Level 2 PCM 2<">ES2A Level 2 PCM 2</option>
@@ -214,7 +227,7 @@
 
                                         <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
 
-                                        <option rel="KT" value="NT Level 3 PCM 1">NT Level 3 PCM 1</option>
+                                        <option rel="NT" value="NT Level 3 PCM 1">NT Level 3 PCM 1</option>
 
                                         <option rel="OC" value="OC Level 2 PCM 1">OC Level 2 PCM 1</option>
                                         <option rel="OC" value="OCT Level 2 PCM 1">OCT Level 2 PCM 1</option>
@@ -312,6 +325,7 @@
 
 
                     $("<label/>").text("Breaker Size"),
+                    $("<span/>").text("*"),
                     $("<input/>", {
                         type: 'text',
                         placeholder: 'Rack ' + i + ' - Enter breaker size',
@@ -319,14 +333,60 @@
                     }),
 
                     $("<label/>").text("Breaker Quantity"),
-                    $("<input/>", {
-                        type: 'text',
+                    $("<span/>").text("*"),
+                    $('<select/>', {
+                        id: 'inputState',
+                        class: "form-control",
                         placeholder: 'Rack ' + i + ' - Enter breaker quantity',
                         name: 'breakerQuantity' + i
-                    })
+                    }).append(
+                        $('<option />')
+                        .text('2')
+                        .val('2'),
 
+                        $('<option />')
+                        .text('4')
+                        .val('4')
+                    ),
 
-                    , $("<br/>"), $("<br/>")))
+                    $("<label/>").text("Power Consumption (in kW)"),
+                    $("<span/>").text("*"),
+                    $('<select/>', {
+                        id: 'inputState',
+                        class: "form-control",
+                        placeholder: 'Rack ' + i + ' - Enter power consumption',
+                        name: 'powerConsumption' + i
+                    }).append(
+                        $('<option />')
+                        .text('1')
+                        .val('1'),
+                        $('<option />')
+                        .text('2')
+                        .val('2'),
+                        $('<option />')
+                        .text('3')
+                        .val('3'),
+                        $('<option />')
+                        .text('4')
+                        .val('4'),
+                        $('<option />')
+                        .text('5')
+                        .val('5'),
+                        $('<option />')
+                        .text('6')
+                        .val('6'),
+                        $('<option />')
+                        .text('7')
+                        .val('7'),
+                        $('<option />')
+                        .text('8')
+                        .val('8'),
+                        $('<option />')
+                        .text('9')
+                        .val('9'),
+
+                    ),
+                    $("<br/>"), $("<hr/>"), $("<br/>")))
             }
         }
     });

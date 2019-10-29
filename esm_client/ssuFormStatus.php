@@ -16,7 +16,7 @@
 <div class="col-lg-12">
     <div class="row topSpaceLow">
         <div class="col-lg-4">
-            <h5>Ticket Number</h5>
+            <h5>Ticket ID</h5>
             <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
@@ -131,7 +131,7 @@
         </thead>
 
         <tbody>
-            <tr>
+        <tr>
                 <td>
                     <h2>Submitted</h2>
                 </td>
@@ -139,7 +139,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>In Progress</h2>
+                    <h2>Acknowledged</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_inprogress'] . "</h2>";?></td>
             </tr>
@@ -151,7 +151,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>Plan?</h2>
+                    <h2>In Progress</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>";?></td>
             </tr>

@@ -335,6 +335,48 @@ a:hover {
     color: white;
 }
 
+
+
+.readInfoButton {
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px;
+    color: #ffffff;
+    background-color: #4287f5;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+
+}
+
+
+.updateInfoButton {
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px;
+    color: #ffffff;
+    background-color: #5ae07e;
+ 
+
+    font-weight: bold;
+
+}
+
+
+.deleteInfoButton {
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px;
+    color: #ffffff;
+    background-color: #da3744;
+
+    font-weight: bold;
+
+}
+
 .form-control {
     height: 60px;
     display: block;
@@ -360,12 +402,12 @@ a:hover {
 
 }
 
-.smallLogo {
-    width: 15%;
+.footerLogo {
+    width: 8%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 .x {
@@ -377,6 +419,8 @@ a:hover {
 
 }
 
-.x2{
+.errorImage {
+    margin-left: -50px;
+    margin-right: -50px;
 
 }

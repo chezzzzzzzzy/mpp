@@ -62,6 +62,11 @@ function previewFiles() {
 
 
 // datepicker 
-$(document).ready(function () {
-  $('#js-date').datepicker();
-});
+// $(document).ready(function () {
+//   $('#js-date').datepicker({
+//     format: 'dd/mm/yyyy'
+//   });
+// });
+
+
+

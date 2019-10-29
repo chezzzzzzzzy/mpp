@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">Status Check</h1>
-                <h5 class="centerAlign x1">Check on the status of your request</h5>
+                <h5 class="centerAlign x0">Check on the status of your request</h5>
             </div>
 
           
@@ -77,10 +77,10 @@
 
         <form action="" method="POST">
             <div class="row">
-                <div class="col-lg-10">
-                <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number" name="ticketNumber" method="post" required>
+                <div class="col-lg-10 col-sm-8">
+                <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number" name="ticketNumber" method="post">
                 </div>
-                <div class="col-lg-2 ">
+                <div class="col-lg-2 col-sm-4">
                     <button type="submit" class="btn  selectorButton2" method="post">Check</button>
                 </div>
                 <div class="col-lg-12 topSpaceMid"></div>

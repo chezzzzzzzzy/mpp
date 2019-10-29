@@ -17,7 +17,7 @@
  <div class="col-lg-12">
      <div class="row topSpaceLow">
          <div class="col-lg-4">
-             <h5>Ticket Number</h5>
+             <h5>Ticket ID</h5>
              <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
          </div>
          <div class="col-lg-4">
@@ -43,19 +43,19 @@
          </div>
      </div>
      <div class="row topSpaceLow">
-        <div class="col-lg-4">
-            <h5>Requestor Name</h5>
-            <?php echo "<h2>" . $row['requestorName'] . "</h2>"; ?>
-        </div>
-        <div class="col-lg-4">
-            <h5>Requestor Department</h5>
-            <?php echo "<h2>" . $row['requestorDepartment'] . "</h2>"; ?>
-        </div>
-        <div class="col-lg-4">
-            <h5>Requestor Email</h5>
-            <?php echo "<h2>" . $row['requestorEmail'] . "</h2>"; ?>
-        </div>
-    </div>
+         <div class="col-lg-4">
+             <h5>Requestor Name</h5>
+             <?php echo "<h2>" . $row['requestorName'] . "</h2>"; ?>
+         </div>
+         <div class="col-lg-4">
+             <h5>Requestor Department</h5>
+             <?php echo "<h2>" . $row['requestorDepartment'] . "</h2>"; ?>
+         </div>
+         <div class="col-lg-4">
+             <h5>Requestor Email</h5>
+             <?php echo "<h2>" . $row['requestorEmail'] . "</h2>"; ?>
+         </div>
+     </div>
  </div>
  <!-- end of ticketInfo -->
 
@@ -118,7 +118,6 @@
      <h5 class="topSpaceLow">Exchange</h5>
      <?php echo "<h2>" . $row['exchange'] . "</h2>"; ?>
 
-     <h5 class="topSpaceLow">SLA</h5>
      <table class="table table-borderless">
          <thead>
              <tr>
@@ -136,7 +135,7 @@
              </tr>
              <tr>
                  <td>
-                     <h2>In Progress</h2>
+                     <h2>Acknowledged</h2>
                  </td>
                  <td><?php echo "<h2>" . $row['timestamp_inprogress'] . "</h2>";?></td>
              </tr>
@@ -148,7 +147,7 @@
              </tr>
              <tr>
                  <td>
-                     <h2>Plan?</h2>
+                     <h2>In Progress</h2>
                  </td>
                  <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>";?></td>
              </tr>

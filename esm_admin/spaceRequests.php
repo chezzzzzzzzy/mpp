@@ -34,10 +34,23 @@
     }
 
 
-    .table {
-        width: 180%;
 
+    @media screen and (max-width: 2560px) {
+        .table {
+            width: 180%;
+        }
+    }
 
+    @media screen and (min-width: 2560px) {
+        .table {
+            width: 250%;
+        }
+    }
+
+    @media screen and (min-width: 3000px) {
+        .table {
+            width: 280%;
+        }
     }
     </style>
 
@@ -48,11 +61,12 @@
 
 <body>
 
-    
+
     <script>
     function logoutPressed() {
         <
-        ? php
+        ?
+        php
             // header("Location: auth.php");
             // session_destroy();
             // $_SESSION['loggedin'] = false;
@@ -67,7 +81,7 @@
         // echo "Logged in already" . $_SESSION['email'];
     ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -136,16 +150,12 @@
                             <th scope="col" style="width: 1%">Power Type</th>
                             <th scope="col" style="width: 1%">Start Date</th>
                             <th scope="col" style="width: 1%">End Date</th>
-                            <th scope="col" style="width: 5%">Exchange</th>
-                            <th scope="col" style="width: 1%">Level</th>
+                            <th scope="col" style="width: 2%">Exchange</th>
+                            <th scope="col" style="width: 1%">Room</th>
                             <th scope="col" style="width: 2%">Request Timestamp</th>
                             <th scope="col" style="width: 1%">Request Status</th>
                             <th scope="col" style="width: 5%">Status Update</th>
                             <th scope="col" style="width: 1%">More Info</th>
-
-
-
-
                         </tr>
                         <?php 
 
@@ -157,7 +167,7 @@
                             if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['requestId'] . "</td>";
                                         echo "<td>" . $row['requestorName'] . "</td>";
                                         echo "<td>" . $row['requestorEmail'] . "</td>";
                                         echo "<td>" . $row['requestorDepartment'] . "</td>";
@@ -166,37 +176,35 @@
                                         echo "<td>" . $row['startDate'] . "</td>";
                                         echo "<td>" . $row['endDate'] . "</td>";
                                         echo "<td>" . $row['exchange'] . "</td>";
-                                        echo "<td>" . $row['level'] . "</td>";
+                                        echo "<td>" . $row['room'] . "</td>";
                                         echo "<td>" . $row['requestTimestamp'] . "</td>";
                                         echo "<td>" . $row['requestStatus'] . "</td>";
-
-
-
-
                                         echo "<td>
                                         <form action='index.php' method='post'>                       
                                             <div class='form-group'>
                                                 <select id='inputState' class='form-control' name='statusUpdate' onchange='this.form.submit()'>
                                                     <option selected value=''>Select Below</option>
                                                     <option value='Submitted' id='submitted'>Submitted</option>
-                                                    <option value='In Progress' id='inProgress'>In Progress</option>
+                                                    <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
                                                     <option value='Assigned' id='assigned'>Assigned</option>
-                                                    <option value='x' id='assigned'>x</option>
-
+                                                    <option value='In Progress' id='inProgress'>In Progress</option>
                                                     <option value='Completed' id='installed'>Completed</option>
                                                     <option value='Closed' id='installed'>Closed</option>
-
                                                 </select>
                                             </div>                
                                         </form>
                                     </td>";
                                     echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
 
+                                    error_reporting(E_ERROR | E_PARSE);
 
+                                 
 
+                                        // $rowIndex = $row['requestId'];
 
-                                        // foreach ($row['id'] as $index => $id) {
-                                        //     $sqlUpdate = "UPDATE spaces SET status='".$_POST['ststatusUpdate'][$index]."'";
+                                        // foreach ($rowIndex as $index) 
+                                        // {
+                                        //     $sqlUpdate = "UPDATE spaceRequests SET requestStatus ='".$_POST['statusUpdate'][$index]."'";
                                         //     $result=mysql_query($sqlUpdate);
 
                                         // }

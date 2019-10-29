@@ -11,11 +11,12 @@
           if(mysqli_num_rows($result) > 0){
               while($row = mysqli_fetch_array($result)){
 ?>
+
 <!-- start of ticketInfo -->
 <div class="col-lg-12">
     <div class="row topSpaceLow">
         <div class="col-lg-4">
-            <h5>Ticket Number</h5>
+            <h5>Ticket ID</h5>
             <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
@@ -76,7 +77,7 @@
         </div>
     </div>
 
-    
+
 
     <h5 class="topSpaceLow">End Date</h5>
     <?php echo "<h2>" . $row['endDate'] . "</h2>"; ?>
@@ -138,7 +139,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>In Progress</h2>
+                    <h2>Acknowledged</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_inprogress'] . "</h2>";?></td>
             </tr>
@@ -150,7 +151,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>Plan?</h2>
+                    <h2>In Progress</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>";?></td>
             </tr>

@@ -44,10 +44,17 @@ $breakerQuantity3 = $_POST['breakerQuantity3'];
 $breakerQuantity4 = $_POST['breakerQuantity4'];
 $breakerQuantity5 = $_POST['breakerQuantity5'];
 
+$powerConsumption1 = $_POST['powerConsumption1'];
+$powerConsumption2 = $_POST['powerConsumption2'];
+$powerConsumption3 = $_POST['powerConsumption3'];
+$powerConsumption4 = $_POST['powerConsumption4'];
+$powerConsumption5 = $_POST['powerConsumption5'];
+
+
 
 // insert into table
-$sql = "INSERT INTO powerRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, exchange, room,  requestStatus, rackLocation1, rackLocation2, rackLocation3, rackLocation4,rackLocation5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$exchange', '$room' , 'Submitted', '$rackLocation1', '$rackLocation2', '$rackLocation3','$rackLocation4', '$rackLocation5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
+$sql = "INSERT INTO powerRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, exchange, room,  requestStatus, rackLocation1, rackLocation2, rackLocation3, rackLocation4,rackLocation5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$exchange', '$room' , 'Submitted', '$rackLocation1', '$rackLocation2', '$rackLocation3','$rackLocation4', '$rackLocation5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
 
 
 // insert into table

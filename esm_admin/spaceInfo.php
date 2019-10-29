@@ -33,6 +33,8 @@
         margin-right: auto;
     }
 
+
+
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -60,11 +62,11 @@
 <body>
 
 
-
     <script>
     function logoutPressed() {
         <
-        ? php
+        ?
+        php
             // header("Location: auth.php");
             // session_destroy();
             // $_SESSION['loggedin'] = false;
@@ -95,7 +97,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
@@ -110,13 +112,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
                 </li>
-
 
             </ul>
             <span class="navbar-text">
@@ -131,74 +132,51 @@
 
 
 
-        <h1>General Requests</h1>
+        <h1>Space Requests (Edit Mode)</h1>
 
         <div class="row">
 
 
             <div class="col-lg-12">
 
+
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 1%">Ticket Number</th>
-                            <th scope="col" style="width: 1%">Requestor Name</th>
-                            <th scope="col" style="width: 1%">Requestor Email</th>
-                            <th scope="col" style="width: 1%">Requestor Department</th>
-                            <th scope="col" style="width: 5%">Requestor Reason</th>
-                            <th scope="col" style="width: 5%">Query</th>
-                            <th scope="col" style="width: 1%">More Info</th>
-
-
-
+                            <th>Request ID</th>
+                            <th>Requestor Name</th>
+                            <th>Requestor Department</th>
+                            <th>Requestor Email</th>
+                            <th>Requestor Reason</th>
+                            <th>Action</th>
 
                         </tr>
-                        <?php 
-
-                            $sql = "SELECT * FROM generalRequests";
-                            $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
-
-                            if($result = mysqli_query($link, $sql)){
-
-                            if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['requestorName'] . "</td>";
-                                        echo "<td>" . $row['requestorEmail'] . "</td>";
-                                        echo "<td>" . $row['requestorDepartment'] . "</td>";
-                                        echo "<td>" . $row['requestorReason'] . "</td>";
-                                        echo "<td>" . $row['query'] . "</td>";
-                                        echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
-
-                                        
-
-
-
-                                        
-                                   
-            
-                                        
-                
-
-                        ?>
-
-                        <?php
-
-                       
-                        ?>
-
-                        <?php
-                                    echo "</tr>";
-                                }
-                                // Free result set
-                                mysqli_free_result($result);
-                            }
-                        }
-
-                        ?>
-
                     </thead>
+                    <tbody>
+                        <?php
+                   include 'database.php';
+                   $pdo = Database::connect();
+                   $sql = 'SELECT * FROM spaceRequests ORDER BY requestId DESC';
+                   foreach ($pdo->query($sql) as $row) {
+                            echo '<tr>';
+                            echo '<td>'. $row['requestId'] . '</td>';
+                            echo '<td>'. $row['requestorName'] . '</td>';
+                            echo '<td>'. $row['requestorDepartment'] . '</td>';
+                            echo '<td>'. $row['requestorEmail'] . '</td>';
+                            echo '<td>'. $row['requestorReason'] . '</td>';
+
+                            echo '<td width=350>';
+                            echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
+                            echo ' ';
+                            echo '<a class="btn readInfoButton" href="readInfo.php?requestId='.$row['requestId'].'">Read</a>';
+                            echo ' ';
+                            echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Cancel</a>';
+                            echo '</td>';
+                            echo '</tr>';
+                   }
+                   Database::disconnect();
+                  ?>
+                    </tbody>
                 </table>
             </div>
 

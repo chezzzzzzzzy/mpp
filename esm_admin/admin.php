@@ -101,56 +101,50 @@
         <div class="row">
 
 
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
+            <div class="col-lg-3"></div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-sm-4">
                 <a href="fdfRequests.php"><button class="selectorButton3">FDF</button></a>
                 <p class="centerAlign2"></p>
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-sm-4">
                 <a href="cableTrayRequests.php"><button class="selectorButton3">Cable Tray</button></a>
                 <p class="centerAlign2"></p>
             </div>
 
-            <div class="col-lg-2">
+
+            <div class="col-lg-2 col-sm-4">
                 <a href="generalRequests.php"><button class="selectorButton3">General</button></a>
                 <p class="centerAlign2"></p>
             </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-
-            <div class="col-lg-2">
-                <a href="spaceRequests.php"><button class="selectorButton3">Space</button></a>
-                <p class="centerAlign2">For new spaces</p>
-            </div>
-
-            <div class="col-lg-2">
-                <a href="powerRequests.php"><button class="selectorButton3">Power</button></a>
-                <p class="centerAlign2">For additional power</p>
-            </div>
-
-            <div class="col-lg-2">
-                <a href="ssuRequests.php"><button class="selectorButton3">SSU</button></a>
-                <p class="centerAlign2"></p>
-            </div>
-
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-1"></div>
-
-
 
 
             <div class="col-lg-3"></div>
 
+
+
+
+
+            <div class="col-lg-3 "></div>
+
+
+            <div class="col-lg-2 col-sm-4">
+                <a href="spaceInfo.php"><button class="selectorButton3">Space</button></a>
+                <p class="centerAlign2">For new spaces</p>
+            </div>
+
+            <div class="col-lg-2 col-sm-4">
+                <a href="powerRequests.php"><button class="selectorButton3">Power</button></a>
+                <p class="centerAlign2">For additional power</p>
+            </div>
+
+            <div class="col-lg-2 col-sm-4">
+                <a href="ssuRequests.php"><button class="selectorButton3">SSU</button></a>
+                <p class="centerAlign2"></p>
+            </div>
+
+            <div class="col-lg-3"></div>
 
         </div>
 
@@ -182,33 +176,37 @@
 
     <div class="container">
 
+        <div class="row">
 
+
+
+        </div>
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 authForm">
-                <h2 class="centerAlign"><b>Please Login First 🚨</b></h2>
-                <div class="centerAlign">
+                <form action="authVerification.php" method="POST" id="authForm">
+
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                        alt="singtelLogo.png" class="loginLogo">
+                    <h2><b>Please Login First 🚨</b></h2>
+                    <h4>Exchange Space Management Portal (Admin)</h4>
                     <br>
-                    <a href="auth.php"><button class="selectorButton3">Login</button></a>
-                </div>
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player class="x" src="https://assets2.lottiefiles.com/datafiles/CUttCFpbspXJcp0/data.json"
-                    background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay>
-                </lottie-player>
-            </div>
-            <div class="col-lg-2"></div>
 
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 ">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_yN8pO6.json"
+                        background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
+                        class="errorImage">
+                    </lottie-player>
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png" class="smallLogo">
 
+
+
+
+                </form>
             </div>
             <div class="col-lg-2"></div>
         </div>
-
-
     </div>
 
     <?php

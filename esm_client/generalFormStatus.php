@@ -16,7 +16,7 @@
 <div class="col-lg-12">
     <div class="row topSpaceLow">
         <div class="col-lg-4">
-            <h5>Ticket Number</h5>
+            <h5>Ticket ID</h5>
             <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
         </div>
        

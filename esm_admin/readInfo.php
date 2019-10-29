@@ -1,5 +1,21 @@
-<?php 
-    session_start();
+<?php
+    require 'database.php';
+    $id = null;
+    if ( !empty(strval($_GET['requestId']))) {
+        $id = strval($_REQUEST['requestId']);
+    }
+     
+    if ( null==$id ) {
+        header("Location: spaceInfo.php");
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM spaceRequests where requestId = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        Database::disconnect();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +49,8 @@
         margin-right: auto;
     }
 
+
+
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -59,26 +77,6 @@
 
 <body>
 
-
-
-    <script>
-    function logoutPressed() {
-        <
-        ? php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-    </script>
-
-    <?php
-
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
-    ?>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -95,7 +93,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
@@ -110,13 +108,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
                 </li>
-
 
             </ul>
             <span class="navbar-text">
@@ -126,96 +123,75 @@
         </div>
     </nav>
 
-
     <div class="container">
 
+        <h1>View Request</h1>
 
 
-        <h1>General Requests</h1>
-
-        <div class="row">
+        <div class="col-lg-12">
 
 
-            <div class="col-lg-12">
+            <div class="form-horizontal">
+                <div class="control-group">
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 1%">Ticket Number</th>
-                            <th scope="col" style="width: 1%">Requestor Name</th>
-                            <th scope="col" style="width: 1%">Requestor Email</th>
-                            <th scope="col" style="width: 1%">Requestor Department</th>
-                            <th scope="col" style="width: 5%">Requestor Reason</th>
-                            <th scope="col" style="width: 5%">Query</th>
-                            <th scope="col" style="width: 1%">More Info</th>
+                    <label for="startDate">Request ID<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['requestId'];?>">
 
+                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorName'];?>">
 
+                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorEmail'];?>">
 
+                    <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorReason'];?>">
 
-                        </tr>
-                        <?php 
+                    <label for="startDate">Exchange<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['exchange'];?>">
 
-                            $sql = "SELECT * FROM generalRequests";
-                            $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
+                    <label for="startDate">Room<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['room'];?>">
 
-                            if($result = mysqli_query($link, $sql)){
+                    <br>
+                    <label for="startDate">Rack 1</label>
+                    <br>
 
-                            if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['requestorName'] . "</td>";
-                                        echo "<td>" . $row['requestorEmail'] . "</td>";
-                                        echo "<td>" . $row['requestorDepartment'] . "</td>";
-                                        echo "<td>" . $row['requestorReason'] . "</td>";
-                                        echo "<td>" . $row['query'] . "</td>";
-                                        echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
+                    <label for="startDate">Length (Size)<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['rackSizeLength1'];?>">
 
-                                        
+                    <label for="startDate">Length (Breadth)<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['rackSizeBreadth1'];?>">
 
 
+                    <label for="startDate">Breaker Size<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['breakerSize1'];?>">
 
-                                        
-                                   
-            
-                                        
-                
+                    <label for="startDate">Breaker Quantity<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['breakerQuantity1'];?>">
+                    
+                    <label for="startDate">Rack Location<span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['rackLocation1'];?>">
 
-                        ?>
+                    <label for="startDate">Sub PDU <span class="requiredField">*</span></label>
+                    <input readonly class="form-control" type="text" value="<?php echo $data['subPdu1'];?>">
 
-                        <?php
 
-                       
-                        ?>
 
-                        <?php
-                                    echo "</tr>";
-                                }
-                                // Free result set
-                                mysqli_free_result($result);
-                            }
-                        }
 
-                        ?>
 
-                    </thead>
-                </table>
+
+
+                </div>
+
+                <div class="form-actions">
+                    <a class="btn" href="spaceInfo.php">Back</a>
+                </div>
+
+
             </div>
-
-
-
         </div>
-    </div>
 
-
-
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
-
-
-
+    </div> <!-- /container -->
 </body>
 
 </html>

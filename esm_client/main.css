@@ -340,6 +340,18 @@ a:hover {
 
 .centerAlign {
     text-align: center;
+  
+}
+
+.valueEmphasis {
+    font-size: 30px;
+}
+
+.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
 footer {
@@ -363,7 +375,7 @@ footer {
     margin-top: 200px;
 }
 
-.x1 {
+.x0 {
     margin-top: -30px;
     margin-bottom: 50px;
 }
@@ -448,12 +460,37 @@ footer {
 }
 
 .boundingBox2{
-    background-color: rgb(225, 224, 224);
+    background-color: rgb(242, 242, 242);
     border-radius: 5px;
     padding-top: 20px;
     padding-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 5px 10px 15px #0000001f;
+}
+
+.bgcolors {
+  }
+  
+  .no-margin-right {
+    margin-right: 0px;
+  }
+  
+  .margin-left {
+    margin-left: -15px;
+  }
+  
+  .row-right {
+    margin-left: 0;
+  }
+  
+  .row-left {
+    margin-right: 0;
+  }
+  
+
+.offset-lg-1 {
+    margin-left: 50px;
 }
 
 #subcat option{
@@ -463,3 +500,23 @@ footer {
 #subcat option.label{
     display:block;
 }
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+
+.x1 {
+    max-width: 31.66px;
+
+}
+
+.x2 {
+    max-width: 94.98px;
+}
+

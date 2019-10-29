@@ -34,10 +34,22 @@
     }
 
 
-    .table {
-        width: 180%;
+    @media screen and (max-width: 2560px) {
+        .table {
+            width: 180%;
+        }
+    }
 
+    @media screen and (min-width: 2560px) {
+        .table {
+            width: 250%;
+        }
+    }
 
+    @media screen and (min-width: 3000px) {
+        .table {
+            width: 280%;
+        }
     }
     </style>
 
@@ -98,7 +110,8 @@
     <script>
     function logoutPressed() {
         <
-        ? php
+        ?
+        php
             // header("Location: auth.php");
             // session_destroy();
             // $_SESSION['loggedin'] = false;
@@ -134,6 +147,7 @@
                             <th scope="col" style="width: 1%">Requestor Reason</th>
                             <th scope="col" style="width: 1%">Power Type</th>
                             <th scope="col" style="width: 1%">Exchange</th>
+                            <th scope="col" style="width: 1%">Room</th>
                             <th scope="col" style="width: 2%">Request Timestamp</th>
                             <th scope="col" style="width: 1%">Request Status</th>
                             <th scope="col" style="width: 5%">Status Update</th>
@@ -157,6 +171,7 @@
                                         echo "<td>" . $row['requestorReason'] . "</td>";
                                         echo "<td>" . $row['powerType'] . "</td>";
                                         echo "<td>" . $row['exchange'] . "</td>";
+                                        echo "<td>" . $row['room'] . "</td>";
                                         echo "<td>" . $row['requestTimestamp'] . "</td>";
                                         echo "<td>" . $row['requestStatus'] . "</td>";
 

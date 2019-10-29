@@ -13,19 +13,11 @@
 ?>
 <!-- start of ticketInfo -->
 <div class="col-lg-12">
-    <div class="row topSpaceLow">
-        <div class="col-lg-4">
-            <!-- ticket number is defined as the id for the entire list of requests -->
-            <h5>Ticker Number</h5>
-            <?php echo "<h2>ST20191011X</h2>"; ?>
-        </div>
-        <div class="col-lg-4">
-        </div>
-    </div>
+
     <div class="row topSpaceLow">
         <div class="col-lg-4">
             <!-- request number is defined as the id for each individual request -->
-            <h5>Request Number</h5>
+            <h5>Request ID</h5>
             <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
@@ -81,9 +73,11 @@
 <div class="col-lg-12">
     <h2 class="topSpaceMid"><b>Requested</b></h2>
 
-
+    <?php if ($row['rackLocation1'] != NULL || $row['breakerSize1'] != NULL || $row['breakerQuantity1'] != NULL) {
+        ?>
     <!-- start of rack 1 -->
     <h4 class="topSpaceMid"><b>Rack 1</b></h4>
+    <h5><b>Rack ID: <?php echo $row['id']; ?>-1</b></h5>
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
@@ -97,11 +91,22 @@
             <h5>Breaker Quantity</h5>
             <?php echo "<h2>" . $row['breakerQuantity1'] . "</h2>"; ?>
         </div>
+        <div class="col-lg-4">
+            <h5>Power Consumption</h5>
+            <?php echo "<h2>" . $row['powerConsumption1'] . " kWh</h2>"; ?>
+        </div>
     </div>
     <!-- end of rack 1 -->
+    <?php
+    }
+    ?>
 
+    <?php if ($row['rackLocation2'] != NULL || $row['breakerSize2'] != NULL || $row['breakerQuantity2'] != NULL) {
+        ?>
     <!-- start of rack 2 -->
     <h4 class="topSpaceMid"><b>Rack 2</b></h4>
+    <h5><b>Rack ID: <?php echo $row['id']; ?>-2</b></h5>
+
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
@@ -115,11 +120,22 @@
             <h5>Breaker Quantity</h5>
             <?php echo "<h2>" . $row['breakerQuantity2'] . "</h2>"; ?>
         </div>
+        <div class="col-lg-4">
+            <h5>Power Consumption</h5>
+            <?php echo "<h2>" . $row['powerConsumption2'] . " kWh</h2>"; ?>
+        </div>
     </div>
     <!-- end of rack 2 -->
+    <?php
+    }
+    ?>
 
+    <?php if ($row['rackLocation3'] != NULL || $row['breakerSize3'] != NULL || $row['breakerQuantity3'] != NULL) {
+        ?>
     <!-- start of rack 3 -->
     <h4 class="topSpaceMid"><b>Rack 3</b></h4>
+    <h5><b>Rack ID: <?php echo $row['id']; ?>-3</b></h5>
+
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
@@ -133,11 +149,22 @@
             <h5>Breaker Quantity</h5>
             <?php echo "<h2>" . $row['breakerQuantity3'] . "</h2>"; ?>
         </div>
+        <div class="col-lg-4">
+            <h5>Power Consumption</h5>
+            <?php echo "<h2>" . $row['powerConsumption3'] . " kWh</h2>"; ?>
+        </div>
     </div>
     <!-- end of rack 3 -->
+    <?php
+    }
+    ?>
 
+    <?php if ($row['rackLocation4'] != NULL || $row['breakerSize4'] != NULL || $row['breakerQuantity4'] != NULL) {
+        ?>
     <!-- start of rack 4 -->
     <h4 class="topSpaceMid"><b>Rack 4</b></h4>
+    <h5><b>Rack ID: <?php echo $row['id']; ?>-4</b></h5>
+
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
@@ -151,12 +178,22 @@
             <h5>Breaker Quantity</h5>
             <?php echo "<h2>" . $row['breakerQuantity4'] . "</h2>"; ?>
         </div>
+        <div class="col-lg-4">
+            <h5>Power Consumption</h5>
+            <?php echo "<h2>" . $row['powerConsumption4'] . " kWh</h2>"; ?>
+        </div>
     </div>
     <!-- end of rack 4 -->
+    <?php
+    }
+    ?>
 
-
+    <?php if ($row['rackLocation5'] != NULL || $row['breakerSize5'] != NULL || $row['breakerQuantity5'] != NULL) {
+        ?>
     <!-- start of rack 5 -->
     <h4 class="topSpaceMid"><b>Rack 5</b></h4>
+    <h5><b>Rack ID: <?php echo $row['id']; ?>-5</b></h5>
+
     <div class="row topSpaceLow ">
         <div class="col-lg-4">
             <h5>Rack Location</h5>
@@ -170,9 +207,15 @@
             <h5>Breaker Quantity</h5>
             <?php echo "<h2>" . $row['breakerQuantity5'] . "</h2>"; ?>
         </div>
+        <div class="col-lg-4">
+            <h5>Power Consumption</h5>
+            <?php echo "<h2>" . $row['powerConsumption5'] . " kWh</h2>"; ?>
+        </div>
     </div>
     <!-- end of rack 5 -->
-
+    <?php
+    }
+    ?>
 
 
 
@@ -259,7 +302,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>In Progress</h2>
+                    <h2>Acknowledged</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_inprogress'] . "</h2>";?></td>
             </tr>
@@ -271,7 +314,7 @@
             </tr>
             <tr>
                 <td>
-                    <h2>Plan?</h2>
+                    <h2>In Progress</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>";?></td>
             </tr>

@@ -69,7 +69,7 @@
 
     <div class="container">
 
-        <h1>External Vendor Request</h1>
+        <h1>MMR Request</h1>
         <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
 

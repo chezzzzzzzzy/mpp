@@ -33,11 +33,22 @@
         margin-right: auto;
     }
 
+    @media screen and (max-width: 2560px) {
+        .table {
+            width: 180%;
+        }
+    }
 
-    .table {
-        width: 180%;
+    @media screen and (min-width: 2560px) {
+        .table {
+            width: 250%;
+        }
+    }
 
-
+    @media screen and (min-width: 3000px) {
+        .table {
+            width: 280%;
+        }
     }
     </style>
 
@@ -48,12 +59,13 @@
 
 <body>
 
-  
+
 
     <script>
     function logoutPressed() {
         <
-        ? php
+        ?
+        php
             // header("Location: auth.php");
             // session_destroy();
             // $_SESSION['loggedin'] = false;
@@ -68,7 +80,7 @@
         // echo "Logged in already" . $_SESSION['email'];
     ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"

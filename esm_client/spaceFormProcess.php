@@ -58,10 +58,17 @@ $breakerQuantity3 = $_POST['breakerQuantity3'];
 $breakerQuantity4 = $_POST['breakerQuantity4'];
 $breakerQuantity5 = $_POST['breakerQuantity5'];
 
+$powerConsumption1 = $_POST['powerConsumption1'];
+$powerConsumption2 = $_POST['powerConsumption2'];
+$powerConsumption3 = $_POST['powerConsumption3'];
+$powerConsumption4 = $_POST['powerConsumption4'];
+$powerConsumption5 = $_POST['powerConsumption5'];
+
+
 
 // insert into table
-$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, room, startDate, endDate, exchange, requestStatus, rackSizeLength_1, rackSizeLength_2, rackSizeLength_3, rackSizeLength_4,rackSizeLength_5, rackSizeBreadth_1, rackSizeBreadth_2, rackSizeBreadth_3, rackSizeBreadth_4, rackSizeBreadth_5, breakerSize_1, breakerSize_2, breakerSize_3, breakerSize_4, breakerSize_5, breakerQuantity_1, breakerQuantity_2, breakerQuantity_3, breakerQuantity_4, breakerQuantity_5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5')";
+$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4,rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
 
 
 // insert into table
@@ -145,20 +152,20 @@ if (mysqli_query($conn, $sql)) {
 
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
-                <h5 class="centerAlign x1">Your request has been submitted</h5>
+                <h5 class="centerAlign x0">Your request has been submitted</h5>
                 <br>
                 <br>
-                <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
-                <h2 class="centerAlign x1"><b>
+                <h4 class="centerAlign x0">Here's your ticket number: <br></h4>
+                <h2 class="centerAlign x0"><b>
 
                         <?php
-                    $sql2 = "SELECT * FROM spaceRequests ORDER BY id DESC LIMIT 1";
+                    $sql2 = "SELECT * FROM spaceRequests ORDER BY requestId DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["id"];
+                            echo $row["requestId"];
                         }
                     } else {
                         echo "0 results";
@@ -166,47 +173,7 @@ if (mysqli_query($conn, $sql)) {
                 ?>
                     </b></h2>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Launch demo modal
-                </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                
-                            <?php
-                    $sql2 = "SELECT * FROM spaceRequests ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($conn, $sql2);
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["id"];
-                        }
-                    } else {
-                        echo "0 results";
-                    }                
-                ?>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
 
@@ -228,3 +195,4 @@ if (mysqli_query($conn, $sql)) {
 </body>
 
 </html>
+

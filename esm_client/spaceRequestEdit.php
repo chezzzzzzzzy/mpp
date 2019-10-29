@@ -33,6 +33,8 @@
         margin-right: auto;
     }
 
+
+
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -60,11 +62,11 @@
 <body>
 
 
-
     <script>
     function logoutPressed() {
         <
-        ? php
+        ?
+        php
             // header("Location: auth.php");
             // session_destroy();
             // $_SESSION['loggedin'] = false;
@@ -95,7 +97,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
@@ -110,13 +112,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
                 </li>
-
 
             </ul>
             <span class="navbar-text">
@@ -131,7 +132,7 @@
 
 
 
-        <h1>General Requests</h1>
+        <h1>Space Requests</h1>
 
         <div class="row">
 
@@ -140,22 +141,10 @@
 
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th scope="col" style="width: 1%">Ticket Number</th>
-                            <th scope="col" style="width: 1%">Requestor Name</th>
-                            <th scope="col" style="width: 1%">Requestor Email</th>
-                            <th scope="col" style="width: 1%">Requestor Department</th>
-                            <th scope="col" style="width: 5%">Requestor Reason</th>
-                            <th scope="col" style="width: 5%">Query</th>
-                            <th scope="col" style="width: 1%">More Info</th>
-
-
-
-
-                        </tr>
+                   
                         <?php 
 
-                            $sql = "SELECT * FROM generalRequests";
+                            $sql = "SELECT * FROM spaceRequests";
                             $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
 
                             if($result = mysqli_query($link, $sql)){
@@ -163,19 +152,52 @@
                             if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['requestId'] . "</td>";
                                         echo "<td>" . $row['requestorName'] . "</td>";
                                         echo "<td>" . $row['requestorEmail'] . "</td>";
                                         echo "<td>" . $row['requestorDepartment'] . "</td>";
                                         echo "<td>" . $row['requestorReason'] . "</td>";
-                                        echo "<td>" . $row['query'] . "</td>";
-                                        echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
+                                        echo "<td>" . $row['powerType'] . "</td>";
+                                        echo "<td>" . $row['startDate'] . "</td>";
+                                        echo "<td>" . $row['endDate'] . "</td>";
+                                        echo "<td>" . $row['exchange'] . "</td>";
+                                        echo "<td>" . $row['room'] . "</td>";
+                                        echo "<td>" . $row['requestTimestamp'] . "</td>";
+                                        echo "<td>" . $row['requestStatus'] . "</td>";
+                                        echo "<td>
+                                        <form action='index.php' method='post'>                       
+                                            <div class='form-group'>
+                                                <select id='inputState' class='form-control' name='statusUpdate' onchange='this.form.submit()'>
+                                                    <option selected value=''>Select Below</option>
+                                                    <option value='Submitted' id='submitted'>Submitted</option>
+                                                    <option value='In Progress' id='inProgress'>In Progress</option>
+                                                    <option value='Assigned' id='assigned'>Assigned</option>
+                                                    <option value='x' id='assigned'>x</option>
 
-                                        
+                                                    <option value='Completed' id='installed'>Completed</option>
+                                                    <option value='Closed' id='installed'>Closed</option>
+
+                                                </select>
+                                            </div>                
+                                        </form>
+                                    </td>";
+                                    echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
 
 
 
-                                        
+                                    error_reporting(E_ERROR | E_PARSE);
+
+                                    
+
+                                        $rowIndex = $row['requestId'];
+
+                                        foreach ($rowIndex as $index) 
+                                        {
+                                            $sqlUpdate = "UPDATE spaceRequests SET requestStatus ='".$_POST['statusUpdate'][$index]."'";
+                                            $result=mysql_query($sqlUpdate);
+
+                                        }
+
                                    
             
                                         

@@ -34,10 +34,24 @@
     }
 
 
-    .table {
-        width: 180%;
+    .container2 {}
 
+    @media screen and (max-width: 2560px) {
+        .table {
+            width: 180%;
+        }
+    }
 
+    @media screen and (min-width: 2560px) {
+        .table {
+            width: 250%;
+        }
+    }
+
+    @media screen and (min-width: 3000px) {
+        .table {
+            width: 280%;
+        }
     }
     </style>
 
@@ -242,23 +256,35 @@
         ?>
 
     <div class="container">
+
+        <div class="row">
+
+
+
+        </div>
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 authForm">
-                <h2 class="centerAlign"><b>Please Login First 🚨</b></h2>
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player class="x" src="https://assets2.lottiefiles.com/datafiles/CUttCFpbspXJcp0/data.json"
-                    background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay>
-                </lottie-player>
-            </div>
-            <div class="col-lg-2"></div>
+                <form action="authVerification.php" method="POST" id="authForm">
 
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 ">
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png" class="smallLogo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                        alt="singtelLogo.png" class="loginLogo">
+                    <h2><b>Please Login First 🚨</b></h2>
+                    <h4>Exchange Space Management Portal (Admin)</h4>
+                    <br>
 
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_yN8pO6.json"
+                        background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
+                        class="errorImage">
+                    </lottie-player>
+
+
+
+
+
+                </form>
             </div>
             <div class="col-lg-2"></div>
         </div>

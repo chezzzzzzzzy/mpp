@@ -29,6 +29,8 @@ session_start();
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
+
+
     <title>Admin | ESM</title>
 </head>
 
@@ -69,19 +71,16 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
                         alt="singtelLogo.png" class="loginLogo">
-                    <h2><b>Login</b></h2>
+                    <h2><b>Please Login First 🚨</b></h2>
                     <h4>Exchange Space Management Portal (Admin)</h4>
                     <br>
 
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_yN8pO6.json"
+                        background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
+                        class="errorImage">
+                    </lottie-player>
 
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    <br>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    <br>
-                    <!-- <button type="submit" class="btn btn-primary ordinalButton">Login</button> -->
-                    <button type="submit" class="btn btn-primary boxButton">Login</button>
-
-                    <!-- <a href="#">Forgot your password?</a> -->
 
 
 
