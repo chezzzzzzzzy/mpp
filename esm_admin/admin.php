@@ -55,7 +55,7 @@
         // echo "Logged in already" . $_SESSION['email'];
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -81,7 +81,8 @@
             </span>
         </div>
     </nav>
-    <div class="container">
+
+    <div class="container-fluid">
 
 
         <div class="row">
@@ -90,132 +91,172 @@
 
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">All Requests</h1>
-                <h5 class="centerAlign x1">Submitted requests from users</h5>
+                <h5 class="centerAlign x1">Submitted requests from requestors</h5>
             </div>
             <div class="col-lg-3"></div>
 
-
-        </div>
-
-
-        <div class="row">
-
-
-            <div class="col-lg-3"></div>
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="fdfRequests.php"><button class="selectorButton3">FDF</button></a>
-                <p class="centerAlign2"></p>
-            </div>
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="cableTrayRequests.php"><button class="selectorButton3">Cable Tray</button></a>
-                <p class="centerAlign2"></p>
-            </div>
-
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="generalRequests.php"><button class="selectorButton3">General</button></a>
-                <p class="centerAlign2"></p>
-            </div>
-
-
-            <div class="col-lg-3"></div>
-
-
-
-
-
-            <div class="col-lg-3 "></div>
-
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="spaceInfo.php"><button class="selectorButton3">Space</button></a>
-                <p class="centerAlign2">For new spaces</p>
-            </div>
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="powerRequests.php"><button class="selectorButton3">Power</button></a>
-                <p class="centerAlign2">For additional power</p>
-            </div>
-
-            <div class="col-lg-2 col-sm-4">
-                <a href="ssuRequests.php"><button class="selectorButton3">SSU</button></a>
-                <p class="centerAlign2"></p>
-            </div>
-
-            <div class="col-lg-3"></div>
 
         </div>
 
         <div class="row">
-            <div class="col-lg-3"></div>
 
-            <div class="col-lg-6">
-                <!-- <img src="server2.svg" id="serverImg"> -->
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets4.lottiefiles.com/datafiles/6WfDdm3ooQTEs1L/data.json" mode="bounce"
-                    background="transparent" speed="1" style="width: 500px; height: 500px; margin-bottom: -60px;" loop
-                    autoplay>
-                </lottie-player>
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Space Requests</b></h4>
+                        <p class="">For new spaces</p>
+                        <a href="spaceInfo.php"><button class="selectorButtonFullWidth">Space Requests</button></a>
 
-
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3"></div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Power Requests</b></h4>
+                        <p class="">For additional power</p>
+                        <a href="powerRequests.php"><button class="selectorButtonFullWidth">Power Requests</button></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>FDF Requests</b></h4>
+                        <p class="">Fibre Distribution Frame</p>
+                        <a href="fdfRequests.php"><button class="selectorButtonFullWidth">FDF Requests</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>SSU Requests</b></h4>
+                        <p class="">Signal Synchronous Unit</p>
+                        <a href="ssuRequests.php"><button class="selectorButtonFullWidth">SSU Requests</button></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Cable Tray Requests</b></h4>
+                        <p class="">Cable Tray</p>
+                        <a href="cableTrayRequests.php"><button class="selectorButtonFullWidth">Cable Tray
+                                Requests</button></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>General Requests</b></h4>
+                        <p class="">General</p>
+                        <a href="generalRequests.php"><button class="selectorButtonFullWidth">General
+                                Requests</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>MMR Requests</b></h4>
+                        <p class="">For other departments </p>
+                        <a href="generalRequests.php"><button class="selectorButtonFullWidth">MMR
+                                Requests</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div hidden class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Access Requests</b></h4>
+                        <p class="">Perimeter and room access </p>
+                        <a href="accessRequests.php"><button class="selectorButtonFullWidth">Access
+                                Requests</button></a>
+                    </div>
+                </div>
+            </div>
+
+            
+
+           
+
+
+
+
+
+
 
 
         </div>
-    </div>
 
 
 
-    <?php } else {
+
+
+
+
+        <?php } else {
         // echo "Please login.";
 
         ?>
 
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
-
-
-
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 authForm">
-                <form action="authVerification.php" method="POST" id="authForm">
-
-
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                        alt="singtelLogo.png" class="loginLogo">
-                    <h2><b>Please Login First 🚨</b></h2>
-                    <h4>Exchange Space Management Portal (Admin)</h4>
-                    <br>
-
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_yN8pO6.json"
-                        background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
-                        class="errorImage">
-                    </lottie-player>
+            <div class="row">
 
 
 
-
-
-                </form>
             </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 authForm">
+                    <form action="authVerification.php" method="POST" id="authForm">
 
-    <?php
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                            alt="singtelLogo.png" class="loginLogo">
+                        <h2><b>Please Login First 🚨</b></h2>
+                        <h4>Exchange Space Management Portal (Admin)</h4>
+                        <br>
+
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+                        </script>
+                        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_yN8pO6.json"
+                            background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
+                            class="errorImage">
+                        </lottie-player>
+
+
+
+
+
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <?php
     }
     ?>
 
-    <br>
-    <br>
-    <br>
+        <br>
+        <br>
+        <br>
 
 </body>
 

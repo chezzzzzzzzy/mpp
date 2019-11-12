@@ -20,6 +20,8 @@ $requestorEmail = $_POST['requestorEmail'];
 $requestorDepartment = $_POST['requestorDepartment'];
 $requestorReason= $_POST['requestorReason'];
 $powerType = $_POST['powerType'];
+$rackType = $_POST['rackType'];
+
 $room = $_POST['room'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
@@ -67,8 +69,8 @@ $powerConsumption5 = $_POST['powerConsumption5'];
 
 
 // insert into table
-$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4,rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
+$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, rackType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4,rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$rackType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
 
 
 // insert into table
@@ -133,6 +135,9 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
 
 
 
@@ -144,19 +149,21 @@ if (mysqli_query($conn, $sql)) {
     </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
+
 
         <div class="row">
-
-            <div class="col-lg-3"></div>
-
             <div class="col-lg-12">
-                <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
-                <h5 class="centerAlign x0">Your request has been submitted</h5>
-                <br>
-                <br>
-                <h4 class="centerAlign x0">Here's your ticket number: <br></h4>
-                <h2 class="centerAlign x0"><b>
+                <h1 class=" topSpaceLarge">Request Successful</h1>
+                <h5 class=" x0">Your request has been submitted</h5>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h2 class=" x0"><b>
 
                         <?php
                     $sql2 = "SELECT * FROM spaceRequests ORDER BY requestId DESC LIMIT 1";
@@ -166,6 +173,11 @@ if (mysqli_query($conn, $sql)) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo $row["requestId"];
+                            echo "<br>";
+                            echo "<br>";
+                            
+
+                            echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
                         }
                     } else {
                         echo "0 results";
@@ -173,16 +185,24 @@ if (mysqli_query($conn, $sql)) {
                 ?>
                     </b></h2>
 
+                <br>
+
+                <h2 class=" x0"><b>Expected Acknowlegdment Date: 
+
+                <?php
+
+                    echo date('Y-m-d', strtotime(' + 3 days'));
+
+                ?>
 
 
-
+                </b></h2>
 
 
             </div>
-            <div class="col-lg-3"></div>
-
-
         </div>
+
+
 
 
         <br>
@@ -195,4 +215,3 @@ if (mysqli_query($conn, $sql)) {
 </body>
 
 </html>
-

@@ -1,8 +1,6 @@
 <?php 
     session_start();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,11 +31,10 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -53,6 +50,10 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management
@@ -62,14 +63,14 @@
 
 
 
-    <div class="container">
+    <div class="container-fluid">
 
 
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="centerAlign topSpaceLarge">Status Check</h1>
-                <h5 class="centerAlign x0">Check on the status of your request</h5>
+                <h1 class=" topSpaceLarge">Status Check</h1>
+                <h5 class=" x0">Check on the status of your request</h5>
             </div>
 
           
@@ -77,12 +78,15 @@
 
         <form action="" method="POST">
             <div class="row">
-                <div class="col-lg-10 col-sm-8">
-                <input type="text" class="form-control" id="ticketNumber" placeholder="Enter ticket number" name="ticketNumber" method="post">
+
+                <div class="col-lg-6 col-xs-12">
+                <input type="text" class="form-control" id="ticketNumber" placeholder="Enter Request ID" name="ticketNumber" method="post">
                 </div>
-                <div class="col-lg-2 col-sm-4">
-                    <button type="submit" class="btn  selectorButton2" method="post">Check</button>
+           
+                <div class="col-lg-3 col-xs-12">
+                    <button type="submit" class="btn statusCheckButton" method="post">Check</button>
                 </div>
+
                 <div class="col-lg-12 topSpaceMid"></div>
                 <?php        
                     require 'fdfFormStatus.php'; // fdfRequestStatus

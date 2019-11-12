@@ -35,7 +35,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -55,8 +55,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
             </ul>
-            <span class="navbar-text ml-auto">
+            <span class="navbar-text ml-auto ">
                 Exchange Space Management
             </span>
         </div>
@@ -65,18 +69,16 @@
     <!-- <img src="test.png" class="test"> -->
 
 
-    <div class="container">
+    <div class="container-fluid">
 
 
         <div class="row">
 
-            <div class="col-lg-3"></div>
 
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">Request Type</h1>
                 <h5 class="centerAlign x0">All the forms you need to request for resources</h5>
             </div>
-            <div class="col-lg-3"></div>
 
 
         </div>
@@ -84,37 +86,57 @@
 
         <div class="row">
 
-            <div class="col-lg-3 col-sm-1"></div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Space</b></h4>
+                        <p class="">For new spaces</p>
+                        <a href="spaceForm.php"><button class="selectorButtonFullWidth">Space Form</button></a>
 
-            <div class="col-lg-2 col-sm-3">
-                <a href="spaceForm.php"><button class="selectorButton2">Space</button></a>
-                <p class="centerAlign2">For new spaces</p>
-            </div>
-
-            <div class="col-lg-2 col-sm-3">
-                <a href="powerForm.php"><button class="selectorButton2">Power</button></a>
-                <p class="centerAlign2">For additional power</p>
-
-            </div>
-
-
-            <div class="col-lg-2 col-sm-3">
-                <!-- <a href="othersForm.php"><button class="selectorButton">Others</button></a> -->
-
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle selectorButton2" type="button" data-toggle="dropdown">More
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <a href="fdfForm.php"><button class="selectorButton3">FDF</button></a>
-                        <a href="ssuForm.php"><button class="selectorButton3">SSU</button></a>
-                        <a href="cableTrayForm.php"><button class="selectorButton3">Cable Tray</button></a>
-                        <a href="generalForm.php"><button class="selectorButton3">Others</button></a>
-
-
-                    </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-1"></div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Power</b></h4>
+                        <p class="">For additional power</p>
+                        <a href="powerForm.php"><button class="selectorButtonFullWidth">Power Form</button></a>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-4 col-sm-12">
+                <!-- <a href="othersForm.php"><button class="selectorButton">Others</button></a> -->
+
+
+
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Others</b></h4>
+                        <p class="">For Cable Tray, SSU, FDF, Others</p>
+
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle selectorButtonFullWidth" type="button"
+                                data-toggle="dropdown">More
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <a href="fdfForm.php"><button class="selectorButton3">FDF</button></a>
+                                <a href="ssuForm.php"><button class="selectorButton3">SSU</button></a>
+                                <a href="cableTrayForm.php"><button class="selectorButton3">Cable Tray</button></a>
+                                <a href="generalForm.php"><button class="selectorButton3">General</button></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
         </div>
@@ -133,7 +155,7 @@
     <br>
     <br>
     <br>
-    <footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer>
+    <!-- <footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer> -->
 
 
 </body>

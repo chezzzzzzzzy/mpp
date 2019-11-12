@@ -61,6 +61,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="guide.php">Guide</a>
+                </li>
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management

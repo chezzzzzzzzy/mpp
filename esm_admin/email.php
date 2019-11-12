@@ -1,447 +1,796 @@
 <?php
+require('connection.php');
+
 $to = "somebody@example.com, somebodyelse@example.com";
-$subject = "HTML email";
+$subject = "ESM App (Beta v2.4)";
+
+
+$temp = $_GET['ticketNumber']; 
+$sqlGetEmail = "SELECT requestorEmail FROM spaceRequests where requestId = $temp";
+$emailResult =  mysqli_query($conn, $sqlGetEmail);
 
 $message = "
 <html>
 
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale='1.0'>
+<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+<!-- cdn -->
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+    integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
+    integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'>
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+    integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
+</script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+    integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
+</script>
+
 <head>
     <meta name='viewport' content='width=device-width' />
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <title>ESM Confirmation</title>
+    <title>ESM App (Beta v2.4)</title>
     <style>
-        /* -------------------------------------
-      GLOBAL RESETS
-  ------------------------------------- */
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-        /*All the styling goes here*/
 
-        * {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
+    }
 
-        img {
-            border: none;
-            -ms-interpolation-mode: bicubic;
-            max-width: 100%;
-        }
+    html {
+        zoom: 80%;
+        color: black;
 
-        body {
-            background-color: #f6f6f6;
-            -webkit-font-smoothing: antialiased;
-            font-size: 14px;
-            line-height: 1.4;
-            margin: 0;
-            padding: 0;
-            -ms-text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%;
-        }
+    }
 
-        table {
-            border-collapse: separate;
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-            width: 100%;
-        }
 
-        table td {
-            font-size: 14px;
-            vertical-align: top;
-        }
 
-        /* -------------------------------------
-      BODY & CONTAINER
-  ------------------------------------- */
-        .body {
-            background-color: #f6f6f6;
-            width: 100%;
-        }
+    .container-fluid {
+        max-width: 80%;
 
-        /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
-        .container {
-            display: block;
-            margin: 0 auto !important;
-            /* makes it centered */
-            max-width: 580px;
-            padding: 10px;
-            width: 580px;
-        }
+    }
 
-        /* This should also be a block element, so that it will fill 100% of the .container */
-        .content {
-            box-sizing: border-box;
-            display: block;
-            margin: 0 auto;
-            max-width: 580px;
-            padding: 10px;
-        }
+    .fluid2 {
+        max-width: 80%;
+    }
 
-        /* -------------------------------------
-      HEADER, FOOTER, MAIN
-  ------------------------------------- */
-        .main {
-            background: #ffffff;
-            border-radius: 3px;
-            width: 100%;
-        }
 
-        .wrapper {
-            box-sizing: border-box;
-            padding: 20px;
-        }
+    body {
+        background-color: rgb(249, 249, 252);
 
-        .content-block {
-            padding-bottom: 10px;
-            padding-top: 10px;
-        }
+    }
 
-        .footer {
-            clear: both;
-            margin-top: 10px;
-            text-align: center;
-            width: 100%;
-        }
 
-        .footer td,
-        .footer p,
-        .footer span,
-        .footer a {
-            color: #999999;
-            font-size: 12px;
-            text-align: center;
-        }
+    .logo img {
+        width: 10%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-        /* -------------------------------------
-      TYPOGRAPHY
-  ------------------------------------- */
-        h1,
-        h2,
-        h3,
-        h4 {
-            color: #000000;
-            font-weight: 400;
-            line-height: 1.4;
-            margin: 0;
-            margin-bottom: 30px;
-        }
 
-        h1 {
-            font-size: 35px;
-            font-weight: 300;
-            text-align: center;
-            text-transform: capitalize;
-        }
+    .heading {
+        text-align: center;
+        display: inline-block;
+    }
 
-        p,
-        ul,
-        ol {
-            font-size: 14px;
-            font-weight: normal;
-            margin: 0;
-            margin-bottom: 15px;
-        }
 
-        p li,
-        ul li,
-        ol li {
-            list-style-position: inside;
-            margin-left: 5px;
-        }
+    .authTitle h3 {
+        /* text-align: center; */
+        padding-top: 20px;
+    }
 
-        a {
-            color: #3498db;
-            text-decoration: underline;
-        }
+    .authLogo img {
+        max-width: 100px;
+        margin-top: 5px;
+        margin-bottom: 5px;
 
-        /* -------------------------------------
-      BUTTONS
-  ------------------------------------- */
-        .btn {
-            box-sizing: border-box;
-            width: 100%;
-        }
+        margin-left: 10px;
+    }
 
-        .btn>tbody>tr>td {
-            padding-bottom: 15px;
-        }
+    .authForm {
+        margin-top: 250px;
+        /* background-color: rgb(247, 247, 247); */
+        border: none;
+        border-radius: 6px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 50px;
 
-        .btn table {
-            width: auto;
-        }
 
-        .btn table td {
-            background-color: #ffffff;
-            border-radius: 5px;
-            text-align: center;
-        }
+    }
 
-        .btn a {
-            background-color: #ffffff;
-            border: solid 1px #3498db;
-            border-radius: 5px;
-            box-sizing: border-box;
-            color: #3498db;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 0;
-            padding: 12px 25px;
-            text-decoration: none;
-            text-transform: capitalize;
-        }
+    .boundingBox2 {
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        margin-top: 30px;
 
-        .btn-primary table td {
-            background-color: #3498db;
-        }
 
-        .btn-primary a {
-            background-color: #3498db;
-            border-color: #3498db;
-            color: #ffffff;
-        }
+    }
 
-        /* -------------------------------------
-      OTHER STYLES THAT MIGHT BE USEFUL
-  ------------------------------------- */
-        .last {
-            margin-bottom: 0;
-        }
 
-        .first {
-            margin-top: 0;
-        }
+    .statusBoundingBox {
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        margin-top: 20px;
+        min-height: 150px;
 
-        .align-center {
-            text-align: center;
-        }
 
-        .align-right {
-            text-align: right;
-        }
+    }
 
-        .align-left {
-            text-align: left;
-        }
 
-        .clear {
-            clear: both;
-        }
 
-        .mt0 {
-            margin-top: 0;
-        }
 
-        .mb0 {
-            margin-bottom: 0;
-        }
+    .warningBoundingBox {
+        background-color: #da37450b;
+        border-radius: 4px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        color: #da3744;
 
-        .preheader {
-            color: transparent;
-            display: none;
-            height: 0;
-            max-height: 0;
-            max-width: 0;
-            opacity: 0;
-            overflow: hidden;
-            mso-hide: all;
-            visibility: hidden;
-            width: 0;
-        }
+        font-weight: bold;
+    }
 
-        .powered-by a {
-            text-decoration: none;
-        }
 
-        hr {
-            border: 0;
-            border-bottom: 1px solid #f6f6f6;
-            margin: 20px 0;
-        }
 
-        /* -------------------------------------
-      RESPONSIVE AND MOBILE FRIENDLY STYLES
-  ------------------------------------- */
-        @media only screen and (max-width: 620px) {
-            table[class=body] h1 {
-                font-size: 28px !important;
-                margin-bottom: 10px !important;
-            }
 
-            table[class=body] p,
-            table[class=body] ul,
-            table[class=body] ol,
-            table[class=body] td,
-            table[class=body] span,
-            table[class=body] a {
-                font-size: 16px !important;
-            }
+    .normalBoundingBox {
+        background-color: rgba(29, 201, 183, .1);
+        border-radius: 4px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        color: #1dc9b7;
 
-            table[class=body] .wrapper,
-            table[class=body] .article {
-                padding: 10px !important;
-            }
+        font-weight: bold;
+    }
 
-            table[class=body] .content {
-                padding: 0 !important;
-            }
+    .infoBoundingBox {
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+        box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        margin-top: 50px;
+        margin-bottom: 50px;
 
-            table[class=body] .container {
-                padding: 0 !important;
-                width: 100% !important;
-            }
 
-            table[class=body] .main {
-                border-left-width: 0 !important;
-                border-radius: 0 !important;
-                border-right-width: 0 !important;
-            }
 
-            table[class=body] .btn table {
-                width: 100% !important;
-            }
+    }
 
-            table[class=body] .btn a {
-                width: 100% !important;
-            }
+    .tableBoundingBox {
+        background-color: rgb(255, 255, 255);
+        border-radius: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        margin-top: 30px;
 
-            table[class=body] .img-responsive {
-                height: auto !important;
-                max-width: 100% !important;
-                width: auto !important;
-            }
-        }
 
-        /* -------------------------------------
-      PRESERVE THESE STYLES IN THE HEAD
-  ------------------------------------- */
-        @media all {
-            .ExternalClass {
-                width: 100%;
-            }
+    }
 
-            .ExternalClass,
-            .ExternalClass p,
-            .ExternalClass span,
-            .ExternalClass font,
-            .ExternalClass td,
-            .ExternalClass div {
-                line-height: 100%;
-            }
+    .table thead tr th {
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+    }
 
-            .apple-link a {
-                color: inherit !important;
-                font-family: inherit !important;
-                font-size: inherit !important;
-                font-weight: inherit !important;
-                line-height: inherit !important;
-                text-decoration: none !important;
-            }
 
-            #MessageViewBody a {
-                color: inherit;
-                text-decoration: none;
-                font-size: inherit;
-                font-family: inherit;
-                font-weight: inherit;
-                line-height: inherit;
-            }
 
-            .btn-primary table td:hover {
-                background-color: #34495e !important;
-            }
+    input {
+        margin-bottom: 15px;
+    }
 
-            .btn-primary a:hover {
-                background-color: #34495e !important;
-                border-color: #34495e !important;
-            }
-        }
-    </style>
+
+
+    .selectorButtonFullWidth {
+        border-radius: 6px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        color: #ffffff;
+        background-color: #da3744;
+        font-weight: bold;
+        border: #da3744 2px solid;
+
+    }
+
+
+    .mlSmall {
+        margin-left: 20px;
+    }
+
+    .pdMed {
+        padding-left: 20px;
+    }
+
+    .mrSmall {
+        margin-right: 20px;
+    }
+
+    .mbSmall {
+        margin-bottom: 20px;
+    }
+
+    .mlExtraSmall {
+        margin-left: 15px;
+
+    }
+
+
+
+
+    nav {
+        background-color: white;
+        box-shadow: 0 0 40px 0 rgba(82, 63, 105, .1);
+
+    }
+
+
+    .navbar-text {
+        font-size: 26px;
+        color: #da3744;
+        font-weight: bold;
+        text-align: right;
+
+
+
+    }
+
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .show>.nav-link {
+        color: #da3744;
+
+    }
+
+
+
+
+    .nav-item.active {
+        background-color: #da37450b;
+
+    }
+
+    .nav-item {
+        font-weight: 600;
+
+        border-radius: 4px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .navbar-light .navbar-text {
+        color: rgb(0, 0, 0);
+
+    }
+
+
+    footer {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 40px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+
+    h1 {
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 50px;
+    }
+
+
+
+    .statusInfoKey {
+        margin-bottom: -2px;
+    }
+
+    .statusInfoValue {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    .form-control-file {
+        color: black;
+    }
+
+    .requiredField {
+        color: red;
+
+    }
+
+
+    .topSpace {
+        margin-top: 50px;
+    }
+
+
+    .topSpaceLow {
+        margin-top: 25px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+
+    #authForm {}
+
+
+    #authForm input {
+        padding: 30px;
+        border: 0px solid #ccc;
+        background-color: rgb(242, 242, 242);
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+
+    }
+
+
+    #authForm input:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        /* border: 1px solid #da3744; */
+        outline-width: 0;
+        transition: All 0.5s ease-in;
+        -webkit-transition: All 0.5s ease-in;
+        -moz-transition: All 0.5s ease-in;
+        -o-transition: All 0.5s ease-in;
+    }
+
+    .ordinalButton {
+        background-color: transparent;
+        font-weight: 500;
+        border: #da3744 2px solid;
+        width: 120px;
+        border-radius: 500px;
+        color: #da3744;
+        float: right;
+    }
+
+    .ordinalButton:hover {
+        background-color: #da3744;
+        border: #da3744 2px solid;
+        border-radius: 500px;
+
+    }
+
+    .ordinalButton:focus {
+        background-color: white;
+        border: #da3744 2px solid;
+        color: #da3744;
+    }
+
+
+
+    .centerAlign {
+        text-align: center;
+    }
+
+
+    .topSpaceMid {
+        margin-top: 50px;
+    }
+
+    .topSpace {
+        margin-top: 50px;
+    }
+
+
+    .topSpaceLow {
+        margin-top: 25px;
+    }
+
+    .topSpaceLarge {
+        margin-top: 150px;
+    }
+
+    .x1 {
+        margin-top: -30px;
+        margin-bottom: 50px;
+    }
+
+    .centerAlign2 {
+        text-align: center;
+        margin-left: 25px;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+
+    .ordinalButton {
+        /* background-color: black; */
+        background-color: transparent;
+        font-weight: 500;
+        border: #da3744 2px solid;
+        width: 120px;
+        border-radius: 500px;
+        color: #da3744;
+    }
+
+    .ordinalButton:hover {
+        background-color: #da3744;
+        border: #da3744 2px solid;
+        border-radius: 500px;
+
+    }
+
+    .selectorButton {
+        border-radius: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 180px;
+        color: #da3744;
+        font-weight: bold;
+        border: #da3744 2px solid;
+
+    }
+
+    .selectorButton:hover {
+        background-color: #da3744;
+        border: #da3744 2px solid;
+        border-radius: 500px;
+        color: white;
+    }
+
+    .selectorButton a {
+        color: #da3744;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #da3744;
+    }
+
+
+
+    #serverImg {
+        max-width: 15%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+
+
+    .dropdown-menu a button {
+        margin-top: 10px;
+    }
+
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: rgb(255, 255, 255);
+        background-clip: padding-box;
+        /* border: 1px solid #000000; */
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+
+
+    .boxButton {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #da3744;
+        border: none;
+        font-weight: bold;
+        float: center;
+        border-radius: 5px;
+        width: 100%;
+
+    }
+
+
+    .boxButton:hover {
+        background-color: #da3744;
+        border: none;
+    }
+
+
+    .boxButton:focus {
+        background-color: #da3744;
+        border: none;
+    }
+
+
+    .boxButton:active {
+        background-color: #da3744;
+        border: none;
+    }
+
+
+    .loginLogo {
+        max-width: 20%;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .selectorButton3 {
+        border-radius: 6px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 180px;
+        color: #ffffff;
+        background-color: #da3744;
+        font-weight: bold;
+        border: #da3744 2px solid;
+
+    }
+
+    .selectorButton3:hover {
+        background-color: #da3744;
+        border: #da3744 2px solid;
+        border-radius: 6px;
+        color: white;
+    }
+
+
+
+    .readInfoButton {
+        border-radius: 6px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100px;
+
+        color: #591df1;
+        background-color: rgba(89, 29, 241, .1);
+
+
+
+        margin-left: 5px;
+        margin-right: 5px;
+        font-weight: bold;
+
+    }
+
+
+    .updateInfoButton {
+        border-radius: 6px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100px;
+
+        color: #1dc9b7;
+        background-color: rgba(29, 201, 183, .1);
+
+
+        font-weight: bold;
+
+    }
+
+
+    .deleteInfoButton {
+        border-radius: 6px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100px;
+        color: #fd27eb;
+        background-color: rgba(253, 39, 235, .1);
+
+        font-weight: bold;
+
+    }
+
+    .form-control {
+        height: 60px;
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #000000;
+        background-color: rgb(249, 249, 252);
+        background-clip: padding-box;
+        border: 0px solid #ced4da;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    .form-control:disabled,
+    .form-control[readonly] {
+        background-color: rgb(249, 249, 252);
+        opacity: 1;
+    }
+
+    .table td,
+    .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid rgb(242, 242, 242);
+
+    }
+
+
+
+    .footerLogo {
+        width: 8%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 60px;
+    }
+
+    .x {
+        /* margin-left: 100px; */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+
+    }
+
+    .errorImage {
+        margin-left: -50px;
+        margin-right: -50px;
+
+    }
+
+    /* .ct-series .ct-slice-donut {
+stroke-width: 5px !important;
+stroke-linecap: round;
+} 
+*/
+
+
+    .ct-series .ct-slice-pie {
+        /* fill of the pie slieces */
+        fill: hsl(120, 40%, 60%);
+        /* give your pie slices some outline or separate them visually by using the background color here */
+        stroke: white;
+        /* outline width */
+        stroke-width: 4px;
+    }
+
+
+    .ct-square {
+        max-width: 70%;
+        max-height: 70%;
+        margin-left: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        margin-right: auto;
+
+    }
+
+    .ct-series-b .ct-bar,
+    .ct-series-b .ct-line,
+    .ct-series-b .ct-point,
+    .ct-series-b .ct-slice-donut {
+        stroke: #4f82f0;
+    }
+
+
+
+    .authLogo2 img {
+        margin-top: 100px;
+        max-width: 100px;
+        margin-bottom: 10px;
+
+
+    }
+</style>
 </head>
+<div class='container-fluid'>
 
-<body class=''>
-    <span class='preheader'>This is preheader text. Some clients will show this text as a preview.</span>
-    <table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'>
-        <tr>
-            <td>&nbsp;</td>
-            <td class='container'>
-                <div class='content'>
 
-                    <!-- START CENTERED WHITE CONTAINER -->
-                    <table role='presentation' class='main'>
+<div class='row'>
 
-                        <!-- START MAIN CONTENT AREA -->
-                        <tr>
-                            <td class='wrapper'>
-                                <table role='presentation' border='0' cellpadding='0' cellspacing='0'>
-                                    <tr>
-                                        <td>
-                                            <p>Hi there,</p>
-                                            <p>We have received your request.</p>
-                                            <table role='presentation' border='0' cellpadding='0' cellspacing='0'
-                                                class='tn btn-primary'>
-                                                <tbody>
-                                                    <tr>
-                                                        <td align='left'>
-                                                            <table role='presentation' border='0' cellpadding='0'
-                                                                cellspacing='0'>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <!-- <td> <a href='http://htmlemail.io'
-                                                                                target='_blank'>Call To Action</a> </td> -->
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                           
-                                            <p>Your ticket number is as follows:</p>
-                                            <h2><b>PW20191011002</b></h2>
+    <div class='col-lg-12'>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
 
-                        <!-- END MAIN CONTENT AREA -->
-                    </table>
-                    <!-- END CENTERED WHITE CONTAINER -->
 
-                    <!-- START FOOTER -->
-                    <div class='footer'>
-                        <table role='presentation' border='0' cellpadding=0' cellspacing='0'>
-                            <tr>
-                                <td class='content-block'>
-                                    <span class='apple-link'>Singtel | Fixed Network Strategy and Evolution</span>
-                            </tr>
-                            <tr>
 
-                            </tr>
-                        </table>
+
+        <table cellspacing='0'width='100%''>
+            <tr>
+                <td width='100'>
+                    <div>
+                        <img style='margin: 0; border: 0; padding: 0; display: block; margin-left: 0px; margin-top: 100px'
+                            width='100' height=55'
+                            src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png'
+                            alt='./assets/singtelLogo.png'>
                     </div>
-                    <!-- END FOOTER -->
+                </td>
+                <td></td>
 
-                </div>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
-</body>
+
+                <td></td>
+            </tr>
+        </table>
+
+
+        <br>
+        <h2><b>Exchange Space Management App</b></h2>
+    </div>
+
+
+    <div class='col-lg-12'>
+        <h5 class='topSpaceMid'><b>Hello there,</b></h5>
+        <br>
+        <h5>We have received your request.
+            Your ticket number is as follows:
+        </h5>
+        <br>
+        <h3><b>" .
+
+        $emailResult
+        
+        .  "</b></h3>
+
+        <h5 class='topSpaceMid'><b>Best Regards,</b></h5>
+        <h5><b>System Administrator</b></h5>
+
+    </div>
+
+    <br>
+    <br>
+
+
+</div>
 
 
 </html>
+
 ";
+
+echo $message;
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <webmaster@example.com>' . "\r\n";
-$headers .= 'Cc: myboss@example.com' . "\r\n";
+$headers .= 'From: <chester.yee@singtel.com>' . "\r\n";
+$headers .= 'Cc: jialong.leong@singtel.com' . "\r\n";
 
 mail($to,$subject,$message,$headers);
 ?>

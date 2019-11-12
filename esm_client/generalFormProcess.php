@@ -81,6 +81,9 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
 
 
 
@@ -92,35 +95,22 @@ if (mysqli_query($conn, $sql)) {
     </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
+
 
         <div class="row">
-
-            <div class="col-lg-3"></div>
-
             <div class="col-lg-12">
                 <h1 class=" topSpaceLarge">Request Successful</h1>
-                <h5 class=" x1">Your request has been successfully submitted</h5>
-                <br>
+                <h5 class=" x0">Your request has been submitted</h5>
+            </div>
+        </div>
 
-                <h5> Hello
-                    <?php
-                    $sql3 = "SELECT * FROM generalRequests ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($conn, $sql3);
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["requestorName"];
-                        }
-                    } else {
-                        echo "0 results";
-                    }   
-                ?>,
-                </h5>
-                <br>
-                <br>
-                <h5 class="x1">Here is your Request ID: </h5>
-                <h2 class="x1"><b>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h2 class=" x0"><b>
+
                         <?php
                     $sql2 = "SELECT * FROM generalRequests ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
@@ -129,41 +119,36 @@ if (mysqli_query($conn, $sql)) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo $row["id"];
+                            echo "<br>";
+                            echo "<br>";
+                            
+
+                            echo "<h5>Pleaese check your email (" . $row['email'] . ") for more information</h5>";
                         }
                     } else {
                         echo "0 results";
-                    }   
-                    
-                
+                    }                
                 ?>
                     </b></h2>
 
                 <br>
 
-                <h5 class="x1">Please check your email (<?php
-                    $sql2 = "SELECT * FROM generalRequests ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($conn, $sql2);
+                <h2 class=" x0"><b>Expected Acknowlegdment Date: 
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["requestorEmail"];
-                        }
-                    } else {
-                        echo "0 results";
-                    }   
-                ?>) for the confirmation of request</h5>
+                <?php
+
+                    echo date('Y-m-d', strtotime(' + 3 days'));
+
+                ?>
 
 
-                <!-- <a href="status.php" target="_blank"> <button class="btn  selectorButton2" method="post">Status
-                        Check</button></a> -->
+                </b></h2>
 
 
             </div>
-            <div class="col-lg-3"></div>
-
-
         </div>
+
+
 
 
         <br>

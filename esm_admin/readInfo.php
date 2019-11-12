@@ -44,30 +44,7 @@
     <link rel="stylesheet" href="main.css">
 
     <style>
-    .container {
-        margin-left: 30px;
-        margin-right: auto;
-    }
 
-
-
-    @media screen and (max-width: 2560px) {
-        .table {
-            width: 180%;
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .table {
-            width: 250%;
-        }
-    }
-
-    @media screen and (min-width: 3000px) {
-        .table {
-            width: 280%;
-        }
-    }
     </style>
 
 
@@ -123,73 +100,95 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid fluid2">
 
         <h1>View Request</h1>
 
+        <div class="row">
 
-        <div class="col-lg-12">
+            <div class="col-lg-12">
 
+                <div class="infoBoundingBox">
 
-            <div class="form-horizontal">
-                <div class="control-group">
+                    <div class="form-horizontal">
+                        <div class="control-group">
 
-                    <label for="startDate">Request ID<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['requestId'];?>">
+                            <label for="startDate">Request ID<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text" value="<?php echo $data['requestId'];?>">
 
-                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorName'];?>">
-
-                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorEmail'];?>">
-
-                    <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['requestorReason'];?>">
-
-                    <label for="startDate">Exchange<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['exchange'];?>">
-
-                    <label for="startDate">Room<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['room'];?>">
-
-                    <br>
-                    <label for="startDate">Rack 1</label>
-                    <br>
-
-                    <label for="startDate">Length (Size)<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['rackSizeLength1'];?>">
-
-                    <label for="startDate">Length (Breadth)<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['rackSizeBreadth1'];?>">
+                            <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['requestorName'];?>">
 
 
-                    <label for="startDate">Breaker Size<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['breakerSize1'];?>">
+                            <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['requestorEmail'];?>">
 
-                    <label for="startDate">Breaker Quantity<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['breakerQuantity1'];?>">
-                    
-                    <label for="startDate">Rack Location<span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['rackLocation1'];?>">
-
-                    <label for="startDate">Sub PDU <span class="requiredField">*</span></label>
-                    <input readonly class="form-control" type="text" value="<?php echo $data['subPdu1'];?>">
+                            <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['requestorReason'];?>">
 
 
+                            <label for="startDate">Exchange<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text" value="<?php echo $data['exchange'];?>">
+
+                            <label for="startDate">Room<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text" value="<?php echo $data['room'];?>">
+
+                            <br>
+                            <label for="startDate">Rack 1</label>
+                            <br>
+
+                            <label for="startDate">Length (Size)<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['rackSizeLength1'];?>">
+
+                            <label for="startDate">Length (Breadth)<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['rackSizeBreadth1'];?>">
+
+
+                            <label for="startDate">Breaker Size<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['breakerSize1'];?>">
+
+                            <label for="startDate">Breaker Quantity<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['breakerQuantity1'];?>">
+
+                            <label for="startDate">Rack Location<span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text"
+                                value="<?php echo $data['rackLocation1'];?>">
+
+                            <label for="startDate">Sub PDU <span class="requiredField">*</span></label>
+                            <input readonly class="form-control" type="text" value="<?php echo $data['subPdu1'];?>">
 
 
 
 
 
+
+
+                        </div>
+
+                        <div class="form-actions">
+                            <a class="btn" href="spaceInfo.php">Back</a>
+                        </div>
+
+
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <a class="btn" href="spaceInfo.php">Back</a>
-                </div>
 
 
             </div>
+
+
+
         </div>
+
+
 
     </div> <!-- /container -->
 </body>

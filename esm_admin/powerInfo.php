@@ -301,11 +301,11 @@
 
 
                                         echo '<td width=350>';
-                                        echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
+                                        echo '<a class="btn updateInfoButton" href="updateInfo.php?id='.$row['id'].'">Update</a>';
                                         echo ' ';
-                                        echo '<a class="btn readInfoButton" href="readInfo.php?requestId='.$row['requestId'].'">View</a>';
+                                        echo '<a class="btn readInfoButton" href="readInfo.php?id='.$row['id'].'">View</a>';
                                         echo ' ';
-                                        echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
+                                        echo '<a class="btn deleteInfoButton" href="deleteInfo.php?id='.$row['id'].'">Decline</a>';
                                         
                                         echo '</td>';
                                         echo '</tr>';

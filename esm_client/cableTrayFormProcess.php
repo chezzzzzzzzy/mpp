@@ -38,7 +38,6 @@ if (mysqli_query($conn, $sql)) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,8 +62,8 @@ if (mysqli_query($conn, $sql)) {
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>User | ESM</title>
 
+    <title>User | ESM</title>
 </head>
 
 <body>
@@ -88,6 +87,12 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
+
+
+
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management
@@ -96,19 +101,21 @@ if (mysqli_query($conn, $sql)) {
     </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
+
 
         <div class="row">
-
-            <div class="col-lg-3"></div>
-
             <div class="col-lg-12">
-                <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
-                <h5 class="centerAlign x1">Your request has been submitted</h5>
-                <br>
-                <br>
-                <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
-                <h2 class="centerAlign x1"><b>
+                <h1 class=" topSpaceLarge">Request Successful</h1>
+                <h5 class=" x0">Your request has been submitted</h5>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h2 class=" x0"><b>
 
                         <?php
                     $sql2 = "SELECT * FROM cableTrayRequests ORDER BY id DESC LIMIT 1";
@@ -118,15 +125,36 @@ if (mysqli_query($conn, $sql)) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo $row["id"];
+                            echo "<br>";
+                            echo "<br>";
+                            
+
+                            echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
                         }
                     } else {
                         echo "0 results";
                     }                
                 ?>
                     </b></h2>
+
+                <br>
+
+                <h2 class=" x0"><b>Expected Acknowlegdment Date: 
+
+                <?php
+
+                    echo date('Y-m-d', strtotime(' + 3 days'));
+
+                ?>
+
+
+                </b></h2>
+
+
             </div>
-            <div class="col-lg-3"></div>
         </div>
+
+
 
 
         <br>

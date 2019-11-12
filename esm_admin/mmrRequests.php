@@ -126,22 +126,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="spaceInfo.php">Space</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="powerRequests.php">Power</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="ssuRequests.php">SSU</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="fdfRequests.php">FDF</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="generalRequests.php">General</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="mmrRequests.php">MMR</a>
                     </li>
                 </ul>
@@ -156,14 +156,14 @@
         <div class="container-fluid fluid2">
 
 
-            <h1>Power Requests</h1>
+            <h1>MMR Requests</h1>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="boundingBox2">
                         <h4 class="mlSmall"><b>Total Request</b></h4>
                         <h2 class="mlSmall"><b>
                                 <?php
-                                    $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests";
+                                    $sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
                                     $query = mysqli_query($conn, $sqlGetTotalInProgress);
 
                                     $row = $query->fetch_object();
@@ -175,101 +175,7 @@
                 </div>
 
 
-                <div class="col-lg-8">
-                </div>
-
-
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Submitted</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='Submitted' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b></h2>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Acknowledged</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='Acknowledged' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b></h2>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>In Progress</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='In Progress' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                            </b></h2>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Assigned</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='Assigned' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b></h2>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Completed</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='Completed' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                            </b></h2>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Closed</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM powerRequests WHERE requestStatus='Closed' ";
-                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                            $row = $query->fetch_object();
-                            $classId = $row->count;
-                            echo $classId;
-                            ?>
-                        </b></h2>
-                    </div>
-                </div>
+             
 
 
                 <div class="col-lg-12">
@@ -290,10 +196,10 @@
                                 <?php
                                     include 'database.php';
                                     $pdo = Database::connect();
-                                    $sql = 'SELECT * FROM powerRequests ORDER BY id DESC';
+                                    $sql = 'SELECT * FROM generalRequests ORDER BY id DESC';
                                     foreach ($pdo->query($sql) as $row) {
                                         echo '<tr>';
-                                        echo '<td>'. $row['id'] . '</td>';
+                                        echo '<td>'. $row['requestId'] . '</td>';
                                         echo '<td>'. '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
                                         echo '<td>'. $row['requestorEmail'] . '</td>';
                                         echo '<td>'. $row['requestTimestamp'] . '</td>';

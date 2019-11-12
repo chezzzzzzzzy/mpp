@@ -35,7 +35,6 @@ if (mysqli_query($conn, $sql)) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,14 +47,14 @@ if (mysqli_query($conn, $sql)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -69,8 +68,8 @@ if (mysqli_query($conn, $sql)) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                    alt="singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -85,7 +84,10 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
-         
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guide</a>
+                </li>
+
 
 
             </ul>
@@ -96,20 +98,23 @@ if (mysqli_query($conn, $sql)) {
     </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
+
 
         <div class="row">
-
-            <div class="col-lg-3"></div>
-
             <div class="col-lg-12">
-                <h1 class="centerAlign topSpaceLarge">Request Successful</h1>
-                <h5 class="centerAlign x1">Your request has been submitted</h5>
-                <br>
-                <br>
-                <h4 class="centerAlign x1">Here's your ticket number: <br></h4>
-                <h2 class="centerAlign x1"><b>
-                <?php
+                <h1 class=" topSpaceLarge">Request Successful</h1>
+                <h5 class=" x0">Your request has been submitted</h5>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h2 class=" x0"><b>
+
+                        <?php
                     $sql2 = "SELECT * FROM fdfRequests ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
@@ -117,25 +122,43 @@ if (mysqli_query($conn, $sql)) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo $row["id"];
+                            echo "<br>";
+                            echo "<br>";
+                            
+
+                            echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
                         }
                     } else {
                         echo "0 results";
                     }                
                 ?>
-                </b></h2>                
-                
+                    </b></h2>
+
+                <br>
+
+                <h2 class=" x0"><b>Expected Acknowlegdment Date: 
+
+                <?php
+
+                    echo date('Y-m-d', strtotime(' + 3 days'));
+
+                ?>
+
+
+                </b></h2>
+
+
             </div>
-            <div class="col-lg-3"></div>
-
-
         </div>
 
 
+
+
         <br>
         <br>
 
 
-       
+
     </div>
 
 </body>

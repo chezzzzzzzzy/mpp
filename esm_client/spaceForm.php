@@ -58,6 +58,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="guide.php">Guide</a>
+                </li>
             </ul>
             <span class="navbar-text ml-auto">
                 Exchange Space Management
@@ -113,7 +117,7 @@
 
                         <div id="selected_form_code">
                             <label for="inputState">Number of Racks<span class="requiredField">*</span></label>
-                            <select id="select_btn" class="form-control" required >
+                            <select id="select_btn" class="form-control" required>
                                 <option value="0" selected="selected">Please choose</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -148,15 +152,31 @@
                                     <select required id="inputState" class="form-control" name="powerType" required>
                                         <option value="AC">AC</option>
                                         <option value="DC" selected>DC</option>
+                                        <option value="Passive">Passive</option>
+
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">Rack Supply<span class="requiredField">*</span></label>
+                                    <select required id="inputState" class="form-control" name="rackType" required>
+                                        <option value="Requestor Rack">Requestor's Rack</option>
+                                        <option value="Singtel Racks" selected>Singtel's Rack</option>
+
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
 
+
                                 <div class="form-group">
-                                    <label for="startDate">Start Date<span class="requiredField">*</span></label>
-                                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                    <label for="startDate">Installation Start Date<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
                                         <input type="text" id="data-date" name="startDate" required>
                                         <div class="input-group-addon"></div>
                                     </div>
@@ -165,8 +185,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="endDate">End Date<span class="requiredField">*</span></label>
-                                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                    <label for="endDate">Installation Completion Date<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
                                         <input type="text" id="data-date" name="endDate" required>
                                         <div class="input-group-addon"></div>
                                     </div>
@@ -224,63 +246,95 @@
                                         <option class="lablel" value>No Preference</option>
                                         <option rel="AM" value="AM Level 4 PCM 1">AM Level 4 PCM 1</option>
                                         <option rel="AM" value="AM3A Level 3 PCM 2">AM3A Level 3 PCM 2</option>
+                                        <option rel="AM" value="AM Level 2 MDF">AM Level 2 MDF</option>
 
                                         <option rel="AR" value="AR Level 1 PCM 1">AR Level 1 PCM 1</option>
                                         <option rel="AR" value="AR05C Level 5 PCM 2">AR05C Level 5 PCM 2</option>
+                                        <option rel="AR" value="AR Level 1 MDF">AR Level 1 MDF</option>
+
 
                                         <option rel="BD" value="BD Level 1 PCM 1">BD Level 1 PCM 1</option>
                                         <option rel="BD" value="BDN1 Level 1 PCM 1">BDN1 Level 1 PCM 1</option>
                                         <option rel="BD" value="BD033 Level 3 PCM 1">BD033 Level 3 PCM 1</option>
                                         <option rel="BD" value="BD5C5 Level 5 PCM 2">BD5C5 Level 5 PCM 2</option>
+                                        <option rel="BD" value="BD Level 1 MDF">BD Level 1 MDF</option>
+
 
                                         <option rel="BP" value="BP Level 1 PCM 1">BP Level 1 PCM 1</option>
                                         <option rel="BP" value="BPN Level 2 PCM 1">BPN Level 2 PCM 1</option>
-                                        <option rel="BP" value="P3A Level 3 PCM 2">BP3A Level 3 PCM 2</option>
+                                        <option rel="BP" value="BP3A Level 3 PCM 2">BP3A Level 3 PCM 2</option>
+                                        <option rel="BP" value="BP Level 2 MDF">BP Level 2 MDF</option>
 
                                         <option rel="CG" value="CG Level 1 PCM 1">CG Level 1 PCM 1</option>
+                                        <option rel="CG" value="CG Level 2 MDF">CG Level 2 MDF</option>
 
                                         <option rel="POC" value="POC Level 8 PCM 1">POC Level 8 PCM 1</option>
-                                        <option rel="POC" value="POC Level 7 PCM 1">POC07 Level 7 PCM 1</option>
+                                        <option rel="POC" value="POC07 Level 7 PCM 1">POC07 Level 7 PCM 1</option>
+                                        <option rel="POC" value="POC Level x MDF">POC Level x MDF</option>
+
 
                                         <option rel="ES" value="ES Level 4 PCM 1">ES Level 4 PCM 1</option>
                                         <option rel="ES" value="ES2A Level 2 PCM 2">ES2A Level 2 PCM 2</option>
+                                        <option rel="ES" value="ES Level 1 MDF">ES Level 1 MDF</option>
+
 
                                         <option rel="GL" value="GL Level 1 PCM 1">GL Level 1 PCM 1</option>
                                         <option rel="GL" value="GLN Level 2 PCM 1">GLN Level 2 PCM 1</option>
+                                        <option rel="GL" value="GL Level 2 MDF">GL Level 2 MDF</option>
 
                                         <option rel="HG" value="HG Level 2 PCM 1">HG Level 2 PCM 1</option>
+                                        <option rel="HG" value="HG Level 2 MDF">HG Level 2 MDF</option>
+
 
                                         <option rel="JE" value="JE Level 1 PCM 1">JE Level 1 PCM 1</option>
                                         <option rel="JE" value="JE Level 2 PCM 3">JE Level 2 PCM 3</option>
+                                        <option rel="JE" value="JE Level 2 MDF">JE Level 2 MDF</option>
 
                                         <option rel="JW" value="JW Level 2 PCM 1">JW Level 2 PCM 1</option>
                                         <option rel="JW" value="JW03 Level 3 PCM 1">JW03 Level 3 PCM 1</option>
                                         <option rel="JW" value="JW3A Level 3 PCM 2">JW3A Level 3 PCM 2</option>
+                                        <option rel="JW" value="JW Level 2 MDF">JW Level 2 MDF</option>
 
                                         <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
+                                        <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
+                                        <option rel="KT" value="KT Level 2 MDF">KT Level 2 MDF</option>
 
                                         <option rel="NT" value="NT Level 3 PCM 1">NT Level 3 PCM 1</option>
+                                        <option rel="NT" value="NT Level 1 MDF">NT Level 1 MDF</option>
+                                        <option rel="NT" value="NT Level 2 MDF">NT Level 2 MDF</option>
+
 
                                         <option rel="OC" value="OC Level 2 PCM 1">OC Level 2 PCM 1</option>
                                         <option rel="OC" value="OCT Level 2 PCM 1">OCT Level 2 PCM 1</option>
                                         <option rel="OC" value="OCN Level 3 PCM 1">OCN Level 3 PCM 1</option>
                                         <option rel="OC" value="OC3A Level 3 PCM 2">OC3A Level 3 PCM 2</option>
+                                        <option rel="OC" value="OC Level 1 MDF">OC Level 1 MDF</option>
+
 
                                         <option rel="PL" value="PL Level 1 PCM 1">PL Level 1 PCM 1</option>
+                                        <option rel="PL" value="PL Level 1 MDF">PL Level 1 MDF</option>
 
                                         <option rel="PR" value="PR Level 2 PCM 1">PR Level 2 PCM 1</option>
+                                        <option rel="PR" value="PR Level 2 PCM 1">PR Level 2 MDF</option>
+
 
                                         <option rel="QT" value="QT Level 2 PCM 1">QT Level 2 PCM 1</option>
+                                        <option rel="QT" value="QT Level 1 MDF">QT Level 1 MDF</option>
+
 
                                         <option rel="TB" value="TB Level 1 PCM 1">TB Level 1 PCM 1</option>
+                                        <option rel="TB" value="TB Level 1 PCM 1">TB Level 1 PCM 1</option>
+                                        <option rel="TB" value="TB Level 2 MDF">TB Level 2 MDF</option>
+
 
                                         <option rel="TP" value="TP Level 1 PCM 1">TP Level 1 PCM 1</option>
                                         <option rel="TP" value="TP3A Level 3 PCM 2">TP3A Level 3 PCM 2</option>
-
-
+                                        <option rel="TP" value="TP Level 3 MDF">TP Level 3 MDF</option>
 
                                         <option rel="TS" value="TS Level 1 PCM 1">TS Level 1 PCM 1</option>
                                         <option rel="TS" value="TS2C Level 2 PCM 2">TS2C Level 2 PCM 2</option>
+                                        <option rel="TS" value="TS Level 1 MDF">TS Level 1 MDF</option>
+
 
 
 
@@ -384,23 +438,43 @@
                     }).append(
 
                         $("<h5/>").text("Rack " + i)),
-                    $("<label/>").text("Rack Size (Length in mm)"),
+
+                    $("<label/>").text("Rack Length (in mm)"),
                     $("<span/>").text("*"),
                     $("<input/>", {
                         type: 'text',
-                        placeholder: 'Rack ' + i + ' - Enter rack size (length)',
+                        placeholder: 'Rack ' + i + ' - Enter rack length',
                         name: 'rackSizeLength' + i
                     }),
 
-                    $("<label/>").text("Rack Size (Breadth in mm)"),
+                    $("<label/>").text("Rack Breadth (in mm)"),
                     $("<span/>").text("*"),
                     $("<input/>", {
                         type: 'text',
-                        placeholder: 'Rack ' + i + ' - Enter rack size (breadth)',
+                        placeholder: 'Rack ' + i + ' - Enter rack breadth',
                         name: 'rackSizeBreadth' + i
                     }),
 
-                    $("<label/>").text("Breaker Size"),
+                    $("<label/>").text("Rack Height (in mm)"),
+                    $("<span/>").text("*"),
+                    $("<input/>", {
+                        type: 'text',
+                        placeholder: 'Rack ' + i + ' - Enter rack height',
+                        name: 'rackHeight' + i
+                    }),
+
+                    $("<label/>").text("Rack Weight (in kg)"),
+                    $("<span/>").text("*"),
+                    $("<input/>", {
+                        type: 'text',
+                        placeholder: 'Rack ' + i + ' - Enter rack weight',
+                        name: 'rackWeight' + i
+                    }),
+
+
+
+
+                    $("<label/>").text("Breaker Size (in A)"),
                     $("<span/>").text("*"),
                     $("<input/>", {
 
@@ -410,7 +484,7 @@
                     }),
 
 
-                    $("<label/>").text("Breaker Quantity"),
+                    $("<label/>").text("Breaker Quantity (in pairs)"),
                     $("<span/>").text("*"),
                     $('<select/>', {
                         id: 'inputState',
@@ -419,11 +493,11 @@
                         name: 'breakerQuantity' + i
                     }).append(
                         $('<option />')
-                        .text('2')
+                        .text('2 pairs')
                         .val('2'),
 
                         $('<option />')
-                        .text('4')
+                        .text('4 pairs')
                         .val('4')
                     ),
 
@@ -436,39 +510,34 @@
                         name: 'powerConsumption' + i
                     }).append(
                         $('<option />')
-                        .text('1')
+                        .text('1 kW')
                         .val('1'),
                         $('<option />')
-                        .text('2')
+                        .text('2 kW')
                         .val('2'),
                         $('<option />')
-                        .text('3')
+                        .text('3 kW')
                         .val('3'),
                         $('<option />')
-                        .text('4')
+                        .text('4 kW')
                         .val('4'),
                         $('<option />')
-                        .text('5')
+                        .text('5 kW')
                         .val('5'),
                         $('<option />')
-                        .text('6')
+                        .text('6 kW')
                         .val('6'),
                         $('<option />')
-                        .text('7')
+                        .text('7 kW')
                         .val('7'),
                         $('<option />')
-                        .text('8')
+                        .text('8 kW')
                         .val('8'),
                         $('<option />')
-                        .text('9')
+                        .text('9 kW')
                         .val('9'),
 
                     ),
-
-
-
-
-
 
 
                     $("<br/>"), $("<hr/>"), $("<br/>")))
