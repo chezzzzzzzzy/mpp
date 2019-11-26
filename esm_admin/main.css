@@ -4,6 +4,7 @@
     
 }
 
+
 html {
     zoom: 80%;
     color: black;
@@ -95,6 +96,20 @@ body {
 }
 
 
+.timeBoundingBox{
+    background-color:#da37453a;
+    border-radius: 4px;
+    padding-top: 20px;
+  
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    margin-top: 10px;
+    min-height: 40px;
+
+    
+}
+
+
+
 
 
 .warningBoundingBox {
@@ -137,7 +152,6 @@ body {
     padding-right: 50px;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     margin-top: 50px;
-    margin-bottom: 50px;
 
 
     
@@ -252,7 +266,21 @@ nav {
 }
 
 
-footer {
+.boundingBox3{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    min-height: 650px;
+    margin-top: 30px;
+
+}
+
+
+/* footer {
     background-color: rgb(255, 255, 255);
     position: absolute;
     left: 0;
@@ -260,13 +288,19 @@ footer {
     height: 40px;
     width: 100%;
     overflow: hidden;
+} */
+
+footer {
+	font-size: 12px;
+	
 }
 
 
 h1 {
-    font-weight: bold;
-    margin-top: 32px;
+	font-weight: bold;
+    margin-top: 50px;
     margin-bottom: 50px;
+    font-size: 50px;
 }
 
 
@@ -293,6 +327,10 @@ h1 {
 
 .topSpace {
     margin-top: 50px;
+}
+
+.mtSmall {
+	margin-top: 10px;
 }
 
 
@@ -356,6 +394,7 @@ img {
     border: #da3744 2px solid; 
     color: #da3744;
 }
+
 
 
 
@@ -1539,3 +1578,32 @@ a:hover {
     margin-top: 50px;
     margin-bottom: 100px;
 }
+
+.infoUnit {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+i .fal {
+    color: #da3744;
+}
+
+
+path {
+    color: #da3744;
+}
+
+
+
+select {
+    text-indent: 15px;
+}
+
+.mlSmall2 {
+    margin-left: 30px;
+}
+
+.mtSmall {
+    margin-top: 5px;
+}
+

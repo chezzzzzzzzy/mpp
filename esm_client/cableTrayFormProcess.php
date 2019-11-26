@@ -63,7 +63,7 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 </head>
 
 <body>

@@ -34,12 +34,12 @@
 
 
 
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -53,11 +53,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="allForms.php">Request</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="guide.php">Guide</a>
                 </li>
             </ul>
             <span class="navbar-text ml-auto">

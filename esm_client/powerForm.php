@@ -25,13 +25,13 @@
     <!-- dependencies -->
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -112,11 +112,11 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                                <option value="6">6</option>
+                                <!-- <option value="6">6</option>
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                                 <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="10">10</option> -->
 
                             </select>
                         </div>
@@ -328,7 +328,7 @@
                     }),
 
 
-                    $("<label/>").text("Breaker Size"),
+                    $("<label/>").text("Breaker Size (in A)"),
                     $("<span/>").text("*"),
                     $("<input/>", {
                         type: 'text',
@@ -336,7 +336,7 @@
                         name: 'breakerSize' + i
                     }),
 
-                    $("<label/>").text("Breaker Quantity"),
+                    $("<label/>").text("Breaker Quantity (in pairs)"),
                     $("<span/>").text("*"),
                     $('<select/>', {
                         id: 'inputState',
@@ -345,12 +345,12 @@
                         name: 'breakerQuantity' + i
                     }).append(
                         $('<option />')
-                        .text('2')
-                        .val('2'),
+                        .text('1 pair')
+                        .val('1'),
 
                         $('<option />')
-                        .text('4')
-                        .val('4')
+                        .text('2 pairs')
+                        .val('2')
                     ),
 
                     $("<label/>").text("Power Consumption (in kW)"),

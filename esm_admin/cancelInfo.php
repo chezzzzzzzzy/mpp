@@ -17,7 +17,7 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        header("Location: spaceInfo.php");
+        header("Location: spaceRequests.php");
          
     }
 ?>
@@ -43,7 +43,7 @@
                       <p class="alert alert-error">Are you sure to cancel ?</p>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger">Yes</button>
-                          <a class="btn" href="spaceInfo.php">No</a>
+                          <a class="btn" href="spaceRequests.php">No</a>
                         </div>
                     </form>
                 </div>

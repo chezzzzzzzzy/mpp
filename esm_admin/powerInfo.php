@@ -124,7 +124,7 @@
                         <a class="nav-link" href="admin.php">All Requests</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="spaceInfo.php">Space</a>
+                        <a class="nav-link" href="spaceRequests.php">Space</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="powerRequests.php">Power</a>
@@ -303,7 +303,7 @@
                                         echo '<td width=350>';
                                         echo '<a class="btn updateInfoButton" href="updateInfo.php?id='.$row['id'].'">Update</a>';
                                         echo ' ';
-                                        echo '<a class="btn readInfoButton" href="readInfo.php?id='.$row['id'].'">View</a>';
+                                        echo '<a class="btn readInfoButton" href="viewInfo.php?id='.$row['id'].'">View</a>';
                                         echo ' ';
                                         echo '<a class="btn deleteInfoButton" href="deleteInfo.php?id='.$row['id'].'">Decline</a>';
                                         

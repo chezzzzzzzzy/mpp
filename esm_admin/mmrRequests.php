@@ -124,7 +124,7 @@
                         <a class="nav-link" href="admin.php">All Requests</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="spaceInfo.php">Space</a>
+                        <a class="nav-link" href="spaceRequests.php">Space</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="powerRequests.php">Power</a>
@@ -143,6 +143,9 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="mmrRequests.php">MMR</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="accessRequests.php">Access</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
@@ -209,7 +212,7 @@
                                         echo '<td width=350>';
                                         echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
                                         echo ' ';
-                                        echo '<a class="btn readInfoButton" href="readInfo.php?requestId='.$row['requestId'].'">View</a>';
+                                        echo '<a class="btn readInfoButton" href="viewInfo.php?requestId='.$row['requestId'].'">View</a>';
                                         echo ' ';
                                         echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
                                         

@@ -28,9 +28,11 @@
     <link rel="stylesheet" href="form1.css">
 
 
+    <script src="faKit.js"></script>
 
 
-    <title>User | ESM</title>
+
+    <title>Requestor | ESM</title>
 </head>
 
 <body>
@@ -57,7 +59,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Guide</a>
+                    <a class="nav-link" href="guide.php">Guide</a>
                 </li>
             </ul>
             <span class="navbar-text ml-auto ">
@@ -127,10 +129,29 @@
                                 data-toggle="dropdown">More
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <a href="fdfForm.php"><button class="selectorButton3">FDF</button></a>
-                                <a href="ssuForm.php"><button class="selectorButton3">SSU</button></a>
-                                <a href="cableTrayForm.php"><button class="selectorButton3">Cable Tray</button></a>
-                                <a href="generalForm.php"><button class="selectorButton3">General</button></a>
+                                <div class="row">
+                                    <div class='col-lg-12'>
+                                        <a href="fdfForm.php"><button class="selectorButtonFullWidth">FDF
+                                                Form</button></a>
+
+                                    </div>
+
+                                    <div class='col-lg-12'>
+                                        <a href="ssuForm.php"><button class="selectorButtonFullWidth">SSU
+                                                Form</button></a>
+                                    </div>
+
+                                    <div class='col-lg-12'>
+                                        <a href="cableTrayForm.php"><button class="selectorButtonFullWidth">Cable Tray
+                                                Form</button></a>
+                                    </div>
+
+                                    <div class='col-lg-12'>
+                                        <a href="generalForm.php"><button
+                                                class="selectorButtonFullWidth">General</button></a>
+                                    </div>
+                                </div>
+
                             </ul>
                         </div>
                     </div>
@@ -155,9 +176,38 @@
     <br>
     <br>
     <br>
+
     <!-- <footer class="centerAlign">&copy 2019 Singtel (Fixed Network Strategy and Evolution)</footer> -->
 
 
 </body>
+<footer>
+
+    <div class='container-fluid'>
+
+        <div class='row'>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'><span>
+                        Made with <i class="fa fa-heart pulse"></i> by Chester Yee</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'>&copy 2019 Singtel (Fixed Network Strategy and Evolution)
+                </div>
+            </div>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'>v3.0 release (Beta)</div>
+            </div>
+        </div>
+
+    </div>
+
+
+</footer>
+
 
 </html>

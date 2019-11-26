@@ -1,4 +1,5 @@
 <?php 
+    require 'connection.php';
     session_start();
 ?>
 
@@ -22,38 +23,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <style>
-    .container {
-        margin-left: 30px;
-        margin-right: auto;
-    }
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"> -->
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.js"></script>
 
-
-
-    @media screen and (max-width: 2560px) {
-        .table {
-            width: 180%;
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .table {
-            width: 250%;
-        }
-    }
-
-    @media screen and (min-width: 3000px) {
-        .table {
-            width: 280%;
-        }
-    }
-    </style>
-
+    <script src="https://unpkg.com/xstate@4/dist/xstate.js"></script>
 
 
     <title>Admin | ESM</title>
@@ -73,6 +53,61 @@
             ?
             >
     }
+
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("sorted");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
     </script>
 
     <?php
@@ -80,7 +115,6 @@
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         // echo "Logged in already" . $_SESSION['email'];
     ?>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -116,9 +150,11 @@
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="externalVendorRequests.php">External Vendors</a>
+                    <a class="nav-link" href="mmrRequests.php">MMR</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="accessRequests.php">Access</a>
+                </li>
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
@@ -128,127 +164,445 @@
     </nav>
 
 
-    <div class="container">
-
+    <div class="container-fluid fluid2">
 
 
         <h1>Space Requests</h1>
-
         <div class="row">
+            <div class="col-lg-8">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Total Request</b></h4>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                    $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests";
+                                    $query = mysqli_query($conn, $sqlGetTotalInProgress);
 
+                                    $row = $query->fetch_object();
+                                    $classId = $row->count;
+                                    echo $classId;
+                                ?>
+                        </b></h2>
+                        <br>
+                        <div class="ct-chart3 ct-major-twelfth"></div>
+                </div>
+            </div>
 
-            <div class="col-lg-12">
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 1%">Ticket Number</th>
-                            <th scope="col" style="width: 1%">Requestor Name</th>
-                            <th scope="col" style="width: 1%">Requestor Email</th>
-                            <th scope="col" style="width: 1%">Requestor Department</th>
-                            <th scope="col" style="width: 1%">Requestor Reason</th>
-                            <th scope="col" style="width: 1%">Power Type</th>
-                            <th scope="col" style="width: 1%">Start Date</th>
-                            <th scope="col" style="width: 1%">End Date</th>
-                            <th scope="col" style="width: 2%">Exchange</th>
-                            <th scope="col" style="width: 1%">Room</th>
-                            <th scope="col" style="width: 2%">Request Timestamp</th>
-                            <th scope="col" style="width: 1%">Request Status</th>
-                            <th scope="col" style="width: 5%">Status Update</th>
-                            <th scope="col" style="width: 1%">More Info</th>
-                        </tr>
-                        <?php 
-
-                            $sql = "SELECT * FROM spaceRequests";
-                            $link = mysqli_connect("localhost", "root", "password", "singtel_esm");
-
-                            if($result = mysqli_query($link, $sql)){
-
-                            if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['requestId'] . "</td>";
-                                        echo "<td>" . $row['requestorName'] . "</td>";
-                                        echo "<td>" . $row['requestorEmail'] . "</td>";
-                                        echo "<td>" . $row['requestorDepartment'] . "</td>";
-                                        echo "<td>" . $row['requestorReason'] . "</td>";
-                                        echo "<td>" . $row['powerType'] . "</td>";
-                                        echo "<td>" . $row['startDate'] . "</td>";
-                                        echo "<td>" . $row['endDate'] . "</td>";
-                                        echo "<td>" . $row['exchange'] . "</td>";
-                                        echo "<td>" . $row['room'] . "</td>";
-                                        echo "<td>" . $row['requestTimestamp'] . "</td>";
-                                        echo "<td>" . $row['requestStatus'] . "</td>";
-                                        echo "<td>
-                                        <form action='index.php' method='post'>                       
-                                            <div class='form-group'>
-                                                <select id='inputState' class='form-control' name='statusUpdate' onchange='this.form.submit()'>
-                                                    <option selected value=''>Select Below</option>
-                                                    <option value='Submitted' id='submitted'>Submitted</option>
-                                                    <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
-                                                    <option value='Assigned' id='assigned'>Assigned</option>
-                                                    <option value='In Progress' id='inProgress'>In Progress</option>
-                                                    <option value='Completed' id='installed'>Completed</option>
-                                                    <option value='Closed' id='installed'>Closed</option>
-                                                </select>
-                                            </div>                
-                                        </form>
-                                    </td>";
-                                    echo "<td><button type='submit' class='btn btn-primary selectorButton3'>More</button></td>";
-
-                                    error_reporting(E_ERROR | E_PARSE);
-
-                                 
-
-                                        // $rowIndex = $row['requestId'];
-
-                                        // foreach ($rowIndex as $index) 
-                                        // {
-                                        //     $sqlUpdate = "UPDATE spaceRequests SET requestStatus ='".$_POST['statusUpdate'][$index]."'";
-                                        //     $result=mysql_query($sqlUpdate);
-
-                                        // }
-
-                                   
             
-                                        
+            <div class="col-lg-4">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Department </b></h4>
+                    <div class="ct-chart ct-square"></div>
+
+                </div>
+            </div>
+
+
+            
+
+
+            
+            <script>
+
+            new Chartist.Bar('.ct-chart3', {
+            labels: ['Submitted', 'Acknowledged', 'Assigned', 'Installation in Progress', 'Completed', 'Closed'],
+            series: [
+
+                <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Submitted' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Acknowledged' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Assigned' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='In Progress' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Completed' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Closed' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>
+
+
                 
 
-                        ?>
 
-                        <?php
 
-                       
-                        ?>
 
-                        <?php
-                                    echo "</tr>";
-                                }
-                                // Free result set
-                                mysqli_free_result($result);
-                            }
+
+            ]
+            }, {
+            distributeSeries: true,
+
+            });
+
+    
+
+
+            var chart = new Chartist.Line('.ct-chart2', {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            series: [
+                [1, 5, 2, 5, 4, 3],
+                [2, 3, 4, 8, 1, 2],
+                [5, 4, 3, 2, 1, 0.5]
+            ]
+            }, {
+            low: 0,
+            showArea: true,
+            showPoint: false,
+            fullWidth: true
+            });
+
+            chart.on('draw', function(data) {
+            if(data.type === 'line' || data.type === 'area') {
+                data.element.animate({
+                d: {
+                    begin: 2000 * data.index,
+                    dur: 2000,
+                    from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                    to: data.path.clone().stringify(),
+                    easing: Chartist.Svg.Easing.easeOutQuint
+                }
+                });
+            }
+            });
+
+            
+
+            var chart = new Chartist.Pie('.ct-chart', {
+                series: [ 
+                    
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='FNSE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='NSOC' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                   
+                ],
+                labels: ['FNSE', 'NSOC']
+            }, {
+                donut: true,
+                donutWidth: 40,
+
+                showLabel: true,
+                labelOffset: 40,
+                labelDirection: 'explode',
+                chartPadding: 50
+                
+
+                
+                
+            });
+            
+
+            chart.on('draw', function(data) {
+                if (data.type === 'slice') {
+                    // Get the total path length in order to use for dash array animation
+                    var pathLength = data.element._node.getTotalLength();
+
+                    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+                    data.element.attr({
+                        'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+                    });
+
+                    // Create animation definition while also assigning an ID to the animation for later sync usage
+                    var animationDefinition = {
+                        'stroke-dashoffset': {
+                            id: 'anim' + data.index,
+                            dur: 1000,
+                            from: -pathLength + 'px',
+                            to: '0px',
+                            easing: Chartist.Svg.Easing.easeOutQuint,
+                            // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+                            fill: 'freeze'
                         }
+                    };
 
-                        ?>
+                    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+                    if (data.index !== 0) {
+                        animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) +
+                            '.end';
+                    }
 
-                    </thead>
-                </table>
+                    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+                    data.element.attr({
+                        'stroke-dashoffset': -pathLength + 'px'
+                    });
+
+                    // We can't use guided mode as the animations need to rely on setting begin manually
+                    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+                    data.element.animate(animationDefinition, false);
+                }
+            });
+
+            // For the sake of the example we update the chart every time it's created with a delay of 8 seconds
+            chart.on('created', function() {
+                if (window.__anim21278907124) {
+                    clearTimeout(window.__anim21278907124);
+                    window.__anim21278907124 = null;
+                }
+                window.__anim21278907124 = setTimeout(chart.update.bind(chart), 20000);
+            });
+
+            
+
+
+            
+
+
+            </script>
+
+
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Submitted</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Submitted' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                       
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Acknowledged</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Acknowledged' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
             </div>
 
 
 
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Assigned</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Assigned' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>In Progress</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='In Progress' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Completed</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Completed' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Closed</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Closed' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall warningText"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="normalBoundingBox">
+
+                    <h6 class="mlSmall"><b>Normal</b></h6>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-12">
+                <div class="tableBoundingBox">
+                    <table class="table" id="sorted">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">ID</th>
+                                <th>Name/Department</th>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                    include 'database.php';
+                                    $pdo = Database::connect();
+                                    $sql = 'SELECT * FROM spaceRequests ORDER BY requestId DESC';
+                                    foreach ($pdo->query($sql) as $row) {
+                                        echo '<tr>';
+                                        echo '<td>'. $row['requestId'] . '</td>';
+                                        echo '<td>'. '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
+                                        echo '<td>'. $row['requestorEmail'] . '</td>';
+                                        echo '<td>'. $row['requestTimestamp'] . '</td>';
+                                        echo '<td>'. $row['requestStatus'] . '</td>';
+
+
+                                        echo '<td width=350>';
+                                        echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
+                                        echo ' ';
+                                        echo '<a class="btn readInfoButton" href="viewInfo.php?requestId='.$row['requestId'].'">View</a>';
+                                        echo ' ';
+                                        echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
+                                        
+                                        echo '</td>';
+                                        echo '</tr>';
+                                    }
+                                    Database::disconnect();
+                                ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
-
-
     <?php } else {
         // echo "Please login.";
     }
     ?>
-
-
-
 </body>
 
 </html>

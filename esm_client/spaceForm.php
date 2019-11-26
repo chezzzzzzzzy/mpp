@@ -32,13 +32,13 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -52,13 +52,11 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="allForms.php">Request</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="guide.php">Guide</a>
                 </li>
@@ -77,21 +75,15 @@
 
         <div class="row">
             <div class="col-lg-12">
-
                 <ul id="normalForm">
                     <li class="active">Personal Information</li>
                     <li>Racks</li>
                     <li>Technical Information</li>
                 </ul>
-
-
             </div>
 
             <div class="col-lg-12">
-
-
                 <form action="spaceFormProcess.php" id="msform" method="post" class="needs-validation">
-
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
@@ -124,11 +116,11 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                                <option value="6">6</option>
+                                <!-- <option value="6">6</option>
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                                 <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="10">10</option> -->
                             </select>
                         </div>
 
@@ -153,7 +145,6 @@
                                         <option value="AC">AC</option>
                                         <option value="DC" selected>DC</option>
                                         <option value="Passive">Passive</option>
-
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -169,7 +160,6 @@
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
 
 
                                 <div class="form-group">
@@ -195,15 +185,6 @@
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
-
-
-                                <!-- <div class="form-group">
-                                    <label for="inputState">Level<span class="requiredField">*</span></label>
-                                    <input type="text" name="level" placeholder="" required />
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div> -->
 
 
                                 <div class="form-group">
@@ -232,8 +213,6 @@
                                         <option value="TB">Telok Blangah Exchange (TB)</option>
                                         <option value="TP">Tampines Exchange (TP)</option>
                                         <option value="TS">Tuas Exchange (TS)</option>
-
-
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -270,7 +249,7 @@
 
                                         <option rel="POC" value="POC Level 8 PCM 1">POC Level 8 PCM 1</option>
                                         <option rel="POC" value="POC07 Level 7 PCM 1">POC07 Level 7 PCM 1</option>
-                                        <option rel="POC" value="POC Level x MDF">POC Level x MDF</option>
+                                        <option rel="POC" value="POC Level 7 MDF">POC Level 7 MDF</option>
 
 
                                         <option rel="ES" value="ES Level 4 PCM 1">ES Level 4 PCM 1</option>
@@ -334,44 +313,10 @@
                                         <option rel="TS" value="TS Level 1 PCM 1">TS Level 1 PCM 1</option>
                                         <option rel="TS" value="TS2C Level 2 PCM 2">TS2C Level 2 PCM 2</option>
                                         <option rel="TS" value="TS Level 1 MDF">TS Level 1 MDF</option>
-
-
-
-
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
-
-
-                                <!-- <div class="form-group">
-                                    <label for="inputState">Preferred Exchange</label>
-                                    <select required id="inputState" class="form-control" name="exchange">
-                                        <option value="No Preference" selected>No Preference</option>
-                                        <option value="Ang Mo Kio Exchange (AM)">Ang Mo Kio Exchange (AM)</option>
-                                        <option value="Ayer Rajah Exchange (AR)">Ayer Rajah Exchange (AR)</option>
-                                        <option value="Bedok Exchange (BD)">Bedok Exchange (BD)</option>
-                                        <option value="Bukit Panjang Exchange (BP)">Bukit Panjang Exchange (BP)</option>
-                                        <option value="Changi Exchange (CG)">Changi Exchange (CG)</option>
-                                        <option value="East Exchange (ES)">East Exchange (ES)</option>
-                                        <option value="Geylang Exchange (GL)">Geylang Exchange (GL)</option>
-                                        <option value="Hougang Exchange (HG)">Hougang Exchange (HG)</option>
-                                        <option value="Jurong East Exchange (JE)">Jurong East Exchange (JE)</option>
-                                        <option value="Jurong West Exchange (JW)">Jurong West Exchange (JW)</option>
-                                        <option value="Katong Exchange (KT)">Katong Exchange (KT)</option>
-                                        <option value="North Exchange (NT)">North Exchange (NT)</option>
-                                        <option value="Orchard Exchange (OC)">Orchard Exchange (OC)</option>
-                                        <option value="Paya Lebar Exchange (PL)">Paya Lebar Exchange (PL)</option>
-                                        <option value="Pasir Ris Exchange (PR)">Pasir Ris Exchange (PR)</option>
-                                        <option value="Queenstown Exchange (QT)">Queenstown Exchange (QT)</option>
-                                        <option value="Telok Blangah Exchange (TB)">Telok Blangah Exchange (TB)</option>
-                                        <option value="Tampines Exchange (TP)">Tampines Exchange (TP)</option>
-                                        <option value="Tuas Exchange (TS)">Tuas Exchange (TS)</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div> -->
 
                                 <div id="form_submit">
                                 </div>
@@ -381,7 +326,6 @@
 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
-
 
                     </fieldset>
 
@@ -397,8 +341,6 @@
                 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
                 <script src="./form1.js"></script>
-
-
 
             </div>
         </div>
@@ -450,7 +392,7 @@
                     $("<label/>").text("Rack Breadth (in mm)"),
                     $("<span/>").text("*"),
                     $("<input/>", {
-                        type: 'text',
+                        type: 'text', 
                         placeholder: 'Rack ' + i + ' - Enter rack breadth',
                         name: 'rackSizeBreadth' + i
                     }),
@@ -460,7 +402,7 @@
                     $("<input/>", {
                         type: 'text',
                         placeholder: 'Rack ' + i + ' - Enter rack height',
-                        name: 'rackHeight' + i
+                        name: 'rackSizeHeight' + i
                     }),
 
                     $("<label/>").text("Rack Weight (in kg)"),
@@ -468,7 +410,7 @@
                     $("<input/>", {
                         type: 'text',
                         placeholder: 'Rack ' + i + ' - Enter rack weight',
-                        name: 'rackWeight' + i
+                        name: 'rackSizeWeight' + i
                     }),
 
 
@@ -493,12 +435,12 @@
                         name: 'breakerQuantity' + i
                     }).append(
                         $('<option />')
-                        .text('2 pairs')
+                        .text('1 pair')
                         .val('2'),
 
                         $('<option />')
-                        .text('4 pairs')
-                        .val('4')
+                        .text('2 pairs')
+                        .val('2')
                     ),
 
                     $("<label/>").text("Power Consumption (in kW)"),

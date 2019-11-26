@@ -26,8 +26,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
-
+    <script src="faKit.js"></script>
     <title>Admin | ESM</title>
 </head>
 
@@ -100,18 +99,18 @@
 
         <div class="row">
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Space Requests</b></h4>
                         <p class="">For new spaces</p>
-                        <a href="spaceInfo.php"><button class="selectorButtonFullWidth">Space Requests</button></a>
+                        <a href="spaceRequests.php"><button class="selectorButtonFullWidth">Space Requests</button></a>
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Power Requests</b></h4>
@@ -123,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>FDF Requests</b></h4>
@@ -133,7 +132,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>SSU Requests</b></h4>
@@ -144,7 +143,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Cable Tray Requests</b></h4>
@@ -157,7 +156,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>General Requests</b></h4>
@@ -168,31 +167,33 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>MMR Requests</b></h4>
-                        <p class="">For other departments </p>
+                        <p class="">Meet-me Room </p>
                         <a href="generalRequests.php"><button class="selectorButtonFullWidth">MMR
                                 Requests</button></a>
                     </div>
                 </div>
             </div>
 
-            <div hidden class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Access Requests</b></h4>
                         <p class="">Perimeter and room access </p>
-                        <a href="accessRequests.php"><button class="selectorButtonFullWidth">Access
+                        <a hidden href="accessRequests.php"><button class="selectorButtonFullWidth">Access
                                 Requests</button></a>
                     </div>
                 </div>
             </div>
 
-            
 
-           
+
+
+
+
 
 
 
@@ -250,6 +251,8 @@
             </div>
         </div>
 
+
+
         <?php
     }
     ?>
@@ -259,5 +262,34 @@
         <br>
 
 </body>
+
+<footer>
+
+    <div class='container-fluid'>
+
+        <div class='row'>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'><span>
+                        Made with <i class="fa fa-heart pulse"></i> by Chester Yee</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'>&copy 2019 Singtel (Fixed Network Strategy and Evolution)
+                </div>
+            </div>
+
+            <div class='col-lg-4 col-xs-4'>
+                <div class='centerAlign'>v3.0 release (Beta)</div>
+            </div>
+        </div>
+
+    </div>
+
+
+</footer>
+
 
 </html>

@@ -24,6 +24,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.js">
+    </script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -107,62 +110,65 @@
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         // echo "Logged in already" . $_SESSION['email'];
     ?>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand">
-                <div class="authLogo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                        alt="singtelLogo.png">
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php">All Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="spaceInfo.php">Space</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="powerRequests.php">Power</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="ssuRequests.php">SSU</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="fdfRequests.php">FDF</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="generalRequests.php">General</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mmrRequests.php">MMR</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
-                    <a href="terminate.php">Logout</a>
-                </span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">
+            <div class="authLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
+                    alt="singtelLogo.png">
             </div>
-        </nav>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">All Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="spaceRequests.php">Space</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="powerRequests.php">Power</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="ssuRequests.php">SSU</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fdfRequests.php">FDF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="generalRequests.php">General</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mmrRequests.php">MMR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accessRequests.php">Access</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
+                <a href="terminate.php">Logout</a>
+            </span>
+        </div>
+    </nav>
 
 
-        <div class="container-fluid fluid2">
+    <div class="container-fluid fluid2">
 
 
-            <h1>SSU Requests</h1>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Total Request</b></h4>
-                        <h2 class="mlSmall"><b>
-                                <?php
+        <h1>SSU Requests</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Total Request</b></h4>
+                    <h2 class="mlSmall"><b>
+                            <?php
                                     $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests";
                                     $query = mysqli_query($conn, $sqlGetTotalInProgress);
 
@@ -170,19 +176,184 @@
                                     $classId = $row->count;
                                     echo $classId;
                                 ?>
-                            </b></h2>
-                    </div>
+                        </b></h2>
+                    <br>
+                    <div class="ct-chart3 ct-major-twelfth"></div>
                 </div>
+            </div>
 
 
-                <div class="col-lg-8">
+
+            <div class="col-lg-4">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Department </b></h4>
+                    <div class="ct-chart ct-square"></div>
+
                 </div>
+            </div>
 
 
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Submitted</b></h4>
-                        <h2 class="mlSmall"><b>
+            <script>
+            new Chartist.Bar('.ct-chart3', {
+            labels: ['Submitted', 'Acknowledged', 'Assigned', 'Installation in Progress', 'Completed', 'Closed'],
+            series: [
+
+                <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Submitted' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Acknowledged' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Assigned' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='In Progress' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Completed' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Closed' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>
+
+
+                
+
+
+
+
+
+            ]
+            }, {
+            distributeSeries: true,
+
+            });
+
+            var chart = new Chartist.Pie('.ct-chart', {
+                series: [ 
+                    
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM ssuRequests WHERE requestorDepartment='FNSE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM ssuRequests WHERE requestorDepartment='NSOC' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+                   
+                ],
+                labels: ['FNSE', 'NSOC']
+            }, {
+                donut: true,
+                donutWidth: 40,
+
+                showLabel: true,
+                labelOffset: 40,
+                labelDirection: 'explode',
+                chartPadding: 50
+            });
+            
+
+            chart.on('draw', function(data) {
+                if (data.type === 'slice') {
+                    // Get the total path length in order to use for dash array animation
+                    var pathLength = data.element._node.getTotalLength();
+
+                    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+                    data.element.attr({
+                        'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+                    });
+
+                    // Create animation definition while also assigning an ID to the animation for later sync usage
+                    var animationDefinition = {
+                        'stroke-dashoffset': {
+                            id: 'anim' + data.index,
+                            dur: 1000,
+                            from: -pathLength + 'px',
+                            to: '0px',
+                            easing: Chartist.Svg.Easing.easeOutQuint,
+                            // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+                            fill: 'freeze'
+                        }
+                    };
+
+                    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+                    if (data.index !== 0) {
+                        animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) +
+                            '.end';
+                    }
+
+                    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+                    data.element.attr({
+                        'stroke-dashoffset': -pathLength + 'px'
+                    });
+
+                    // We can't use guided mode as the animations need to rely on setting begin manually
+                    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+                    data.element.animate(animationDefinition, false);
+                }
+            });
+
+            // For the sake of the example we update the chart every time it's created with a delay of 8 seconds
+            chart.on('created', function() {
+                if (window.__anim21278907124) {
+                    clearTimeout(window.__anim21278907124);
+                    window.__anim21278907124 = null;
+                }
+                window.__anim21278907124 = setTimeout(chart.update.bind(chart), 20000);
+            });
+
+
+
+            </script>
+
+
+
+
+
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Submitted</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Submitted' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -190,14 +361,15 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b></h2>
-                    </div>
+                        </b><span class="infoUnit">request/s</span></h2>
                 </div>
+            </div>
 
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Acknowledged</b></h4>
-                        <h2 class="mlSmall"><b>
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Acknowledged</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Acknowledged' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -205,30 +377,18 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b></h2>
-                    </div>
+                        </b><span class="infoUnit">request/s</span></h2>
                 </div>
+            </div>
 
 
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>In Progress</b></h4>
-                        <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='In Progress' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                            </b></h2>
-                    </div>
-                </div>
+          
 
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Assigned</b></h4>
-                        <h2 class="mlSmall"><b>
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Assigned</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Assigned' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -236,15 +396,32 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b></h2>
-                    </div>
+                        </b><span class="infoUnit">request/s</span></h2>
                 </div>
+            </div>
 
-                <div class="col-lg-2">
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>In Progress</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
+                            <?php
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='In Progress' ";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b><span class="infoUnit">request/s</span></h2>
+                </div>
+            </div>
 
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Completed</b></h4>
-                        <h2 class="mlSmall"><b>
+            <div class="col-lg-2">
+
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Completed</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Completed' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -252,14 +429,15 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                            </b></h2>
-                    </div>
+                        </b><span class="infoUnit">request/s</span></h2>
                 </div>
+            </div>
 
-                <div class="col-lg-2">
-                    <div class="boundingBox2">
-                        <h4 class="mlSmall"><b>Closed</b></h4>
-                        <h2 class="mlSmall"><b>
+            <div class="col-lg-2">
+                <div class="boundingBox2">
+                    <h4 class="mlSmall"><b>Closed</b></h4>
+                    <br>
+                    <h2 class="mlSmall"><b>
                             <?php
                             $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM ssuRequests WHERE requestStatus='Closed' ";
                             $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -267,27 +445,81 @@
                             $classId = $row->count;
                             echo $classId;
                             ?>
-                        </b></h2>
-                    </div>
+                        </b><span class="infoUnit">request/s</span></h2>
                 </div>
+            </div>
 
 
-                <div class="col-lg-12">
-                    <div class="tableBoundingBox">
-                        <table class="table" id="sorted">
-                            <thead>
-                                <tr>
-                                    <th onclick="sortTable(0)">ID</th>
-                                    <th>Name/Department</th>
-                                    <th>Email</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                    <h6 class="mlSmall warningText"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="warningBoundingBox">
+
+                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="normalBoundingBox">
+
+                    <h6 class="mlSmall"><b>Normal</b></h6>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-12">
+                <div class="tableBoundingBox">
+                    <table class="table" id="sorted">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">ID</th>
+                                <th>Name/Department</th>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                                     include 'database.php';
                                     $pdo = Database::connect();
                                     $sql = 'SELECT * FROM ssuRequests ORDER BY requestId DESC';
@@ -301,23 +533,23 @@
 
 
                                         echo '<td width=350>';
-                                        echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
+                                        echo '<a class="btn updateInfoButton" href="updateInfoSsu.php?requestId='.$row['requestId'].'">Update</a>';
                                         echo ' ';
-                                        echo '<a class="btn readInfoButton" href="readInfo.php?requestId='.$row['requestId'].'">View</a>';
+                                        echo '<a class="btn readInfoButton" href="viewInfoSsu.php?requestId='.$row['requestId'].'">View</a>';
                                         echo ' ';
-                                        echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
+                                        echo '<a class="btn deleteInfoButton" href="deleteInfoSsu.php?requestId='.$row['requestId'].'">Decline</a>';
                                         
                                         echo '</td>';
                                         echo '</tr>';
                                     }
                                     Database::disconnect();
                                 ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     <?php } else {
         // echo "Please login.";
     }

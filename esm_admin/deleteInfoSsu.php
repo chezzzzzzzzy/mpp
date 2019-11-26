@@ -7,7 +7,7 @@
     }
      
     if ( null==$id ) {
-        header("Location: spaceRequests.php");
+        header("Location: ssuRequests.php");
     }
      
     if ( !empty($_POST)) {
@@ -17,37 +17,31 @@
          
         // keep track post values
         $remarks = strval($_POST['remarks']);
-  
-
-         
-        // validate input
-        $valid = true;
-     
-         
+ 
         
          
         // update data
+        $valid = true;
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE spaceRequests set remarks = ? , requestStatus = 'Declined' WHERE requestId = ?";
+            $sql = "UPDATE ssuRequests set remarks = ? WHERE requestId = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 
             Database::disconnect();
-            header("Location: spaceRequests.php");
+            header("Location: ssuRequests.php");
         }
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM spaceRequests where requestId = ?";
+        $sql = "SELECT * FROM ssuRequests where requestId = ?";
 
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $remarks = $data['remarks'];
-       
-
+    
 
         
         Database::disconnect();
@@ -132,13 +126,13 @@
             <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="powerRequests.php">Power</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="ssuRequests.php">SSU</a>
                 </li>
                 <li class="nav-item">
@@ -179,7 +173,7 @@
 
                 <div class="infoBoundingBox">
 
-                    <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id?>" method="post">
+                    <form class="form-horizontal" action="deleteInfoSsu.php?requestId=<?php echo $id?>" method="post">
 
 
                         <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
@@ -197,7 +191,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
-                            <a class="btn" style="float: left;" href="spaceRequests.php">Back</a>
+                            <a class="btn" style="float: left;" href="ssuRequests.php">Back</a>
                         </div>
 
                         <br>

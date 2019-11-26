@@ -2,12 +2,12 @@
     require 'database.php';
  
     $id = null;
-    if ( !empty($_GET['requestId'])) {
-        $id = $_REQUEST['requestId'];
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
     }
      
     if ( null==$id ) {
-        header("Location: spaceRequests.php");
+        header("Location: fdfRequests.php");
     }
      
     if ( !empty($_POST)) {
@@ -22,7 +22,10 @@
          
         // validate input
         $valid = true;
-     
+        if (empty($name)) {
+            $nameError = 'Please enter Name';
+            $valid = false;
+        }
          
         
          
@@ -30,17 +33,17 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE spaceRequests set remarks = ? , requestStatus = 'Declined' WHERE requestId = ?";
+            $sql = "UPDATE fdfRequests set remarks = ? WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 
             Database::disconnect();
-            header("Location: spaceRequests.php");
+            header("Location: fdfRequests.php");
         }
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM spaceRequests where requestId = ?";
+        $sql = "SELECT * FROM fdfRequests where id = ?";
 
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
@@ -132,8 +135,8 @@
             <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="spaceRequests.php">Space</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="fdfRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="powerRequests.php">Power</a>
@@ -141,7 +144,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ssuRequests.php">SSU</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="fdfRequests.php">FDF</a>
                 </li>
                 <li class="nav-item">
@@ -179,7 +182,7 @@
 
                 <div class="infoBoundingBox">
 
-                    <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id?>" method="post">
+                    <form class="form-horizontal" action="deleteInfoFdf.php?id=<?php echo $id?>" method="post">
 
 
                         <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
@@ -197,7 +200,7 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
-                            <a class="btn" style="float: left;" href="spaceRequests.php">Back</a>
+                            <a class="btn" style="float: left;" href="fdfRequests.php">Back</a>
                         </div>
 
                         <br>

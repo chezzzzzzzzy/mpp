@@ -24,6 +24,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.js"></script>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -44,61 +46,6 @@
             // $_SESSION['loggedin'] = false;
             ?
             >
-    }
-
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("sorted");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
     }
     </script>
 
@@ -124,7 +71,7 @@
                         <a class="nav-link" href="admin.php">All Requests</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="spaceInfo.php">Space</a>
+                        <a class="nav-link" href="spaceRequests.php">Space</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="powerRequests.php">Power</a>
@@ -144,6 +91,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="mmrRequests.php">MMR</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accessRequests.php">Access</a>
+                    </li>
                 </ul>
                 <span class="navbar-text">
                     <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
@@ -158,7 +108,7 @@
 
             <h1>General Requests</h1>
             <div class="row">
-                <div class="col-lg-4">
+            <div class="col-lg-4">
                     <div class="boundingBox2">
                         <h4 class="mlSmall"><b>Total Request</b></h4>
                         <h2 class="mlSmall"><b>
@@ -171,6 +121,8 @@
                                     echo $classId;
                                 ?>
                             </b></h2>
+                            <br>
+
                     </div>
                 </div>
 
@@ -199,7 +151,7 @@
                                     $sql = 'SELECT * FROM generalRequests ORDER BY id DESC';
                                     foreach ($pdo->query($sql) as $row) {
                                         echo '<tr>';
-                                        echo '<td>'. $row['requestId'] . '</td>';
+                                        echo '<td>'. $row['id'] . '</td>';
                                         echo '<td>'. '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
                                         echo '<td>'. $row['requestorEmail'] . '</td>';
                                         echo '<td>'. $row['requestTimestamp'] . '</td>';
@@ -207,11 +159,11 @@
 
 
                                         echo '<td width=350>';
-                                        echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
+                                        echo '<a class="btn updateInfoButton" href="updateInfoGeneral.php?id='.$row['id'].'">Update</a>';
                                         echo ' ';
-                                        echo '<a class="btn readInfoButton" href="readInfo.php?requestId='.$row['requestId'].'">View</a>';
+                                        echo '<a class="btn readInfoButton" href="viewInfoGeneral.php?id='.$row['id'].'">View</a>';
                                         echo ' ';
-                                        echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
+                                        echo '<a class="btn deleteInfoButton" href="deleteInfoGeneral.php?id='.$row['id'].'">Decline</a>';
                                         
                                         echo '</td>';
                                         echo '</tr>';

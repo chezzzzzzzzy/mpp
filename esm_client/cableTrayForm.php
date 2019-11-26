@@ -31,12 +31,12 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="othersForm.css">
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -141,7 +141,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Preferred Exchange<span
+                                    <label for="inputState">Exchange<span
                                             class="requiredField">*</span></label>
 
                                     <select id="cat" name="exchange" class="form-control" required>
@@ -174,7 +174,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Preferred Room<span class="requiredField">*</span></label>
+                                    <label for="inputState">Room<span class="requiredField">*</span></label>
 
                                     <select id="subcat" name="room" disabled="disabled" class="form-control" required>
                                         <option value>Please select below</option>

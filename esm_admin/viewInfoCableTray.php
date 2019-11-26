@@ -1,61 +1,22 @@
 <?php
     require 'database.php';
- 
     $id = null;
-    if ( !empty($_GET['requestId'])) {
-        $id = $_REQUEST['requestId'];
+    if ( !empty(strval($_GET['id']))) {
+        $id = strval($_REQUEST['id']);
     }
      
     if ( null==$id ) {
-        header("Location: spaceRequests.php");
-    }
-     
-    if ( !empty($_POST)) {
-        // keep track validation errors
-        $nameError = null;
-
-         
-        // keep track post values
-        $remarks = strval($_POST['remarks']);
-  
-
-         
-        // validate input
-        $valid = true;
-     
-         
-        
-         
-        // update data
-        if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE spaceRequests set remarks = ? , requestStatus = 'Declined' WHERE requestId = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($remarks, $id));
-
-            Database::disconnect();
-            header("Location: spaceRequests.php");
-        }
+        header("Location: cableTrayRequests.php");
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM spaceRequests where requestId = ?";
-
+        $sql = "SELECT * FROM cableTrayRequests where id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
-        $remarks = $data['remarks'];
-       
-
-
-        
         Database::disconnect();
     }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,30 +44,7 @@
     <link rel="stylesheet" href="main.css">
 
     <style>
-    .container {
-        margin-left: 30px;
-        margin-right: auto;
-    }
 
-
-
-    @media screen and (max-width: 2560px) {
-        .table {
-            width: 180%;
-        }
-    }
-
-    @media screen and (min-width: 2560px) {
-        .table {
-            width: 250%;
-        }
-    }
-
-    @media screen and (min-width: 3000px) {
-        .table {
-            width: 280%;
-        }
-    }
     </style>
 
 
@@ -129,10 +67,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
@@ -144,7 +82,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="fdfRequests.php">FDF</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="cableTrayRequests.php">Cable Tray</a>
                 </li>
                 <li class="nav-item">
@@ -165,69 +103,122 @@
         </div>
     </nav>
 
+    <div class="container-fluid fluid2">
+
+        <h1>View Request</h1>
 
 
-
-    <div class="container-fluid">
-
-        <h1>Decline / Delete Request</h1>
 
         <div class="row">
 
 
-            <div class="col-lg-12 ">
+
+            <div class="col-lg-12">
 
                 <div class="infoBoundingBox">
 
-                    <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id?>" method="post">
+                    <div class="form-horizontal">
+                        <div class="control-group">
 
-
-                        <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
-                            <label for="startDate">Remarks<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="remarks" type="text" placeholder="remarks"
-                                    value="<?php echo !empty($remarks)?$remarks:'';?>">
- 
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="startDate">Request ID<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['id'];?></b></h5>
+                                </div>
                             </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['requestorName'];?></b></h5>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['requestorEmail'];?></b></h5>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['requestorReason'];?></b></h5>
+                                </div>
+
+
+                            </div>
+
+
+                            <br>
+
+
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label for="startDate">Exchange<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['exchange'];?></b></h5>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="startDate">Room<span class="requiredField">*</span></label>
+                                    <h5><b>PCM <?php echo$data['room'];?></b></h5>
+
+                                </div>
+                            </div>
+                            <br>
+
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['completionDate'];?></b></h5>
+
+                                </div>
+                              
+                            </div>
+                            <br>
+
+
+
+
                         </div>
 
 
-                        <br>
 
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
-                            <a class="btn" style="float: left;" href="spaceRequests.php">Back</a>
-                        </div>
-
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-                        <br>
-
-                    </form>
-
-
-
+                    </div>
                 </div>
 
 
+                <div class="infoBoundingBox">
 
 
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label for="startDate">Rack Location<span class="requiredField">*</span></label>
+                            <h5><b><?php echo $data['rackLocation'];?></b></h5>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="startDate">FDF Rack Locationpe<span class="requiredField">*</span></label>
+                            <h5><b><?php echo $data['fdfRackLocation'];?></b></h5>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
-
-
+            <div class="form-actions">
+                <a class="btn" href="cableTrayRequests.php">Back</a>
+            </div>
 
         </div>
 
 
 
+    </div>
+
+
+
     </div> <!-- /container -->
 </body>
-
 
 </html>

@@ -1,3 +1,58 @@
+<?php
+
+require 'connection.php';
+$temp = 'SP20191117206';
+
+            // Do some stuff with it here
+            $file_path = 'upload' . "/" . $temp . "/";
+
+            if (!file_exists($file_path)) {
+                mkdir($file_path);
+            }
+            if(isset($_POST['but_upload'])){
+
+                $name = $_FILES['file']['name'];
+                $target_dir = $file_path;
+                $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+                // Select file type
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+                // Valid file extensions
+                $extensions_arr = array("jpg","jpeg","png");
+
+                    // Check extension
+                    if( in_array($imageFileType,$extensions_arr) ){
+                    
+                        // Insert record
+                        $query = "UPDATE spaceRequests SET requestorFileUpload = '".$name."' WHERE requestId = '$temp'";
+                        // mysqli_query($conn,$query);
+
+                        // insert into table
+                        if (mysqli_query($conn, $query)) {
+                            // echo "New record created successfully";
+                            // echo "<br>";
+                            // echo $sql;
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                    
+                        // Upload file
+                        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
+
+                    }
+                
+            }
+
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,12 +87,12 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -71,66 +126,35 @@
     <div class="container-fluid">
 
 
-        <div class="col-lg-12 mlSmall">
-
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="js-title-step"></h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row hide" data-step="1" data-title="This is the first step!">
-                                <div class="jumbotron">This is the first step!</div>
-                            </div>
-                            <div class="row hide" data-step="2" data-title="This is the second step!">
-                                <div class="jumbotron">This is the second step!</div>
-                            </div>
-                            <div class="row hide" data-step="3" data-title="This is the last step!">
-                                <div class="jumbotron">This is the last step!</div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default js-btn-step pull-left"
-                                data-orientation="cancel" data-dismiss="modal"></button>
-                            <button type="button" class="btn btn-warning js-btn-step"
-                                data-orientation="previous"></button>
-                            <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                Launch wizard modal
-            </button>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class=" topSpaceLarge">Onboarding</h1>
+                <h5 class=" x0">Guides as to how you should use the app</h5>
 
 
+                <h4 class=""><b>Uploading Images</b></h4>
+                <!-- <button type='submit' class='btn selectorButton2' id='x' method='post'>Learn More</button> -->
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class=" topSpaceLarge">Onboarding</h1>
-                    <h5 class=" x0">Guides as to how you should use the app</h5>
-
-
-                    <h4 class=""><b>Uploading Images</b></h4>
-                    <button type='submit' class='btn selectorButton2' id='x' method='post'>Learn More</button>
-
-                    <h4 class="topSpaceMid"><b>Submitting Requests</b></h4>
-                    <button type='submit' class='btn selectorButton2' id='x' method='post'>Learn More</button>
-
-                </div>
-
-
+                <h4 class="topSpaceMid"><b>Submitting Requests</b></h4>
+                <!-- <button type='submit' class='btn selectorButton2' id='x' method='post'>Learn More</button> -->
 
             </div>
-
-
 
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <form method="post" enctype='multipart/form-data'>
+            <input type='file' name='file' />
+            <input type='submit' value='Save name' name='but_upload'>
+        </form>
+
+
+
+    </div>
 
 
 </body>

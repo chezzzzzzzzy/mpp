@@ -46,6 +46,18 @@ $rackSizeBreadth3 = $_POST['rackSizeBreadth3'];
 $rackSizeBreadth4 = $_POST['rackSizeBreadth4'];
 $rackSizeBreadth5 = $_POST['rackSizeBreadth5'];
 
+$rackSizeHeight1 = $_POST['rackSizeHeight1'];
+$rackSizeHeight2 = $_POST['rackSizeHeight2'];
+$rackSizeHeight3 = $_POST['rackSizeHeight3'];
+$rackSizeHeight4 = $_POST['rackSizeHeight4'];
+$rackSizeHeight5 = $_POST['rackSizeHeight5'];
+
+$rackSizeWeight1 = $_POST['rackSizeWeight1'];
+$rackSizeWeight2 = $_POST['rackSizeWeight2'];
+$rackSizeWeight3 = $_POST['rackSizeWeight3'];
+$rackSizeWeight4 = $_POST['rackSizeWeight4'];
+$rackSizeWeight5 = $_POST['rackSizeWeight5'];
+
 
 $breakerSize1 = $_POST['breakerSize1'];
 $breakerSize2 = $_POST['breakerSize2'];
@@ -69,8 +81,8 @@ $powerConsumption5 = $_POST['powerConsumption5'];
 
 
 // insert into table
-$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, rackType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4,rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$rackType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
+$sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, rackType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4, rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, rackSizeHeight1, rackSizeHeight2, rackSizeHeight3, rackSizeHeight4, rackSizeHeight5, rackSizeWeight1, rackSizeWeight2, rackSizeWeight3, rackSizeWeight4, rackSizeWeight5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$rackType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$rackSizeHeight1', '$rackSizeHeight2', '$rackSizeHeight3', '$rackSizeHeight4', '$rackSizeHeight5', '$rackSizeWeight1', '$rackSizeWeight2', '$rackSizeWeight3', '$rackSizeWeight4', '$rackSizeWeight5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')";
 
 
 // insert into table
@@ -111,12 +123,12 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>User | ESM</title>
+    <title>Requestor | ESM</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
@@ -130,7 +142,7 @@ if (mysqli_query($conn, $sql)) {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="allForms.php">Request</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
