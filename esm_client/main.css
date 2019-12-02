@@ -538,6 +538,7 @@ footer {
 .dropdown-menu {
     margin-top: 600px;
     background-color: transparent;
+    width: 100%;
 
 }
 
@@ -824,3 +825,39 @@ select {
     text-indent: 15px;
 }
 
+
+
+
+  .btn-link {
+      font-weight: bold;
+      font-size: 20px;
+      color: black;
+  }
+
+  .btn-link:hover {
+      text-decoration: none;
+      color: #da3744;
+  }
+
+  .btn-link:focus {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      /* font-size: 26px;
+      transition: font-size .3s; */
+ }
+
+ .card-header {
+     background-color: white;
+     border: 0px;   
+
+ }
+
+ .accordion {
+     border: 0px; 
+     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+  
+ }
+
+ .card {
+     border: 0px;
+ }

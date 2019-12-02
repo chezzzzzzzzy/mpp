@@ -895,7 +895,7 @@
 
                     <div class='col-lg-12 mlSmall'>
 
-                       
+
 
                         <!-- <form method='post' enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
@@ -1261,8 +1261,8 @@
                     <div class='col-lg-12 mlSmall'>
 
 
-                      
-                       
+
+
                     </div>
                 </div>
             </div>

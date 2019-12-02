@@ -1,4 +1,7 @@
+<?php 
+    session_start()
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +102,7 @@
                 </div>
 
                 <div class="col-lg-3 col-xs-12">
-                    <button type="submit" class="btn statusCheckButton" method="post" name='reqId' onclick="submitForm('status.php')"
+                    <button type="submit" class="btn statusCheckButton" method="post" onclick="submitForm('status.php')"
                         value="submit">Check</button>
                 </div>
             </div>
@@ -168,11 +171,11 @@
         <form id="form1">
             <div class="row">
                 <?php        
-                require 'fdfFormStatus.php'; // fdfRequestStatus
-                require 'ssuFormStatus.php'; // ssuRequestStatus
-                require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
-                require 'powerFormStatus.php'; // powerRequestStatus
-                require 'generalFormStatus.php'; // generalRequestStatus
+                // require 'fdfFormStatus.php'; // fdfRequestStatus
+                // require 'ssuFormStatus.php'; // ssuRequestStatus
+                // require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
+                // require 'powerFormStatus.php'; // powerRequestStatus
+                // require 'generalFormStatus.php'; // generalRequestStatus
                 require 'spaceFormStatus.php'; // spaceRequestStatus
             ?>
             </div>

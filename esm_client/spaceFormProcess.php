@@ -26,10 +26,7 @@ $room = $_POST['room'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 $exchange = $_POST['exchange'];
-$rackSizeLength = $_POST['rackSizeLength'];
-$rackSizeBreadth = $_POST['rackSizeBreadth'];
-$breakerSize = $_POST['breakerSize'];
-$breakerQuantity = $_POST['breakerQuantity'];
+
 
 
 // get data from spaceForm.php
