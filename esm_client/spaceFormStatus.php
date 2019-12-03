@@ -65,19 +65,7 @@
                                 ?>
                             </div>
                             <div class="col-lg-7">
-                                <?php       
-                                    if ($row['requestStatus'] == 'Submitted') {
-                                    ?>
-                                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
-                                </script>
-                                <lottie-player src="https://assets7.lottiefiles.com/datafiles/Wv6eeBslW1APprw/data.json"
-                                    mode="bounce" background="trxansparent" speed=".7"
-                                    style="width: 40px; height: 40px; margin-left: -80px; margin-top: -4px;" autoplay>
-                                </lottie-player>
-
-                                <?php
-                                    }
-                                ?>
+                                
                             </div>
                         </div>
                         <br>
@@ -305,9 +293,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -322,9 +310,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -340,9 +328,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -358,9 +346,9 @@
                         $str = $testingSub ;
                         
                         if (strpos($str, '+') !== false) {
-                            echo '(Overdue)';
+                            echo '<b>(Overdue)</b>';
                         } else {
-                            echo '(On Time)';
+                            echo '<b>(On Time)</b>';
                         }
                     
                     ?>
@@ -450,16 +438,32 @@
                                 <br>
 
                                 <form method='POST'>
-                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' name='checked'>Submit</button>
+                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' onclick='changeState();' name='checked'>Submit</button>
                                 </form>";
 
                                 echo $temp;
 
-                                if (isset($_POST['checked'])) {
-                                    $temp = $_POST['ticketNumber']; 
-                                    $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                    mysqli_query($conn, $updateStatus);
-                                }
+                                // if (isset($_POST['checked'])) {
+                                //     $temp = $_POST['ticketNumber']; 
+                                //     $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestID = '$temp'";
+                                //     mysqli_query($conn, $updateStatus);
+                                // }
+
+                                ?>
+
+                                <script>
+                                    function changeState() {
+                                        <?php
+                                        require 'testing.php'; 
+                                        ?>
+                                        $.get("testing.php");
+                                        return false;
+                                    }
+                                
+                                </script>
+
+                                <?php
+
 
                                
                             

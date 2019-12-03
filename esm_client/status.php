@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +22,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
+
     <title>Requestor | ESM</title>
 
 </head>
@@ -99,8 +99,8 @@
                 </div>
 
                 <div class="col-lg-3 col-xs-12">
-                    <button type="submit" class="btn statusCheckButton" method="post" name='reqId' onclick="submitForm('status.php')"
-                        value="submit">Check</button>
+                    <button type="submit" class="btn statusCheckButton" method="post" name='reqId'
+                        onclick="submitForm('status.php')" value="submit">Check</button>
                 </div>
             </div>
 
@@ -167,7 +167,8 @@
 
         <form id="form1">
             <div class="row">
-                <?php        
+                <?php   
+     
                 require 'fdfFormStatus.php'; // fdfRequestStatus
                 require 'ssuFormStatus.php'; // ssuRequestStatus
                 require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
