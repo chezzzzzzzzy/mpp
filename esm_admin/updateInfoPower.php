@@ -79,7 +79,6 @@
         $exchange =  strval($_POST['exchange']);
         $room =  strval($_POST['room']);
 
-
         $adminFileUpload =  strval($_POST['adminFileUpload']);
         $requestorFileUpload =  strval($_POST['requestorFileUpload']);
 
@@ -115,9 +114,23 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE powerRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, rackLocation1 = ?, subPdu1FeedA1 = ?, subPdu1FeedA2 = ? , subPdu1FeedB1 = ?  , subPdu1FeedB2 = ? , breakerName1FeedA1 = ?, breakerName1FeedA2 = ? , breakerName1FeedB1 = ?, breakerName1FeedB2 = ?, rackLocation2 = ? , subPdu2FeedB2 = ? , breakerName2FeedA1 = ?, rackLocation3 = ?, subPdu3 = ?, breakerName3 = ?, rackLocation4 = ?, subPdu4 = ?, breakerName4 = ? ,rackLocation5 = ?, subPdu5 = ? ,breakerName5 = ? ,exchange = ? , room = ? , adminFileUpload = ?, requestorFileUpload = ? WHERE id = ?";
+            $sql = "UPDATE powerRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, 
+                    rackLocation1 = ?, subPdu1FeedA1 = ?, subPdu1FeedA2 = ? , subPdu1FeedB1 = ?  , subPdu1FeedB2 = ? , breakerName1FeedA1 = ?, breakerName1FeedA2 = ? , breakerName1FeedB1 = ?, breakerName1FeedB2 = ?, 
+                    rackLocation2 = ? ,subPdu2FeedA1 = ?, subPdu2FeedA2 = ? , subPdu2FeedB1 = ?  , subPdu2FeedB2 = ? , breakerName2FeedA1 = ?, breakerName2FeedA2 = ? , breakerName2FeedB1 = ?, breakerName2FeedB2 = ?, 
+                    rackLocation3 = ?, subPdu3FeedA1 = ?, subPdu3FeedA2 = ? , subPdu3FeedB1 = ?  , subPdu3FeedB2 = ? , breakerName3FeedA1 = ?, breakerName3FeedA2 = ? , breakerName3FeedB1 = ?, breakerName3FeedB2 = ? , 
+                    rackLocation4 = ?, subPdu4FeedA1 = ?, subPdu4FeedA2 = ? , subPdu4FeedB1 = ?  , subPdu4FeedB2 = ? , breakerName4FeedA1 = ?, breakerName4FeedA2 = ? , breakerName4FeedB1 = ?, breakerName4FeedB2 = ? ,
+                    rackLocation5 = ?, subPdu5FeedA1 = ?, subPdu5FeedA2 = ? , subPdu5FeedB1 = ?  , subPdu5FeedB2 = ? , breakerName5FeedA1 = ?, breakerName5FeedA2 = ? , breakerName5FeedB1 = ?, breakerName5FeedB2 = ? ,
+                    exchange = ? , room = ? , adminFileUpload = ?, requestorFileUpload = ? WHERE id = ?";
+
+
             $q = $pdo->prepare($sql);
-            $q->execute(array($name, $dept, $email, $requestStatus, $rackLocation1, $subPdu1FeedA1, $subPdu1FeedA2, $subPdu1FeedB1, $subPdu1FeedB2, $breakerName1FeedA1, $breakerName1FeedA2, $breakerName1FeedB1, $breakerName1FeedB2, $rackLocation2, $subPdu2, $breakerName2, $rackLocation3, $subPdu3, $breakerName3, $rackLocation4, $subPdu4, $breakerName4, $rackLocation5, $subPdu5, $breakerName5, $exchange, $room, $image, $requestorFileUpload, $id));
+            $q->execute(array($name, $dept, $email, $requestStatus,   
+                            $rackLocation1, $subPdu1FeedA1, $subPdu1FeedA2, $subPdu1FeedB1, $subPdu1FeedB2, $breakerName1FeedA1, $breakerName1FeedA2, $breakerName1FeedB1, $breakerName1FeedB2, 
+                            $rackLocation2, $subPdu2FeedA1, $subPdu2FeedA2, $subPdu2FeedB1, $subPdu2FeedB2, $breakerName2FeedA1, $breakerName2FeedA2, $breakerName2FeedB1, $breakerName2FeedB2, 
+                            $rackLocation3, $subPdu3FeedA1, $subPdu3FeedA2, $subPdu3FeedB1, $subPdu3FeedB2, $breakerName3FeedA1, $breakerName3FeedA2, $breakerName3FeedB1, $breakerName3FeedB2, 
+                            $rackLocation4, $subPdu4FeedA1, $subPdu4FeedA2, $subPdu4FeedB1, $subPdu4FeedB2, $breakerName4FeedA1, $breakerName4FeedA2, $breakerName4FeedB1, $breakerName4FeedB2, 
+                            $rackLocation5, $subPdu5FeedA1, $subPdu5FeedA2, $subPdu5FeedB1, $subPdu5FeedB2, $breakerName5FeedA1, $breakerName5FeedA2, $breakerName5FeedB1, $breakerName5FeedB2, 
+                            $exchange, $room, $image, $requestorFileUpload, $id));
 
             Database::disconnect();
             header("Location: powerRequests.php");
@@ -276,8 +289,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -407,121 +419,7 @@
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
 
-                            <?php 
-
-                            if ($row['requestStatus'] == "Submitted") {
-                            echo "Please check your email for a your request submission";
-
-
-                            $changeToAcknowledged = date('Y-m-d H:i:s');;
-                            $sqlChangeToAcknowledged = "UPDATE powerRequests
-                            SET requestStatusAcknowledged = '$changeToAcknowledged' where id = '$temp'";
-                            mysqli_query($conn, $sqlChangeToAcknowledged);
-                           
-                            }
-
-                            if ($row['requestStatus'] == "Acknowledged") {
-
-                            echo "Your request has been received";
-                            $changeToAssigned = date('Y-m-d H:i:s');;
-                            $sqlChangeToAssigned= "UPDATE powerRequests
-                            SET requestStatusAssigned = '$changeToAssigned' where id = '$temp'";
-                            mysqli_query($conn, $sqlChangeToAssigned);
-
-                            }
-
-                          
-
-
-
-                            if ($row['requestStatus'] == "Assigned") {
-                            echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
-
-                            
-                  
-
-                            $updateStatus = "UPDATE powerRequests
-                            SET requestStatus = 'In Progress' where id = '$temp'";
-                            mysqli_query($conn, $updateStatus);
-
-                            // echo "<div class='custom-control custom-checkbox'>
-                            // <input type='checkbox' class='custom-control-input' id='customCheck1'>
-                            // <label class='custom-control-label' for='customCheck1'>I have entered all the relevant information into FNT DCIM App </label>
-                            // </div>";
-
-                            echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
-                            echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
-
-
-
-                            // echo "<button type='submit' class='btn selectorButton2' id='checkStatus' method='post'>Change Status</button>";
-
-                            $changeToInProgress = date('Y-m-d H:i:s');;
-                            $sqlChangeToInProgress = "UPDATE powerRequests
-                            SET requestStatusInProgress = '$changeToInProgress' where id = '$temp'";
-                            mysqli_query($conn, $sqlChangeToInProgress);
-
-                            }
-
-
-
-                            if ($row['requestStatus'] == "In Progress") {
-                            echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
-
-
-
-                            $updateStatus = "UPDATE powerRequests
-                            SET requestStatus = 'Completed' where id = '$temp'";
-                            mysqli_query($conn, $updateStatus);
-
-
-
-                            echo "<form>
-                            <div class='form-group'>
-                            <h4 class='topSpaceLow'><b>Image Upload</b></h4>
-                            <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
-                            <div id='preview'></div>
-                            </div>
-                            </form>";
-                            echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
-
-
-
-                            $changeToCompleted = date('Y-m-d H:i:s');;
-                            $sqlChangeToCompleted = "UPDATE powerRequests
-                            SET requestStatusCompleted = '$changeToCompleted' where id = '$temp'";
-                            mysqli_query($conn, $sqlChangeToCompleted);
-
-
-
-                            }
-
-                            if ($row['requestStatus'] == "Completed") {
-
-                            echo "Your request has been completed<br><br>";
-
-                            // $changeToClosed = date('Y-m-d H:i:s');
-                            // $sqlChangeToClosed = "UPDATE powerRequests
-                            // SET requestStatusClosed = '$changeToClosed' where id = '$temp'";
-                            // mysqli_query($conn, $sqlChangeToClosed);
-
-                            }
-
-                            if ($row['requestStatus'] == "Closed") {
-
-
-
-                            }
-
-                        ?>
-
-                        <?php   
-
-
-
-
-                        ?>
-
+                   
 
                         </div>
 
@@ -734,9 +632,9 @@ if ($breakerSize2 != NULL ) {
                         <br>
 
                         <div class="row">
-                            <div class="col-lg-3">
-                                <div class="orm-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Rack Location 2</label>
+                            <div class="col-lg-12">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Rack Location 1</label>
                                     <div class="controls">
                                         <input class="form-control" name="rackLocation2" type="text"
                                             placeholder="rackLocation2"
@@ -748,25 +646,14 @@ if ($breakerSize2 != NULL ) {
                                 </div>
 
                             </div>
+
+
                             <div class="col-lg-3">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Sub PDU 2</label>
+                                    <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu2FeedB2" type="text" placeholder="subPdu2"
-                                            value="<?php echo !empty($subPdu2)?$subPdu2:'';?>">
-                                        <?php if (!empty($emailError)): ?>
-                                        <span class="help-inline"><?php echo $emailError;?></span>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Breaker Name 2</label>
-                                    <div class="controls">
-                                        <input class="form-control" name="breakerName2FeedA1" type="text"
-                                            placeholder="breakerName2"
-                                            value="<?php echo !empty($breakerName2)?$breakerName2:'';?>">
+                                        <input class="form-control" name="subPdu2FeedA1" type="text" placeholder="subPdu2FeedA1"
+                                            value="<?php echo !empty($subPdu2FeedA1)?$subPdu2FeedA1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
                                         <?php endif; ?>
@@ -774,7 +661,109 @@ if ($breakerSize2 != NULL ) {
                                 </div>
                             </div>
 
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu2FeedB1" type="text" placeholder="subPdu2FeedB1"
+                                            value="<?php echo !empty($subPdu2FeedB1)?$subPdu2FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu2FeedA2" type="text" placeholder="subPdu2FeedA2"
+                                            value="<?php echo !empty($subPdu2FeedA2)?$subPdu2FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu2FeedB2" type="text" placeholder="subPdu2FeedB2"
+                                            value="<?php echo !empty($subPdu2FeedB2)?$subPdu2FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName2FeedA1" type="text"
+                                            placeholder="breakerName2FeedA1"
+                                            value="<?php echo !empty($breakerName2FeedA1)?$breakerName2FeedA1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName2FeedB1" type="text"
+                                            placeholder="breakerName2FeedB1"
+                                            value="<?php echo !empty($breakerName2FeedB1)?$breakerName2FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName2FeedA2" type="text"
+                                            placeholder="breakerName2FeedA2"
+                                            value="<?php echo !empty($breakerName2FeedA2)?$breakerName2FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName2FeedB2" type="text"
+                                            placeholder="breakerName2FeedB2"
+                                            value="<?php echo !empty($breakerName2FeedB2)?$breakerName2FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
+
 
 
 

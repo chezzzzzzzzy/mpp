@@ -60,8 +60,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -1207,7 +1206,7 @@
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($rodataw['subPdu5FeedB2'] != NULL) {
+                                                if ($data['subPdu5FeedB2'] != NULL) {
                                                 echo "<h6 class='valueEmphasis'><b>" . $data['subPdu5FeedB2'] . "</b></h6>";
                                                 } else {
                                                 echo "<h6 class='valueEmphasis'><b>NA</b></h6>";

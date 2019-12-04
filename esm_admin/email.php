@@ -734,10 +734,7 @@ stroke-linecap: round;
             <tr>
                 <td width='100'>
                     <div>
-                        <img style='margin: 0; border: 0; padding: 0; display: block; margin-left: 0px; margin-top: 100px'
-                            width='100' height=55'
-                            src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png'
-                            alt='./assets/singtelLogo.png'>
+                    <img src='./assets/singtelLogo.png'>
                     </div>
                 </td>
                 <td></td>

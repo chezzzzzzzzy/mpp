@@ -1,73 +1,70 @@
 <?php
-    require 'database.php';
- 
-    $id = null;
-    if ( !empty($_GET['requestId'])) {
-        $id = $_REQUEST['requestId'];
-    }
-     
-    if ( null==$id ) {
-        header("Location: ssuRequests.php");
-    }
-     
-    if ( !empty($_POST)) {
-        // keep track validation errors
-        $nameError = null;
+require 'database.php';
 
-         
-        // keep track post values
-        $name = strval($_POST['requestorName']);
-        $dept = strval($_POST['requestorDepartment']);
-        $email = strval($_POST['requestorEmail']);
-        $requestStatus = strval($_POST['requestStatus']);
+$id = null;
+if (!empty($_GET['requestId'])) {
+    $id = $_REQUEST['requestId'];
+}
 
-        $numberOfPorts = strval($_POST['numberOfPorts']);
-        $transmissionType = strval($_POST['transmissionType']);
-        $interfacingType = strval($_POST['interfacingType']);
+if (null == $id) {
+    header("Location: ssuRequests.php");
+}
 
-        $completionDate = strval($_POST['completionDate']);
-        $room = strval($_POST['room']);
-        $exchange = strval($_POST['exchange']);
+if (!empty($_POST)) {
+    // keep track validation errors
+    $nameError = null;
 
+    // keep track post values
+    $name = strval($_POST['requestorName']);
+    $dept = strval($_POST['requestorDepartment']);
+    $email = strval($_POST['requestorEmail']);
+    $requestStatus = strval($_POST['requestStatus']);
 
-        
-         $valid = true;
-        // update data
-        if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE ssuRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, numberOfPorts = ?, transmissionType = ?, interfacingType = ?, completionDate = ?, room = ? , exchange = ? WHERE requestId = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($name, $dept, $email, $requestStatus, $numberOfPorts, $transmissionType, $interfacingType, $completionDate, $room, $exchange, $id));
+    $numberOfPorts = strval($_POST['numberOfPorts']);
+    $transmissionType = strval($_POST['transmissionType']);
+    $interfacingType = strval($_POST['interfacingType']);
 
-            Database::disconnect();
-            header("Location: ssuRequests.php");
-        }
-    } else {
+    $completionDate = strval($_POST['completionDate']);
+    $room = strval($_POST['room']);
+    $exchange = strval($_POST['exchange']);
 
+    $valid = true;
+    // update data
+    if ($valid) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM ssuRequests where requestId = ?";
-
+        $sql = "UPDATE ssuRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, numberOfPorts = ?, transmissionType = ?, interfacingType = ?, completionDate = ?, room = ? , exchange = ? WHERE requestId = ?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $name = $data['requestorName'];
-        $dept = $data['requestorDepartment'];
-        $email = $data['requestorEmail'];
-        $requestStatus = $data['requestStatus'];
+        $q->execute(array($name, $dept, $email, $requestStatus, $numberOfPorts, $transmissionType, $interfacingType, $completionDate, $room, $exchange, $id));
 
-        $numberOfPorts = $data['numberOfPorts'];
-        $transmissionType = $data['transmissionType'];
-        $interfacingType = $data['interfacingType'];
-
-        $completionDate = $data['completionDate'];
-
-        $exchange = $data['exchange'];
-        $room = $data['room'];
         Database::disconnect();
-        
+        header("Location: ssuRequests.php");
     }
+} else {
+
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM ssuRequests where requestId = ?";
+
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    $name = $data['requestorName'];
+    $dept = $data['requestorDepartment'];
+    $email = $data['requestorEmail'];
+    $requestStatus = $data['requestStatus'];
+
+    $numberOfPorts = $data['numberOfPorts'];
+    $transmissionType = $data['transmissionType'];
+    $interfacingType = $data['interfacingType'];
+
+    $completionDate = $data['completionDate'];
+
+    $exchange = $data['exchange'];
+    $room = $data['room'];
+    Database::disconnect();
+
+}
 ?>
 
 
@@ -135,8 +132,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -193,13 +189,13 @@
             <div class="col-lg-12 ">
                 <div class="infoBoundingBox">
                     <form class="form-horizontal" enctype="multipart/form-data"
-                        action="updateInfoFdf.php?requestId=<?php echo $id?>" method="post">
+                        action="updateInfoFdf.php?requestId=<?php echo $id ?>" method="post">
 
                         <div class="form-group">
                             <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="requestorName" type="text" placeholder="requestorName"
-                                    value="<?php echo !empty($name)?$name:'';?>">
+                                    value="<?php echo !empty($name) ? $name : ''; ?>">
                             </div>
                         </div>
 
@@ -208,7 +204,7 @@
                             <label for="startDate">Requestor Department<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="requestorDepartment" type="text"
-                                    placeholder="requestorDepartment" value="<?php echo !empty($dept)?$dept:'';?>">
+                                    placeholder="requestorDepartment" value="<?php echo !empty($dept) ? $dept : ''; ?>">
                             </div>
                         </div>
 
@@ -217,7 +213,7 @@
                             <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="requestorEmail" type="text"
-                                    placeholder="requestorEmail" value="<?php echo !empty($email)?$email:'';?>">
+                                    placeholder="requestorEmail" value="<?php echo !empty($email) ? $email : ''; ?>">
                             </div>
                         </div>
 
@@ -227,7 +223,7 @@
                             <div class="controls">
                                 <input readonly class="form-control" name="requestStatus" type="text"
                                     placeholder="requestorStatus"
-                                    value="<?php echo !empty($requestStatus)?$requestStatus:'';?>">
+                                    value="<?php echo !empty($requestStatus) ? $requestStatus : ''; ?>">
                             </div>
                         </div>
 
@@ -245,77 +241,72 @@
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
 
-                            <?php 
+                            <?php
 
-                            if ($row['requestStatus'] == "Submitted") {
-                                echo "Please check your email for a your request submission";
-                                $changeToAcknowledged = date('Y-m-d H:i:s');;
-                                $sqlChangeToAcknowledged = "UPDATE spaceRequests
+if ($row['requestStatus'] == "Submitted") {
+    echo "Please check your email for a your request submission";
+    $changeToAcknowledged = date('Y-m-d H:i:s');
+    $sqlChangeToAcknowledged = "UPDATE spaceRequests
                                 SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAcknowledged);
-                            }
+    mysqli_query($conn, $sqlChangeToAcknowledged);
+}
 
-                            if ($row['requestStatus'] == "Acknowledged") {
-                                echo "Your request has been received";
-                                $changeToAssigned = date('Y-m-d H:i:s');;
-                                $sqlChangeToAssigned= "UPDATE spaceRequests
+if ($row['requestStatus'] == "Acknowledged") {
+    echo "Your request has been received";
+    $changeToAssigned = date('Y-m-d H:i:s');
+    $sqlChangeToAssigned = "UPDATE spaceRequests
                                 SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAssigned);
-                            }
+    mysqli_query($conn, $sqlChangeToAssigned);
+}
 
-                          
-
-                            if ($row['requestStatus'] == "Assigned") {
-                                echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
-                                $updateStatus = "UPDATE spaceRequests
+if ($row['requestStatus'] == "Assigned") {
+    echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
+    $updateStatus = "UPDATE spaceRequests
                                 SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
-                                echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
-                                echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
+    mysqli_query($conn, $updateStatus);
+    echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
+    echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
 
-                                $changeToInProgress = date('Y-m-d H:i:s');;
-                                $sqlChangeToInProgress = "UPDATE spaceRequests
+    $changeToInProgress = date('Y-m-d H:i:s');
+    $sqlChangeToInProgress = "UPDATE spaceRequests
                                 SET requestStatusInProgress = '$changeToInProgress' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToInProgress);
-                            }
+    mysqli_query($conn, $sqlChangeToInProgress);
+}
 
-
-
-                            if ($row['requestStatus'] == "In Progress") {
-                                echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
-                                $updateStatus = "UPDATE spaceRequests
+if ($row['requestStatus'] == "In Progress") {
+    echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
+    $updateStatus = "UPDATE spaceRequests
                                 SET requestStatus = 'Completed' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
+    mysqli_query($conn, $updateStatus);
 
-                                echo "<form>
+    echo "<form>
                                 <div class='form-group'>
                                 <h4 class='topSpaceLow'><b>Image Upload</b></h4>
                                 <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
                                 <div id='preview'></div>
                                 </div>
                                 </form>";
-                                echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
+    echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
 
-                                $changeToCompleted = date('Y-m-d H:i:s');;
-                                $sqlChangeToCompleted = "UPDATE spaceRequests
+    $changeToCompleted = date('Y-m-d H:i:s');
+    $sqlChangeToCompleted = "UPDATE spaceRequests
                                 SET requestStatusCompleted = '$changeToCompleted' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToCompleted);
-                            }
+    mysqli_query($conn, $sqlChangeToCompleted);
+}
 
-                            if ($row['requestStatus'] == "Completed") {
-                                echo "Your request has been completed<br><br>";
-                                // $changeToClosed = date('Y-m-d H:i:s');
-                                // $sqlChangeToClosed = "UPDATE spaceRequests
-                                // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
-                                // mysqli_query($conn, $sqlChangeToClosed);
-                            }
+if ($row['requestStatus'] == "Completed") {
+    echo "Your request has been completed<br><br>";
+    // $changeToClosed = date('Y-m-d H:i:s');
+    // $sqlChangeToClosed = "UPDATE spaceRequests
+    // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
+    // mysqli_query($conn, $sqlChangeToClosed);
+}
 
-                            if ($row['requestStatus'] == "Closed") {
+if ($row['requestStatus'] == "Closed") {
 
+}
 
-                            }
-
-                        ?>
+?>
 
 
 
@@ -328,7 +319,7 @@
                                     <label class="control-label">Exchange</label>
                                     <div class="controls">
                                         <input class="form-control" name="exchange" type="text" placeholder="exchange"
-                                            value="<?php echo !empty($exchange)?$exchange:'';?>">
+                                            value="<?php echo !empty($exchange) ? $exchange : ''; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +329,7 @@
                                     <label class="control-label">Room</label>
                                     <div class="controls">
                                         <input class="form-control" name="room" type="text" placeholder="room"
-                                            value="<?php echo !empty($room)?$room:'';?>">
+                                            value="<?php echo !empty($room) ? $room : ''; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +343,7 @@
                                     <div class="controls">
                                         <input class="form-control" name="numberOfPorts" type="text"
                                             placeholder="numberOfPorts"
-                                            value="<?php echo !empty($numberOfPorts)?$numberOfPorts:'';?>">
+                                            value="<?php echo !empty($numberOfPorts) ? $numberOfPorts : ''; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +356,7 @@
                                     <div class="controls">
                                         <input class="form-control" name="numberOfCableTies" type="text"
                                             placeholder="numberOfCableTies"
-                                            value="<?php echo !empty($transmissionType)?$transmissionType:'';?>">
+                                            value="<?php echo !empty($transmissionType) ? $transmissionType : ''; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +369,7 @@
                                     <div class="controls">
                                         <input class="form-control" name="interfacingType" type="text"
                                             placeholder="interfacingType"
-                                            value="<?php echo !empty($interfacingType)?$interfacingType:'';?>">
+                                            value="<?php echo !empty($interfacingType) ? $interfacingType : ''; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -392,7 +383,7 @@
                                     <div class="controls">
                                         <input class="form-control" name="completionDate" type="text"
                                             placeholder="completionDate"
-                                            value="<?php echo !empty($completionDate)?$completionDate:'';?>">
+                                            value="<?php echo !empty($completionDate) ? $completionDate : ''; ?>">
                                     </div>
                                 </div>
                             </div>

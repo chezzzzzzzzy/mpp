@@ -11,21 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- cdn -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.js"></script>
+   <!-- libraries -->
+   <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <script src="./libraries/js/bootstrap.min.js"></script>
+    <script src="./libraries/jquery-3.4.1.min.js"></script>
+    
+    <script src="./libraries/chartist.min.js"></script>
+    <script src="./libraries/chartist-plugin-legend.js"></script>
+    <script src="./libraries/Chart.bundle.js"></script>
+
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
@@ -35,84 +29,18 @@
 <body>
 
 
-    <script>
-    function logoutPressed() {
-        <
-        ?
-        php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("sorted");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-    </script>
+   
 
     <?php
 
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
-    ?>
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
+
+    <!-- display when planner is logged in -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -150,7 +78,6 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -169,7 +96,6 @@
                             <?php
                                     $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests";
                                     $query = mysqli_query($conn, $sqlGetTotalInProgress);
-
                                     $row = $query->fetch_object();
                                     $classId = $row->count;
                                     echo $classId;
@@ -180,8 +106,6 @@
                 </div>
             </div>
 
-
-    
             <div class="col-lg-4">
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Department </b></h4>
@@ -189,7 +113,6 @@
 
                 </div>
             </div>
-
 
             
             <script>
@@ -244,13 +167,6 @@
                         $classId = $row->count;
                         echo $classId;
                     ?>
-
-
-                
-
-
-
-
 
             ]
             }, {
@@ -351,14 +267,15 @@
                     <h4 class="mlSmall"><b>Submitted</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Submitted' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Submitted' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -367,14 +284,15 @@
                     <h4 class="mlSmall"><b>Acknowledged</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Acknowledged' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Acknowledged' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -383,14 +301,15 @@
                     <h4 class="mlSmall"><b>Assigned</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Assigned' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Assigned' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -400,14 +319,15 @@
                     <h4 class="mlSmall"><b>In Progress</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='In Progress' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='In Progress' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -419,14 +339,15 @@
                     <h4 class="mlSmall"><b>Completed</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Completed' ";
-                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                $row = $query->fetch_object();
-                                $classId = $row->count;
-                                echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Completed' ";
+                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                            $row = $query->fetch_object();
+                            $classId = $row->count;
+                            echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -435,14 +356,15 @@
                     <h4 class="mlSmall"><b>Closed</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
-                            <?php
-                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Closed' ";
-                            $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                            $row = $query->fetch_object();
-                            $classId = $row->count;
-                            echo $classId;
-                            ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Closed' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                        ?>
+                    </b><span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -451,54 +373,42 @@
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
-
                     <h6 class="mlSmall warningText"><b>7 Overdue</b></h6>
-
                 </div>
             </div>
 
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
-
                     <h6 class="mlSmall"><b>7 Overdue</b></h6>
-
                 </div>
             </div>
 
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
-
                     <h6 class="mlSmall"><b>7 Overdue</b></h6>
-
                 </div>
             </div>
 
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
-
                     <h6 class="mlSmall"><b>7 Overdue</b></h6>
-
                 </div>
             </div>
 
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
-
                     <h6 class="mlSmall"><b>7 Overdue</b></h6>
-
                 </div>
             </div>
 
 
             <div class="col-lg-2">
                 <div class="normalBoundingBox">
-
                     <h6 class="mlSmall"><b>Normal</b></h6>
-
                 </div>
             </div>
 
@@ -522,39 +432,61 @@
                         </thead>
                         <tbody>
                             <?php
-                                    include 'database.php';
-                                    $pdo = Database::connect();
-                                    $sql = 'SELECT * FROM cableTrayRequests ORDER BY id DESC';
-                                    foreach ($pdo->query($sql) as $row) {
-                                        echo '<tr>';
-                                        echo '<td>'. $row['id'] . '</td>';
-                                        echo '<td>'. '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
-                                        echo '<td>'. $row['requestorEmail'] . '</td>';
-                                        echo '<td>'. $row['requestTimestamp'] . '</td>';
-                                        echo '<td>'. $row['requestStatus'] . '</td>';
+                                include 'database.php';
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM cableTrayRequests ORDER BY id DESC';
+                                foreach ($pdo->query($sql) as $row) {
+                                    echo '<tr>';
+                                    echo '<td>'. $row['id'] . '</td>';
+                                    echo '<td>'. '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
+                                    echo '<td>'. $row['requestorEmail'] . '</td>';
+                                    echo '<td>'. $row['requestTimestamp'] . '</td>';
+                                    echo '<td>'. $row['requestStatus'] . '</td>';
 
-                                        echo '<td width=350>';
-                                        echo '<a class="btn updateInfoButton" href="updateInfoCableTray.php?id='.$row['id'].'">Update</a>';
-                                        echo ' ';
-                                        echo '<a class="btn readInfoButton" href="viewInfoCableTray.php?id='.$row['id'].'">View</a>';
-                                        echo ' ';
-                                        echo '<a class="btn deleteInfoButton" href="deleteInfoCableTray.php?id='.$row['id'].'">Decline</a>';
-                                        
-                                        echo '</td>';
-                                        echo '</tr>';
-                                    }
-                                    Database::disconnect();
-                                ?>
+                                    echo '<td width=350>';
+                                    echo '<a class="btn updateInfoButton" href="updateInfoCableTray.php?id='.$row['id'].'">Update</a>';
+                                    echo ' ';
+                                    echo '<a class="btn readInfoButton" href="viewInfoCableTray.php?id='.$row['id'].'">View</a>';
+                                    echo ' ';
+                                    echo '<a class="btn deleteInfoButton" href="deleteInfoCableTray.php?id='.$row['id'].'">Decline</a>';
+                                    
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
+                                Database::disconnect();
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
+    <?php } else { ?>
+
+    <!-- display when planner is not logged in -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 authForm">
+                <form action="authVerification.php" method="POST" id="authForm">
+                    <div class="loginLogo">
+                    <img src="./assets/singtelLogo.png">
+                    </div>
+                    <h2><b>Login</b></h2>
+                    <h4>Exchange Space Management Portal (Admin)</h4>
+                    <br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <br>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <br>
+                    <button type="submit" class="btn btn-primary boxButton">Login</button>
+                </form>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+    <?php } ?>
 </body>
 
 </html>

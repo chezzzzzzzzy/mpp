@@ -268,8 +268,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -389,90 +388,90 @@
 
                             <?php 
 
-                            if ($row['requestStatus'] == "Submitted") {
-                                echo "Please check your email for a your request submission";
-                                $changeToAcknowledged = date('Y-m-d H:i:s');;
-                                $sqlChangeToAcknowledged = "UPDATE spaceRequests
-                                SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAcknowledged);
-                            }
+                            // if ($data['requestStatus'] == "Submitted") {
+                            //     echo "Please check your email for a your request submission";
+                            //     $changeToAcknowledged = date('Y-m-d H:i:s');;
+                            //     $sqlChangeToAcknowledged = "UPDATE spaceRequests
+                            //     SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
+                            //     mysqli_query($conn, $sqlChangeToAcknowledged);
+                            // }
 
-                            if ($row['requestStatus'] == "Acknowledged") {
-                                echo "Your request has been received";
-                                $changeToAssigned = date('Y-m-d H:i:s');;
-                                $sqlChangeToAssigned= "UPDATE spaceRequests
-                                SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAssigned);
-                            }
-
-
-                            if ($row['requestStatus'] == "Assigned") {
-                                echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
+                            // if ($data['requestStatus'] == "Acknowledged") {
+                            //     echo "Your request has been received";
+                            //     $changeToAssigned = date('Y-m-d H:i:s');;
+                            //     $sqlChangeToAssigned= "UPDATE spaceRequests
+                            //     SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
+                            //     mysqli_query($conn, $sqlChangeToAssigned);
+                            // }
 
 
-                                $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
-
-                                // echo "<div class='custom-control custom-checkbox'>
-                                // <input type='checkbox' class='custom-control-input' id='customCheck1'>
-                                // <label class='custom-control-label' for='customCheck1'>I have entered all the relevant information into FNT DCIM App </label>
-                                // </div>";
-
-                                echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
-                                echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
+                            // if ($data['requestStatus'] == "Assigned") {
+                            //     echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
 
 
-                                // echo "<button type='submit' class='btn selectorButton2' id='checkStatus' method='post'>Change Status</button>";
+                            //     $updateStatus = "UPDATE spaceRequests
+                            //     SET requestStatus = 'In Progress' where requestID = '$temp'";
+                            //     mysqli_query($conn, $updateStatus);
 
-                                $changeToInProgress = date('Y-m-d H:i:s');;
-                                $sqlChangeToInProgress = "UPDATE spaceRequests
-                                SET requestStatusInProgress = '$changeToInProgress' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToInProgress);
-                            }
+                            //     // echo "<div class='custom-control custom-checkbox'>
+                            //     // <input type='checkbox' class='custom-control-input' id='customCheck1'>
+                            //     // <label class='custom-control-label' for='customCheck1'>I have entered all the relevant information into FNT DCIM App </label>
+                            //     // </div>";
 
-
-                            if ($row['requestStatus'] == "In Progress") {
-                                echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
-
-
-                                $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'Completed' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
-
-                                echo "<form>
-                                <div class='form-group'>
-                                <h4 class='topSpaceLow'><b>Image Upload</b></h4>
-                                <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
-                                <div id='preview'></div>
-                                </div>
-                                </form>";
-                                echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
+                            //     echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
+                            //     echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
 
 
-                                $changeToCompleted = date('Y-m-d H:i:s');;
-                                $sqlChangeToCompleted = "UPDATE spaceRequests
-                                SET requestStatusCompleted = '$changeToCompleted' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToCompleted);
+                            //     // echo "<button type='submit' class='btn selectorButton2' id='checkStatus' method='post'>Change Status</button>";
+
+                            //     $changeToInProgress = date('Y-m-d H:i:s');;
+                            //     $sqlChangeToInProgress = "UPDATE spaceRequests
+                            //     SET requestStatusInProgress = '$changeToInProgress' where requestID = '$temp'";
+                            //     mysqli_query($conn, $sqlChangeToInProgress);
+                            // }
+
+
+                            // if ($data['requestStatus'] == "In Progress") {
+                            //     echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
+
+
+                            //     $updateStatus = "UPDATE spaceRequests
+                            //     SET requestStatus = 'Completed' where requestID = '$temp'";
+                            //     mysqli_query($conn, $updateStatus);
+
+                            //     echo "<form>
+                            //     <div class='form-group'>
+                            //     <h4 class='topSpaceLow'><b>Image Upload</b></h4>
+                            //     <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
+                            //     <div id='preview'></div>
+                            //     </div>
+                            //     </form>";
+                            //     echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
+
+
+                            //     $changeToCompleted = date('Y-m-d H:i:s');;
+                            //     $sqlChangeToCompleted = "UPDATE spaceRequests
+                            //     SET requestStatusCompleted = '$changeToCompleted' where requestID = '$temp'";
+                            //     mysqli_query($conn, $sqlChangeToCompleted);
 
 
 
-                            }
+                            // }
 
-                            if ($row['requestStatus'] == "Completed") {
+                            // if ($data['requestStatus'] == "Completed") {
 
-                                echo "Your request has been completed<br><br>";
+                            //     echo "Your request has been completed<br><br>";
 
-                                // $changeToClosed = date('Y-m-d H:i:s');
-                                // $sqlChangeToClosed = "UPDATE spaceRequests
-                                // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
-                                // mysqli_query($conn, $sqlChangeToClosed);
+                            //     // $changeToClosed = date('Y-m-d H:i:s');
+                            //     // $sqlChangeToClosed = "UPDATE spaceRequests
+                            //     // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
+                            //     // mysqli_query($conn, $sqlChangeToClosed);
 
-                            }
+                            // }
 
-                            if ($row['requestStatus'] == "Closed") {
+                            // if ($data['requestStatus'] == "Closed") {
 
-                            }
+                            // }
 ?>
 
                         </div>
