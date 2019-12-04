@@ -67,8 +67,7 @@ $sql = "INSERT INTO spaceRequests (rackSizeLength_1, rackSizeLength_2, rackSizeL
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png" alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"

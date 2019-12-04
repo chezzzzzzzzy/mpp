@@ -5,7 +5,7 @@
 
       require 'connection.php';
       $temp = $_POST['ticketNumber']; 
-      $sql = "SELECT * FROM ssuRequests WHERE `id` = '$temp'";
+      $sql = "SELECT * FROM ssuRequests WHERE `requestId` = '$temp'";
 
       if($result = mysqli_query($conn, $sql)){
           if(mysqli_num_rows($result) > 0){
@@ -17,7 +17,7 @@
     <div class="row topSpaceLow">
         <div class="col-lg-4">
             <h5>Ticket ID</h5>
-            <?php echo "<h2>" . $row['id'] . "</h2>"; ?>
+            <?php echo "<h2>" . $row['requestId'] . "</h2>"; ?>
         </div>
         <div class="col-lg-4">
             <h5>Status</h5>

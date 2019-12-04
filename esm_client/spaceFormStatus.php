@@ -65,19 +65,7 @@
                                 ?>
                             </div>
                             <div class="col-lg-7">
-                                <?php       
-                                    if ($row['requestStatus'] == 'Submitted') {
-                                    ?>
-                                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
-                                </script>
-                                <lottie-player src="https://assets7.lottiefiles.com/datafiles/Wv6eeBslW1APprw/data.json"
-                                    mode="bounce" background="trxansparent" speed=".7"
-                                    style="width: 40px; height: 40px; margin-left: -80px; margin-top: -4px;" autoplay>
-                                </lottie-player>
 
-                                <?php
-                                    }
-                                ?>
                             </div>
                         </div>
                         <br>
@@ -186,13 +174,15 @@
 
                                     <?php 
 
-                                        # convert requestTimestamp to DateTime format
-                                        $convertedRT = new DateTime($expectedAcknowledgedDate);
-
-
+                                
                                         # expcetd SLA date
                                         $expectedAcknowledgedDate = date('Y-m-d H:i:s', strtotime($row['requestTimestamp']. ' + 3 days'));
                                         echo "<h4>". $expectedAcknowledgedDate . "</h4>";
+
+                                                # convert requestTimestamp to DateTime format
+                                                $convertedRT = new DateTime($expectedAcknowledgedDate);
+
+
 
 
                                         # convert SLA date to datetime format
@@ -305,9 +295,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -322,9 +312,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -340,9 +330,9 @@
                     $str = $testingSub ;
 
                     if (strpos($str, '+') !== false) {
-                        echo '(Overdue)';
+                        echo '<b>(Overdue)</b>';
                     } else {
-                        echo '(On Time)';
+                        echo '<b>(On Time)</b>';
                     }
 
                     ?>
@@ -358,9 +348,9 @@
                         $str = $testingSub ;
                         
                         if (strpos($str, '+') !== false) {
-                            echo '(Overdue)';
+                            echo '<b>(Overdue)</b>';
                         } else {
-                            echo '(On Time)';
+                            echo '<b>(On Time)</b>';
                         }
                     
                     ?>
@@ -450,16 +440,33 @@
                                 <br>
 
                                 <form method='POST'>
-                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' name='checked'>Submit</button>
+                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' onclick='changeState();' name='checked'>Submit</button>
                                 </form>";
 
                                 echo $temp;
 
-                                if (isset($_POST['checked'])) {
-                                    $temp = $_POST['ticketNumber']; 
-                                    $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                    mysqli_query($conn, $updateStatus);
-                                }
+                                // if (isset($_POST['checked'])) {
+                                //     $temp = $_POST['ticketNumber']; 
+                                //     $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestID = '$temp'";
+                                //     mysqli_query($conn, $updateStatus);
+                                // }
+
+                                ?>
+
+                        <script>
+                        function changeState() {
+                            <
+                            ?
+                            php
+                            require 'testing.php'; ?
+                            >
+                            $.get("testing.php");
+                            return false;
+                        }
+                        </script>
+
+                        <?php
+
 
                                
                             
@@ -951,7 +958,7 @@
 
 
 
-        <? } ?>
+        <?php } ?>
 
     </div>
 
@@ -1271,7 +1278,7 @@
 
 
 
-        <? } ?>
+        <?php } ?>
 
     </div>
 
@@ -1290,22 +1297,21 @@
 </div>
 
 
-<!-- start of checkbox checked -->
 <script>
-$('#checkStatus').prop("disabled", true);
-$('input:checkbox').click(function() {
-    if ($(this).is(':checked')) {
+    $('#checkStatus').prop("disabled", true);
+    $('input:checkbox').click(function() {
+        if ($(this).is(':checked')) {
 
 
 
-        $('#checkStatus').prop("disabled", false);
+            $('#checkStatus').prop("disabled", false);
 
-    } else {
-        if ($('.checks').filter(':checked').length < 1) {
-            $('#checkStatus').attr('disabled', true);
+        } else {
+            if ($('.checks').filter(':checked').length < 1) {
+                $('#checkStatus').attr('disabled', true);
+            }
         }
-    }
-});
+    });
 </script>
 <!-- end of checkbox checked -->
 

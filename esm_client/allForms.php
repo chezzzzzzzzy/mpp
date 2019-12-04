@@ -18,6 +18,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+
+    
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
@@ -40,8 +43,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"

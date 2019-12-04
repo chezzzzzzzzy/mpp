@@ -157,7 +157,7 @@
                             <div class="col-lg-7 col-md-6 col-sm-12">
                                 <i class="fal fa-calendar-day fa-3x mbSmall"></i>
                                 <h6><b>Completion Date</b></h6>
-                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['completionDate'] . "</b></h3>"; ?>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['endDate'] . "</b></h3>"; ?>
                             </div>
                         </div>
                     </div>
@@ -205,13 +205,13 @@
 
                                     <?php 
 
-                                        # convert requestTimestamp to DateTime format
-                                        $convertedRT = new DateTime($expectedAcknowledgedDate);
-
-
                                         # expcetd SLA date
                                         $expectedAcknowledgedDate = date('Y-m-d H:i:s', strtotime($row['requestTimestamp']. ' + 3 days'));
                                         echo "<h4>". $expectedAcknowledgedDate . "</h4>";
+
+                                        # convert requestTimestamp to DateTime format
+                                        $convertedRT = new DateTime($expectedAcknowledgedDate);
+
 
 
                                         # convert SLA date to datetime format
@@ -585,7 +585,7 @@
 
 
     <!-- start of rack 1 -->
-    <?php if ($row['rackSizeLength1'] != NULL || $row['rackSizeBreadth1'] != NULL || $row['breakerSize1'] != NULL || $row['breakerQuantity1'] != NULL) {
+    <?php if ($row['breakerSize1'] != NULL || $row['breakerQuantity1'] != NULL) {
         ?>
 
 
@@ -1036,7 +1036,7 @@
 
 
 
-        <? } ?>
+        <?php } ?>
 
     </div>
 
@@ -1051,7 +1051,7 @@
 
 
     <!-- start of rack 2 -->
-    <?php if ($row['rackSizeLength2'] != NULL || $row['rackSizeBreadth2'] != NULL || $row['breakerSize2'] != NULL || $row['breakerQuantity2'] != NULL) { ?>
+    <?php if ($row['breakerSize2'] != NULL || $row['breakerQuantity2'] != NULL) { ?>
 
 
     <div class="row">
@@ -1082,31 +1082,6 @@
                         } else {
                             echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
                         }; ?>
-
-                        <br>
-
-                        <h6><b>Rack Type</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackType'] .  "</b></h3>"; ?>
-                        <br>
-
-                        <h6><b>Rack Length</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength2'] .  "mm</b></h3>"; ?>
-
-                        <br>
-
-                        <h6><b>Rack Breadth</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth2'] .  "mm</b></h3>"; ?>
-
-                        <br>
-
-                        <h6><b>Rack Height</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight2'] .  "mm</b></h3>"; ?>
-
-
-                        <br>
-
-                        <h6><b>Rack Weight</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeWeight2'] .  "kg</b></h3>"; ?>
                     </div>
                 </div>
             </div>
@@ -1458,7 +1433,7 @@
 
 
 
-        <? } ?>
+        <?php } ?>
 
     </div>
 

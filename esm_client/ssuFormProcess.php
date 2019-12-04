@@ -70,8 +70,7 @@ if (mysqli_query($conn, $sql)) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+            <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -117,17 +116,16 @@ if (mysqli_query($conn, $sql)) {
                 <h2 class=" x0"><b>
 
                         <?php
-                    $sql2 = "SELECT * FROM ssuRequests ORDER BY id DESC LIMIT 1";
+                    $sql2 = "SELECT * FROM ssuRequests ORDER BY requestId DESC LIMIT 1";
                     $result = mysqli_query($conn, $sql2);
 
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["id"];
+                            echo $row["requestId"];
                             echo "<br>";
                             echo "<br>";
                             
-
                             echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
                         }
                     } else {
@@ -166,3 +164,4 @@ if (mysqli_query($conn, $sql)) {
 </body>
 
 </html>
+                    
