@@ -23,7 +23,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -178,7 +178,7 @@
                 series: [ 
                     
                     <?php
-                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='FNSE' ";
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='FISW' ";
                         $query = mysqli_query($conn, $sqlGetTotalInProgress);
                         $row = $query->fetch_object();
                         $classId = $row->count;
@@ -186,16 +186,98 @@
                     ?>,
 
                     <?php
-                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='NSOC' ";
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='FNE/ATE' ";
                         $query = mysqli_query($conn, $sqlGetTotalInProgress);
                         $row = $query->fetch_object();
                         $classId = $row->count;
                         echo $classId;
                     ?>,
 
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='FNE/VE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='IAR' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='IPTV' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='ITMC' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='MegaPop' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='MNE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='SingNet' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='Broadcast TV' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM cableTrayRequests WHERE requestorDepartment='OSS' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
                    
                 ],
-                labels: ['FNSE', 'NSOC']
+                labels: ['FISW', 'FNE/ATE', 'FNE/VE', 'IAR', 'IPTV', 'ITMC', 'MegaPop', 'MNE', 'SingNet', 'Broadcast TV', 'OSS']
             }, {
                 donut: true,
                 donutWidth: 40,
@@ -473,7 +555,7 @@
                     <img src="./assets/singtelLogo.png">
                     </div>
                     <h2><b>Login</b></h2>
-                    <h4>Exchange Space Management Portal (Admin)</h4>
+                    <h4>Master Planner Portal Portal (Admin)</h4>
                     <br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     <br>

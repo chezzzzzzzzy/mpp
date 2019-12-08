@@ -48,7 +48,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -81,7 +81,7 @@
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
                         <input type="text" name="requestorDepartment" placeholder="" required />
-
+                        
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
                         <input type="text" name="requestorReason" placeholder="" required />
 
@@ -130,7 +130,6 @@
                                     <select required id="inputState" class="form-control" name="powerType" required>
                                         <option value="AC">AC</option>
                                         <option value="DC" selected>DC</option>
-                                        <option value="Passive">Passive</option>
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -139,8 +138,8 @@
                                 <div class="form-group">
                                     <label for="inputState">Rack Supply<span class="requiredField">*</span></label>
                                     <select required id="inputState" class="form-control" name="rackType" required>
-                                        <option value="Requestor Rack">Requestor's Rack</option>
-                                        <option value="Singtel Racks" selected>Singtel's Rack</option>
+                                        <option value="Requestor Rack">Requestor Racks</option>
+                                        <option value="Singtel Racks" selected>Singtel Racks</option>
 
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
@@ -149,7 +148,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="startDate">Installation Start Date<span
+                                    <label for="startDate">Installation Date (Start)<span
                                             class="requiredField">*</span></label>
                                     <div class="input-group date" data-provide="datepicker"
                                         data-date-format="dd/mm/yyyy">
@@ -161,7 +160,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="endDate">Installation Completion Date<span
+                                    <label for="endDate">Completion Date (End)<span
                                             class="requiredField">*</span></label>
                                     <div class="input-group date" data-provide="datepicker"
                                         data-date-format="dd/mm/yyyy">
@@ -304,8 +303,14 @@
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
+                                <br>
+                                <br>
+                                
+
                                 <div id="form_submit">
                                 </div>
+
+
 
                             </div>
                         </div>
@@ -411,7 +416,7 @@
                     }),
 
 
-                    $("<label/>").text("Breaker Quantity (in pairs)"),
+                    $("<label/>").text("Breaker Quantity (in pair/s)"),
                     $("<span/>").text("*"),
                     $('<select/>', {
                         id: 'inputState',
@@ -467,7 +472,7 @@
                     ),
 
 
-                    $("<br/>"), $("<hr/>"), $("<br/>")))
+                    $("<br/>"), $("<br/>")))
 
                 console.log(name);
             }

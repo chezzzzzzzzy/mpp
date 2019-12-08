@@ -1,4 +1,5 @@
 <?php
+    error_reporting (E_ALL ^ E_NOTICE);
     require 'database.php';
  
     $id = null;
@@ -10,7 +11,7 @@
         header("Location: spaceRequests.php");
     }
      
-    if ( !empty($_POST)) {
+    if (!empty($_POST)) {
         // keep track validation errors
         $nameError = null;
 
@@ -27,6 +28,7 @@
         $rackLocation4 = strval($_POST['rackLocation4']);
         $rackLocation5 = strval($_POST['rackLocation5']);
 
+
         $breakerName1FeedA1 = strval($_POST['breakerName1FeedA1']);
         $breakerName1FeedA2 = strval($_POST['breakerName1FeedA2']);
         $breakerName1FeedB1 = strval($_POST['breakerName1FeedB1']);
@@ -37,45 +39,56 @@
         $breakerName2FeedB1 = strval($_POST['breakerName2FeedB1']);
         $breakerName2FeedB2 = strval($_POST['breakerName2FeedB2']);
 
+        $subPdu2FeedA1 = strval($_POST['subPdu2FeedA1']);
+        $subPdu2FeedA2 = strval($_POST['subPdu2FeedA2']);
+        $subPdu2FeedB1 = strval($_POST['subPdu2FeedB1']);
+        $subPdu2FeedB2 = strval($_POST['subPdu2FeedB2']);
+
         $breakerName3FeedA1 = strval($_POST['breakerName3FeedA1']);
         $breakerName3FeedA2 = strval($_POST['breakerName3FeedA2']);
         $breakerName3FeedB1 = strval($_POST['breakerName3FeedB1']);
         $breakerName3FeedB2 = strval($_POST['breakerName3FeedB2']);
+        
+        $subPdu3FeedA1 = strval($_POST['subPdu3FeedA1']);
+        $subPdu3FeedA2 = strval($_POST['subPdu3FeedA2']);
+        $subPdu3FeedB1 = strval($_POST['subPdu3FeedB1']);
+        $subPdu3FeedB2 = strval($_POST['subPdu3FeedB2']);
+
 
         $breakerName4FeedA1 = strval($_POST['breakerName4FeedA1']);
         $breakerName4FeedA2 = strval($_POST['breakerName4FeedA2']);
         $breakerName4FeedB1 = strval($_POST['breakerName4FeedB1']);
         $breakerName4FeedB2 = strval($_POST['breakerName4FeedB2']);
 
-        $breakerName5FeedA1 = strval($_POST['breakerName5FeedA1']);
-        $breakerName5FeedA2 = strval($_POST['breakerName5FeedA2']);
-        $breakerName5FeedB1 = strval($_POST['breakerName5FeedB1']);
-        $breakerName5FeedB2 = strval($_POST['breakerName5FeedB2']);
+        $subPdu4FeedA1 = strval($_POST['subPdu4FeedA1']);
+        $subPdu4FeedA2 = strval($_POST['subPdu4FeedA2']);
+        $subPdu4FeedB1 = strval($_POST['subPdu4FeedB1']);
+        $subPdu4FeedB2 = strval($_POST['subPdu4FeedB2']);
 
         $subPdu1FeedA1 = strval($_POST['subPdu1FeedA1']);
         $subPdu1FeedA2 = strval($_POST['subPdu1FeedA2']);
         $subPdu1FeedB1 = strval($_POST['subPdu1FeedB1']);
         $subPdu1FeedB2 = strval($_POST['subPdu1FeedB2']);
 
-        $subPdu2FeedA1 = strval($_POST['subPdu2FeedA1']);
-        $subPdu2FeedA2 = strval($_POST['subPdu2FeedA2']);
-        $subPdu2FeedB1 = strval($_POST['subPdu2FeedB1']);
-        $subPdu2FeedB2 = strval($_POST['subPdu2FeedB2']);
-
-        $subPdu3FeedA1 = strval($_POST['subPdu3FeedA1']);
-        $subPdu3FeedA2 = strval($_POST['subPdu3FeedA2']);
-        $subPdu3FeedB1 = strval($_POST['subPdu3FeedB1']);
-        $subPdu3FeedB2 = strval($_POST['subPdu3FeedB2']);
-
-        $subPdu4FeedA1 = strval($_POST['subPdu4FeedA1']);
-        $subPdu4FeedA2 = strval($_POST['subPdu4FeedA2']);
-        $subPdu4FeedB1 = strval($_POST['subPdu4FeedB1']);
-        $subPdu4FeedB2 = strval($_POST['subPdu4FeedB2']);
-
         $subPdu5FeedA1 = strval($_POST['subPdu5FeedA1']);
         $subPdu5FeedA2 = strval($_POST['subPdu5FeedA2']);
         $subPdu5FeedB1 = strval($_POST['subPdu5FeedB1']);
         $subPdu5FeedB2 = strval($_POST['subPdu5FeedB2']);
+
+
+        $breakerName5FeedA1 = strval($_POST['breakerName5FeedA1']);
+        $breakerName5FeedA2 = strval($_POST['breakerName5FeedA2']);
+        $breakerName5FeedB1 = strval($_POST['breakerName5FeedB1']);
+        $breakerName5FeedB2 = strval($_POST['breakerName5FeedB2']);
+
+
+        $breakerSize1 = strval($_POST['breakerSize1']);
+        $breakerSize2 = strval($_POST['breakerSize2']);
+        $breakerSize3 = strval($_POST['breakerSize3']);
+        $breakerSize4 = strval($_POST['breakerSize4']);
+        $breakerSize5 = strval($_POST['breakerSize5']);
+
+    
 
         $exchange =  strval($_POST['exchange']);
         $room =  strval($_POST['room']);
@@ -90,10 +103,10 @@
         if (isset($_POST['upload'])) {
 
             // Get image name
-            $image = $_FILES['image']['name'];
+            $adminFileUpload = $_FILES['image']['name'];
 
             // image file directory
-            $target = "uploads/".basename($image);
+            $target = "uploads/".basename($adminFileUpload);
 
             // $sql = "INSERT INTO spaceRequests (adminFileUpload) VALUES ('$image')";
             // // execute query
@@ -129,7 +142,7 @@
                             $rackLocation3, $subPdu3FeedA1, $subPdu3FeedA2, $subPdu3FeedB1, $subPdu3FeedB2, $breakerName3FeedA1, $breakerName3FeedA2, $breakerName3FeedB1, $breakerName3FeedB2, 
                             $rackLocation4, $subPdu4FeedA1, $subPdu4FeedA2, $subPdu4FeedB1, $subPdu4FeedB2, $breakerName4FeedA1, $breakerName4FeedA2, $breakerName4FeedB1, $breakerName4FeedB2, 
                             $rackLocation5, $subPdu5FeedA1, $subPdu5FeedA2, $subPdu5FeedB1, $subPdu5FeedB2, $breakerName5FeedA1, $breakerName5FeedA2, $breakerName5FeedB1, $breakerName5FeedB2, 
-                            $exchange, $room, $image, $requestorFileUpload, $id));
+                            $exchange, $room, $adminFileUpload, $requestorFileUpload, $id));
 
             Database::disconnect();
             header("Location: spaceRequests.php");
@@ -258,7 +271,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 
@@ -268,7 +281,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -315,6 +328,7 @@
 
 
 
+
     <div class="container-fluid">
 
         <h1>Update Request</h1>
@@ -357,7 +371,6 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-
 
 
 
@@ -480,7 +493,8 @@
                             <label class="control-label">Upload Layout</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="browse" accept='.jpeg, .png, .jpg'
-                                    onchange='previewFiles()' name="image" multiple>
+                                    onchange='previewFiles()' name="image"
+                                    value="<?php echo !empty($adminFileUpload)?$adminFileUpload:'';?>">
                                 <label class="custom-file-label" for="browse"></label>
                                 <div id='preview'></div>
                             </div>
@@ -594,8 +608,6 @@
                                 </div>
                             </div>
                             <?php } ?>
-
-
 
 
                             <div class="col-lg-3">
@@ -1231,16 +1243,6 @@
                             <?php } ?>
                         </div>
                         <?php } ?>
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -111,7 +111,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -170,7 +170,7 @@
 
     <div class="container-fluid">
 
-        <h1>Decline / Delete Request</h1>
+        <h1>Decline Request</h1>
 
         <div class="row">
 

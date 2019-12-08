@@ -746,7 +746,7 @@ stroke-linecap: round;
 
 
         <br>
-        <h2><b>Exchange Space Management App</b></h2>
+        <h2><b>Master Planner Portal App</b></h2>
     </div>
 
 

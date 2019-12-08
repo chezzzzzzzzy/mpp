@@ -52,7 +52,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -60,7 +60,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -190,9 +190,16 @@
                 </div>
 
 
+                <?php 
+
+                    // if ($breakerSize1 != NULL) {
+                        
+                    // }
+
+
+                ?>
+
                 <div class="row">
-
-
                     <div class="col-lg-4">
                         <div class="boundingBox3">
                             <div class="row">
@@ -388,16 +395,10 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
 
                 <div class="row">
-
-
                     <div class="col-lg-4">
                         <div class="boundingBox3">
                             <div class="row">
@@ -605,8 +606,6 @@
 
 
                 <div class="row">
-
-
                     <div class="col-lg-4">
                         <div class="boundingBox3">
                             <div class="row">
@@ -1230,7 +1229,7 @@
                     </div>
                 </div>
 
-                
+
 
 
 
@@ -1263,13 +1262,22 @@
 
             </div>
 
-            <div class="form-actions">
-                <a class="btn" href="spaceRequests.php">Back</a>
-            </div>
 
 
 
         </div> <!-- /container -->
+
+        <br>
+        <br>
+
+
+        <div class="form-actions">
+            <a class="btn" href="spaceRequests.php">Back</a>
+        </div>
+
+        <br>
+        <br>
+        <br>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 <?php
     require 'database.php';
+    error_reporting (E_ALL ^ E_NOTICE);
+
  
     $id = null;
     if ( !empty($_GET['id'])) {
@@ -281,7 +283,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>

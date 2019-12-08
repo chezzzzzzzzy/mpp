@@ -1,52 +1,3 @@
-<?php
-
-// require 'connection.php';
-// $temp = 'SP20191117206';
-
-//             // Do some stuff with it here
-//             $file_path = 'upload' . "/" . $temp . "/";
-
-//             if (!file_exists($file_path)) {
-//                 mkdir($file_path);
-//             }
-//             if(isset($_POST['but_upload'])){
-
-//                 $name = $_FILES['file']['name'];
-//                 $target_dir = $file_path;
-//                 $target_file = $target_dir . basename($_FILES["file"]["name"]);
-
-//                 // Select file type
-//                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-//                 // Valid file extensions
-//                 $extensions_arr = array("jpg","jpeg","png");
-
-//                     // Check extension
-//                     if( in_array($imageFileType,$extensions_arr) ){
-
-//                         // Insert record
-//                         $query = "UPDATE spaceRequests SET requestorFileUpload = '".$name."' WHERE requestId = '$temp'";
-//                         // mysqli_query($conn,$query);
-
-//                         // insert into table
-//                         if (mysqli_query($conn, $query)) {
-//                             // echo "New record created successfully";
-//                             // echo "<br>";
-//                             // echo $sql;
-//                         } else {
-//                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-//                         }
-
-//                         // Upload file
-//                         move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-
-//                     }
-
-//             }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,19 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- libraries -->
+    <script src="./libraries/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
     <script src="./libraries/js/bootstrap.min.js"></script>
-    <script src="./libraries/jquery-3.4.1.min.js"></script>
     <script src="./libraries/bootstrap-datepicker.js"></script>
     <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
     <script src="./libraries/jquery.validate.js"></script>
     <script src="./libraries/additional-methods.js"></script>
 
+
+
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 
 </head>
 
@@ -98,7 +51,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -121,9 +74,9 @@
                             </h2>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
-                            <div class="card-body">
+                            <div class="guideCard">
 
                             </div>
                         </div>
@@ -139,7 +92,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                             data-parent="#accordionExample">
-                            <div class="card-body">
+                            <div class="guideCard">
                                 Upon submission fo your request, you will receive an email that entails your input that
                                 you have requested for earlier
                             </div>
@@ -156,8 +109,10 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                             data-parent="#accordionExample">
-                            <div class="card-body">
-                                <div class="ml-2">
+
+                            <div class="guideCard">
+                                <div class="guideBody">
+
                                     <h5><b>Guidelines</b></h5>
 
                                     <h6>Please kindly adhere to the following guidelines in order for us to verify
@@ -166,52 +121,92 @@
                                     <ul>
                                         <li>Images must be well exposed, sharp and clear</li>
                                         <li>Images must cover the entire rack itself</li>
-                                        <li>Equipment must be properly screwed onto the mounting rack</li>
                                     </ul>
                                     <br>
 
-                                    <h5><b>Sample Images</b></h5>
+                                    <h5><b>Rack</b></h5>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <h6>Rack Front</h6>
+                                            <img src="./assets/rackFront.jpg" class="imageGuidelinesSmall">
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h6>Rack Back</h6>
+                                            <img src="./assets/rackBack.jpg" class="imageGuidelinesSmall">
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h6>Rack Floor</h6>
+                                            <!-- <img src="./assets/rackBack.jpg" class="imageGuidelines"> -->
+                                        </div>
+                                        <br>
+                                        <br>
+                                    </div>
+
+                                    <br>
+
+
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <h5><b>Breaker</b></h5>
+
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <h5><b>Sub PDU</b></h5>
+                                        </div>
+                                    </div>
+
+
 
 
                                     <div class="row">
 
                                         <div class="col-lg-2">
-                                            <h6>Rack Front</h6>
-                                            <img src="https://via.placeholder.com/200x300.png" alt="">
+                                            <h6>Breakers</h6>
+                                            <img src="./assets/breaker2.jpg" class="imageGuidelinesSmall">
                                         </div>
                                         <div class="col-lg-2">
-                                            <h6>Rack Back</h6>
-                                            <img src="https://via.placeholder.com/200x300.png" alt="">
+                                            <h6>Breaker Label</h6>
+                                            <img src="./assets/breaker.jpg" class="imageGuidelinesSmall">
                                         </div>
                                         <div class="col-lg-2">
-                                            <h6>Rack Left</h6>
-                                            <img src="https://via.placeholder.com/200x300.png" alt="">
+                                            <h6>Sub PDU</h6>
+                                            <img src="./assets/subPdu.jpg" class="imageGuidelinesSmall">
                                         </div>
                                         <div class="col-lg-2">
-                                            <h6>Rack Right</h6>
-                                            <img src="https://via.placeholder.com/200x300.png" alt="">
+
                                         </div>
 
                                         <br>
                                         <br>
+
+
                                     </div>
 
                                 </div>
+                                <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-
             </div>
 
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
 
-        <!--
+    <!--
         <form method="post" enctype='multipart/form-data'>
             <input type='file' name='file' />
             <input type='submit' value='Save name' name='but_upload'>

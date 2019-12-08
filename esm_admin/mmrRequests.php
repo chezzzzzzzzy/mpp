@@ -1,4 +1,5 @@
 <?php 
+    error_reporting (E_ALL ^ E_NOTICE);
     require 'connection.php';
     session_start();
 ?>
@@ -23,7 +24,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>

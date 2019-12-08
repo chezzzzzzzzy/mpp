@@ -1,21 +1,21 @@
 <?php
-    require 'database.php';
-    $id = null;
-    if ( !empty(strval($_GET['requestId']))) {
-        $id = strval($_REQUEST['requestId']);
-    }
-     
-    if ( null==$id ) {
-        header("Location: fdfRequests.php");
-    } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM ssuRequests where requestId = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
-    }
+require 'database.php';
+$id = null;
+if (!empty(strval($_GET['requestId']))) {
+    $id = strval($_REQUEST['requestId']);
+}
+
+if (null == $id) {
+    header("Location: fdfRequests.php");
+} else {
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM ssuRequests where requestId = ?";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    Database::disconnect();
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -122,7 +122,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="startDate">Request ID<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['requestId'];?></b></h5>
+                                    <h5><b><?php echo $data['requestId']; ?></b></h5>
                                 </div>
                             </div>
 
@@ -131,16 +131,16 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['requestorName'];?></b></h5>
+                                    <h5><b><?php echo $data['requestorName']; ?></b></h5>
 
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['requestorEmail'];?></b></h5>
+                                    <h5><b><?php echo $data['requestorEmail']; ?></b></h5>
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['requestorReason'];?></b></h5>
+                                    <h5><b><?php echo $data['requestorReason']; ?></b></h5>
                                 </div>
 
 
@@ -154,12 +154,12 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <label for="startDate">Exchange<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['exchange'];?></b></h5>
+                                    <h5><b><?php echo $data['exchange']; ?></b></h5>
 
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="startDate">Room<span class="requiredField">*</span></label>
-                                    <h5><b>PCM <?php echo$data['room'];?></b></h5>
+                                    <h5><b>PCM <?php echo $data['room']; ?></b></h5>
 
                                 </div>
                             </div>
@@ -168,11 +168,15 @@
 
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['completionDate'];?></b></h5>
-
+                                    <label for="startDate">Installation Date (Start)<span
+                                            class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['startDate']; ?></b></h5>
                                 </div>
-                              
+                                <div class="col-lg-3">
+                                    <label for="startDate">Completion Date (End)<span
+                                            class="requiredField">*</span></label>
+                                    <h5><b><?php echo $data['endDate']; ?></b></h5>
+                                </div>
                             </div>
                             <br>
 
@@ -194,15 +198,15 @@
                     <div class="row">
                         <div class="col-lg-2">
                             <label for="startDate">Number of Ports<span class="requiredField">*</span></label>
-                            <h5><b><?php echo $data['numberOfPorts'];?></b></h5>
+                            <h5><b><?php echo $data['numberOfPorts']; ?></b></h5>
                         </div>
                         <div class="col-lg-2">
                             <label for="startDate">Transmission Type<span class="requiredField">*</span></label>
-                            <h5><b><?php echo $data['transmissionType'];?></b></h5>
+                            <h5><b><?php echo $data['transmissionType']; ?></b></h5>
                         </div>
                         <div class="col-lg-2">
                             <label for="startDate">Interfacing Type<span class="requiredField">*</span></label>
-                            <h5><b><?php echo $data['interfacingType'];?></b></h5>
+                            <h5><b><?php echo $data['interfacingType']; ?></b></h5>
                         </div>
                     </div>
 
@@ -211,10 +215,12 @@
 
             </div>
 
-            <div class="form-actions">
-                <a class="btn" href="ssuRequests.php">Back</a>
-            </div>
 
+        </div>
+
+
+        <div class="form-actions">
+            <a class="btn" href="ssuRequests.php">Back</a>
         </div>
 
 

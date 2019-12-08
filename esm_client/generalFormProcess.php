@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
 $servername = "localhost";
 $username = "root";
 $password = "password";
@@ -19,8 +21,8 @@ $query = $_POST['query'];
 
 
 // Attempt insert query execution
-$sql = "INSERT INTO generalRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, query) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$query')";
+$sql = "INSERT INTO generalRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, query, requestStatus) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$query', 'Submitted')";
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
@@ -57,7 +59,7 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -88,7 +90,7 @@ if (mysqli_query($conn, $sql)) {
 
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -122,7 +124,7 @@ if (mysqli_query($conn, $sql)) {
                             echo "<br>";
                             
 
-                            echo "<h5>Pleaese check your email (" . $row['email'] . ") for more information</h5>";
+                            echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
                         }
                     } else {
                         echo "0 results";

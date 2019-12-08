@@ -1,4 +1,5 @@
 <?php
+
     spaceRequestStatus(); 
     function spaceRequestStatus() {
         require 'connection.php';
@@ -14,6 +15,30 @@
 ?>
 
 
+
+
+
+
+
+
+
+
+
+
+<style>
+.custom-control-lg .custom-control-label::before,
+.custom-control-lg .custom-control-label::after {
+    top: -.1rem !important;
+    left: -2rem !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+}
+
+.custom-control-lg .custom-control-label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
+}
+</style>
 
 
 <script src="faKit.js"></script>
@@ -163,7 +188,6 @@
                                 </td>
                                 <td><?php echo "<h4>" . $row['requestTimestamp'] . "</h4>";?></td>
                                 <td>-</td>
-
                             </tr>
                             <tr>
                                 <td>
@@ -173,17 +197,12 @@
                                 <td>
 
                                     <?php 
-
-                                
                                         # expcetd SLA date
                                         $expectedAcknowledgedDate = date('Y-m-d H:i:s', strtotime($row['requestTimestamp']. ' + 3 days'));
                                         echo "<h4>". $expectedAcknowledgedDate . "</h4>";
 
-                                                # convert requestTimestamp to DateTime format
-                                                $convertedRT = new DateTime($expectedAcknowledgedDate);
-
-
-
+                                        # convert requestTimestamp to DateTime format
+                                        $convertedRT = new DateTime($expectedAcknowledgedDate);
 
                                         # convert SLA date to datetime format
                                         $expectedAcknowledgedDate = new DateTime($expectedAcknowledgedDate);
@@ -280,7 +299,11 @@
                 </div>
 
                 <?php
-                $currentDatetime = new DateTime();
+
+                // $cd = date("Y-m-d H:i:s");
+                // echo $cd;
+
+                $currentDatetime = new DateTime($currentDatetime);
                 // echo $currentDatetime->format('Y-m-d H:i:s');
                 ?>
 
@@ -402,7 +425,7 @@
                                 if ($row['requestStatusAcknowledged'] == NULL) {
                                     $changeToAcknowledged = date('Y-m-d H:i:s');
                                     $sqlChangeToAcknowledged = "UPDATE spaceRequests
-                                    SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
+                                    SET requestStatusAcknowledged = '$changeToAcknowledged' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToAcknowledged);
 
                                 }
@@ -419,7 +442,7 @@
                                 if ($row['requestStatusAssigned'] == NULL) {
                                     $changeToAssigned = date('Y-m-d H:i:s');;
                                     $sqlChangeToAssigned= "UPDATE spaceRequests
-                                    SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
+                                    SET requestStatusAssigned = '$changeToAssigned' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToAssigned);
                                 }
 
@@ -429,60 +452,50 @@
                                     </div>";
                                 }
 
+                                
 
 
-                                echo "<div class='custom-control custom-checkbox'>
+
+                                echo "<div class='custom-control-lg custom-control custom-checkbox'>
                                 <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
                                 <label class='custom-control-label' for='toggle'>I have entered all the relevant information
                                     into FNT
                                     DCIM App</label>
                                 </div>
                                 <br>
+                                
 
                                 <form method='POST'>
-                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' onclick='changeState();' name='checked'>Submit</button>
+                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' onclick='changeState()'>Submit</button>
                                 </form>";
 
-                                echo $temp;
-
-                                // if (isset($_POST['checked'])) {
-                                //     $temp = $_POST['ticketNumber']; 
-                                //     $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                //     mysqli_query($conn, $updateStatus);
-                                // }
-
                                 ?>
+                                <script>
+                                    function changeState() {
+                                        document.getElementById("checkStatus").click();
+                                        $temp =  $row['requestId'];
+                                        console.log($temp + 'temp');
+                                        <?php
+                                        $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestId = '$temp'"; 
+                                        mysqli_query($conn, $updateStatus);
+                                        ?>
+                                    }
+                                </script>
 
-                        <script>
-                        function changeState() {
-                            <
-                            ?
-                            php
-                            require 'testing.php'; ?
-                            >
-                            $.get("testing.php");
-                            return false;
-                        }
-                        </script>
-
-                        <?php
+                            <?php
 
 
-                               
-                            
+                                echo $temp;
 
                             }
 
                             
 
 
-
-
                             if ($row['requestStatus'] == "In Progress") {
                             echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
 
                             ?>
-
 
 
 
@@ -494,20 +507,11 @@
                         </div>
 
 
-
-                        <input type="submit" class='btn selectorButton2' id='checkStatus'
-                            onclick="submitForm('spaceFormStatus.php')" value="Update Status" />
-
-
-
-
-                        <br>
-
                         <?php
                             if ($row['requestStatusInProgress'] == NULL) {
                                     $changeToCompleted = date('Y-m-d H:i:s');;
                                     $sqlChangeToCompleted = "UPDATE spaceRequests
-                                    SET requestStatusInProgress = '$changeToCompleted' where requestID = '$temp'";
+                                    SET requestStatusInProgress = '$changeToCompleted' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToCompleted);
                                 }
                             }
@@ -517,7 +521,7 @@
                                 if ($row['requestStatusCompleted'] == NULL) {
                                     $changeToClosed = date('Y-m-d H:i:s');
                                     $sqlChangeToClosed = "UPDATE spaceRequests
-                                    SET requestStatusCompleted = '$changeToClosed' where requestID = '$temp'";
+                                    SET requestStatusCompleted = '$changeToClosed' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToClosed);
                                 }
                             }
@@ -527,7 +531,7 @@
                                 if ($row['requestStatusClosed'] == NULL) {
                                     $changeToClosed = date('Y-m-d H:i:s');
                                     $sqlChangeToClosed = "UPDATE spaceRequests
-                                    SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
+                                    SET requestStatusClosed = '$changeToClosed' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToClosed);
                                 }
                             }
@@ -537,9 +541,6 @@
                                 echo $row['remarks']; 
 
                             }
-
-
-                            
 
                         ?>
                     </div>
@@ -563,7 +564,6 @@
 
 
     </div>
-
 
 
 
@@ -665,9 +665,7 @@
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/processor.png" class="mlExtraSmall"> -->
                                 <i class="fal fa-microchip fa-3x mlSmall2 mtSmall"></i>
-
                             </div>
 
                             <div class="col-lg-10">
@@ -676,12 +674,7 @@
                             </div>
                         </div>
 
-
-
                         <br>
-
-
-
                     </div>
 
 
@@ -748,7 +741,7 @@
 
                         <br>
                         <h6><b>Breaker Quantity</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity1'] .  " pairs</b></h3>"; ?>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity1'] .  " pair/s</b></h3>"; ?>
 
 
 
@@ -1107,7 +1100,7 @@
                         <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerSize2'] .  "A</b></h3>"; ?>
                         <br>
                         <h6><b>Breaker Quantity</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity2'] .  " pairs</b></h3>"; ?>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity2'] .  " pair/s</b></h3>"; ?>
                     </div>
 
                 </div>
@@ -1298,27 +1291,20 @@
 
 
 <script>
-    $('#checkStatus').prop("disabled", true);
-    $('input:checkbox').click(function() {
-        if ($(this).is(':checked')) {
+$('#checkStatus').prop("disabled", true);
+$('input:checkbox').click(function() {
+    if ($(this).is(':checked')) {
 
+        $('#checkStatus').prop("disabled", false);
 
-
-            $('#checkStatus').prop("disabled", false);
-
-        } else {
-            if ($('.checks').filter(':checked').length < 1) {
-                $('#checkStatus').attr('disabled', true);
-            }
+    } else {
+        if ($('.checks').filter(':checked').length < 1) {
+            $('#checkStatus').attr('disabled', true);
         }
-    });
+    }
+});
 </script>
 <!-- end of checkbox checked -->
-
-
-
-
-
 
 
 

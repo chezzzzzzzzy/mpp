@@ -21,7 +21,7 @@ session_start();
     <link rel="stylesheet" href="main.css">
     <script src="faKit.js"></script>
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -166,7 +166,7 @@ session_start();
                     <form action="authVerification.php" method="POST" id="authForm">
                         <img src="./assets/singtelLogo.png" class="loginLogo">
                         <h2><b>Please Login First 🚨</b></h2>
-                        <h4>Exchange Space Management Portal (Admin)</h4>
+                        <h4>Master Planner Portal (Admin)</h4>
                         <br>
                         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
                         </script>

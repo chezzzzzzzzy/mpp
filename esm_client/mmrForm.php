@@ -23,7 +23,7 @@
 
 
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>

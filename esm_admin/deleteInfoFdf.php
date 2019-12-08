@@ -33,7 +33,7 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE fdfRequests set remarks = ? WHERE id = ?";
+            $sql = "UPDATE fdfRequests set remarks = ?, requestStatus = 'Declined' WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 
@@ -114,7 +114,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -135,7 +135,7 @@
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="fdfRequests.php">Space</a>
+                    <a class="nav-link" href="spaceRequests.php">Space</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="powerRequests.php">Power</a>
@@ -172,7 +172,7 @@
 
     <div class="container-fluid">
 
-        <h1>Decline / Delete Request</h1>
+        <h1>Decline Request</h1>
 
         <div class="row">
 

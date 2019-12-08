@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
 // general
 $servername = "localhost";
 $username = "root";
@@ -88,7 +90,7 @@ if (mysqli_query($conn, $sql)) {
     // echo "<br>";
     // echo $sql;
    } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
    }
 
 ?>
@@ -120,7 +122,7 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -151,7 +153,7 @@ if (mysqli_query($conn, $sql)) {
 
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>

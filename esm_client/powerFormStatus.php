@@ -735,7 +735,7 @@
 
                         <br>
                         <h6><b>Breaker Quantity</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity1'] .  " pairs</b></h3>"; ?>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity1'] .  " pair/s</b></h3>"; ?>
 
 
 
@@ -1160,7 +1160,7 @@
                         <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerSize2'] .  "A</b></h3>"; ?>
                         <br>
                         <h6><b>Breaker Quantity</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity2'] .  " pairs</b></h3>"; ?>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity2'] .  " pair/s</b></h3>"; ?>
                     </div>
 
                 </div>

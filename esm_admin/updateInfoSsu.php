@@ -1,5 +1,7 @@
 <?php
 require 'database.php';
+error_reporting (E_ALL ^ E_NOTICE);
+
 
 $id = null;
 if (!empty($_GET['requestId'])) {
@@ -124,7 +126,7 @@ if (!empty($_POST)) {
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -189,7 +191,7 @@ if (!empty($_POST)) {
             <div class="col-lg-12 ">
                 <div class="infoBoundingBox">
                     <form class="form-horizontal" enctype="multipart/form-data"
-                        action="updateInfoFdf.php?requestId=<?php echo $id ?>" method="post">
+                        action="updateInfoSsu.php?requestId=<?php echo $id ?>" method="post">
 
                         <div class="form-group">
                             <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
@@ -241,73 +243,6 @@ if (!empty($_POST)) {
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
 
-                            <?php
-
-if ($row['requestStatus'] == "Submitted") {
-    echo "Please check your email for a your request submission";
-    $changeToAcknowledged = date('Y-m-d H:i:s');
-    $sqlChangeToAcknowledged = "UPDATE spaceRequests
-                                SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
-    mysqli_query($conn, $sqlChangeToAcknowledged);
-}
-
-if ($row['requestStatus'] == "Acknowledged") {
-    echo "Your request has been received";
-    $changeToAssigned = date('Y-m-d H:i:s');
-    $sqlChangeToAssigned = "UPDATE spaceRequests
-                                SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
-    mysqli_query($conn, $sqlChangeToAssigned);
-}
-
-if ($row['requestStatus'] == "Assigned") {
-    echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
-    $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'In Progress' where requestID = '$temp'";
-    mysqli_query($conn, $updateStatus);
-    echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
-    echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
-
-    $changeToInProgress = date('Y-m-d H:i:s');
-    $sqlChangeToInProgress = "UPDATE spaceRequests
-                                SET requestStatusInProgress = '$changeToInProgress' where requestID = '$temp'";
-    mysqli_query($conn, $sqlChangeToInProgress);
-}
-
-if ($row['requestStatus'] == "In Progress") {
-    echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
-    $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'Completed' where requestID = '$temp'";
-    mysqli_query($conn, $updateStatus);
-
-    echo "<form>
-                                <div class='form-group'>
-                                <h4 class='topSpaceLow'><b>Image Upload</b></h4>
-                                <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
-                                <div id='preview'></div>
-                                </div>
-                                </form>";
-    echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
-
-    $changeToCompleted = date('Y-m-d H:i:s');
-    $sqlChangeToCompleted = "UPDATE spaceRequests
-                                SET requestStatusCompleted = '$changeToCompleted' where requestID = '$temp'";
-    mysqli_query($conn, $sqlChangeToCompleted);
-}
-
-if ($row['requestStatus'] == "Completed") {
-    echo "Your request has been completed<br><br>";
-    // $changeToClosed = date('Y-m-d H:i:s');
-    // $sqlChangeToClosed = "UPDATE spaceRequests
-    // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
-    // mysqli_query($conn, $sqlChangeToClosed);
-}
-
-if ($row['requestStatus'] == "Closed") {
-
-}
-
-?>
-
 
 
                         </div>
@@ -354,8 +289,8 @@ if ($row['requestStatus'] == "Closed") {
                                 <div class="form-group">
                                     <label class="control-label">Transmission Type</label>
                                     <div class="controls">
-                                        <input class="form-control" name="numberOfCableTies" type="text"
-                                            placeholder="numberOfCableTies"
+                                        <input class="form-control" name="transmissionType" type="text"
+                                            placeholder="transmissionType"
                                             value="<?php echo !empty($transmissionType) ? $transmissionType : ''; ?>">
                                     </div>
                                 </div>
@@ -376,19 +311,7 @@ if ($row['requestStatus'] == "Closed") {
                         </div>
 
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label class="control-label">Completion Date</label>
-                                    <div class="controls">
-                                        <input class="form-control" name="completionDate" type="text"
-                                            placeholder="completionDate"
-                                            value="<?php echo !empty($completionDate) ? $completionDate : ''; ?>">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                
                         <br>
 
 

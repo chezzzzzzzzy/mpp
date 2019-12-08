@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
 $servername = "localhost";
 $username = "root";
 $password = "password";
@@ -24,7 +26,7 @@ $exchange = $_POST['exchange'];
 
 // Attempt insert query execution
 $sql = "INSERT INTO cableTrayRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, rackLocation, fdfRackLocation, endDate, room, exchange, requestStatus) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$rackLocation', '$fdfRackLocation', '$endDate', $room, '$exchange', 'Submitted')";
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$rackLocation', '$fdfRackLocation', '$endDate', '$room', '$exchange', 'Submitted')";
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
@@ -63,7 +65,7 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -94,7 +96,7 @@ if (mysqli_query($conn, $sql)) {
 
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>

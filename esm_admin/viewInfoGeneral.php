@@ -49,7 +49,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -151,7 +151,7 @@
 
 
 
-                         
+
 
 
                         </div>
@@ -165,10 +165,12 @@
 
             </div>
 
-            <div class="form-actions">
-                <a class="btn" href="generalRequests.php">Back</a>
-            </div>
 
+        </div>
+
+
+        <div class="form-actions">
+            <a class="btn" href="generalRequests.php">Back</a>
         </div>
 
 

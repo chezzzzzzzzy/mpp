@@ -19,7 +19,7 @@ session_start();
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@ session_start();
             </div>
         </a>
         <span class="navbar-text ml-auto">
-            Exchange Space Management
+            Master Planner Portal
         </span>
     </nav> -->
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { 
@@ -51,8 +51,9 @@ session_start();
                     <div class="loginLogo">
                     <img src="./assets/singtelLogo.png">
                     </div>
-                    <h2><b>Login</b></h2>
-                    <h4>Exchange Space Management Portal (Admin)</h4>
+                    <br>
+                    <h2><b>Master Planner Portal</b></h2>
+                    <h5>Planner Dashboard</h5>
                     <br>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     <br>

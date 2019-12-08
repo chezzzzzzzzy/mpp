@@ -31,7 +31,7 @@ session_start();
     <link rel="stylesheet" href="main.css">
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ session_start();
             </div>
         </a>
         <span class="navbar-text ml-auto">
-            Exchange Space Management
+            Master Planner Portal
         </span>
     </nav> -->
     <?php

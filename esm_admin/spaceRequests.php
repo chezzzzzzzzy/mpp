@@ -26,79 +26,12 @@
    
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
 
 
-    <script>
-    function logoutPressed() {
-        <
-        ?
-        php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("sorted");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-    </script>
 
     <?php
 
@@ -245,48 +178,14 @@
                     ?>
 
 
-                
-
-
-
-
-
+            
             ]
             }, {
             distributeSeries: true,
 
             });
 
-    
 
-
-            var chart = new Chartist.Line('.ct-chart2', {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            series: [
-                [1, 5, 2, 5, 4, 3],
-                [2, 3, 4, 8, 1, 2],
-                [5, 4, 3, 2, 1, 0.5]
-            ]
-            }, {
-            low: 0,
-            showArea: true,
-            showPoint: false,
-            fullWidth: true
-            });
-
-            chart.on('draw', function(data) {
-            if(data.type === 'line' || data.type === 'area') {
-                data.element.animate({
-                d: {
-                    begin: 2000 * data.index,
-                    dur: 2000,
-                    from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                    to: data.path.clone().stringify(),
-                    easing: Chartist.Svg.Easing.easeOutQuint
-                }
-                });
-            }
-            });
 
             
 
@@ -294,7 +193,7 @@
                 series: [ 
                     
                     <?php
-                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='FNSE' ";
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='FISW' ";
                         $query = mysqli_query($conn, $sqlGetTotalInProgress);
                         $row = $query->fetch_object();
                         $classId = $row->count;
@@ -302,7 +201,89 @@
                     ?>,
 
                     <?php
-                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='NSOC' ";
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='FNE/ATE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='FNE/VE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='IAR' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='IPTV' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='ITMC' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='MegaPop' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='MNE' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='SingNet' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='Broadcast TV' ";
+                        $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                        $row = $query->fetch_object();
+                        $classId = $row->count;
+                        echo $classId;
+                    ?>,
+
+
+                    <?php
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestorDepartment) as `count` FROM spaceRequests WHERE requestorDepartment='OSS' ";
                         $query = mysqli_query($conn, $sqlGetTotalInProgress);
                         $row = $query->fetch_object();
                         $classId = $row->count;
@@ -311,7 +292,7 @@
 
                    
                 ],
-                labels: ['FNSE', 'NSOC']
+                labels: ['FISW', 'FNE/ATE', 'FNE/VE', 'IAR', 'IPTV', 'ITMC', 'MegaPop', 'MNE', 'SingNet', 'Broadcast TV', 'OSS']
             }, {
                 donut: true,
                 donutWidth: 40,

@@ -23,7 +23,9 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>Requestor | ESM</title>
+
+
+    <title>Requestor | MPP</title>
 
 </head>
 
@@ -33,7 +35,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -55,7 +57,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -73,13 +75,11 @@
                 <h5 class=" x0">Enter the Request ID that you have received upon your the submission of your request
                 </h5>
             </div>
-            <div class="col-lg-3 col-xs-12 support">
+            <div class="col-lg-3 col-xs-3 support">
                 <h6 class=" topSpaceLarge"><b>Support</b></h6>
                 <br>
                 <button class="btn helperButton" data-toggle="modal" data-target="#largeModal"> Image Guidelines
                 </button>
-
-
             </div>
 
 
@@ -111,7 +111,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><b>Uploading of Images</b></h4>
+                        <h2 class="modal-title"><b>Uploading of Images</b></h2>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -124,34 +124,69 @@
                         <ul>
                             <li>Images must be well exposed, sharp and clear</li>
                             <li>Images must cover the entire rack itself</li>
-                            <li>Equipment must be properly screwed onto the mounting rack</li>
                         </ul>
                         <br>
 
-                        <h5><b>Sample Images</b></h5>
+                        <h5><b>Rack</b></h5>
+
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h6>Rack Front</h6>
+                                <img src="./assets/rackFront.jpg" class="imageGuidelines">
+                            </div>
+                            <div class="col-lg-3">
+                                <h6>Rack Back</h6>
+                                <img src="./assets/rackBack.jpg" class="imageGuidelines">
+                            </div>
+                            <div class="col-lg-3">
+                                <h6>Rack Floor</h6>
+                                <!-- <img src="./assets/rackBack.jpg" class="imageGuidelines"> -->
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+
+                        <br>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5><b>Breaker</b></h5>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h5><b>Sub PDU</b></h5>
+                            </div>
+                        </div>
+
+
 
 
                         <div class="row">
 
                             <div class="col-lg-3">
-                                <h6>Rack Front</h6>
-                                <img src="https://via.placeholder.com/200x300.png" alt="">
+                                <h6>Breakers</h6>
+                                <img src="./assets/breaker2.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
-                                <h6>Rack Back</h6>
-                                <img src="https://via.placeholder.com/200x300.png" alt="">
+                                <h6>Breaker Label</h6>
+                                <img src="./assets/breaker.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
-                                <h6>Rack Left</h6>
-                                <img src="https://via.placeholder.com/200x300.png" alt="">
+                                <h6>Sub PDU</h6>
+                                <img src="./assets/subPdu.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
-                                <h6>Rack Right</h6>
-                                <img src="https://via.placeholder.com/200x300.png" alt="">
+
                             </div>
 
                             <br>
                             <br>
+
+
                         </div>
 
                     </div>
@@ -166,20 +201,23 @@
 
         <form id="form1">
             <div class="row">
-                <?php   
+                <?php
+                date_default_timezone_set('Asia/Singapore');
+                error_reporting (E_ALL ^ E_NOTICE);
                 require 'fdfFormStatus.php'; // fdfRequestStatus
                 require 'ssuFormStatus.php'; // ssuRequestStatus
                 require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
                 require 'powerFormStatus.php'; // powerRequestStatus
                 require 'generalFormStatus.php'; // generalRequestStatus
                 require 'spaceFormStatus.php'; // spaceRequestStatus
-            ?>
+                ?>
             </div>
-
         </form>
-
-
     </div>
+
+
+
+   
 
 
 
@@ -197,13 +235,13 @@
     // $("#checkStatus").click(function() {
     //     if (buttonclicked = true) {
     //         // alert("Button is clicked for first time");
-    //         <?php 
+    //         <?php
     //             require 'connection.php';
-    //             $temp = $_POST['ticketNumber']; 
+    //             $temp = $_POST['ticketNumber'];
     //             $updateStatus = "UPDATE spaceRequests SET requestStatus = 'Completed' where requestID = '$temp'";
     //             echo $updateStatus;
     //             mysqli_query($conn, $updateStatus);
-    //         ?>  
+    //         ?>
     //     } else {}
     // });
     </script>

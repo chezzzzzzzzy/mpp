@@ -22,24 +22,11 @@ session_start();
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
 
-
-    <script>
-    function logoutPressed() {
-        <
-        ?
-        php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-    </script>
 
     <?php
 

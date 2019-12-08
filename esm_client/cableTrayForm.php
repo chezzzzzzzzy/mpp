@@ -19,7 +19,7 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="othersForm.css">
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -113,19 +113,30 @@
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
                                 <div class="form-group">
-                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
-
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" name="endDate" required>
-                                        <div class="input-group-addon">
-                                        </div>
+                                    <label for="startDate">Installation Date (Start)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="startDate" required>
+                                        <div class="input-group-addon"></div>
                                     </div>
-
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="endDate">Completion Date (End)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="endDate" required>
+                                        <div class="input-group-addon"></div>
+                                    </div>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
 
                                 <div class="form-group">
                                     <label for="inputState">Exchange<span class="requiredField">*</span></label>

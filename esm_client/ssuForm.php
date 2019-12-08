@@ -23,7 +23,7 @@
 
 
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -142,8 +142,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
+                                    <label for="startDate">Installation Date (Start)<span class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" id="data-date" name="startDate" required>
+                                        <div class="input-group-addon">
+                                        </div>
+                                    </div>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="endDate">Completion Date (End)<span class="requiredField">*</span></label>
                                     <div class="input-group date" data-provide="datepicker">
                                         <input type="text" id="data-date" name="endDate" required>
                                         <div class="input-group-addon">

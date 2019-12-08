@@ -17,7 +17,7 @@
     <!-- dependencies -->
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 
 </head>
 
@@ -48,7 +48,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -122,8 +122,6 @@
 
                         <div class="row">
 
-
-
                             <div class="col-lg-12">
 
                                 <div class="form-group">
@@ -136,11 +134,24 @@
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="startDate">Installation Date (Start)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="startDate" required>
+                                        <div class="input-group-addon"></div>
+                                    </div>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
 
                                 <div class="form-group">
-                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" name="startDate" required>
+                                    <label for="endDate">Completion Date (End)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="endDate" required>
                                         <div class="input-group-addon"></div>
                                     </div>
                                     <div class="valid-feedback">Valid.</div>
@@ -198,7 +209,7 @@
 
                                         <option rel="BP" value="BP Level 1 PCM 1">BP Level 1 PCM 1</option>
                                         <option rel="BP" value="BPN Level 2 PCM 1">BPN Level 2 PCM 1</option>
-                                        <option rel="BP" value="P3A Level 3 PCM 2<">BP3A Level 3 PCM 2</option>
+                                        <option rel="BP" value="BP3A Level 3 PCM 2">BP3A Level 3 PCM 2</option>
 
                                         <option rel="CG" value="CG Level 1 PCM 1">CG Level 1 PCM 1</option>
 
@@ -206,7 +217,7 @@
                                         <option rel="POC" value="POC Level 7 PCM 1">POC07 Level 7 PCM 1</option>
 
                                         <option rel="ES" value="ES Level 4 PCM 1">ES Level 4 PCM 1</option>
-                                        <option rel="ES" value="ES2A Level 2 PCM 2<">ES2A Level 2 PCM 2</option>
+                                        <option rel="ES" value="ES2A Level 2 PCM 2">ES2A Level 2 PCM 2</option>
 
                                         <option rel="GL" value="GL Level 1 PCM 1">GL Level 1 PCM 1</option>
                                         <option rel="GL" value="GLN Level 2 PCM 1">GLN Level 2 PCM 1</option>
@@ -250,6 +261,9 @@
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
+
+                                <br>
+                                <br>    
 
                                 <div id="form_submit2"></div>
 
@@ -327,7 +341,7 @@
                         name: 'breakerSize' + i
                     }),
 
-                    $("<label/>").text("Breaker Quantity (in pairs)"),
+                    $("<label/>").text("Breaker Quantity (in pair/s)"),
                     $("<span/>").text("*"),
                     $('<select/>', {
                         id: 'inputState',
@@ -353,35 +367,35 @@
                         name: 'powerConsumption' + i
                     }).append(
                         $('<option />')
-                        .text('1')
+                        .text('1 kW')
                         .val('1'),
                         $('<option />')
-                        .text('2')
+                        .text('2 kW')
                         .val('2'),
                         $('<option />')
-                        .text('3')
+                        .text('3 kW')
                         .val('3'),
                         $('<option />')
-                        .text('4')
+                        .text('4 kW')
                         .val('4'),
                         $('<option />')
-                        .text('5')
+                        .text('5 kW')
                         .val('5'),
                         $('<option />')
-                        .text('6')
+                        .text('6 kW')
                         .val('6'),
                         $('<option />')
-                        .text('7')
+                        .text('7 kW')
                         .val('7'),
                         $('<option />')
-                        .text('8')
+                        .text('8 kW')
                         .val('8'),
                         $('<option />')
-                        .text('9')
+                        .text('9 kW')
                         .val('9'),
 
                     ),
-                    $("<br/>"), $("<hr/>"), $("<br/>")))
+                    $("<br/>"), $("<br/>")))
             }
         }
     });

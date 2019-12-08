@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="othersForm.css">
 
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                 </li>
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -120,17 +120,28 @@
 
 
                                 <div class="form-group">
-                                    <label for="startDate">Completion Date<span class="requiredField">*</span></label>
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" id="data-date" placeholder="Enter end date" name="endDate"
-                                            required>
-                                        <div class="input-group-addon">
-                                        </div>
+                                    <label for="startDate">Installation Date (Start)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="startDate" required>
+                                        <div class="input-group-addon"></div>
                                     </div>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="endDate">Completion Date (End)<span
+                                            class="requiredField">*</span></label>
+                                    <div class="input-group date" data-provide="datepicker"
+                                        data-date-format="dd/mm/yyyy">
+                                        <input type="text" id="data-date" name="endDate" required>
+                                        <div class="input-group-addon"></div>
+                                    </div>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
 
 
 
@@ -161,7 +172,7 @@
                                         <option rel="AM" value="AM3A Level 3 PCM 2">AM3A Level 3 PCM 2</option>
                                         <option rel="AR" value="AR05C Level 5 PCM 2">AR05C Level 5 PCM 2</option>
                                         <option rel="BD" value="BD5C5 Level 5 PCM 2">BD5C5 Level 5 PCM 2</option>
-                                        <option rel="BP" value="P3A Level 3 PCM 2">BP3A Level 3 PCM 2</option>
+                                        <option rel="BP" value="BP3A Level 3 PCM 2">BP3A Level 3 PCM 2</option>
                                         <option rel="ES" value="ES2A Level 2 PCM 2">ES2A Level 2 PCM 2</option>
                                         <option rel="JW" value="JW3A Level 3 PCM 2">JW3A Level 3 PCM 2</option>
                                         <option rel="OC" value="OC3A Level 3 PCM 2">OC3A Level 3 PCM 2</option>

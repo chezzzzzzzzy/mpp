@@ -77,7 +77,10 @@
         </div>
     </div>
 
-    <h5 class="topSpaceLow">End Date</h5>
+    <h5 class="topSpaceLow">Installation Date (Start)</h5>
+    <?php echo "<h2>" . $row['startDate'] . "</h2>"; ?>
+
+    <h5 class="topSpaceLow">Completion Date (End)</h5>
     <?php echo "<h2>" . $row['endDate'] . "</h2>"; ?>
 
     <h5 class="topSpaceLow">Room</h5>

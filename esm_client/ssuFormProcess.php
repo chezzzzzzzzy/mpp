@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
 $servername = "localhost";
 $username = "root";
 $password = "password";
@@ -18,14 +20,15 @@ $requestorReason = $_POST['requestorReason'];
 $numberOfPorts = $_POST['numberOfPorts'];
 $transmissionType = $_POST['transmissionType'];
 $interfacingType = $_POST['interfacingType'];
+$startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 $room = $_POST['room'];
 $exchange = $_POST['exchange'];
 
 
 // Attempt insert query execution
-$sql = "INSERT INTO ssuRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, numberOfPorts, transmissionType, interfacingType, endDate, room, exchange, requestStatus) 
-        VALUES ('$requestorName', '$requestorEmail', '$requestorDepartment', '$requestorReason', $numberOfPorts, '$transmissionType', '$interfacingType', '$endDate', $room, '$exchange', 'Submitted')";
+$sql = "INSERT INTO ssuRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, startDate, endDate, numberOfPorts, transmissionType, interfacingType, room, exchange, requestStatus) 
+        VALUES ('$requestorName', '$requestorEmail', '$requestorDepartment', '$requestorReason', '$startDate', '$endDate', $numberOfPorts, '$transmissionType', '$interfacingType', '$room', '$exchange', 'Submitted')";
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
@@ -62,7 +65,7 @@ if (mysqli_query($conn, $sql)) {
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
 
-    <title>Requestor | ESM</title>
+    <title>Requestor | MPP</title>
 </head>
 
 <body>
@@ -88,12 +91,9 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Guide</a>
                 </li>
-
-
-
             </ul>
             <span class="navbar-text ml-auto">
-                Exchange Space Management
+                Master Planner Portal
             </span>
         </div>
     </nav>
@@ -108,7 +108,6 @@ if (mysqli_query($conn, $sql)) {
                 <h5 class=" x0">Your request has been submitted</h5>
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-lg-12">

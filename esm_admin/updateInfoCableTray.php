@@ -1,4 +1,5 @@
 <?php
+    error_reporting (E_ALL ^ E_NOTICE);
     require 'database.php';
  
     $id = null;
@@ -24,7 +25,7 @@
         $rackLocation = strval($_POST['rackLocation']);
         $fdfRackLocation = strval($_POST['fdfRackLocation']);
 
-        $completionDate = strval($_POST['completionDate']);
+        $endDate = strval($_POST['endDate']);
         $room = strval($_POST['room']);
         $exchange = strval($_POST['exchange']);
 
@@ -37,9 +38,9 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE cableTrayRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, rackLocation = ?, fdfRackLocation = ?, completionDate = ?, room = ? , exchange = ? WHERE id = ?";
+            $sql = "UPDATE cableTrayRequests set requestorName = ?, requestorDepartment = ?, requestorEmail = ?, requestStatus = ?, rackLocation = ?, fdfRackLocation = ?, endDate = ?, room = ? , exchange = ? WHERE id = ?";
             $q = $pdo->prepare($sql);
-            $q->execute(array($name, $dept, $email, $requestStatus, $rackLocation, $fdfRackLocation, $completionDate, $room, $exchange, $id));
+            $q->execute(array($name, $dept, $email, $requestStatus, $rackLocation, $fdfRackLocation, $endDate, $room, $exchange, $id));
 
             Database::disconnect();
             header("Location: cableTrayRequests.php");
@@ -61,7 +62,7 @@
         $rackLocation = $data['rackLocation'];
         $fdfRackLocation = $data['fdfRackLocation'];
 
-        $completionDate = $data['completionDate'];
+        $endDate = $data['endDate'];
 
         $exchange = $data['exchange'];
         $room = $data['room'];
@@ -127,7 +128,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -244,80 +245,6 @@
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
 
-                            <?php 
-
-                            if ($row['requestStatus'] == "Submitted") {
-                                echo "Please check your email for a your request submission";
-                                $changeToAcknowledged = date('Y-m-d H:i:s');;
-                                $sqlChangeToAcknowledged = "UPDATE spaceRequests
-                                SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAcknowledged);
-                            }
-
-                            if ($row['requestStatus'] == "Acknowledged") {
-                                echo "Your request has been received";
-                                $changeToAssigned = date('Y-m-d H:i:s');;
-                                $sqlChangeToAssigned= "UPDATE spaceRequests
-                                SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToAssigned);
-                            }
-
-                          
-
-                            if ($row['requestStatus'] == "Assigned") {
-                                echo "Your request has been updated with some other relevant information. <br> Please input the relevant information into the FNT DCIM App before you continue to the next step. <br><br>";
-                                $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'In Progress' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
-                                echo "<input type='checkbox' id='toggle'/><span>I have entered all the relevant information into FNT DCIM App</span><br><br>";
-                                echo "<input type='submit' name='sendNewSms' class='btn selectorButton2' id='sendNewSms' value='Proceed'/>";
-
-                                $changeToInProgress = date('Y-m-d H:i:s');;
-                                $sqlChangeToInProgress = "UPDATE spaceRequests
-                                SET requestStatusInProgress = '$changeToInProgress' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToInProgress);
-                            }
-
-
-
-                            if ($row['requestStatus'] == "In Progress") {
-                                echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
-                                $updateStatus = "UPDATE spaceRequests
-                                SET requestStatus = 'Completed' where requestID = '$temp'";
-                                mysqli_query($conn, $updateStatus);
-
-                                echo "<form>
-                                <div class='form-group'>
-                                <h4 class='topSpaceLow'><b>Image Upload</b></h4>
-                                <input id='browse' type='file' accept='.jpeg,.png,.jpg' onchange='previewFiles()' multiple>
-                                <div id='preview'></div>
-                                </div>
-                                </form>";
-                                echo "<button type='submit' class='btn selectorButton2' method='post'>Submit</button>";
-
-                                $changeToCompleted = date('Y-m-d H:i:s');;
-                                $sqlChangeToCompleted = "UPDATE spaceRequests
-                                SET requestStatusCompleted = '$changeToCompleted' where requestID = '$temp'";
-                                mysqli_query($conn, $sqlChangeToCompleted);
-                            }
-
-                            if ($row['requestStatus'] == "Completed") {
-                                echo "Your request has been completed<br><br>";
-                                // $changeToClosed = date('Y-m-d H:i:s');
-                                // $sqlChangeToClosed = "UPDATE spaceRequests
-                                // SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
-                                // mysqli_query($conn, $sqlChangeToClosed);
-                            }
-
-                            if ($row['requestStatus'] == "Closed") {
-
-
-                            }
-
-                        ?>
-
-
-
                         </div>
 
 
@@ -376,9 +303,9 @@
                                 <div class="form-group">
                                     <label class="control-label">Completion Date</label>
                                     <div class="controls">
-                                        <input class="form-control" name="completionDate" type="text"
-                                            placeholder="completionDate"
-                                            value="<?php echo !empty($completionDate)?$completionDate:'';?>">
+                                        <input class="form-control" name="endDate" type="text"
+                                            placeholder="endDate"
+                                            value="<?php echo !empty($endDate)?$endDate:'';?>">
                                     </div>
                                 </div>
                             </div>

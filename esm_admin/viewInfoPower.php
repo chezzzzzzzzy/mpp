@@ -52,7 +52,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -60,7 +60,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -220,14 +220,6 @@
                                 </div>
 
                                 <br>
-
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>FDF Rack Location</b></h6>
-                                    <h5><b><?php echo $data['fdfRackLocation1'];?></b></h5>
-                                </div>
-
-
 
                             </div>
                         </div>
@@ -404,31 +396,6 @@
 
                                 <br>
 
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Length</b></h6>
-                                    <h5><b><?php echo $data['rackSizeLength2'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Breadth</b></h6>
-                                    <h5><b><?php echo $data['rackSizeBreadth2'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Height</b></h6>
-                                    <h5><b><?php echo $data['rackSizeHeight2'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Weight</b></h6>
-                                    <h5><b><?php echo $data['rackSizeWeight2'];?></b></h5>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -609,31 +576,7 @@
 
                                 <br>
 
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Length</b></h6>
-                                    <h5><b><?php echo $data['rackSizeLength3'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Breadth</b></h6>
-                                    <h5><b><?php echo $data['rackSizeBreadth3'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Height</b></h6>
-                                    <h5><b><?php echo $data['rackSizeHeight3'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Weight</b></h6>
-                                    <h5><b><?php echo $data['rackSizeWeight3'];?></b></h5>
-                                </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -814,31 +757,7 @@
 
                                 <br>
 
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Length</b></h6>
-                                    <h5><b><?php echo $data['rackSizeLength4'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Breadth</b></h6>
-                                    <h5><b><?php echo $data['rackSizeBreadth4'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Height</b></h6>
-                                    <h5><b><?php echo $data['rackSizeHeight4'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Weight</b></h6>
-                                    <h5><b><?php echo $data['rackSizeWeight4'];?></b></h5>
-                                </div>
+                              
                             </div>
                         </div>
                     </div>
@@ -1018,32 +937,9 @@
                                 </div>
 
                                 <br>
+                                
 
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Length</b></h6>
-                                    <h5><b><?php echo $data['rackSizeLength5'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Breadth</b></h6>
-                                    <h5><b><?php echo $data['rackSizeBreadth5'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Height</b></h6>
-                                    <h5><b><?php echo $data['rackSizeHeight5'];?></b></h5>
-                                </div>
-
-                                <br>
-
-                                <div class="col-lg-12 mlSmall">
-                                    <h6><b>Weight</b></h6>
-                                    <h5><b><?php echo $data['rackSizeWeight5'];?></b></h5>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -1211,17 +1107,19 @@
 
 
 
-
-
-
-
-            <div class="form-actions">
-                <a class="btn" href="powerRequests.php">Back</a>
-            </div>
-
-
-
         </div>
+
+
+
+
+
+
+
+        <div class="form-actions">
+            <a class="btn" href="powerRequests.php">Back</a>
+        </div>
+
+
 
 
 

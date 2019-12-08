@@ -599,6 +599,7 @@ footer {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: .25rem;
+    margin-bottom: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -803,6 +804,37 @@ i .fal {
     padding-right: 10px;
 }
 
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.guideCard {
+    padding: 0px;
+    margin-top: 20px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.guideBody {
+    padding: 0px;
+    margin: 0px;
+}
+
 .modal-lg  {
     max-width: 1000px;
 }
@@ -830,7 +862,7 @@ select {
 
   .btn-link {
       font-weight: bold;
-      font-size: 20px;
+      font-size: 24px;
       color: black;
   }
 
@@ -848,7 +880,7 @@ select {
 
  .card-header {
      background-color: white;
-     border: 0px;   
+     border-bottom: 2px solid rgb(233, 233, 233);
 
  }
 
@@ -861,3 +893,23 @@ select {
  .card {
      border: 0px;
  }
+
+ .imageGuidelines {
+     max-width: 100%;
+     border-radius: 4px;
+     box-shadow: 0 0 40px 0 rgba(82,63,105,.1);
+
+ }
+
+
+ .imageGuidelinesSmall {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 40px 0 rgba(82,63,105,.1);
+
+}
+
+ input[type="checkbox"]{
+    width: 30px; /*Desired width*/
+    height: 30px; /*Desired height*/
+  }

@@ -49,7 +49,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -169,10 +169,10 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <label for="startDate">Completion Date<span class="requiredField">*</span></label>
-                                    <h5><b><?php echo $data['completionDate'];?></b></h5>
+                                    <h5><b><?php echo $data['endDate'];?></b></h5>
 
                                 </div>
-                              
+
                             </div>
                             <br>
 
@@ -207,11 +207,12 @@
 
             </div>
 
-            <div class="form-actions">
-                <a class="btn" href="fdfRequests.php">Back</a>
-            </div>
 
         </div>
+        <div class="form-actions">
+            <a class="btn" href="fdfRequests.php">Back</a>
+        </div>
+
 
 
 

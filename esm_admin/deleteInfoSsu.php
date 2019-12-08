@@ -25,7 +25,7 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE ssuRequests set remarks = ? WHERE requestId = ?";
+            $sql = "UPDATE ssuRequests set remarks = ?, requestStatus = 'Declined' WHERE requestId = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 
@@ -105,7 +105,7 @@
 
 
 
-    <title>Admin | ESM</title>
+    <title>Planner | MPP</title>
 </head>
 
 <body>
@@ -163,7 +163,7 @@
 
     <div class="container-fluid">
 
-        <h1>Decline / Delete Request</h1>
+        <h1>Decline Request</h1>
 
         <div class="row">
 

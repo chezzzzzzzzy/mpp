@@ -13027,7 +13027,7 @@ var scale_time = core_scale.extend({
 		}
 
 		// Backward compatibility: before introducing adapter, `displayFormats` was
-		// supposed to contain *all* unit/string pairs but this can't be resolved
+		// supposed to contain *all* unit/string pair/s but this can't be resolved
 		// when loading the scale (adapters are loaded afterward), so let's populate
 		// missing formats on update
 		helpers$1.mergeIf(time.displayFormats, adapter.formats());
