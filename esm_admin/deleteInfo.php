@@ -24,8 +24,6 @@
         $valid = true;
      
          
-        
-         
         // update data
         if ($valid) {
             $pdo = Database::connect();
@@ -47,8 +45,6 @@
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $remarks = $data['remarks'];
        
-
-
         
         Database::disconnect();
     }

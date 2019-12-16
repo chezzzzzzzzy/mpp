@@ -20,7 +20,7 @@ $sql = "UPDATE spaceRequests SET requestStatus='$statusUpdate' WHERE requestId =
 // echo $sql;
 // echo "<br>";
 
-$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+$result = mysqli_query($conn, $sql) or die(mysqli_connect_error($conn));
 header("Location: spaceRequests.php");
 
 

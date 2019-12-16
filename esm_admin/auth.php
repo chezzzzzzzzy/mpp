@@ -11,10 +11,14 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- libraries -->
-    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
-    <script src="./libraries/js/bootstrap.min.js"></script>
     <script src="./libraries/jquery-3.4.1.min.js"></script>
-
+    <script src="./libraries/jquery.validate.js"></script>
+    <script src="./libraries/popper.min.js"></script>
+    <script src="./libraries/js/bootstrap.min.js"></script>
+    <script src="./libraries/additional-methods.js"></script>
+    <script src="./libraries/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -37,7 +41,7 @@ session_start();
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { 
         header('Location: admin.php');
     ?>
-        
+
 
     <?php } else { ?>
 
@@ -49,7 +53,7 @@ session_start();
             <div class="col-lg-8 authForm">
                 <form action="authVerification.php" method="POST" id="authForm">
                     <div class="loginLogo">
-                    <img src="./assets/singtelLogo.png">
+                        <img src="./assets/singtelLogo.png">
                     </div>
                     <br>
                     <h2><b>Master Planner Portal</b></h2>

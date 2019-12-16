@@ -4,6 +4,8 @@
     function spaceRequestStatus() {
         require 'connection.php';
         $temp = $_POST['ticketNumber']; 
+    
+
         $sql = "SELECT * FROM spaceRequests WHERE `requestId` = '$temp'";
 
 
@@ -13,11 +15,6 @@
 
 
 ?>
-
-
-
-
-
 
 
 
@@ -77,19 +74,19 @@
 
 
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-8">
                                 <?php echo "<h3 class='valueEmphasis'><b>" . $row['requestStatus'] ."</b></h3>";?>
                                 <?php 
                                     if ($row['requestStatus'] == 'Submitted' || $row['requestStatus'] == 'Acknowledged' || $row['requestStatus'] == 'Completed') {
                                         echo '<p>Admin to follow up</p>';
                                     } 
 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress') {
                                         echo '<p>Requestor to follow up</p>';
                                     }
                                 ?>
                             </div>
-                            <div class="col-lg-7">
+                            <div class="col-lg-4">
 
                             </div>
                         </div>
@@ -120,7 +117,7 @@
 
                                 <h6><b>Exchange</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
                                         echo "<h3 class='valueEmphasis'><b>" . $row['exchange'] . "</b></h3>"; 
                                     } else {
                                         echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
@@ -131,7 +128,7 @@
                                 <i class="fal fa-door-open fa-3x mbSmall"></i>
                                 <h6><b>Room</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
                                         echo "<h3 class='valueEmphasis'><b>" . $row['room'] . "</b></h3>"; 
                                     } else {
                                         echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
@@ -300,8 +297,6 @@
 
                 <?php
 
-                // $cd = date("Y-m-d H:i:s");
-                // echo $cd;
 
                 $currentDatetime = new DateTime($currentDatetime);
                 // echo $currentDatetime->format('Y-m-d H:i:s');
@@ -309,8 +304,6 @@
 
 
                 <div class="mlSmall">
-
-
                     <?php if ($row['requestStatus'] == "Submitted") {?>
                     <h6>Expected time remaining to Acknowledged: </h6>
                     <b><?php echo $testingSub = $expectedAcknowledgedDate->diff($currentDatetime)->format("T%R %a days, %h hours and %i minutes");?></b>
@@ -346,7 +339,7 @@
 
 
                     <?php if ($row['requestStatus'] == "Assigned") { ?>
-                    <h6>Expected time remaining to In Progress: </h6>
+                    <h6>Expected time remaining to Installation in Progress: </h6>
                     <b><?php echo $testingSub = $expectedInProgressDate->diff($currentDatetime)->format("T%R %a days, %h hours and %i minutes"); ?></b>
                     <?php  
 
@@ -363,7 +356,7 @@
 
 
 
-                    <?php if ($row['requestStatus'] == "In Progress") { ?>
+                    <?php if ($row['requestStatus'] == "Installation in Progress") { ?>
                     <h6>Expected time remaining to Completed: </h6>
                     <b><?php echo $testingSub = $expectedCompletedDate->diff($currentDatetime)->format("T%R %a days, %h hours and %i minutes"); ?></b>
                     <?php  
@@ -378,19 +371,7 @@
                     
                     ?>
                     <?php } ?>
-
-
-
-
                 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -431,9 +412,6 @@
                                 }
                             }
 
-                      
-
-
 
                             if ($row['requestStatus'] == "Assigned") {
                                 echo "Please input all the relvant information into the DCIM software by FNT <a class='fntHyperlink' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>here</a><br>Please be reminded to enable Adobe Flash Player for the software to load properly<br><br>";
@@ -453,68 +431,76 @@
                                 }
 
                                 
-
-
-
                                 echo "<div class='custom-control-lg custom-control custom-checkbox'>
                                 <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
                                 <label class='custom-control-label' for='toggle'>I have entered all the relevant information
                                     into FNT
                                     DCIM App</label>
                                 </div>
-                                <br>
-                                
-
-                                <form method='POST'>
-                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' onclick='changeState()'>Submit</button>
-                                </form>";
+                                <br>";
 
                                 ?>
-                                <script>
-                                    function changeState() {
-                                        document.getElementById("checkStatus").click();
-                                        $temp =  $row['requestId'];
-                                        console.log($temp + 'temp');
-                                        <?php
-                                        $updateStatus = "UPDATE spaceRequests SET requestStatus = 'In Progress' where requestId = '$temp'"; 
-                                        mysqli_query($conn, $updateStatus);
-                                        ?>
-                                    }
-                                </script>
 
-                            <?php
+                        <script type="text/javascript">
+                        function submitForm(action) {
+                            var form = document.getElementById('form1');
+                            form.action = action;
+                            form.submit();
+                        }
+                        </script>
 
-
-                                echo $temp;
-
-                            }
-
-                            
-
-
-                            if ($row['requestStatus'] == "In Progress") {
-                            echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
-
-                            ?>
-
-
-
-                        <div class='custom-control custom-checkbox'>
-                            <br>
-                            <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
-                            <label class='custom-control-label' for='toggle'>I have uploaded all the relevant images for
-                                all the racks listed below</label>
-                        </div>
-
+                        <form id="form1">
+                            <input id='checkStatus' class='btn selectorButton2' type="button"
+                                onclick="submitForm('testing.php?id=<?php echo $temp?>')" value="Change State" />
+                        </form>
 
                         <?php
-                            if ($row['requestStatusInProgress'] == NULL) {
+                            }
+
+                        
+
+                            if ($row['requestStatus'] == "Installation in Progress") {
+                            echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
+                            
+
+                                if ($row['requestStatusInProgress'] == NULL) {
                                     $changeToCompleted = date('Y-m-d H:i:s');;
                                     $sqlChangeToCompleted = "UPDATE spaceRequests
                                     SET requestStatusInProgress = '$changeToCompleted' where requestId = '$temp'";
                                     mysqli_query($conn, $sqlChangeToCompleted);
                                 }
+                                     
+                                      
+                                echo "<div class='custom-control-lg custom-control custom-checkbox'>
+                                <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
+                                <label class='custom-control-label' for='toggle'>I have uploaded all the relevant images for
+                                all the racks listed below</label>
+                                </div>
+                                <br>";
+
+
+                                ?>
+
+                        <script type="text/javascript">
+                        function submitForm(action) {
+                            var form = document.getElementById('form1');
+                            form.action = action;
+                            form.submit();
+                        }
+                        </script>
+
+                        <form id="form1">
+                            <input id='checkStatus' class='btn selectorButton2' type="button"
+                                onclick="submitForm('testing2.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
+                                value="Change State" />
+                        </form>
+
+                        <?php
+                                echo $temp;
+                                echo $requestorFileUpload;
+
                             }
+
 
                             if ($row['requestStatus'] == "Completed") {
                                 echo "Your request has been completed.<br>Pleaese give us some time to review your images and confirm the installation before closing this request.";
@@ -526,6 +512,7 @@
                                 }
                             }
 
+
                             if ($row['requestStatus'] == "Closed") {
                                 echo "Your request has been closed.<br>Please keep this Request ID should you need to refer to it in the future.";
                                 if ($row['requestStatusClosed'] == NULL) {
@@ -535,6 +522,7 @@
                                     mysqli_query($conn, $sqlChangeToClosed);
                                 }
                             }
+
 
                             if ($row['requestStatus'] == "Declined") {
                                 echo "Your request has been declined because of the following reason/s<br><br>";
@@ -622,22 +610,33 @@
 
                         <br>
 
+
+
                         <h6><b>Rack Type</b></h6>
                         <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackType'] .  "</b></h3>"; ?>
                         <br>
 
-                        <h6><b>Rack Length</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength1'] .  "mm</b></h3>"; ?>
 
-                        <br>
 
-                        <h6><b>Rack Breadth</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth1'] .  "mm</b></h3>"; ?>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h6><b>Rack Length</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength1'] .  "mm</b></h3>"; ?>
 
-                        <br>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Breadth</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth1'] .  "mm</b></h3>"; ?>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Height</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight1'] .  "mm</b></h3>"; ?>
+                            </div>
+                        </div>
 
-                        <h6><b>Rack Height</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight1'] .  "mm</b></h3>"; ?>
+
+
+
 
 
                         <br>
@@ -866,7 +865,7 @@
 
         <?php
 
-        if ($row['requestStatus'] == "In Progress") {
+        if ($row['requestStatus'] == "Installation in Progress") {
         
         ?>
 
@@ -897,12 +896,44 @@
 
 
 
+                        <!-- adding image upload together with status update -->
+                        <!-- <div class="form-group">
+                            <label class="control-label">Upload Image</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="browse" accept='.jpeg, .png, .jpg'
+                                    onchange='previewFiles()' name="image">
+                                <label class="custom-file-label" for="browse"></label>
+                                <div id='preview'></div>
+                            </div>
+                        </div> -->
+
+
+                        <!-- adding image upload together with status update -->
+
+
+
                         <!-- <form method='post' enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
                             <input type='file' name='file' onchange='previewFiles()' />
                             <div id='preview'></div>
                             <input type='submit' value='Save name' name='but_upload'>
                         </form> -->
+
+                        <form method='POST' action='testing2.php?requestId=<?php echo $temp ?>'
+                            enctype='multipart/form-data'>
+                            <h6><b>Rack Front</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="image" />
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="image" />
+                            <div id='preview'></div>
+                            <input type='submit' value='Save name' name='but_upload'>
+                        </form>
+
+
+
+
+
 
                         <br>
                         <br>
@@ -929,6 +960,8 @@
                             <div class="col-lg-10">
                                 <h4 class="mlSmall"><b>Rack 1</b></h4>
                                 <h6 class="mlSmall">Breaker Verification</h6>
+
+
                             </div>
                         </div>
 
@@ -937,13 +970,6 @@
                     </div>
 
 
-
-                    <div class='col-lg-12 mlSmall'>
-
-
-
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -1004,18 +1030,23 @@
                         <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackType'] .  "</b></h3>"; ?>
                         <br>
 
-                        <h6><b>Rack Length</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength2'] .  "mm</b></h3>"; ?>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h6><b>Rack Length</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength2'] .  "mm</b></h3>"; ?>
 
-                        <br>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Breadth</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth2'] .  "mm</b></h3>"; ?>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Height</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight2'] .  "mm</b></h3>"; ?>
+                            </div>
+                        </div>
 
-                        <h6><b>Rack Breadth</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth2'] .  "mm</b></h3>"; ?>
 
-                        <br>
-
-                        <h6><b>Rack Height</b></h6>
-                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight2'] .  "mm</b></h3>"; ?>
 
 
                         <br>
@@ -1202,7 +1233,7 @@
 
         <?php
 
-        if ($row['requestStatus'] == "In Progress") {
+        if ($row['requestStatus'] == "Installation in Progress") {
         
         ?>
 
@@ -1303,6 +1334,47 @@ $('input:checkbox').click(function() {
         }
     }
 });
+</script>
+
+<script>
+function previewFiles() {
+
+    var preview = document.querySelector('#preview');
+    var files = document.querySelector('input[type=file]').files;
+
+    function readAndPreview(file) {
+
+        // Make sure `file.name` matches our extensions criteria
+        if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            var reader = new FileReader();
+
+
+            reader.addEventListener("load", function() {
+                var image = new Image();
+                image.height = 200;
+                image.title = file.name;
+                image.style.marginTop = '10px';
+                image.style.marginRight = '10px';
+                image.style.borderRadius = '3px';
+                image.style.marginBottom = '220px';
+
+
+
+
+                image.src = this.result;
+                preview.appendChild(image);
+            }, false);
+
+            reader.readAsDataURL(file);
+        }
+
+    }
+
+    if (files) {
+        [].forEach.call(files, readAndPreview);
+    }
+
+}
 </script>
 <!-- end of checkbox checked -->
 

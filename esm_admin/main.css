@@ -1607,3 +1607,8 @@ select {
     margin-top: 5px;
 }
 
+
+
+.uploadedImage {
+	max-width: 250px;
+}

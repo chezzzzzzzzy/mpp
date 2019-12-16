@@ -3,7 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "Wr5@dmin";
 $dbname = "singtel_esm";
 
 // Create connection
@@ -19,19 +19,20 @@ $requestorDepartment = $_POST['requestorDepartment'];
 $requestorReason = $_POST['requestorReason'];
 $numberOfPorts = $_POST['numberOfPorts'];
 $numberOfCableTies = $_POST['numberOfCableTies'];
+$startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 $room = $_POST['room'];
 $exchange = $_POST['exchange'];
 
 
 // Attempt insert query execution
-$sql = "INSERT INTO fdfRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, numberOfPorts, numberOfCableTies, endDate, room, exchange, requestStatus) 
-        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', $numberOfPorts, $numberOfCableTies, '$endDate', '$room', '$exchange', 'Submitted')";
+$sql = "INSERT INTO fdfRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, numberOfPorts, numberOfCableTies, startDate, endDate, room, exchange, requestStatus) 
+        VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', $numberOfPorts, $numberOfCableTies, '$startDate', '$endDate', '$room', '$exchange', 'Submitted')";
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
    } else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
    }
 
 ?>

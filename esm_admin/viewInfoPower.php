@@ -122,9 +122,10 @@
                     <div class="form-horizontal">
                         <div class="control-group">
 
+
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <label for="startDate">Request ID<span class="requiredField">*</span></label>
+                                    <label for="startDate">Request ID</label>
                                     <h5><b><?php echo $data['id'];?></b></h5>
                                 </div>
                             </div>
@@ -133,16 +134,19 @@
 
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                                    <label for="startDate">Requestor Name</label>
                                     <h5><b><?php echo $data['requestorName'];?></b></h5>
-
                                 </div>
-                                <div class="col-lg-3">
-                                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Email</label>
                                     <h5><b><?php echo $data['requestorEmail'];?></b></h5>
                                 </div>
-                                <div class="col-lg-3">
-                                    <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Department</label>
+                                    <h5><b><?php echo $data['requestorDepartment'];?></b></h5>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Reason</label>
                                     <h5><b><?php echo $data['requestorReason'];?></b></h5>
                                 </div>
 
@@ -156,18 +160,31 @@
 
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <label for="startDate">Exchange<span class="requiredField">*</span></label>
+                                    <label for="startDate">Exchange</label>
                                     <h5><b><?php echo $data['exchange'];?></b></h5>
-
                                 </div>
                                 <div class="col-lg-2">
-                                    <label for="startDate">Room<span class="requiredField">*</span></label>
+                                    <label for="startDate">Room</label>
                                     <h5><b><?php echo $data['room'];?></b></h5>
-
                                 </div>
-
                             </div>
+
                             <br>
+
+
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <label for="startDate">Installation Date (Start)</label>
+                                    <h5><b><?php echo $data['startDate'];?></b></h5>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Completion Date (End)</label>
+                                    <h5><b><?php echo $data['endDate'];?></b></h5>
+                                </div>
+                            </div>
+
+                            <br>
+
 
 
                             <div class="row">
@@ -576,7 +593,7 @@
 
                                 <br>
 
-                             
+
                             </div>
                         </div>
                     </div>
@@ -757,7 +774,7 @@
 
                                 <br>
 
-                              
+
                             </div>
                         </div>
                     </div>
@@ -937,9 +954,9 @@
                                 </div>
 
                                 <br>
-                                
 
-                               
+
+
                             </div>
                         </div>
                     </div>

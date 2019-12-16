@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-   <!-- libraries -->
-   <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
-    <script src="./libraries/js/bootstrap.min.js"></script>
+    <!-- libraries -->
     <script src="./libraries/jquery-3.4.1.min.js"></script>
-    <script src="./libraries/bootstrap-datepicker.js"></script>
-    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
     <script src="./libraries/jquery.validate.js"></script>
+    <script src="./libraries/popper.min.js"></script>
+    <script src="./libraries/js/bootstrap.min.js"></script>
     <script src="./libraries/additional-methods.js"></script>
+    <script src="./libraries/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
 
 
     <!-- dependencies -->
@@ -30,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"

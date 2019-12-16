@@ -11,10 +11,14 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- libraries -->
-    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
-    <script src="./libraries/js/bootstrap.min.js"></script>
     <script src="./libraries/jquery-3.4.1.min.js"></script>
-
+    <script src="./libraries/jquery.validate.js"></script>
+    <script src="./libraries/popper.min.js"></script>
+    <script src="./libraries/js/bootstrap.min.js"></script>
+    <script src="./libraries/additional-methods.js"></script>
+    <script src="./libraries/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -35,7 +39,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
 
 
             </div>
@@ -117,7 +121,8 @@ session_start();
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Cable Tray Requests</b></h4>
                         <p class="">Cable Tray</p>
-                        <a href="cableTrayRequests.php"><button class="selectorButtonFullWidth">Cable Tray Requests</button></a>
+                        <a href="cableTrayRequests.php"><button class="selectorButtonFullWidth">Cable Tray
+                                Requests</button></a>
                     </div>
                 </div>
             </div>
@@ -127,7 +132,8 @@ session_start();
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>General Requests</b></h4>
                         <p class="">General</p>
-                        <a href="generalRequests.php"><button class="selectorButtonFullWidth">General Requests</button></a>
+                        <a href="generalRequests.php"><button class="selectorButtonFullWidth">General
+                                Requests</button></a>
                     </div>
                 </div>
             </div>
@@ -147,12 +153,12 @@ session_start();
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>Access Requests</b></h4>
                         <p class="">Perimeter and room access </p>
-                        <a hidden href="accessRequests.php"><button class="selectorButtonFullWidth">Access Requests</button></a>
+                        <a hidden href="accessRequests.php"><button class="selectorButtonFullWidth">Access
+                                Requests</button></a>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
         <?php } else {?>

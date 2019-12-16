@@ -3,7 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "Wr5@dmin";
 $dbname = "singtel_esm";
 
 // Create connection
@@ -33,7 +33,7 @@ $sql = "INSERT INTO ssuRequests (requestorName, requestorEmail, requestorDepartm
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
    } else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
    }
 
 ?>

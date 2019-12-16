@@ -48,9 +48,6 @@
     }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,30 +78,22 @@
         margin-left: 30px;
         margin-right: auto;
     }
-
-
-
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
         }
     }
-
     @media screen and (min-width: 2560px) {
         .table {
             width: 250%;
         }
     }
-
     @media screen and (min-width: 3000px) {
         .table {
             width: 280%;
         }
     }
     </style>
-
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -149,7 +138,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="accessRequests.php">Access</a>
                 </li>
-
             </ul>
             <span class="navbar-text">
                 <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
@@ -162,64 +150,33 @@
 
 
     <div class="container-fluid">
-
         <h1>Decline Request</h1>
-
         <div class="row">
-
-
             <div class="col-lg-12 ">
-
                 <div class="infoBoundingBox">
-
                     <form class="form-horizontal" action="deleteInfoGeneral.php?id=<?php echo $id?>" method="post">
-
-
                         <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="remarks" type="text" placeholder="remarks"
                                     value="<?php echo !empty($remarks)?$remarks:'';?>">
- 
                             </div>
                         </div>
-
-
                         <br>
-
-
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="generalRequests.php">Back</a>
                         </div>
-
                         <br>
                         <br>
                         <br>
                         <br>
-
                         <br>
-
                     </form>
-
-
-
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
-    </div> <!-- /container -->
+    </div>
 </body>
 
 

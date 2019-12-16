@@ -145,7 +145,7 @@ if ($row['requestStatus'] == 'Submitted') {
             </tr>
             <tr>
                 <td>
-                    <h2>In Progress</h2>
+                    <h2>Installation in Progress</h2>
                 </td>
                 <td><?php echo "<h2>" . $row['timestamp_x'] . "</h2>"; ?></td>
             </tr>

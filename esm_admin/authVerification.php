@@ -2,7 +2,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "Wr5@dmin";
 $dbname = "singtel_esm";
 
 // Create connection
@@ -22,7 +22,7 @@ if (isset($_POST['email']) and isset($_POST['password'])){
     // CHECK FOR THE RECORD FROM TABLE
     $query = "SELECT * FROM `users` WHERE email='$email' and password='$password'";
     
-    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $result = mysqli_query($conn, $query) or die(mysqli_connect_error($conn));
     $count = mysqli_num_rows($result);
     
     if ($count == 1){

@@ -83,8 +83,6 @@
         margin-right: auto;
     }
 
-
-
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -103,9 +101,6 @@
         }
     }
     </style>
-
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -114,7 +109,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -123,7 +118,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
                 <li class="nav-item">
@@ -150,77 +145,42 @@
                 <li class="nav-item">
                     <a class="nav-link" href="accessRequests.php">Access</a>
                 </li>
-
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
     </nav>
 
 
-
-
     <div class="container-fluid">
-
         <h1>Decline Request</h1>
-
         <div class="row">
-
-
             <div class="col-lg-12 ">
-
                 <div class="infoBoundingBox">
-
                     <form class="form-horizontal" action="deleteInfoPower.php?id=<?php echo $id?>" method="post">
-
-
                         <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="remarks" type="text" placeholder="remarks"
                                     value="<?php echo !empty($remarks)?$remarks:'';?>">
- 
                             </div>
                         </div>
-
-
                         <br>
-
-
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="powerRequests.php">Back</a>
                         </div>
-
                         <br>
                         <br>
                         <br>
                         <br>
-
                         <br>
-
                     </form>
-
-
-
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
-    </div> <!-- /container -->
+    </div>
 </body>
 
 

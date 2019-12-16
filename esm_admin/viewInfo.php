@@ -124,7 +124,7 @@
 
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <label for="startDate">Request ID<span class="requiredField">*</span></label>
+                                    <label for="startDate">Request ID</label>
                                     <h5><b><?php echo $data['requestId'];?></b></h5>
                                 </div>
                             </div>
@@ -133,16 +133,19 @@
 
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                                    <label for="startDate">Requestor Name</label>
                                     <h5><b><?php echo $data['requestorName'];?></b></h5>
-
                                 </div>
-                                <div class="col-lg-3">
-                                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Email</label>
                                     <h5><b><?php echo $data['requestorEmail'];?></b></h5>
                                 </div>
-                                <div class="col-lg-3">
-                                    <label for="startDate">Requestor Reason<span class="requiredField">*</span></label>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Department</label>
+                                    <h5><b><?php echo $data['requestorDepartment'];?></b></h5>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Requestor Reason</label>
                                     <h5><b><?php echo $data['requestorReason'];?></b></h5>
                                 </div>
 
@@ -156,18 +159,31 @@
 
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <label for="startDate">Exchange<span class="requiredField">*</span></label>
+                                    <label for="startDate">Exchange</label>
                                     <h5><b><?php echo $data['exchange'];?></b></h5>
-
                                 </div>
                                 <div class="col-lg-2">
-                                    <label for="startDate">Room<span class="requiredField">*</span></label>
+                                    <label for="startDate">Room</label>
                                     <h5><b><?php echo $data['room'];?></b></h5>
-
                                 </div>
-
                             </div>
+
                             <br>
+
+
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <label for="startDate">Installation Date (Start)</label>
+                                    <h5><b><?php echo $data['startDate'];?></b></h5>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label for="startDate">Completion Date (End)</label>
+                                    <h5><b><?php echo $data['endDate'];?></b></h5>
+                                </div>
+                            </div>
+
+                            <br>
+
 
 
                             <div class="row">
@@ -175,12 +191,62 @@
                                     <label for="startDate">Layout Plan</label>
 
                                     <?php if ($data['adminFileUpload'] == NULL) {
-                                       echo "<br><b>Not uploaded / No entries found</b>";         
+                                        echo "<br><b>No entries found</b>";         
                                     } else {
                                         echo "<img src='uploads/".$data['adminFileUpload']."' >";
 
                                     }?>
+                                </div>
 
+                                <div class="col-lg-1">
+                                    <label for="startDate">Rack Front</label>
+                                    <br>
+                                    <?php if ($data['requestorFileUpload'] == NULL) {
+                                        echo "<br><b>No entries found</b>";         
+                                    } else {
+                                        // echo "<img class='uploadedImage' src='../esm_client/upload/" .$data['requestId']."/".$data['requestorFileUpload']."' >";
+                                        echo "<img src='https://via.placeholder.com/200x300.png' alt=''>";
+                                    }?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <label for="startDate">Rack Floor</label>
+                                    <br>
+                                    <?php if ($data['requestorFileUpload'] == NULL) {
+                                        echo "<br><b>No entries found</b>";         
+                                    } else {
+                                        // echo "<img class='uploadedImage' src='../esm_client/upload/" .$data['requestId']."/".$data['requestorFileUpload']."' >";
+                                        echo "<img src='https://via.placeholder.com/200x300.png' alt=''>";
+                                    }?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <label for="startDate">Sub PDU</label>
+                                    <br>
+                                    <?php if ($data['requestorFileUpload'] == NULL) {
+                                        echo "<br><b>No entries found</b>";         
+                                    } else {
+                                        // echo "<img class='uploadedImage' src='../esm_client/upload/" .$data['requestId']."/".$data['requestorFileUpload']."' >";
+                                        echo "<img src='https://via.placeholder.com/200x300.png' alt=''>";
+                                    }?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <label for="startDate">Breaker</label>
+                                    <br>
+                                    <?php if ($data['requestorFileUpload'] == NULL) {
+                                        echo "<br><b>No entries found</b>";         
+                                    } else {
+                                        // echo "<img class='uploadedImage' src='../esm_client/upload/" .$data['requestId']."/".$data['requestorFileUpload']."' >";
+                                        echo "<img src='https://via.placeholder.com/200x300.png' alt=''>";
+                                    }?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <label for="startDate">Breaker Label</label>
+                                    <br>
+                                    <?php if ($data['requestorFileUpload'] == NULL) {
+                                        echo "<br><b>No entries found</b>";         
+                                    } else {
+                                        // echo "<img class='uploadedImage' src='../esm_client/upload/" .$data['requestId']."/".$data['requestorFileUpload']."' >";
+                                        echo "<img src='https://via.placeholder.com/200x300.png' alt=''>";
+                                    }?>
                                 </div>
                             </div>
 
@@ -192,12 +258,9 @@
 
                 <?php 
 
-                    // if ($breakerSize1 != NULL) {
-                        
-                    // }
+                    if ($data['breakerSize1'] != NULL) {
 
-
-                ?>
+                        ?>
 
                 <div class="row">
                     <div class="col-lg-4">
@@ -275,38 +338,38 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                            if ($data['breakerName1FeedA1'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedA1'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['breakerName1FeedA1'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedA1'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                            if ($data['breakerName1FeedB1'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedB1'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['breakerName1FeedB1'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedB1'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                            if ($data['breakerName1FeedA2'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedA2'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['breakerName1FeedA2'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedA2'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                            if ($data['breakerName1FeedB2'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedB2'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['breakerName1FeedB2'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName1FeedB2'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                             <br>
                                         </div>
                                         <div class="col-lg-12">
@@ -347,38 +410,38 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                            if ($data['subPdu1FeedA1'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedA1'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['subPdu1FeedA1'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedA1'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                            if ($data['subPdu1FeedB1'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedB1'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['subPdu1FeedB1'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedB1'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                            if ($data['subPdu1FeedA2'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedA2'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['subPdu1FeedA2'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedA2'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                            if ($data['subPdu1FeedB2'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedB2'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?></h6>
+                                                if ($data['subPdu1FeedB2'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu1FeedB2'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?></h6>
                                             <br>
                                         </div>
                                         <div class="col-lg-12">
@@ -397,7 +460,15 @@
                     </div>
                 </div>
 
+                <?php
+                        
+                    }
 
+
+
+                    if ($data['breakerSize2'] != NULL) {
+
+                    ?>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="boundingBox3">
@@ -474,41 +545,41 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                            if ($data['breakerName2FeedA1'] != NULL) {
-                                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedA1'] . "</b></h6>";
-                                            } else {
-                                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                            }; ?>
+                                                if ($data['breakerName2FeedA1'] != NULL) {
+                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedA1'] . "</b></h6>";
+                                                } else {
+                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['breakerName2FeedB1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedB1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['breakerName2FeedB1'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedB1'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['breakerName2FeedA2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedA2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['breakerName2FeedA2'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedA2'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                    if ($data['breakerName2FeedB2'] != NULL) {
-                                                    echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedB2'] . "</b></h6>";
-                                                    } else {
-                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                    }; ?>
+                                                        if ($data['breakerName2FeedB2'] != NULL) {
+                                                        echo "<h6 class='valueEmphasis'><b>" . $data['breakerName2FeedB2'] . "</b></h6>";
+                                                        } else {
+                                                        echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                        }; ?>
                                             </h6>
                                             <br>
                                         </div>
@@ -550,41 +621,41 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['subPdu2FeedA1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedA1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['subPdu2FeedA1'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedA1'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['subPdu2FeedB1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedB1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['subPdu2FeedB1'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedB1'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['subPdu2FeedA2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedA2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['subPdu2FeedA2'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedA2'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['subPdu2FeedB2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedB2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                                                    if ($data['subPdu2FeedB2'] != NULL) {
+                                                    echo "<h6 class='valueEmphasis'><b>" . $data['subPdu2FeedB2'] . "</b></h6>";
+                                                    } else {
+                                                    echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                                                    }; ?>
                                             </h6>
                                             <br>
                                         </div>
@@ -603,6 +674,19 @@
                         </div>
                     </div>
                 </div>
+
+                <?php
+                        
+                    }
+
+
+
+
+                    if ($data['breakerSize3'] != NULL) {
+
+                    ?>
+
+
 
 
                 <div class="row">
@@ -812,6 +896,18 @@
                 </div>
 
 
+                <?php
+
+
+                    }
+
+
+
+
+                    if ($data['breakerSize4'] != NULL) {
+
+                        ?>
+
                 <div class="row">
 
 
@@ -890,41 +986,41 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['breakerName4FeedA1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedA1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['breakerName4FeedA1'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedA1'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['breakerName4FeedB1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedB1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['breakerName4FeedB1'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedB1'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['breakerName4FeedA2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedA2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['breakerName4FeedA2'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedA2'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['breakerName4FeedB2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedB2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['breakerName4FeedB2'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['breakerName4FeedB2'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                             <br>
                                         </div>
@@ -966,41 +1062,41 @@
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['subPdu4FeedA1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedA1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['subPdu4FeedA1'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedA1'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['subPdu4FeedB1'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedB1'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['subPdu4FeedB1'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedB1'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed A
                                                 <?php 
-                                                if ($data['subPdu4FeedA2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedA2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['subPdu4FeedA2'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedA2'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                         </div>
                                         <div class="col-lg-6">
                                             <h6>Feed B
                                                 <?php 
-                                                if ($data['subPdu4FeedB2'] != NULL) {
-                                                echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedB2'] . "</b></h6>";
-                                                } else {
-                                                echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
-                                                }; ?>
+                            if ($data['subPdu4FeedB2'] != NULL) {
+                            echo "<h6 class='valueEmphasis'><b>" . $data['subPdu4FeedB2'] . "</b></h6>";
+                            } else {
+                            echo "<h6 class='valueEmphasis'><b>NA</b></h6>";
+                            }; ?>
                                             </h6>
                                             <br>
                                         </div>
@@ -1020,6 +1116,23 @@
                     </div>
                 </div>
 
+
+
+
+
+
+
+                <?php
+    
+    
+                        }
+
+
+
+
+                        if ($data['breakerSize5'] != NULL) {
+
+                            ?>
 
                 <div class="row">
 
@@ -1228,6 +1341,31 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+                <?php
+        
+        
+                            }
+    
+
+
+
+                    
+
+
+                ?>
+
+
 
 
 

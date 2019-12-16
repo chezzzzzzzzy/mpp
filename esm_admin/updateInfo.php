@@ -394,7 +394,7 @@
                                 <option value='Submitted' id='submitted'>Submitted</option>
                                 <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
                                 <option value='Assigned' id='assigned'>Assigned</option>
-                                <option value='In Progress' id='inProgress'>In Progress</option>
+                                <option value='Installation in Progress' id='inProgress'>Installation in Progress</option>
                                 <option value='Completed' id='installed'>Completed</option>
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
@@ -423,7 +423,7 @@
 
 
                             //     $updateStatus = "UPDATE spaceRequests
-                            //     SET requestStatus = 'In Progress' where requestID = '$temp'";
+                            //     SET requestStatus = 'Installation in Progress' where requestID = '$temp'";
                             //     mysqli_query($conn, $updateStatus);
 
                             //     // echo "<div class='custom-control custom-checkbox'>
@@ -444,7 +444,7 @@
                             // }
 
 
-                            // if ($data['requestStatus'] == "In Progress") {
+                            // if ($data['requestStatus'] == "Installation in Progress") {
                             //     echo "Please compress all your pictures into a folder before submitting it as a ZIP file.  <br><br>";
 
 

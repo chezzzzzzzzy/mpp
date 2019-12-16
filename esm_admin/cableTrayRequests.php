@@ -12,9 +12,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
    <!-- libraries -->
-   <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+   <script src="./libraries/jquery-3.4.1.min.js"></script>
+    <script src="./libraries/jquery.validate.js"></script>
+    <script src="./libraries/popper.min.js"></script>
     <script src="./libraries/js/bootstrap.min.js"></script>
-    <script src="./libraries/jquery-3.4.1.min.js"></script>
+    <script src="./libraries/additional-methods.js"></script>
+    <script src="./libraries/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
     
     <script src="./libraries/chartist.min.js"></script>
     <script src="./libraries/chartist-plugin-legend.js"></script>
@@ -145,7 +150,7 @@
                     ?>,
 
                     <?php
-                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='In Progress' ";
+                        $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Installation in Progress' ";
                         $query = mysqli_query($conn, $sqlGetTotalInProgress);
                         $row = $query->fetch_object();
                         $classId = $row->count;
@@ -398,11 +403,11 @@
 
             <div class="col-lg-2">
                 <div class="boundingBox2">
-                    <h4 class="mlSmall"><b>In Progress</b></h4>
+                    <h4 class="mlSmall"><b>Installation in Progress</b></h4>
                     <br>
                     <h2 class="mlSmall"><b>
                         <?php
-                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='In Progress' ";
+                            $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests WHERE requestStatus='Installation in Progress' ";
                             $query = mysqli_query($conn, $sqlGetTotalInProgress);
                             $row = $query->fetch_object();
                             $classId = $row->count;
@@ -451,7 +456,7 @@
             </div>
 
 
-
+<!-- 
 
             <div class="col-lg-2">
                 <div class="warningBoundingBox">
@@ -492,7 +497,7 @@
                 <div class="normalBoundingBox">
                     <h6 class="mlSmall"><b>Normal</b></h6>
                 </div>
-            </div>
+            </div> -->
 
 
 

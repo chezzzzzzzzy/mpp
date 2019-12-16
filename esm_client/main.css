@@ -672,7 +672,7 @@ footer {
     padding-left: 10px;
     padding-right: 10px;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-    min-height: 650px;
+    min-height: 500px;
     margin-top: 30px;
     margin-bottom: 30px;
 
@@ -826,9 +826,29 @@ i .fal {
 .guideCard {
     padding: 0px;
     margin-top: 20px;
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
+
+#collapseOne, #collapseTwo, #collapseThree, #collapseFour, #collapseFive, #collapseSix {
+    background-color: rgb(243, 243, 243);
+
+}
+
+.accordion {
+    background-color: #f9f9fc;
+}
+
+
+
+.card {
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 0px;
+
+}
+
+
 
 .guideBody {
     padding: 0px;
@@ -880,8 +900,12 @@ select {
 
  .card-header {
      background-color: white;
-     border-bottom: 2px solid rgb(233, 233, 233);
+     border-bottom: 0px solid rgb(233, 233, 233);
 
+ }
+
+ .card-body {
+     padding-left: 30px;
  }
 
  .accordion {
@@ -890,9 +914,7 @@ select {
   
  }
 
- .card {
-     border: 0px;
- }
+ 
 
  .imageGuidelines {
      max-width: 100%;
@@ -913,3 +935,13 @@ select {
     width: 30px; /*Desired width*/
     height: 30px; /*Desired height*/
   }
+
+  .guideImg {
+      padding-top: 50px;
+      max-width: 80%;   
+      margin: auto;    
+      display: block;
+    
+  }
+
+  

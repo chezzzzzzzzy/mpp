@@ -6,35 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- cdn -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-
-
-    
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <!-- libraries -->
+    <script src="./libraries/jquery-3.4.1.min.js"></script>
+    <script src="./libraries/jquery.validate.js"></script>
+    <script src="./libraries/popper.min.js"></script>
+    <script src="./libraries/js/bootstrap.min.js"></script>
+    <script src="./libraries/additional-methods.js"></script>
+    <script src="./libraries/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-
-
     <script src="faKit.js"></script>
-
-
-
     <title>Requestor | MPP</title>
 </head>
 
@@ -43,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -77,16 +63,11 @@
 
 
         <div class="row">
-
-
             <div class="col-lg-12">
                 <h1 class="centerAlign topSpaceLarge">Request Type</h1>
                 <h5 class="centerAlign x0">All the forms you need to request for resources</h5>
             </div>
-
-
         </div>
-
 
         <div class="row">
 
@@ -96,7 +77,6 @@
                         <h4><b>Space</b></h4>
                         <p class="">For new spaces</p>
                         <a href="spaceForm.php"><button class="selectorButtonFullWidth">Space Form</button></a>
-
                     </div>
                 </div>
             </div>
@@ -107,19 +87,13 @@
                         <h4><b>Power</b></h4>
                         <p class="">For additional power</p>
                         <a href="powerForm.php"><button class="selectorButtonFullWidth">Power Form</button></a>
-
-
                     </div>
                 </div>
-
-
             </div>
 
 
             <div class="col-lg-4 col-sm-12">
                 <!-- <a href="othersForm.php"><button class="selectorButton">Others</button></a> -->
-
-
 
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
@@ -168,7 +142,7 @@
             <div class="col-lg-3"></div>
 
             <div class="col-lg-6">
-                <img src="server.svg" id="serverImg">
+                <img src="./assets/server.svg" id="serverImg">
             </div>
             <div class="col-lg-3"></div>
 
@@ -210,6 +184,7 @@
 
 
 </footer>
+
 
 
 </html>

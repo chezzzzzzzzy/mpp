@@ -4,7 +4,7 @@ error_reporting(E_ERROR | E_PARSE);
 // general
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "Wr5@dmin";
 $dbname = "singtel_esm";
 
 // create connection
@@ -77,6 +77,16 @@ $powerConsumption3 = $_POST['powerConsumption3'];
 $powerConsumption4 = $_POST['powerConsumption4'];
 $powerConsumption5 = $_POST['powerConsumption5'];
 
+
+    // insert into table
+    // $sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepartment, requestorReason, powerType, rackType, room, startDate, endDate, exchange, requestStatus, rackSizeLength1, rackSizeLength2, rackSizeLength3, rackSizeLength4, rackSizeLength5, rackSizeBreadth1, rackSizeBreadth2, rackSizeBreadth3, rackSizeBreadth4, rackSizeBreadth5, rackSizeHeight1, rackSizeHeight2, rackSizeHeight3, rackSizeHeight4, rackSizeHeight5, rackSizeWeight1, rackSizeWeight2, rackSizeWeight3, rackSizeWeight4, rackSizeWeight5, breakerSize1, breakerSize2, breakerSize3, breakerSize4, breakerSize5, breakerQuantity1, breakerQuantity2, breakerQuantity3, breakerQuantity4, breakerQuantity5, powerConsumption1, powerConsumption2, powerConsumption3, powerConsumption4, powerConsumption5 ) 
+    //         VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$powerType', '$rackType', '$room', '$startDate', '$endDate', '$exchange', 'Submitted', '$rackSizeLength1', '$rackSizeLength2', '$rackSizeLength3','$rackSizeLength4', '$rackSizeLength5', '$rackSizeBreadth1', '$rackSizeBreadth2', '$rackSizeBreadth3', '$rackSizeBreadth4', '$rackSizeBreadth5', '$rackSizeHeight1', '$rackSizeHeight2', '$rackSizeHeight3', '$rackSizeHeight4', '$rackSizeHeight5', '$rackSizeWeight1', '$rackSizeWeight2', '$rackSizeWeight3', '$rackSizeWeight4', '$rackSizeWeight5', '$breakerSize1', '$breakerSize2', '$breakerSize3', '$breakerSize4', '$breakerSize5', '$breakerQuantity1', '$breakerQuantity2','$breakerQuantity3', '$breakerQuantity4', '$breakerQuantity5', '$powerConsumption1', '$powerConsumption2', '$powerConsumption3', '$powerConsumption4', '$powerConsumption5')
+    //         UPDATE `spaceRequests` SET `spaceRequestId` = 
+    //         CONCAT('SP',  CONCAT( YEAR(CURDATE()), MONTH(CURDATE()), DATE_FORMAT(CURDATE() ,'%d')), `id`) WHERE `id` = LPAD(LAST_INSERT_ID(), 3, '0');
+            
+        
+            
+    //         ";
 
 
 // insert into table

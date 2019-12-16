@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "Wr5@dmin";
 $dbname = "singtel_esm";
 
 // Create connection
@@ -105,7 +105,7 @@ $sql = "INSERT INTO spaceRequests (rackSizeLength_1, rackSizeLength_2, rackSizeL
                             $last_id = mysqli_insert_id($conn);
                             echo $last_id;
                         } else {
-                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
                         }
                 ?>
 

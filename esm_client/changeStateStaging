@@ -1,0 +1,45 @@
+
+                            if ($row['requestStatus'] == "Assigned") {
+                                echo "Please input all the relvant information into the DCIM software by FNT <a class='fntHyperlink' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>here</a><br>Please be reminded to enable Adobe Flash Player for the software to load properly<br><br>";
+
+                                
+                                if ($row['requestStatusAssigned'] == NULL) {
+                                    $changeToAssigned = date('Y-m-d H:i:s');;
+                                    $sqlChangeToAssigned= "UPDATE spaceRequests
+                                    SET requestStatusAssigned = '$changeToAssigned' where requestId = '$temp'";
+                                    mysqli_query($conn, $sqlChangeToAssigned);
+                                }
+
+                                if ($row['adminFileUpload'] != NULL) {
+                                    echo "<div class='layoutImage'>
+                                    <img style='width: 500px; margin-top: 20px; margin-bottom: 20px; border-radius: 4px; ' src='/esm_admin/uploads/".$row['adminFileUpload']."' >
+                                    </div>";
+                                }
+
+                                
+                                echo "<div class='custom-control-lg custom-control custom-checkbox'>
+                                <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
+                                <label class='custom-control-label' for='toggle'>I have entered all the relevant information
+                                    into FNT
+                                    DCIM App</label>
+                                </div>
+                                <br>
+                            
+
+                          
+
+
+                                <form id='form1'>
+                                    <input type='button' class='btn selectorButton2' id='checkStatus' onclick='submitForm('testing.php?id=$temp')' value='Change State' />
+                                </form>";
+
+                                echo "<script type='text/javascript'>
+                                function submitForm(action) {
+                                    var form = document.getElementById('form1');
+                                    form.action = action;
+                                    form.submit();
+                                }
+                                </script>";
+
+
+                            }

@@ -16,6 +16,9 @@
     <script src="./libraries/additional-methods.js"></script>
 
 
+    <style>
+
+    </style>
 
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
@@ -63,138 +66,196 @@
             <div class="col-lg-12">
                 <h1 class=" topSpaceLarge">Onboarding</h1>
                 <h5 class=" x0">Guides as to how you should use the app</h5>
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse"
-                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Creating a request
-                                </button>
-                            </h2>
-                        </div>
-
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                            data-parent="#accordionExample">
-                            <div class="guideCard">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Following a request
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordionExample">
-                            <div class="guideCard">
-                                Upon submission fo your request, you will receive an email that entails your input that
-                                you have requested for earlier
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Submitting images for verification
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                            data-parent="#accordionExample">
-
-                            <div class="guideCard">
-                                <div class="guideBody">
-
-                                    <h5><b>Guidelines</b></h5>
-
-                                    <h6>Please kindly adhere to the following guidelines in order for us to verify
-                                        your
-                                        installation:</h6>
-                                    <ul>
-                                        <li>Images must be well exposed, sharp and clear</li>
-                                        <li>Images must cover the entire rack itself</li>
-                                    </ul>
-                                    <br>
-
-                                    <h5><b>Rack</b></h5>
 
 
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <h6>Rack Front</h6>
-                                            <img src="./assets/rackFront.jpg" class="imageGuidelinesSmall">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h6>Rack Back</h6>
-                                            <img src="./assets/rackBack.jpg" class="imageGuidelinesSmall">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h6>Rack Floor</h6>
-                                            <!-- <img src="./assets/rackBack.jpg" class="imageGuidelines"> -->
-                                        </div>
-                                        <br>
-                                        <br>
-                                    </div>
+                <div class="row">
+                    <div class="col-lg-6">
 
-                                    <br>
+                        <div id="accordion">
 
+                            <div class="card">
+                                <div class="card-header">
 
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Creating a request
+                                    </button>
 
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <h5><b>Breaker</b></h5>
-
-                                        </div>
-
-                                        <div class="col-lg-4">
-                                            <h5><b>Sub PDU</b></h5>
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="row">
-
-                                        <div class="col-lg-2">
-                                            <h6>Breakers</h6>
-                                            <img src="./assets/breaker2.jpg" class="imageGuidelinesSmall">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h6>Breaker Label</h6>
-                                            <img src="./assets/breaker.jpg" class="imageGuidelinesSmall">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h6>Sub PDU</h6>
-                                            <img src="./assets/subPdu.jpg" class="imageGuidelinesSmall">
-                                        </div>
-                                        <div class="col-lg-2">
-
-                                        </div>
-
-                                        <br>
-                                        <br>
-
-
-                                    </div>
 
                                 </div>
-                                <div class="modal-footer">
-                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <h6>Select your request type at the landing page
+
+                                            The list of request types are as follows:
+                                            Space (For new spaces)
+                                            Power (For additional power)
+                                            FDF
+                                            SSU
+                                            Cable Tray
+                                            General
+                                        </h6>
+                                        <br>
+                                        <h6>After selecting the request type, you will be directed to the request
+                                            form.
+                                            You will then be required to input your personal information into the
+                                            form
+                                            before
+                                            you can continue to the next step.
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                        Checking status of a request
+                                    </button>
+                                </div>
+                                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <h6>
+                                        Upon submission of your request, you will receive an email that entails your
+                                        input
+                                        that
+                                        you have requested for earlier
+                                        <br>
+                                        <br>
+                                        You can easily check the status of your request by going to the Status tab
+                                        on
+                                        the
+                                        navigation bar and you will be directed to the Status page
+                                        <br>
+                                        <br>
+                                        You can input your Request ID that was sent to your Singtel email to check
+                                        follow up
+                                        on
+                                        the request itself
+                                    </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                        Status Descriptors
+                                    </button>
+                                </div>
+                                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <h6>
+                                        Submitted: This will be the default status as soon as you submit your
+                                        Request
+                                        <br>
+                                        <br>
+                                        Acknowledged: Planner has received your Request
+                                        <br>
+                                        <br>
+                                        Assigned: Planner has added relevant information for Requestor to take
+                                        action
+                                        <br>
+                                        <br>
+                                        Installation in Progress: Requestor should be in the process of installing
+                                        their equipments and upload images when done
+                                        <br>
+                                        <br>
+                                        Completed: Installation of equipment is completed and waiting for Planner to
+                                        close request
+                                        <br>
+                                        <br>
+                                        Closed: Request is closed and archived
+                                        <br>
+                                        <br>
+                                        Declined: There is some discrepancy in the Request
+                                    </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        Inputting values
+                                    </button>
+                                </div>
+                                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <h6>
+                                        When you input the values into the fields, please do not add in any units
+                                    </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                        x
+                                    </button>
+                                </div>
+                                <div id="collapseFive" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <h6>
+                                        x
+                                    </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                        x
+                                    </button>
+                                </div>
+                                <div id="collapseSix" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                    <h6>
+                                        x
+                                    </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <br>
+                            <br>
+
+                            <input type="button" value="Download PDF" href="" class="statusCheckButton" download>
+
                         </div>
 
+
                     </div>
+
+                    <div class="col-lg-6">
+
+                        <img src="assets/guide.svg" class="guideImg">
+                    </div>
+
+
+
+
                 </div>
+
+
+
             </div>
 
         </div>

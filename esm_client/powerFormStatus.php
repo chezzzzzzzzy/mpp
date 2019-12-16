@@ -65,7 +65,7 @@
                                     if ($row['requestStatus'] == 'Submitted' || $row['requestStatus'] == 'Acknowledged' || $row['requestStatus'] == 'Completed') {
                                         echo '<p>Admin to follow up</p>';
                                     } 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress') {
                                         echo '<p>Requestor to follow up</p>';
                                     }
 
@@ -127,7 +127,7 @@
 
                                 <h6><b>Exchange</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
                                         echo "<h3 class='valueEmphasis'><b>" . $row['exchange'] . "</b></h3>"; 
                                     } else {
                                         echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
@@ -138,7 +138,7 @@
                                 <i class="fal fa-door-open fa-3x mbSmall"></i>
                                 <h6><b>Room</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'In Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
+                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
                                         echo "<h3 class='valueEmphasis'><b>" . $row['room'] . "</b></h3>"; 
                                     } else {
                                         echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
@@ -351,7 +351,7 @@
 
 
                     <?php if ($row['requestStatus'] == "Assigned") { ?>
-                    <h6>Expected time remaining before In Progress: </h6>
+                    <h6>Expected time remaining before Installation in Progress: </h6>
                     <b><?php echo $testingSub = $expectedInProgressDate->diff($currentDatetime)->format("T%R %a days, %h hours and %i minutes"); ?></b>
                     <?php  
                     $str = $testingSub ;
@@ -369,7 +369,7 @@
 
 
 
-                    <?php if ($row['requestStatus'] == "In Progress") { ?>
+                    <?php if ($row['requestStatus'] == "Installation in Progress") { ?>
                     <h6>Expected time remaining before Completed: </h6>
                     <b><?php echo $testingSub = $expectedCompletedDate->diff($currentDatetime)->format("T%R %a days, %h hours and %i minutes"); ?></b>
                     <?php  
@@ -478,7 +478,7 @@
                                 if (isset($_POST['checked'])) {
                                     $temp = $_POST['ticketNumber']; 
                                     $updateStatus = "UPDATE spaceRequests
-                                    SET requestStatus = 'In Progress' where requestID = '$temp'";
+                                    SET requestStatus = 'Installation in Progress' where requestID = '$temp'";
                                     mysqli_query($conn, $updateStatus);
                                 }
 
@@ -489,7 +489,7 @@
 
 
 
-                            if ($row['requestStatus'] == "In Progress") {
+                            if ($row['requestStatus'] == "Installation in Progress") {
                             echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
 
                             ?>
@@ -860,7 +860,7 @@
 
         <?php
 
-        if ($row['requestStatus'] == "In Progress") {
+        if ($row['requestStatus'] == "Installation in Progress") {
         
         ?>
 
@@ -1262,7 +1262,7 @@
 
         <?php
 
-        if ($row['requestStatus'] == "In Progress") {
+        if ($row['requestStatus'] == "Installation in Progress") {
         
         ?>
 
