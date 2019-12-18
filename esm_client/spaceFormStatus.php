@@ -38,7 +38,7 @@
 </style>
 
 
-<script src="faKit.js"></script>
+<script src="./libraries/faKit.js"></script>
 
 <!-- start of ticketInfo -->
 
@@ -78,7 +78,7 @@
                                 <?php echo "<h3 class='valueEmphasis'><b>" . $row['requestStatus'] ."</b></h3>";?>
                                 <?php 
                                     if ($row['requestStatus'] == 'Submitted' || $row['requestStatus'] == 'Acknowledged' || $row['requestStatus'] == 'Completed') {
-                                        echo '<p>Admin to follow up</p>';
+                                        echo '<p>Planner to follow up</p>';
                                     } 
 
                                     if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress') {
@@ -175,8 +175,8 @@
                         <tbody>
                             <tr>
                                 <td>Status</td>
-                                <td>Actual</td>
-                                <td>Expected</td>
+                                <td>Time</td>
+                                <!-- <td>Expected</td> -->
                             </tr>
                             <tr>
                                 <td>
@@ -184,7 +184,7 @@
                                     <h4>Submitted</h4>
                                 </td>
                                 <td><?php echo "<h4>" . $row['requestTimestamp'] . "</h4>";?></td>
-                                <td>-</td>
+                                <!-- <td>-</td> -->
                             </tr>
                             <tr>
                                 <td>
@@ -196,7 +196,7 @@
                                     <?php 
                                         # expcetd SLA date
                                         $expectedAcknowledgedDate = date('Y-m-d H:i:s', strtotime($row['requestTimestamp']. ' + 3 days'));
-                                        echo "<h4>". $expectedAcknowledgedDate . "</h4>";
+                                        // echo "<h4>". $expectedAcknowledgedDate . "</h4>";
 
                                         # convert requestTimestamp to DateTime format
                                         $convertedRT = new DateTime($expectedAcknowledgedDate);
@@ -220,7 +220,7 @@
 
                                     <?php 
                                     $expectedAssignedDate = date('Y-m-d H:i:s', strtotime($row['requestStatusAcknowledged']. ' + 4 days'));
-                                    echo "<h4>". $expectedAssignedDate . "</h4>";
+                                    // echo "<h4>". $expectedAssignedDate . "</h4>";
 
                                     $expectedAssignedDate = new DateTime($expectedAssignedDate);
                                     $actualAcknowledgedDate = new DateTime($row['requestStatusAcknowledged']);
@@ -240,7 +240,7 @@
 
                                     <?php 
                                     $expectedInProgressDate = date('Y-m-d H:i:s', strtotime($row['requestStatusAssigned']. ' + 4 days'));
-                                    echo "<h4>". $expectedInProgressDate . "</h4>";
+                                    // echo "<h4>". $expectedInProgressDate . "</h4>";
 
                                     $expectedInProgressDate = new DateTime($expectedInProgressDate);
                                     $actualAssignedDate = new DateTime($row['requestStatusAssigned']);
@@ -260,7 +260,7 @@
 
                                     <?php 
                                     $expectedCompletedDate = date('Y-m-d H:i:s', strtotime($row['requestStatusInProgress']. ' + 4 days'));
-                                    echo "<h4>". $expectedCompletedDate . "</h4>";
+                                    // echo "<h4>". $expectedCompletedDate . "</h4>";
 
                                     $expectedCompletedDate = new DateTime($expectedCompletedDate);
                                     $actualInProgressDate = new DateTime($row['requestStatusInProgress']);
@@ -277,7 +277,7 @@
                                 <td>
                                     <?php 
                                     $expectedClosedDate = date('Y-m-d H:i:s', strtotime($row['requestStatusCompleted']. ' + 4 days'));
-                                    echo "<h4>". $expectedClosedDate . "</h4>";
+                                    // echo "<h4>". $expectedClosedDate . "</h4>";
 
                                     $expectedClosedDate = new DateTime($expectedClosedDate);
                                     $actualCompletedDate = new DateTime($row['requestStatusCompleted']);
@@ -375,11 +375,6 @@
 
 
 
-
-
-
-
-
             </div>
 
             <div class="bgcolors boundingBox2">
@@ -394,7 +389,7 @@
                         <?php 
 
                             if ($row['requestStatus'] == "Submitted") {
-                            echo "Please check your email for a your request submission";
+                            echo "Please check your email for your request submission";
                             // header('Location: spaceForm.php');  
 
 
@@ -451,7 +446,7 @@
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('testing.php?id=<?php echo $temp?>')" value="Change State" />
+                                onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')" value="Change State" />
                         </form>
 
                         <?php
@@ -491,7 +486,7 @@
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('testing2.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
+                                onclick="submitForm('changeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
                                 value="Change State" />
                         </form>
 
@@ -500,7 +495,6 @@
                                 echo $requestorFileUpload;
 
                             }
-
 
                             if ($row['requestStatus'] == "Completed") {
                                 echo "Your request has been completed.<br>Pleaese give us some time to review your images and confirm the installation before closing this request.";
@@ -512,7 +506,6 @@
                                 }
                             }
 
-
                             if ($row['requestStatus'] == "Closed") {
                                 echo "Your request has been closed.<br>Please keep this Request ID should you need to refer to it in the future.";
                                 if ($row['requestStatusClosed'] == NULL) {
@@ -523,13 +516,11 @@
                                 }
                             }
 
-
                             if ($row['requestStatus'] == "Declined") {
                                 echo "Your request has been declined because of the following reason/s<br><br>";
                                 echo $row['remarks']; 
 
                             }
-
                         ?>
                     </div>
 
@@ -919,7 +910,7 @@
                             <input type='submit' value='Save name' name='but_upload'>
                         </form> -->
 
-                        <form method='POST' action='testing2.php?requestId=<?php echo $temp ?>'
+                        <form method='POST' action='changeToCompleted.php?requestId=<?php echo $temp ?>'
                             enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'

@@ -96,7 +96,6 @@
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -105,7 +104,6 @@
     <div class="container-fluid fluid2">
 
         <h1>View Request</h1>
-
 
 
         <div class="row">

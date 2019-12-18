@@ -1,6 +1,37 @@
 <?php
 session_start();
-?>
+
+// check to see if planner is logged in 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+    // if planner is logged in, redirect to admin page
+    header('Location: admin.php');
+} else { ?>
+
+<!-- if planner is not logged in, show login page  -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 authForm">
+            <form action="authVerification.php" method="POST" id="authForm">
+                <div class="loginLogo">
+                    <img src="./assets/singtelLogo.png">
+                </div>
+                <br>
+                <h2><b>Master Planner Portal</b></h2>
+                <h5>Planner Dashboard</h5>
+                <br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <br>
+                <button type="submit" class="btn btn-primary boxButton">Login</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<?php } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,53 +56,5 @@ session_start();
     <link rel="stylesheet" href="main.css">
     <title>Planner | MPP</title>
 </head>
-
-<body>
-    <!-- <nav class="navbar navbar-expand-lg bg-light">
-        <a class="navbar-brand" href="auth.php">
-            <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
-            </div>
-        </a>
-        <span class="navbar-text ml-auto">
-            Master Planner Portal
-        </span>
-    </nav> -->
-    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { 
-        header('Location: admin.php');
-    ?>
-
-
-    <?php } else { ?>
-
-    <!-- display when planner is not logged in -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 authForm">
-                <form action="authVerification.php" method="POST" id="authForm">
-                    <div class="loginLogo">
-                        <img src="./assets/singtelLogo.png">
-                    </div>
-                    <br>
-                    <h2><b>Master Planner Portal</b></h2>
-                    <h5>Planner Dashboard</h5>
-                    <br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    <br>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    <br>
-                    <button type="submit" class="btn btn-primary boxButton">Login</button>
-                </form>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-    </div>
-    <?php }
-?>
-
-</body>
 
 </html>

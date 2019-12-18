@@ -291,7 +291,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -300,7 +300,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
                 <li class="nav-item">
@@ -330,7 +330,6 @@
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -345,85 +344,107 @@
 
         <div class="row">
 
-        
+
 
 
             <div class="col-lg-12 ">
 
                 <div class="infoBoundingBox">
 
-                    <form class="form-horizontal" enctype="multipart/form-data" action="updateInfoPower.php?id=<?php echo $id?>" method="post">
+                    <form class="form-horizontal" enctype="multipart/form-data"
+                        action="updateInfoPower.php?id=<?php echo $id?>" method="post">
 
 
-                        <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
-                            <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorName" type="text" placeholder="requestorName"
-                                    value="<?php echo !empty($name)?$name:'';?>">
-                                <?php if (!empty($nameError)): ?>
-                                <span class="help-inline"><?php echo $nameError;?></span>
-                                <?php endif; ?>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
+                                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorName" type="text"
+                                            placeholder="requestorName" value="<?php echo !empty($name)?$name:'';?>">
+                                        <?php if (!empty($nameError)): ?>
+                                        <span class="help-inline"><?php echo $nameError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+
+                                <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
+                                    <label for="startDate">Requestor Department<span
+                                            class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorDepartment" type="text"
+                                            placeholder="requestorDepartment"
+                                            value="<?php echo !empty($dept)?$dept:'';?>">
+                                        <?php if (!empty($nameError)): ?>
+                                        <span class="help-inline"><?php echo $nameError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorEmail" type="text"
+                                            placeholder="requestorEmail" value="<?php echo !empty($email)?$email:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
-                            <label for="startDate">Requestor Department<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorDepartment" type="text"
-                                    placeholder="requestorDepartment" value="<?php echo !empty($dept)?$dept:'';?>">
-                                <?php if (!empty($nameError)): ?>
-                                <span class="help-inline"><?php echo $nameError;?></span>
-                                <?php endif; ?>
+
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Request Status</label>
+                                    <div class="controls">
+
+
+                                        <input readonly class="form-control" name="requestStatus" type="text"
+                                            placeholder="requestorStatus"
+                                            value="<?php echo !empty($requestStatus)?$requestStatus:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+
+                                <div class='form-group'>
+                                    <label class="control-label">Update</label>
+
+                                    <select id='inputState' class='form-control' name='requestStatus'>
+
+                                        <option value='<?php echo $requestStatus ?>'>
+                                            <?php echo 'Current Status: ' . $requestStatus ?>
+                                        </option>
+                                        <option value='Submitted' id='submitted'>Submitted</option>
+                                        <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
+                                        <option value='Assigned' id='assigned'>Assigned</option>
+                                        <option value='Installation in Progress' id='inProgress'>Installation in
+                                            Progress
+                                        </option>
+                                        <option value='Completed' id='installed'>Completed</option>
+                                        <option value='Closed' id='installed'>Closed</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-
-                        <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                            <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorEmail" type="text"
-                                    placeholder="requestorEmail" value="<?php echo !empty($email)?$email:'';?>">
-                                <?php if (!empty($emailError)): ?>
-                                <span class="help-inline"><?php echo $emailError;?></span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                            <label class="control-label">Request Status</label>
-                            <div class="controls">
-
-
-                                <input readonly class="form-control" name="requestStatus" type="text"
-                                    placeholder="requestorStatus"
-                                    value="<?php echo !empty($requestStatus)?$requestStatus:'';?>">
-                                <?php if (!empty($emailError)): ?>
-                                <span class="help-inline"><?php echo $emailError;?></span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class='form-group'>
-                            <select id='inputState' class='form-control' name='requestStatus'>
-
-                                <option value='<?php echo $requestStatus ?>'>
-                                    <?php echo 'Current Status: ' . $requestStatus ?>
-                                </option>
-                                <option value='Submitted' id='submitted'>Submitted</option>
-                                <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
-                                <option value='Assigned' id='assigned'>Assigned</option>
-                                <option value='Installation in Progress' id='inProgress'>Installation in Progress</option>
-                                <option value='Completed' id='installed'>Completed</option>
-                                <option value='Closed' id='installed'>Closed</option>
-                            </select>
-
-                   
-
-                        </div>
 
                         <div class="form-group">
 
@@ -508,7 +529,8 @@
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu1FeedA1" type="text" placeholder="subPdu1FeedA1"
+                                        <input class="form-control" name="subPdu1FeedA1" type="text"
+                                            placeholder="subPdu1FeedA1"
                                             value="<?php echo !empty($subPdu1FeedA1)?$subPdu1FeedA1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -522,7 +544,8 @@
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu1FeedB1" type="text" placeholder="subPdu1FeedB1"
+                                        <input class="form-control" name="subPdu1FeedB1" type="text"
+                                            placeholder="subPdu1FeedB1"
                                             value="<?php echo !empty($subPdu1FeedB1)?$subPdu1FeedB1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -537,7 +560,8 @@
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu1FeedA2" type="text" placeholder="subPdu1FeedA2"
+                                        <input class="form-control" name="subPdu1FeedA2" type="text"
+                                            placeholder="subPdu1FeedA2"
                                             value="<?php echo !empty($subPdu1FeedA2)?$subPdu1FeedA2:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -551,7 +575,8 @@
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu1FeedB2" type="text" placeholder="subPdu1FeedB2"
+                                        <input class="form-control" name="subPdu1FeedB2" type="text"
+                                            placeholder="subPdu1FeedB2"
                                             value="<?php echo !empty($subPdu1FeedB2)?$subPdu1FeedB2:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -654,7 +679,8 @@ if ($breakerSize2 != NULL ) {
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu2FeedA1" type="text" placeholder="subPdu2FeedA1"
+                                        <input class="form-control" name="subPdu2FeedA1" type="text"
+                                            placeholder="subPdu2FeedA1"
                                             value="<?php echo !empty($subPdu2FeedA1)?$subPdu2FeedA1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -668,7 +694,8 @@ if ($breakerSize2 != NULL ) {
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu2FeedB1" type="text" placeholder="subPdu2FeedB1"
+                                        <input class="form-control" name="subPdu2FeedB1" type="text"
+                                            placeholder="subPdu2FeedB1"
                                             value="<?php echo !empty($subPdu2FeedB1)?$subPdu2FeedB1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -683,7 +710,8 @@ if ($breakerSize2 != NULL ) {
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu2FeedA2" type="text" placeholder="subPdu2FeedA2"
+                                        <input class="form-control" name="subPdu2FeedA2" type="text"
+                                            placeholder="subPdu2FeedA2"
                                             value="<?php echo !empty($subPdu2FeedA2)?$subPdu2FeedA2:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -697,7 +725,8 @@ if ($breakerSize2 != NULL ) {
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Sub PDU (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu2FeedB2" type="text" placeholder="subPdu2FeedB2"
+                                        <input class="form-control" name="subPdu2FeedB2" type="text"
+                                            placeholder="subPdu2FeedB2"
                                             value="<?php echo !empty($subPdu2FeedB2)?$subPdu2FeedB2:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
@@ -785,7 +814,7 @@ if ($breakerSize3 != NULL ) {
                         <br>
 
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-12">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Rack Location 3</label>
                                     <div class="controls">
@@ -797,14 +826,77 @@ if ($breakerSize3 != NULL ) {
                                         <?php endif; ?>
                                     </div>
                                 </div>
+                            </div>
 
-                            </div>
                             <div class="col-lg-3">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Sub PDU 3</label>
+                                    <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu3" type="text" placeholder="subPdu3"
-                                            value="<?php echo !empty($subPdu3)?$subPdu3:'';?>">
+                                        <input class="form-control" name="subPdu3FeedA1" type="text"
+                                            placeholder="subPdu3FeedA1"
+                                            value="<?php echo !empty($subPdu3FeedA1)?$subPdu3FeedA1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu3FeedB1" type="text"
+                                            placeholder="subPdu3FeedB1"
+                                            value="<?php echo !empty($subPdu3FeedB1)?$subPdu3FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu3FeedA2" type="text"
+                                            placeholder="subPdu3FeedA2"
+                                            value="<?php echo !empty($subPdu3FeedA2)?$subPdu3FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu3FeedB2" type="text"
+                                            placeholder="subPdu3FeedB2"
+                                            value="<?php echo !empty($subPdu3FeedB2)?$subPdu3FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName3FeedA1" type="text"
+                                            placeholder="breakerName3FeedA1"
+                                            value="<?php echo !empty($breakerName3FeedA1)?$breakerName3FeedA1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
                                         <?php endif; ?>
@@ -813,17 +905,47 @@ if ($breakerSize3 != NULL ) {
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Breaker Name 3</label>
+                                    <label class="control-label">Breaker Name 1 (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="breakerName3" type="text"
-                                            placeholder="breakerName3"
-                                            value="<?php echo !empty($breakerName3)?$breakerName3:'';?>">
+                                        <input class="form-control" name="breakerName3FeedB1" type="text"
+                                            placeholder="breakerName3FeedB1"
+                                            value="<?php echo !empty($breakerName3FeedB1)?$breakerName3FeedB1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName3FeedA2" type="text"
+                                            placeholder="breakerName3FeedA2"
+                                            value="<?php echo !empty($breakerName3FeedA2)?$breakerName3FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName3FeedB2" type="text"
+                                            placeholder="breakerName3FeedB2"
+                                            value="<?php echo !empty($breakerName3FeedB2)?$breakerName3FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
                         </div>
 
@@ -844,7 +966,7 @@ if ($breakerSize4 != NULL ) {
                         <br>
 
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-12">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
                                     <label class="control-label">Rack Location 4</label>
                                     <div class="controls">
@@ -858,12 +980,76 @@ if ($breakerSize4 != NULL ) {
                                 </div>
 
                             </div>
+
                             <div class="col-lg-3">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Sub PDU 4</label>
+                                    <label class="control-label">Sub PDU (Feed A)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="subPdu4" type="text" placeholder="subPdu4"
-                                            value="<?php echo !empty($subPdu4)?$subPdu4:'';?>">
+                                        <input class="form-control" name="subPdu4FeedA1" type="text"
+                                            placeholder="subPdu4FeedA1"
+                                            value="<?php echo !empty($subPdu4FeedA1)?$subPdu4FeedA1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu4FeedB1" type="text"
+                                            placeholder="subPdu4FeedB1"
+                                            value="<?php echo !empty($subPdu4FeedB1)?$subPdu4FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu4FeedA2" type="text"
+                                            placeholder="subPdu4FeedA2"
+                                            value="<?php echo !empty($subPdu4FeedA2)?$subPdu4FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu4FeedB2" type="text"
+                                            placeholder="subPdu4FeedB2"
+                                            value="<?php echo !empty($subPdu4FeedB2)?$subPdu4FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName4FeedA1" type="text"
+                                            placeholder="breakerName4FeedA1"
+                                            value="<?php echo !empty($breakerName4FeedA1)?$breakerName4FeedA1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
                                         <?php endif; ?>
@@ -872,17 +1058,54 @@ if ($breakerSize4 != NULL ) {
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                                    <label class="control-label">Breaker Name 4</label>
+                                    <label class="control-label">Breaker Name 1 (Feed B)</label>
                                     <div class="controls">
-                                        <input class="form-control" name="breakerName4" type="text"
-                                            placeholder="breakerName4"
-                                            value="<?php echo !empty($breakerName4)?$breakerName4:'';?>">
+                                        <input class="form-control" name="breakerName4FeedB1" type="text"
+                                            placeholder="breakerName4FeedB1"
+                                            value="<?php echo !empty($breakerName4FeedB1)?$breakerName4FeedB1:'';?>">
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError;?></span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName4FeedB1" type="text"
+                                            placeholder="breakerName4FeedB1"
+                                            value="<?php echo !empty($breakerName4FeedB1)?$breakerName4FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName4FeedB2" type="text"
+                                            placeholder="breakerName4FeedB2"
+                                            value="<?php echo !empty($breakerName4FeedB2)?$breakerName4FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
 
                         </div>
 
@@ -904,41 +1127,150 @@ if ($breakerSize5 != NULL ) {
 
 ?>
 
+                        <b>Rack 4</b>
+                        <br>
+
+                        <div class="row">
 
 
-                        <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                            <label class="control-label">Rack Location 5</label>
-                            <div class="controls">
-                                <input class="form-control" name="rackLocation5" type="text" placeholder="rackLocation5"
-                                    value="<?php echo !empty($rackLocation5)?$rackLocation5:'';?>">
-                                <?php if (!empty($emailError)): ?>
-                                <span class="help-inline"><?php echo $emailError;?></span>
-                                <?php endif; ?>
+                            <div class="col-lg-12">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Rack Location 5</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="rackLocation5" type="text"
+                                            placeholder="rackLocation5"
+                                            value="<?php echo !empty($rackLocation5)?$rackLocation5:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu5FeedA1" type="text"
+                                            placeholder="subPdu5FeedA1"
+                                            value="<?php echo !empty($subPdu5FeedA1)?$subPdu5FeedA1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu5FeedB1" type="text"
+                                            placeholder="subPdu5FeedB1"
+                                            value="<?php echo !empty($subPdu5FeedB1)?$subPdu5FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu5FeedA2" type="text"
+                                            placeholder="subPdu5FeedA2"
+                                            value="<?php echo !empty($subPdu5FeedA2)?$subPdu5FeedA2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Sub PDU (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="subPdu5FeedB2" type="text"
+                                            placeholder="subPdu5FeedB2"
+                                            value="<?php echo !empty($subPdu5FeedB2)?$subPdu5FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName5FeedA1" type="text"
+                                            placeholder="breakerName5FeedA1"
+                                            value="<?php echo !empty($breakerName5FeedA1)?$breakerName5FeedA1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 1 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName5FeedB1" type="text"
+                                            placeholder="breakerName5FeedB1"
+                                            value="<?php echo !empty($breakerName5FeedB1)?$breakerName5FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed A)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName5FeedB1" type="text"
+                                            placeholder="breakerName5FeedB1"
+                                            value="<?php echo !empty($breakerName5FeedB1)?$breakerName5FeedB1:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
+                                    <label class="control-label">Breaker Name 2 (Feed B)</label>
+                                    <div class="controls">
+                                        <input class="form-control" name="breakerName5FeedB2" type="text"
+                                            placeholder="breakerName5FeedB2"
+                                            value="<?php echo !empty($breakerName5FeedB2)?$breakerName5FeedB2:'';?>">
+                                        <?php if (!empty($emailError)): ?>
+                                        <span class="help-inline"><?php echo $emailError;?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
                         </div>
 
 
-                        <div class="form-group <?php echo !empty($emailError)?'error':'';?>">
-                            <label class="control-label">Sub PDU 5</label>
-                            <div class="controls">
-                                <input class="form-control" name="subPdu5" type="text" placeholder="subPdu5"
-                                    value="<?php echo !empty($subPdu5)?$subPdu5:'';?>">
-                                <?php if (!empty($emailError)): ?>
-                                <span class="help-inline"><?php echo $emailError;?></span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="control-group <?php echo !empty($emailError)?'error':'';?>">
-                            <label class="control-label">Breaker Name 5</label>
-                            <div class="controls">
-                                <input class="form-control" name="breakerName5" type="text" placeholder="breakerName5"
-                                    value="<?php echo !empty($breakerName5)?$breakerName5:'';?>">
-                                <?php if (!empty($emailError)): ?>
-                                <span class="help-inline"><?php echo $emailError;?></span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
 
 
 
@@ -954,7 +1286,8 @@ if ($breakerSize5 != NULL ) {
 
 
                         <div class="form-actions">
-                            <button type="submit" name="upload" class="btn selectorButton3" style="float: right;">Update</button>
+                            <button type="submit" name="upload" class="btn selectorButton3"
+                                style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="powerRequests.php">Back</a>
                         </div>
 

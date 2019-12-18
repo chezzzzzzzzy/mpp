@@ -18,7 +18,7 @@
     }
 ?>
 
-<script src="faKit.js"></script>
+<script src="./libraries/faKit.js"></script>
 
 
 <!DOCTYPE html>
@@ -208,12 +208,15 @@
                 </div>
 
 
+                <?php 
+
+if ($data['breakerSize1'] != NULL) {
+
+    ?>
+
 
 
                 <div class="row">
-
-
-
                     <div class="col-lg-4">
                         <div class="boundingBox3">
                             <div class="row">
@@ -385,10 +388,21 @@
                         </div>
                     </div>
 
+                </div>
+
+                <?php
+                        
+                    }
 
 
 
+                    if ($data['breakerSize2'] != NULL) {
 
+                    ?>
+
+
+
+                <div class="row">
                     <div class="col-lg-4">
                         <div class="boundingBox3">
                             <div class="row">
@@ -567,6 +581,23 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+                <?php
+                        
+                    }
+
+
+
+
+                    if ($data['breakerSize3'] != NULL) {
+
+                    ?>
+
+
+
+                <div class="row">
 
 
                     <div class="col-lg-4">
@@ -749,6 +780,21 @@
                         </div>
                     </div>
 
+                </div>
+
+                <?php
+
+
+                }
+
+                if ($data['breakerSize4'] != NULL) {
+
+                    ?>
+
+
+
+                <div class="row">
+
 
                     <div class="col-lg-4">
                         <div class="boundingBox3">
@@ -929,6 +975,24 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+                <?php
+                    
+                    
+                }
+
+
+
+
+                if ($data['breakerSize5'] != NULL) {
+
+                    ?>
+
+
+
+                <div class="row">
 
 
                     <div class="col-lg-4">
@@ -1112,6 +1176,19 @@
                         </div>
                     </div>
                 </div>
+
+                <?php
+        
+                        
+                    }
+
+
+
+
+
+
+
+                ?>
 
 
 

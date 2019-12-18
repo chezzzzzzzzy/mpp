@@ -16,15 +16,10 @@
     <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
     <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
 
-
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="othersForm.css">
-
-
-
-
     <title>Requestor | MPP</title>
 </head>
 
@@ -58,7 +53,6 @@
         </div>
     </nav>
 
-
     <div class="container">
 
         <h1>MMR Request</h1>
@@ -66,16 +60,13 @@
 
 
         <div class="row">
-
             <div class="col-lg-12">
-
                 <ul id="othersForm">
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
-
-
             </div>
+            
             <div class="col-lg-12">
 
                 <form action="cableTrayFormProcess.php" id="msform" method="post" class="needs-validation">

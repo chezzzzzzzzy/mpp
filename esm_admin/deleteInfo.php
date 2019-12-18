@@ -13,16 +13,12 @@
     if ( !empty($_POST)) {
         // keep track validation errors
         $nameError = null;
-
          
         // keep track post values
         $remarks = strval($_POST['remarks']);
-  
-
          
         // validate input
         $valid = true;
-     
          
         // update data
         if ($valid) {
@@ -44,8 +40,6 @@
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $remarks = $data['remarks'];
-       
-        
         Database::disconnect();
     }
 ?>
@@ -85,7 +79,6 @@
     }
 
 
-
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -104,9 +97,6 @@
         }
     }
     </style>
-
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -155,41 +145,27 @@
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
     </nav>
 
 
-
-
     <div class="container-fluid">
-
         <h1>Decline Request</h1>
-
         <div class="row">
-
-
             <div class="col-lg-12 ">
-
                 <div class="infoBoundingBox">
-
                     <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id?>" method="post">
-
-
                         <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="remarks" type="text" placeholder="remarks"
                                     value="<?php echo !empty($remarks)?$remarks:'';?>">
- 
                             </div>
                         </div>
 
-
                         <br>
-
 
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
@@ -200,30 +176,11 @@
                         <br>
                         <br>
                         <br>
-
                         <br>
-
                     </form>
-
-
-
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
-    </div> <!-- /container -->
+    </div> 
 </body>
-
-
 </html>

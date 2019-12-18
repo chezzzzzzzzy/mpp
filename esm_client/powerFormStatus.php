@@ -13,11 +13,9 @@
 
 ?>
 
-<script src="faKit.js"></script>
+<script src="./libraries/faKit.js"></script>
 
 <!-- start of ticketInfo -->
-
-
 
 
 
@@ -58,12 +56,12 @@
 
 
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-6">
                                 <?php echo "<h3 class='valueEmphasis'><b>" . $row['requestStatus'] ."</b></h3>";?>
 
                                 <?php 
                                     if ($row['requestStatus'] == 'Submitted' || $row['requestStatus'] == 'Acknowledged' || $row['requestStatus'] == 'Completed') {
-                                        echo '<p>Admin to follow up</p>';
+                                        echo '<p>Planner to follow up</p>';
                                     } 
                                     if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress') {
                                         echo '<p>Requestor to follow up</p>';
@@ -127,22 +125,15 @@
 
                                 <h6><b>Exchange</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
-                                        echo "<h3 class='valueEmphasis'><b>" . $row['exchange'] . "</b></h3>"; 
-                                    } else {
-                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
-                                    }
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['exchange'] . "</b></h3>"; 
+                                    
                                 ?>
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-12">
                                 <i class="fal fa-door-open fa-3x mbSmall"></i>
                                 <h6><b>Room</b></h6>
                                 <?php 
-                                    if ($row['requestStatus'] == 'Assigned' || $row['requestStatus'] == 'Installation in Progress' || $row['requestStatus'] == 'Completed' || $row['requestStatus'] == 'Closed') {
-                                        echo "<h3 class='valueEmphasis'><b>" . $row['room'] . "</b></h3>"; 
-                                    } else {
-                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>"; 
-                                    }
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['room'] . "</b></h3>"; 
                                 ?>
                             </div>
                         </div>
@@ -419,7 +410,7 @@
                         <?php 
 
                             if ($row['requestStatus'] == "Submitted") {
-                            echo "Please check your email for a your request submission";
+                            echo "Please check your email for your request submission";
                             // header('Location: spaceForm.php');  
 
 
@@ -468,20 +459,24 @@
                                     into FNT
                                     DCIM App</label>
                                 </div>
-                                <br>
-
-                                <form method='POST'>
-                                    <button type='submit' class='btn selectorButton2' id='checkStatus' method='post' name='checked'>Submit</button>
-                                </form>";
+                                <br>";
 
 
-                                if (isset($_POST['checked'])) {
-                                    $temp = $_POST['ticketNumber']; 
-                                    $updateStatus = "UPDATE spaceRequests
-                                    SET requestStatus = 'Installation in Progress' where requestID = '$temp'";
-                                    mysqli_query($conn, $updateStatus);
-                                }
+                                ?>
+                                    <script type="text/javascript">
+                                    function submitForm(action) {
+                                        var form = document.getElementById('form1');
+                                        form.action = action;
+                                        form.submit();
+                                    }
+                                    </script>
 
+                                    <form id="form1">
+                                        <input id='checkStatus' class='btn selectorButton2' type="button"
+                                            onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')" value="Change State" />
+                                    </form>
+
+                                <?php
                             }
 
                             

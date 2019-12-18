@@ -13,13 +13,10 @@
     if ( !empty($_POST)) {
         // keep track validation errors
         $nameError = null;
-
          
         // keep track post values
         $remarks = strval($_POST['remarks']);
   
-         
-   
         $valid = true;
         // update data
         if ($valid) {
@@ -41,10 +38,6 @@
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $remarks = $data['remarks'];
-       
-
-
-        
         Database::disconnect();
     }
 ?>
@@ -182,6 +175,4 @@
         </div>
     </div>
 </body>
-
-
 </html>

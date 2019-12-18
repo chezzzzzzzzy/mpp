@@ -143,7 +143,6 @@ if (!empty($_POST)) {
         </div>
     </nav>
 
-
     <div class="container-fluid">
         <h1>Decline Request</h1>
         <div class="row">

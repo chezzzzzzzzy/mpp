@@ -1,17 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+require('connection.php');
 
-$servername = "localhost";
-$username = "root";
-$password = "Wr5@dmin";
-$dbname = "singtel_esm";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 $requestorName = $_POST['requestorName'];
 $requestorEmail = $_POST['requestorEmail'];
@@ -109,7 +99,7 @@ if (mysqli_query($conn, $sql)) {
 
         <div class="row">
             <div class="col-lg-12">
-                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h4 class=" x0">Here's your Request ID: <br></h4>
                 <h2 class=" x0"><b>
 
                         <?php

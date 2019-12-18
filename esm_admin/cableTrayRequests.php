@@ -32,16 +32,11 @@
 </head>
 
 <body>
-
-
-   
-
     <?php
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
 
     <!-- display when planner is logged in -->
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -93,19 +88,21 @@
 
 
         <h1>Cable Tray Requests</h1>
+        <!-- START: row -->
         <div class="row">
             <div class="col-lg-8">
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Total Request</b></h4>
                     <h2 class="mlSmall"><b>
                             <?php
-                                    $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests";
-                                    $query = mysqli_query($conn, $sqlGetTotalInProgress);
-                                    $row = $query->fetch_object();
-                                    $classId = $row->count;
-                                    echo $classId;
+                                $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM cableTrayRequests";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
                                 ?>
-                        </b></h2>
+                        </b>
+                    </h2>
                     <br>
                     <div class="ct-chart3 ct-major-twelfth"></div>
                 </div>
@@ -118,7 +115,6 @@
 
                 </div>
             </div>
-
             
             <script>
             new Chartist.Bar('.ct-chart3', {
@@ -348,6 +344,7 @@
             </script>
 
 
+            <!-- START: count card for individual state -->
 
             <div class="col-lg-2">
                 <div class="boundingBox2">
@@ -455,54 +452,10 @@
                 </div>
             </div>
 
-
-<!-- 
-
-            <div class="col-lg-2">
-                <div class="warningBoundingBox">
-                    <h6 class="mlSmall warningText"><b>7 Overdue</b></h6>
-                </div>
-            </div>
+            <!-- END: count card for individual state -->
 
 
-            <div class="col-lg-2">
-                <div class="warningBoundingBox">
-                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2">
-                <div class="warningBoundingBox">
-                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2">
-                <div class="warningBoundingBox">
-                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2">
-                <div class="warningBoundingBox">
-                    <h6 class="mlSmall"><b>7 Overdue</b></h6>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2">
-                <div class="normalBoundingBox">
-                    <h6 class="mlSmall"><b>Normal</b></h6>
-                </div>
-            </div> -->
-
-
-
-
-
+            <!-- START: all requests for cable tray -->
             <div class="col-lg-12">
                 <div class="tableBoundingBox">
                     <table class="table" id="sorted">
@@ -546,33 +499,37 @@
                     </table>
                 </div>
             </div>
+            <!-- END: all requests for cable tray -->
         </div>
+        <!-- END: row -->
     </div>
     <?php } else { ?>
 
-    <!-- display when planner is not logged in -->
+    <!-- START: display when planner is not logged in -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 authForm">
-                <form action="authVerification.php" method="POST" id="authForm">
-                    <div class="loginLogo">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 authForm">
+            <form action="authVerification.php" method="POST" id="authForm">
+                <div class="loginLogo">
                     <img src="./assets/singtelLogo.png">
-                    </div>
-                    <h2><b>Login</b></h2>
-                    <h4>Master Planner Portal Portal (Admin)</h4>
-                    <br>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    <br>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    <br>
-                    <button type="submit" class="btn btn-primary boxButton">Login</button>
-                </form>
-            </div>
-            <div class="col-lg-2"></div>
+                </div>
+                <br>
+                <h2><b>Master Planner Portal</b></h2>
+                <h5>Planner Dashboard</h5>
+                <br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <br>
+                <button type="submit" class="btn btn-primary boxButton">Login</button>
+            </form>
         </div>
+        <div class="col-lg-2"></div>
     </div>
+    <!-- END: display when planner is not logged in -->
 
+</div>
     <?php } ?>
 </body>
 

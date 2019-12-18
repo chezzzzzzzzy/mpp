@@ -134,7 +134,7 @@ if (!empty($_POST)) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-            <img src="./assets/singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -173,7 +173,6 @@ if (!empty($_POST)) {
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -193,31 +192,49 @@ if (!empty($_POST)) {
                     <form class="form-horizontal" enctype="multipart/form-data"
                         action="updateInfoSsu.php?requestId=<?php echo $id ?>" method="post">
 
-                        <div class="form-group">
-                            <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorName" type="text" placeholder="requestorName"
-                                    value="<?php echo !empty($name) ? $name : ''; ?>">
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="startDate">Requestor Name<span class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorName" type="text"
+                                            placeholder="requestorName"
+                                            value="<?php echo !empty($name) ? $name : ''; ?>">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="startDate">Requestor Department<span
+                                            class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorDepartment" type="text"
+                                            placeholder="requestorDepartment"
+                                            value="<?php echo !empty($dept) ? $dept : ''; ?>">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
+                                    <div class="controls">
+                                        <input class="form-control" name="requestorEmail" type="text"
+                                            placeholder="requestorEmail"
+                                            value="<?php echo !empty($email) ? $email : ''; ?>">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
 
-                        <div class="form-group">
-                            <label for="startDate">Requestor Department<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorDepartment" type="text"
-                                    placeholder="requestorDepartment" value="<?php echo !empty($dept) ? $dept : ''; ?>">
-                            </div>
-                        </div>
 
 
-                        <div class="form-group">
-                            <label for="startDate">Requestor Email<span class="requiredField">*</span></label>
-                            <div class="controls">
-                                <input class="form-control" name="requestorEmail" type="text"
-                                    placeholder="requestorEmail" value="<?php echo !empty($email) ? $email : ''; ?>">
-                            </div>
-                        </div>
+
+
 
 
                         <div class="form-group">
@@ -238,7 +255,8 @@ if (!empty($_POST)) {
                                 <option value='Submitted' id='submitted'>Submitted</option>
                                 <option value='Acknowledged' id='acknowledged'>Acknowledged</option>
                                 <option value='Assigned' id='assigned'>Assigned</option>
-                                <option value='Installation in Progress' id='inProgress'>Installation in Progress</option>
+                                <option value='Installation in Progress' id='inProgress'>Installation in Progress
+                                </option>
                                 <option value='Completed' id='installed'>Completed</option>
                                 <option value='Closed' id='installed'>Closed</option>
                             </select>
@@ -311,7 +329,7 @@ if (!empty($_POST)) {
                         </div>
 
 
-                
+
                         <br>
 
 

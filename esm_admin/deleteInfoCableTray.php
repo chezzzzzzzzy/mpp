@@ -17,7 +17,6 @@
         // keep track post values
         $remarks = strval($_POST['remarks']);
         
-        
         $valid = true;
         // update data
         if ($valid) {
@@ -39,7 +38,6 @@
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $remarks = $data['remarks'];
-        
         Database::disconnect();
     }
 ?>
@@ -78,8 +76,6 @@
         margin-right: auto;
     }
 
-
-
     @media screen and (max-width: 2560px) {
         .table {
             width: 180%;
@@ -98,9 +94,6 @@
         }
     }
     </style>
-
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -148,7 +141,6 @@
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -158,18 +150,11 @@
 
 
     <div class="container-fluid">
-
         <h1>Decline Request</h1>
-
         <div class="row">
-
-
             <div class="col-lg-12 ">
-
                 <div class="infoBoundingBox">
-
                     <form class="form-horizontal" action="deleteInfoCableTray.php?id=<?php echo $id?>" method="post">
-
                         <div class="form-group">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
@@ -178,14 +163,11 @@
                             </div>
                         </div>
 
-
                         <br>
-
 
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="cableTrayRequests.php">Back</a>
-                            
                         </div>
 
                         <br>
@@ -194,28 +176,10 @@
                         <br>
 
                         <br>
-
                     </form>
-
-
-
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
-    </div> <!-- /container -->
+    </div>
 </body>
-
-
 </html>

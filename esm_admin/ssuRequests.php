@@ -34,7 +34,6 @@
 <body>
 
 
-   
     <?php
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -359,9 +358,6 @@
             </script>
 
 
-
-
-
             <div class="col-lg-2">
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Submitted</b></h4>
@@ -393,8 +389,6 @@
                         </b><span class="infoUnit">request/s</span></h2>
                 </div>
             </div>
-
-
           
 
             <div class="col-lg-2">
@@ -563,10 +557,33 @@
             </div>
         </div>
     </div>
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
+    <?php } else { ?>
+
+    <!-- START: display when planner is not logged in -->
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 authForm">
+            <form action="authVerification.php" method="POST" id="authForm">
+                <div class="loginLogo">
+                    <img src="./assets/singtelLogo.png">
+                </div>
+                <br>
+                <h2><b>Master Planner Portal</b></h2>
+                <h5>Planner Dashboard</h5>
+                <br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <br>
+                <button type="submit" class="btn btn-primary boxButton">Login</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!-- END: display when planner is not logged in -->
+
+    <?php } ?>
 </body>
 
 </html>

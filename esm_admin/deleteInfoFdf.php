@@ -142,10 +142,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="accessRequests.php">Access</a>
                 </li>
-
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>

@@ -20,7 +20,6 @@
     <script src="./libraries/bootstrap-datepicker.js"></script>
     <link rel="stylesheet" href="./libraries/css/bootstrap.min.css">
     <link rel="stylesheet" href="./libraries/bootstrap-datepicker.css">
-
     <script src="./libraries/chartist.min.js"></script>
     <script src="./libraries/chartist-plugin-legend.js"></script>
     <script src="./libraries/Chart.bundle.js"></script>
@@ -28,9 +27,6 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-   
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -84,7 +80,6 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -122,9 +117,6 @@
 
                 </div>
             </div>
-
-
-            
 
 
             
@@ -192,8 +184,7 @@
 
 
 
-            
-
+        
             var chart = new Chartist.Pie('.ct-chart', {
                 series: [ 
                     
@@ -306,10 +297,6 @@
                 labelOffset: 40,
                 labelDirection: 'explode',
                 chartPadding: 50
-                
-
-                
-                
             });
             
 
@@ -362,11 +349,6 @@
                 window.__anim21278907124 = setTimeout(chart.update.bind(chart), 20000);
             });
 
-            
-
-
-            
-
 
             </script>
 
@@ -375,7 +357,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Submitted</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Submitted' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -383,7 +366,9 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                        
                 </div>
             </div>
@@ -393,7 +378,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Acknowledged</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Acknowledged' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -401,7 +387,9 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -411,7 +399,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Assigned</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Assigned' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -419,7 +408,9 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -428,7 +419,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Installation in Progress</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Installation in Progress' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -436,7 +428,9 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -445,7 +439,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Completed</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                                 $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Completed' ";
                                 $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -453,7 +448,9 @@
                                 $classId = $row->count;
                                 echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -461,7 +458,8 @@
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Closed</b></h4>
                     <br>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
                             $sqlGetTotalInProgress = "SELECT COUNT(requestStatus) as `count` FROM spaceRequests WHERE requestStatus='Closed' ";
                             $query = mysqli_query($conn, $sqlGetTotalInProgress);
@@ -469,7 +467,9 @@
                             $classId = $row->count;
                             echo $classId;
                             ?>
-                        </b><span class="infoUnit">request/s</span></h2>
+                        </b>
+                        <span class="infoUnit">request/s</span>
+                    </h2>
                 </div>
             </div>
 
@@ -574,10 +574,33 @@
             </div>
         </div>
     </div>
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
+    <?php } else { ?>
+
+    <!-- START: display when planner is not logged in -->
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 authForm">
+            <form action="authVerification.php" method="POST" id="authForm">
+                <div class="loginLogo">
+                    <img src="./assets/singtelLogo.png">
+                </div>
+                <br>
+                <h2><b>Master Planner Portal</b></h2>
+                <h5>Planner Dashboard</h5>
+                <br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <br>
+                <button type="submit" class="btn btn-primary boxButton">Login</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!-- END: display when planner is not logged in -->
+
+    <?php } ?>
 </body>
 
 </html>

@@ -73,20 +73,18 @@
 
                         <div id="accordion">
 
+
+                            <!-- START: guide 1 -->
                             <div class="card">
                                 <div class="card-header">
-
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Creating a request
                                     </button>
-
-
                                 </div>
                                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                                     <div class="card-body">
                                         <h6>Select your request type at the landing page
-
                                             The list of request types are as follows:
                                             Space (For new spaces)
                                             Power (For additional power)
@@ -106,7 +104,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END: guide 1 -->
 
+                            <!-- START: guide 2 -->
                             <div class="card">
                                 <div class="card-header">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -137,7 +137,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END: guide 2 -->
 
+                            <!-- START: guide 3 -->
                             <div class="card">
                                 <div class="card-header">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -175,8 +177,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END: guide 3 -->
 
 
+                            <!-- START: guide 4 -->
                             <div class="card">
                                 <div class="card-header">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -192,9 +196,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END: guide 4 -->
 
 
 
+                            <!-- START: guide 5 -->
                             <div class="card">
                                 <div class="card-header">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -210,6 +216,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END: guide 5 -->
+
 
 
                             <div class="card">
@@ -229,15 +237,12 @@
                             </div>
 
 
-
-
-
-
-
                             <br>
                             <br>
 
-                            <input type="button" value="Download PDF" href="" class="statusCheckButton" download>
+
+                            <a href="assets/Master Planner Portal.pdf" class="btn statusCheckButton" download="masterPlannerPortal">Download</a>
+
 
                         </div>
 

@@ -18,7 +18,7 @@
     }
 ?>
 
-<script src="faKit.js"></script>
+<script src="./libraries/faKit.js"></script>
 
 
 <!DOCTYPE html>
@@ -45,13 +45,6 @@
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
-    <style>
-
-    </style>
-
-
-
     <title>Planner | MPP</title>
 </head>
 
@@ -99,7 +92,6 @@
 
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -112,8 +104,6 @@
 
 
         <div class="row">
-
-
 
             <div class="col-lg-12">
 
@@ -151,7 +141,6 @@
 
 
                             </div>
-
 
                             <br>
 

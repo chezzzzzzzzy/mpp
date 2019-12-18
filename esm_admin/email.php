@@ -754,7 +754,7 @@ stroke-linecap: round;
         <h5 class='topSpaceMid'><b>Hello there,</b></h5>
         <br>
         <h5>We have received your request.
-            Your ticket number is as follows:
+            Your Request ID is as follows:
         </h5>
         <br>
         <h3><b>" .

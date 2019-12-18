@@ -1,19 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-
-// general
-$servername = "localhost";
-$username = "root";
-$password = "Wr5@dmin";
-$dbname = "singtel_esm";
-
-// create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require('connection.php');
 
 
 // get data from spaceForm.php
@@ -52,8 +39,6 @@ $powerConsumption2 = $_POST['powerConsumption2'];
 $powerConsumption3 = $_POST['powerConsumption3'];
 $powerConsumption4 = $_POST['powerConsumption4'];
 $powerConsumption5 = $_POST['powerConsumption5'];
-
-
 
 
 
@@ -97,7 +82,6 @@ if (mysqli_query($conn, $sql)) {
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-
     <title>Requestor | MPP</title>
 </head>
 
@@ -124,9 +108,6 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Guide</a>
                 </li>
-
-
-
             </ul>
             <span class="navbar-text ml-auto">
                 Master Planner Portal
@@ -136,7 +117,6 @@ if (mysqli_query($conn, $sql)) {
 
 
     <div class="container-fluid">
-
 
         <div class="row">
             <div class="col-lg-12">
@@ -148,7 +128,7 @@ if (mysqli_query($conn, $sql)) {
 
         <div class="row">
             <div class="col-lg-12">
-                <h4 class=" x0">Here's your ticket number: <br></h4>
+                <h4 class=" x0">Here's your Request ID: <br></h4>
                 <h2 class=" x0"><b>
 
                         <?php

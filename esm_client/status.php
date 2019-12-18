@@ -208,7 +208,6 @@
                 require 'powerFormStatus.php'; // powerRequestStatus
                 require 'generalFormStatus.php'; // generalRequestStatus
                 require 'spaceFormStatus.php'; // spaceRequestStatus
-
                 
                 ?>
             </div>

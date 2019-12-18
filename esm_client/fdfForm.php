@@ -21,8 +21,6 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="othersForm.css">
-
-
     <title>Requestor | MPP</title>
 </head>
 
@@ -43,11 +41,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="guide.php">Guide</a>
                 </li>

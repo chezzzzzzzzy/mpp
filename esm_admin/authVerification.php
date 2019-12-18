@@ -1,42 +1,32 @@
 <?php
+
+// connect to MySQL 
+require('connection.php');
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "Wr5@dmin";
-$dbname = "singtel_esm";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 
+// check to see if email and password is filled
 if (isset($_POST['email']) and isset($_POST['password'])){
     
-    // Assigning POST values to variables.
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    // CHECK FOR THE RECORD FROM TABLE
+    // query users table
     $query = "SELECT * FROM `users` WHERE email='$email' and password='$password'";
-    
     $result = mysqli_query($conn, $query) or die(mysqli_connect_error($conn));
     $count = mysqli_num_rows($result);
     
+    // check to see if planner's account is found in the users table
     if ($count == 1){
     
-        //echo "Login Credentials verified";
+        // planner account exists
         header("Location: admin.php");
         $_SESSION['loggedin'] = true;
-        echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
 
     } else {
 
-        //echo "Invalid Login Credentials";
+        // planner account does not exixts
         header("Location: auth.php");
-        echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
     }
 }  
 ?>

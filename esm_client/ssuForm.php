@@ -21,10 +21,6 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="othersForm.css">
-
-
-
-
     <title>Requestor | MPP</title>
 </head>
 
@@ -66,9 +62,6 @@
         <h1>Request for SSU</h1>
         <p class="formDescription">This request form allows you to request for the installation of ... </p>
 
-
-
-
         <div class="row">
 
             <div class="col-lg-12">
@@ -77,7 +70,6 @@
                     <li class="active">Personal Information</li>
                     <li>Technical Information</li>
                 </ul>
-
 
             </div>
             <div class="col-lg-12">
@@ -107,8 +99,6 @@
                     <fieldset>
                         <h2 class="fs-title">Technical Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
-
-
                         <div class="row">
 
                             <div class="col-lg-12">
@@ -168,7 +158,6 @@
                                 </div>
 
 
-
                                 <div class="form-group">
                                     <label for="inputState">Exchange<span class="requiredField">*</span></label>
 
@@ -194,8 +183,6 @@
                                         <option value="TB">Telok Blangah Exchange (TB)</option>
                                         <option value="TP">Tampines Exchange (TP)</option>
                                         <option value="TS">Tuas Exchange (TS)</option>
-
-
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -261,8 +248,6 @@
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
-
 
 
                                 <div id="form1"></div>

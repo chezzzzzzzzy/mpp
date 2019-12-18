@@ -20,7 +20,8 @@
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="form1.css">
-    <script src="faKit.js"></script>
+    <script src="./libraries/faKit.js"></script>
+
     <title>Requestor | MPP</title>
 </head>
 

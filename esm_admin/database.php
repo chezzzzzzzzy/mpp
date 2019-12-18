@@ -4,7 +4,7 @@ class Database
     private static $dbName = 'singtel_esm' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = 'password';
+    private static $dbUserPassword = 'Wr5@dmin';
      
     private static $cont  = null;
      

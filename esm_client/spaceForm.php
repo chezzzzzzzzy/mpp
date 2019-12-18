@@ -72,6 +72,7 @@
 
             <div class="col-lg-12">
                 <form action="spaceFormProcess.php" id="msform" method="post" class="needs-validation">
+                    <!-- START: personal information -->
                     <fieldset>
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
@@ -89,7 +90,10 @@
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
                     </fieldset>
+                    <!-- END: personal information -->
 
+
+                    <!-- START: number of racks -->
 
                     <fieldset>
                         <h2 class="fs-title">Number Of Racks</h2>
@@ -117,8 +121,10 @@
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
+                    <!-- END: number of racks -->
 
 
+                    <!-- START: technical information -->
                     <fieldset>
                         <h2 class="fs-title">Technical Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
@@ -321,6 +327,8 @@
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
                     </fieldset>
+                    <!-- END: technical information-->
+
 
                 </form>
 

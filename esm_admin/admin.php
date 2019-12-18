@@ -23,25 +23,19 @@ session_start();
     <!-- dependencies -->
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="main.css">
-    <script src="faKit.js"></script>
-
+    <script src="./libraries/faKit.js"></script>
     <title>Planner | MPP</title>
 </head>
 
 <body>
 
-
-
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {?>
 
     <!-- display when planner logged in -->
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
             <div class="authLogo">
                 <img src="./assets/singtelLogo.png">
-
-
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -53,8 +47,6 @@ session_start();
                 <li class="nav-item active">
                     <a class="nav-link" href="admin.php">All Requests</a>
                 </li>
-
-
             </ul>
             <span class="navbar-text">
                 <a href="terminate.php">Logout</a>
@@ -64,7 +56,6 @@ session_start();
 
     <div class="container-fluid">
 
-        <!-- title and subtitle -->
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-12">
@@ -74,7 +65,7 @@ session_start();
             <div class="col-lg-3"></div>
         </div>
 
-        <!-- all types of requests -->
+        <!-- START: all types of requests -->
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="boundingBox2">
@@ -131,7 +122,7 @@ session_start();
                 <div class="boundingBox2">
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>General Requests</b></h4>
-                        <p class="">General</p>
+                        <p class="">Other matters</p>
                         <a href="generalRequests.php"><button class="selectorButtonFullWidth">General
                                 Requests</button></a>
                     </div>
@@ -159,6 +150,7 @@ session_start();
                 </div>
             </div>
         </div>
+        <!-- END: all types of requests -->
 
 
         <?php } else {?>

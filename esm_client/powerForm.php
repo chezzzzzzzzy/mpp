@@ -40,7 +40,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="allForms.php">Request<span class="sr-only">(current)</span></a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="status.php">Status</a>
                 </li>
@@ -276,8 +275,6 @@
 
 
 
-
-
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
 
@@ -301,6 +298,8 @@
 
         </div>
     </div>
+
+    
 
     <script>
     $(document).ready(function() {

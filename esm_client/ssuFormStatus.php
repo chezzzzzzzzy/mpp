@@ -12,6 +12,7 @@
               while($row = mysqli_fetch_array($result)){
 
 ?>
+
 <!-- start of ticketInfo -->
 <div class="col-lg-12">
     <div class="row topSpaceLow">

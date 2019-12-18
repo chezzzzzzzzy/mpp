@@ -30,74 +30,6 @@
 <body>
 
 
-    <script>
-    function logoutPressed() {
-        <
-        ?
-        php
-            // header("Location: auth.php");
-            // session_destroy();
-            // $_SESSION['loggedin'] = false;
-            ?
-            >
-    }
-
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("sorted");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-    </script>
-
     <?php
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -144,7 +76,6 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -153,22 +84,23 @@
 
     <div class="container-fluid fluid2">
 
-
         <h1>MMR Requests</h1>
         <div class="row">
             <div class="col-lg-4">
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Total Request</b></h4>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
-                                    $sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
-                                    $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
 
-                                    $row = $query->fetch_object();
-                                    $classId = $row->count;
-                                    echo $classId;
-                                ?>
-                        </b></h2>
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b>
+                    </h2>
                 </div>
             </div>
 
@@ -187,7 +119,6 @@
                                 <th>Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -202,7 +133,6 @@
                                         echo '<td>'. $row['requestorEmail'] . '</td>';
                                         echo '<td>'. $row['requestTimestamp'] . '</td>';
                                         echo '<td>'. $row['requestStatus'] . '</td>';
-
 
                                         echo '<td width=350>';
                                         echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
@@ -222,10 +152,32 @@
             </div>
         </div>
     </div>
-    <?php } else {
-        // echo "Please login.";
-    }
-    ?>
+    <?php } else { ?>
+
+    <!-- START: display when planner is not logged in -->
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 authForm">
+            <form action="authVerification.php" method="POST" id="authForm">
+                <div class="loginLogo">
+                    <img src="./assets/singtelLogo.png">
+                </div>
+                <br>
+                <h2><b>Master Planner Portal</b></h2>
+                <h5>Planner Dashboard</h5>
+                <br>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <br>
+                <button type="submit" class="btn btn-primary boxButton">Login</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!-- END: display when planner is not logged in -->
+    <?php } ?>
 </body>
 
 </html>

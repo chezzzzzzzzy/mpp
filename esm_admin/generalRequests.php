@@ -79,7 +79,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 </li>
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
@@ -94,23 +93,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <div class="col-lg-4">
                 <div class="boundingBox2">
                     <h4 class="mlSmall"><b>Total Request</b></h4>
-                    <h2 class="mlSmall"><b>
+                    <h2 class="mlSmall">
+                        <b>
                             <?php
-$sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
-    $query = mysqli_query($conn, $sqlGetTotalInProgress);
-
-    $row = $query->fetch_object();
-    $classId = $row->count;
-    echo $classId;
-    ?>
-                        </b></h2>
+                                $sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
+                                $query = mysqli_query($conn, $sqlGetTotalInProgress);
+                                $row = $query->fetch_object();
+                                $classId = $row->count;
+                                echo $classId;
+                            ?>
+                        </b>
+                    </h2>
                     <br>
-
                 </div>
             </div>
-
-
-
 
 
             <div class="col-lg-12">
@@ -124,44 +120,65 @@ $sqlGetTotalInProgress = "SELECT COUNT(id) as `count` FROM generalRequests";
                                 <th>Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-include 'database.php';
-    $pdo = Database::connect();
-    $sql = 'SELECT * FROM generalRequests ORDER BY id DESC';
-    foreach ($pdo->query($sql) as $row) {
-        echo '<tr>';
-        echo '<td>' . $row['id'] . '</td>';
-        echo '<td>' . '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
-        echo '<td>' . $row['requestorEmail'] . '</td>';
-        echo '<td>' . $row['requestTimestamp'] . '</td>';
-        echo '<td>' . $row['requestStatus'] . '</td>';
+                                include 'database.php';
+                                $pdo = Database::connect();
+                                $sql = 'SELECT * FROM generalRequests ORDER BY id DESC';
+                                foreach ($pdo->query($sql) as $row) {
+                                    echo '<tr>';
+                                    echo '<td>' . $row['id'] . '</td>';
+                                    echo '<td>' . '<b>' . $row['requestorName'] . '</b>' . '<br>' . $row['requestorDepartment'] . '</td>';
+                                    echo '<td>' . $row['requestorEmail'] . '</td>';
+                                    echo '<td>' . $row['requestTimestamp'] . '</td>';
+                                    echo '<td>' . $row['requestStatus'] . '</td>';
 
-        echo '<td width=350>';
-        echo '<a class="btn updateInfoButton" href="updateInfoGeneral.php?id=' . $row['id'] . '">Update</a>';
-        echo ' ';
-        echo '<a class="btn readInfoButton" href="viewInfoGeneral.php?id=' . $row['id'] . '">View</a>';
-        echo ' ';
-        echo '<a class="btn deleteInfoButton" href="deleteInfoGeneral.php?id=' . $row['id'] . '">Decline</a>';
+                                    echo '<td width=350>';
+                                    echo '<a class="btn updateInfoButton" href="updateInfoGeneral.php?id=' . $row['id'] . '">Update</a>';
+                                    echo ' ';
+                                    echo '<a class="btn readInfoButton" href="viewInfoGeneral.php?id=' . $row['id'] . '">View</a>';
+                                    echo ' ';
+                                    echo '<a class="btn deleteInfoButton" href="deleteInfoGeneral.php?id=' . $row['id'] . '">Decline</a>';
 
-        echo '</td>';
-        echo '</tr>';
-    }
-    Database::disconnect();
-    ?>
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
+                                Database::disconnect();
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <?php } else {
-    // echo "Please login.";
-}
-?>
+    <?php } else { ?>
+
+    <!-- START: display when planner is not logged in -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 authForm">
+                <form action="authVerification.php" method="POST" id="authForm">
+                    <div class="loginLogo">
+                        <img src="./assets/singtelLogo.png">
+                    </div>
+                    <br>
+                    <h2><b>Master Planner Portal</b></h2>
+                    <h5>Planner Dashboard</h5>
+                    <br>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <br>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <br>
+                    <button type="submit" class="btn btn-primary boxButton">Login</button>
+                </form>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <!-- END: display when planner is not logged in -->
+        <?php } ?>
 </body>
 
 </html>

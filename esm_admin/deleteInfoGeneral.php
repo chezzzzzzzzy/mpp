@@ -17,8 +17,6 @@
          
         // keep track post values
         $remarks = strval($_POST['remarks']);
- 
-        
          
         // update data
         $valid = true;
@@ -140,13 +138,10 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logoutPressed()">Logout</button> -->
                 <a href="terminate.php">Logout</a>
             </span>
         </div>
     </nav>
-
-
 
 
     <div class="container-fluid">
@@ -178,6 +173,4 @@
         </div>
     </div>
 </body>
-
-
 </html>
