@@ -1,7 +1,8 @@
 <?php
 
 error_reporting(E_ERROR | E_PARSE);
-require('connection.php');
+require('../filepath.php');
+
 
 
 $requestorName = $_POST['requestorName'];
@@ -21,8 +22,12 @@ $sql = "INSERT INTO cableTrayRequests (requestorName, requestorEmail, requestorD
         VALUES ('$requestorName','$requestorEmail', '$requestorDepartment', '$requestorReason', '$rackLocation', '$fdfRackLocation', '$startDate', '$endDate', '$room', '$exchange', 'Submitted')";
 
 if (mysqli_query($conn, $sql)) {
+
+
     // echo "New record created successfully";
-    // fire email here
+    // START: fire email here
+
+
 
     $to = "chesteryeezx.17@ichat.sp.edu.sg, chester.yee@singtel.com";
    
@@ -568,6 +573,9 @@ if (mysqli_query($conn, $sql)) {
     $headers .= 'From: <chester.yee@singtel.com>' . "\r\n";
     
     mail($to,$subject,$message,$headers);
+
+    // END: fire email here
+
 
 
    } else {

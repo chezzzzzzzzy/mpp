@@ -87,16 +87,16 @@
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
 
                         <label for="inputState">Name<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorName" placeholder="" required />
+                        <input type="text" name="requestorName" required />
 
                         <label for="inputState">Email<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorEmail" placeholder="" required />
+                        <input type="text" name="requestorEmail" required />
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorDepartment" placeholder="" required />
+                        <input type="text" name="requestorDepartment" required />
 
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorReason" placeholder="" required />
+                        <input type="text" name="requestorReason" required />
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -109,7 +109,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="rackSize">Rack Location<span class="requiredField">*</span></label>
-                                    <input type="text" id="rackSizeLength" placeholder="Enter rack location"
+                                    <input type="text" id="rackSizeLength"
                                         name="rackLocation" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -117,7 +117,7 @@
 
                                 <div class="form-group">
                                     <label for="rackSize">FDF Rack Location<span class="requiredField">*</span></label>
-                                    <input type="text" id="rackSizeLength" placeholder="Enter FDF rack location"
+                                    <input type="text" id="rackSizeLength"
                                         name="fdfRackLocation" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -241,14 +241,10 @@
                                         <option rel="TS" value="TS Level 1 PCM 1">TS Level 1 PCM 1</option>
                                         <option rel="TS" value="TS2C Level 2 PCM 2">TS2C Level 2 PCM 2</option>
 
-
-
                                     </select>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
-
-
 
                             </div>
                         </div>
@@ -257,9 +253,6 @@
                     </fieldset>
                 </form>
 
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-                <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
                 <script src="./othersForm.js"></script>
 
 

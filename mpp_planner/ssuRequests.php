@@ -535,7 +535,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                    include 'database.php';
+                                    include '../filepath2.php';
                                     $pdo = Database::connect();
                                     $sql = 'SELECT * FROM ssuRequests ORDER BY requestId DESC';
                                     foreach ($pdo->query($sql) as $row) {

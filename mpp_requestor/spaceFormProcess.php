@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-require('connection.php');
+require('../filepath.php');
+
 
 // get data from spaceForm.php
 $requestorName = $_POST['requestorName'];
@@ -67,8 +68,12 @@ $sql = "INSERT INTO spaceRequests (requestorName, requestorEmail, requestorDepar
 // insert into table
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
-    // echo "<br>";
-    // echo $sql;
+
+
+    // START: fire email here
+
+    // END: fire email here
+
    } else {
     // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
    }

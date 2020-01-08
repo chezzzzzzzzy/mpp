@@ -83,16 +83,16 @@
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
                         <label for="inputState">Name<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorName" placeholder="" />
+                        <input type="text" name="requestorName" />
 
                         <label for="inputState">Email<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorEmail" placeholder="" />
+                        <input type="text" name="requestorEmail" />
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorDepartment" placeholder="" />
+                        <input type="text" name="requestorDepartment" />
 
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorReason" placeholder="" />
+                        <input type="text" name="requestorReason" />
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
 
@@ -107,7 +107,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="query">Query<span class="requiredField">*</span></label>
-                                    <input type="text" id="query" placeholder="Others" name="query" required>
+                                    <input type="text" id="query" name="query" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>

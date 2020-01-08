@@ -1,5 +1,5 @@
 <?php
-    require 'database.php';
+    require '../filepath2.php';
     error_reporting (E_ALL ^ E_NOTICE);
 
  

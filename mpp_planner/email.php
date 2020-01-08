@@ -1,5 +1,6 @@
 <?php
-require('connection.php');
+require('../filepath.php');
+
 
 $to = "somebody@example.com, somebodyelse@example.com";
 $subject = "ESM App (Beta v2.4)";

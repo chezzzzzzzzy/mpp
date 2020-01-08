@@ -86,16 +86,16 @@
                         <h2 class="fs-title">Personal Information</h2>
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
                         <label for="inputState">Name<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorName" placeholder="" required />
+                        <input type="text" name="requestorName" required />
 
                         <label for="inputState">Email<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorEmail" placeholder="" required />
+                        <input type="text" name="requestorEmail" required />
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorDepartment" placeholder="" required />
+                        <input type="text" name="requestorDepartment" required />
 
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorReason" placeholder="" required />
+                        <input type="text" name="requestorReason" required />
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
                     </fieldset>

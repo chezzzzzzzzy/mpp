@@ -1,7 +1,8 @@
 <?php
 
 // connect to MySQL 
-require('connection.php');
+require('../filepath.php');
+
 session_start();
 
 

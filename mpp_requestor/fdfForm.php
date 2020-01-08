@@ -86,16 +86,16 @@
                         <h3 class="fs-subtitle">Please kindly complete the following fields</h3>
 
                         <label for="inputState">Name<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorName" placeholder="" />
+                        <input type="text" name="requestorName" required/>
 
                         <label for="inputState">Email<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorEmail" placeholder="" />
+                        <input type="text" name="requestorEmail" required/>
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorDepartment" placeholder="" />
+                        <input type="text" name="requestorDepartment" required />
 
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
-                        <input type="text" name="requestorReason" placeholder="" />
+                        <input type="text" name="requestorReason" required />
 
                         <input type="button" id="next" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -109,8 +109,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="rackSize">Number of Ports<span class="requiredField">*</span></label>
-                                    <input type="text" id="numberOfPorts" placeholder="Enter number of ports"
-                                        name="numberOfPorts" required>
+                                    <input type="text" id="numberOfPorts" name="numberOfPorts" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -118,8 +117,7 @@
                                 <div class="form-group">
                                     <label for="rackSize">Number of Cable Ties<span
                                             class="requiredField">*</span></label>
-                                    <input type="text" id="numberOfCableTies" placeholder="Enter number of cable ties"
-                                        name="numberOfCableTies" required>
+                                    <input type="text" id="numberOfCableTies" name="numberOfCableTies" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -150,11 +148,10 @@
                                 </div>
 
 
-
                                 <div class="form-group">
                                     <label for="inputState">Exchange<span class="requiredField">*</span></label>
 
-                                    <select id="cat" name="exchange" class="form-control" requ ired>
+                                    <select id="cat" name="exchange" class="form-control" required>
                                         <option value>Please select below</option>
                                         <option value="AM">Ang Mo Kio Exchange (AM)</option>
                                         <option value="AR">Ayer Rajah Exchange (AR)</option>
@@ -219,7 +216,6 @@
                     $subcat.find("[rel=" + _rel + "]").show();
                     $subcat.prop("disabled", false);
                 });
-
             });
             // END: function to check for room/s in a specific exchange
             </script>

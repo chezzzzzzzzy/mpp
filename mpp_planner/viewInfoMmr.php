@@ -1,5 +1,5 @@
 <?php
-    require 'database.php';
+    require '../filepath2.php';
     $id = null;
     if ( !empty(strval($_GET['requestId']))) {
         $id = strval($_REQUEST['requestId']);

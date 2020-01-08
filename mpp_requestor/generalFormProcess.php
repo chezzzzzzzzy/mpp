@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-require('connection.php');
+require('../filepath.php');
+
 
 
 $requestorName = $_POST['requestorName'];
@@ -16,6 +17,11 @@ $sql = "INSERT INTO generalRequests (requestorName, requestorEmail, requestorDep
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
+
+    // START: fire email here
+
+    // END: fire email here
+
    } else {
     // echo "Error: " . $sql . "<br>" . mysqli_connect_error($conn);
    }

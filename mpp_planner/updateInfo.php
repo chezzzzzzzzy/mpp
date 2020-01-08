@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-require 'database.php';
+require '../filepath2.php';
 
 $id = null;
 if (!empty($_GET['requestId'])) {
@@ -398,6 +398,15 @@ if (!empty($_POST)) {
                                         <?php if (!empty($emailError)): ?>
                                         <span class="help-inline"><?php echo $emailError; ?></span>
                                         <?php endif;?>
+                                        
+                                        <?php
+
+                                            // START: fire update email here
+                                            // END: fire update email here
+
+
+                                        ?>
+
                                     </div>
                                 </div>
                             </div>
