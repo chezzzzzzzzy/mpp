@@ -140,7 +140,7 @@ session_start();
                     <div class="mlSmall mrSmall mbSmall">
                         <h4><b>MMR Requests</b></h4>
                         <p class="">Meet-me Room </p>
-                        <a href="generalRequests.php"><button class="selectorButtonFullWidth">MMR Requests</button></a>
+                        <a href="mmrRequests.php"><button class="selectorButtonFullWidth">MMR Requests</button></a>
                     </div>
                 </div>
             </div>

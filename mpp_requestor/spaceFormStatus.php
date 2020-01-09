@@ -457,7 +457,7 @@
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')"
+                                onclick="submitForm('spaceChangeToInstallationInProgress.php?id=<?php echo $temp?>')"
                                 value="Change State" />
                                 
                         </form>
@@ -499,7 +499,7 @@
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('changeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
+                                onclick="submitForm('spaceChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
                                 value="Change State" />
                             <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
@@ -964,7 +964,7 @@
                             <input type='submit' value='Save name' name='but_upload'>
                         </form> -->
 
-                        <form method='POST' action='changeToCompleted.php?requestId=<?php echo $temp ?>'
+                        <form method='POST' action='spaceChangeToCompleted.php?requestId=<?php echo $temp ?>'
                             enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'

@@ -3,8 +3,8 @@
     error_reporting (E_ALL ^ E_NOTICE);
 
     $id = null;
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
+    if ( !empty($_GET['requestId'])) {
+        $id = $_REQUEST['requestId'];
     }
      
     if ( null==$id ) {
@@ -147,7 +147,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ssuRequests.php">SSU</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="fdfRequests.php">FDF</a>
                 </li>
                 <li class="nav-item">
@@ -156,7 +156,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="mmrRequests.php">MMR</a>
                 </li>
                 <li class="nav-item">

@@ -75,7 +75,7 @@
 
                             </div>
                             <div class="col-lg-7">
-                              
+
                             </div>
 
 
@@ -407,8 +407,8 @@
 
                                 if ($row['requestStatusAcknowledged'] == NULL) {
                                     $changeToAcknowledged = date('Y-m-d H:i:s');
-                                    $sqlChangeToAcknowledged = "UPDATE ssuRequests
-                                    SET requestStatusAcknowledged = '$changeToAcknowledged' where requestID = '$temp'";
+                                    $sqlChangeToAcknowledged = "UPDATE powerRequests
+                                    SET requestStatusAcknowledged = '$changeToAcknowledged' where id = '$temp'";
                                     mysqli_query($conn, $sqlChangeToAcknowledged);
 
                                 }
@@ -424,15 +424,28 @@
                                 
                                 if ($row['requestStatusAssigned'] == NULL) {
                                     $changeToAssigned = date('Y-m-d H:i:s');;
-                                    $sqlChangeToAssigned= "UPDATE ssuRequests
-                                    SET requestStatusAssigned = '$changeToAssigned' where requestID = '$temp'";
+                                    $sqlChangeToAssigned= "UPDATE powerRequests
+                                    SET requestStatusAssigned = '$changeToAssigned' where id = '$temp'";
                                     mysqli_query($conn, $sqlChangeToAssigned);
                                 }
 
                                 if ($row['adminFileUpload'] != NULL) {
-                                    echo "<div class='layoutImage'>
-                                    <img style='width: 500px; margin-top: 20px; margin-bottom: 20px; border-radius: 4px; ' src='/mpp_planner/uploads/".$row['adminFileUpload']."' >
-                                    </div>";
+                                    echo "<div>
+                                        <div style='display: inline-block'>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['id']."'>Download Layout</a>
+                                        </div>
+                                        
+                                        <div>
+                                            <img style='width: 500px; margin-top: 30px; margin-bottom: 30px; border-radius: 4px; ' src='".$row['adminFileUpload']."' >
+                                        </div>
+                                    </div>
+                                    ";
+                                } else {
+                                    echo "<div>
+                                        No layout found
+                                    </div>
+                                    ";
                                 }
 
 
@@ -447,20 +460,21 @@
 
 
                                 ?>
-                                    <script type="text/javascript">
-                                    function submitForm(action) {
-                                        var form = document.getElementById('form1');
-                                        form.action = action;
-                                        form.submit();
-                                    }
-                                    </script>
+                        <script type="text/javascript">
+                        function submitForm(action) {
+                            var form = document.getElementById('form1');
+                            form.action = action;
+                            form.submit();
+                        }
+                        </script>
 
-                                    <form id="form1">
-                                        <input id='checkStatus' class='btn selectorButton2' type="button"
-                                            onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')" value="Change State" />
-                                    </form>
+                        <form id="form1">
+                            <input id='checkStatus' class='btn selectorButton2' type="button"
+                                onclick="submitForm('powerChangeToInstallationInProgress.php?id=<?php echo $temp?>')"
+                                value="Change State" />
+                        </form>
 
-                                <?php
+                        <?php
                             }
 
                             
@@ -469,35 +483,49 @@
 
 
                             if ($row['requestStatus'] == "Installation in Progress") {
-                            echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
-
+                                echo "Please kindly adhere to the Image Guidelines below as to how the images should be taken before your upload them<br><br>";
+                                
+    
+                                    if ($row['requestStatusInProgress'] == NULL) {
+                                        $changeToCompleted = date('Y-m-d H:i:s');;
+                                        $sqlChangeToCompleted = "UPDATE powerRequests
+                                        SET requestStatusInProgress = '$changeToCompleted' where id = '$temp'";
+                                        mysqli_query($conn, $sqlChangeToCompleted);
+                                    }
+                                         
+                                          
+                                    echo "<div class='custom-control-lg custom-control custom-checkbox'>
+                                    <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
+                                    <label class='custom-control-label' for='toggle'>I have uploaded all the relevant images for
+                                    all the racks listed below</label>
+                                    </div>
+                                    <br>";
                             ?>
 
 
 
 
-                        <div class='custom-control custom-checkbox'>
-                            <br>
-                            <input type='checkbox' class='custom-control-input checks' value='accepted' id='toggle'>
-                            <label class='custom-control-label' for='toggle'>I have uploaded all the relevant images for
-                                all the racks listed below</label>
-                        </div>
+                        <script type="text/javascript">
+                        function submitForm(action) {
+                            var form = document.getElementById('form1');
+                            form.action = action;
+                            form.submit();
+                        }
+                        </script>
 
+                        <form id="form1">
+                            <input id='checkStatus' class='btn selectorButton2' type="button"
+                                onclick="submitForm('powerChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
+                                value="Change State" />
+                            <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
-
-                        <input type="submit" class='btn selectorButton2' id='checkStatus'
-                            onclick="submitForm('spaceFormStatus.php')" value="Update Status" />
-
-
-
-
-                        <br>
+                        </form>
 
                         <?php
                             if ($row['requestStatusInProgress'] == NULL) {
                                     $changeToCompleted = date('Y-m-d H:i:s');;
-                                    $sqlChangeToCompleted = "UPDATE ssuRequests
-                                    SET requestStatusInProgress = '$changeToCompleted' where requestID = '$temp'";
+                                    $sqlChangeToCompleted = "UPDATE powerRequests
+                                    SET requestStatusInProgress = '$changeToCompleted' where id = '$temp'";
                                     mysqli_query($conn, $sqlChangeToCompleted);
                                 }
                             }
@@ -506,8 +534,8 @@
                                 echo "Your request has been completed.<br>Pleaese give us some time to review your images and confirm the installation before closing this request.";
                                 if ($row['requestStatusCompleted'] == NULL) {
                                     $changeToClosed = date('Y-m-d H:i:s');
-                                    $sqlChangeToClosed = "UPDATE ssuRequests
-                                    SET requestStatusCompleted = '$changeToClosed' where requestID = '$temp'";
+                                    $sqlChangeToClosed = "UPDATE powerRequests
+                                    SET requestStatusCompleted = '$changeToClosed' where id = '$temp'";
                                     mysqli_query($conn, $sqlChangeToClosed);
                                 }
                             }
@@ -516,8 +544,8 @@
                                 echo "Your request has been closed.<br>Please keep this Request ID should you need to refer to it in the future.";
                                 if ($row['requestStatusClosed'] == NULL) {
                                     $changeToClosed = date('Y-m-d H:i:s');
-                                    $sqlChangeToClosed = "UPDATE ssuRequests
-                                    SET requestStatusClosed = '$changeToClosed' where requestID = '$temp'";
+                                    $sqlChangeToClosed = "UPDATE powerRequests
+                                    SET requestStatusClosed = '$changeToClosed' where id = '$temp'";
                                     mysqli_query($conn, $sqlChangeToClosed);
                                 }
                             }
@@ -868,60 +896,38 @@
 
                     <div class='col-lg-12 mlSmall'>
 
-
-                        <form method='post' enctype='multipart/form-data'>
-                            <!-- <input type='file' name='file' /> -->
+                        <form method='POST' action='powerChangeToCompleted.php?id=<?php echo $temp ?>'
+                            enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
-                            <input id='browse' type='file' accept='.jpg, .png, .jpeg' onchange='previewFiles()'>
-                            <div id='preview'></div>
-                            <input type='submit' value='Save name' name='but_upload' method='post'>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackFront1" />
 
+                            <h6><b>Rack Floor</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackFloor1" />
+
+                            <h6><b>Rack Back</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackBack1" />
+
+                            <h6><b>Breaker Label</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="breakerLabel1" />
+
+                            <h6><b>Breakers</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="breaker1" />
+
+                            <h6><b>Sub PDU</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="subPdu1" />
+
+
+                            <!-- <div id='preview'></div> -->
+                            <input type='submit' value='Save name' name='but_upload'>
                         </form>
 
-                        <br>
-                        <br>
 
-
-                        <?php 
-
-
-                            $file_path = 'upload' . "/" . $row['requestId'] . "/";
-                            echo $file_path;
-
-
-                            if (!file_exists($file_path)) {
-                                mkdir($file_path);
-                            }
-
-
-                            if(isset($_POST['but_upload'])){
-
-
-                                $name = $_FILES['file']['name'];
-                                $target_dir = $file_path;
-                                $target_file = $target_dir . basename($_FILES["file"]["name"]);
-
-                                // Select file type
-                                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-                                // Valid file extensions
-                                $extensions_arr = array("jpg","jpeg","png");
-
-                                $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
-                                mysqli_query($conn,$query);
-
-                                    // Check extension
-                                    if( in_array($imageFileType,$extensions_arr) ){
-                                    
-                                        // Insert record
-                                        $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
-                                        mysqli_query($conn,$query);
-                                    
-                                        // Upload file
-                                        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-                                    }
-                                }
-                            ?>
 
                     </div>
                 </div>
@@ -930,88 +936,7 @@
 
 
 
-        <div class="col-lg-4 col-md-12 col-sm-12">
-            <div class="bgcolors verificationBoundingBox">
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <i class="fal fa-camera-retro fa-3x mlSmall2 mtSmall"></i>
-                            </div>
-
-                            <div class="col-lg-10">
-                                <h4 class="mlSmall"><b>Rack 1</b></h4>
-                                <h6 class="mlSmall">Breaker Verification</h6>
-                            </div>
-                        </div>
-
-                        <br>
-
-                    </div>
-
-
-
-                    <div class='col-lg-12 mlSmall'>
-
-
-                        <form method='post' enctype='multipart/form-data'>
-                            <!-- <input type='file' name='file' /> -->
-                            <h6><b>Rack Front</b></h6>
-                            <input id='browse' type='file' accept='.jpg, .png, .jpeg' onchange='previewFiles()'>
-                            <div id='preview'></div>
-                            <input type='submit' value='Save name' name='but_upload' method='post'>
-
-                        </form>
-
-                        <br>
-                        <br>
-
-
-                        <?php 
-
-                            $file_path = 'upload' . "/" . $row['requestId'] . "/";
-                            echo $file_path;
-
-
-                            if (!file_exists($file_path)) {
-                                mkdir($file_path);
-                            }
-
-                            if(isset($_POST['but_upload'])){
-
-                                $name = $_FILES['file']['name'];
-                                $target_dir = $file_path;
-                                $target_file = $target_dir . basename($_FILES["file"]["name"]);
-
-                                // Select file type
-                                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-                                // Valid file extensions
-                                $extensions_arr = array("jpg","jpeg","png");
-
-                                $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
-                                mysqli_query($conn,$query);
-
-                                    // Check extension
-                                    if( in_array($imageFileType,$extensions_arr) ){
-                                    
-                                        // Insert record
-                                        $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
-                                        mysqli_query($conn,$query);
-                                    
-                                        // Upload file
-                                        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-
-                                    }
-                                    
-                                }
-                            ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+       
 
 
 
@@ -1283,7 +1208,7 @@
                         <?php 
 
 
-                            $file_path = 'upload' . "/" . $row['requestId'] . "/";
+                            $file_path = 'upload' . "/" . $row['id'] . "/";
                             echo $file_path;
 
 
@@ -1304,14 +1229,14 @@
                                 // Valid file extensions
                                 $extensions_arr = array("jpg","jpeg","png");
 
-                                $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
+                                $query = "INSERT into powerRequests(requestorFileUpload) values('".$name."')";
                                 mysqli_query($conn,$query);
 
                                     // Check extension
                                     if( in_array($imageFileType,$extensions_arr) ){
                                     
                                         // Insert record
-                                        $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
+                                        $query = "INSERT into powerRequests(requestorFileUpload) values('".$name."')";
                                         mysqli_query($conn,$query);
                                     
                                         // Upload file
@@ -1367,7 +1292,7 @@
 
                         <?php 
 
-                            $file_path = 'upload' . "/" . $row['requestId'] . "/";
+                            $file_path = 'upload' . "/" . $row['id'] . "/";
                             echo $file_path;
 
 
@@ -1387,14 +1312,14 @@
                                 // Valid file extensions
                                 $extensions_arr = array("jpg","jpeg","png");
 
-                                $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
+                                $query = "INSERT into powerRequests(requestorFileUpload) values('".$name."')";
                                 mysqli_query($conn,$query);
 
                                     // Check extension
                                     if( in_array($imageFileType,$extensions_arr) ){
                                     
                                         // Insert record
-                                        $query = "INSERT into ssuRequests(requestorFileUpload) values('".$name."')";
+                                        $query = "INSERT into powerRequests(requestorFileUpload) values('".$name."')";
                                         mysqli_query($conn,$query);
                                     
                                         // Upload file

@@ -113,7 +113,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="powerRequests.php">Power</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="ssuRequests.php">SSU</a>
                 </li>
                 <li class="nav-item">
@@ -125,7 +125,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="generalRequests.php">General</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="mmrRequests.php">MMR</a>
                 </li>
                 <li class="nav-item">
