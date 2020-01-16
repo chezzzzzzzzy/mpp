@@ -2,7 +2,7 @@
 fdfRequestStatus();
 function fdfRequestStatus()
 {
-    require 'connection.php';
+    require('../filepath.php');
     $temp = $_POST['ticketNumber'];
     $sql = "SELECT * FROM fdfRequests WHERE `id` = '$temp'";
 
@@ -380,7 +380,7 @@ function fdfRequestStatus()
 
 
                                         <div style='display: inline-block'>
-                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/html' target = '_blank'>FNT Command</a>
                                             <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['id']."'>Download Layout</a>
                                         </div>
                                         
@@ -466,7 +466,7 @@ function fdfRequestStatus()
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('changeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
+                                onclick="submitForm('fdfChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
                                 value="Change State" />
                             <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
@@ -659,7 +659,7 @@ function fdfRequestStatus()
                             <input type='submit' value='Save name' name='but_upload'>
                         </form> -->
 
-                        <form method='POST' action='changeToCompleted.php?id=<?php echo $temp ?>'
+                        <form method='POST' action='fdfChangeToCompleted.php?id=<?php echo $temp ?>'
                             enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'

@@ -3,7 +3,7 @@
 
     powerRequestStatus(); 
     function powerRequestStatus() {
-        require 'connection.php';
+        require('../filepath.php');
         $temp = $_POST['ticketNumber']; 
         $sql = "SELECT * FROM powerRequests WHERE `id` = '$temp'";
         if($result = mysqli_query($conn, $sql)){
@@ -419,7 +419,7 @@
 
 
                             if ($row['requestStatus'] == "Assigned") {
-                                echo "Please input all the relvant information into the DCIM software by FNT <a class='fntHyperlink' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>here</a><br>Please be reminded to enable Adobe Flash Player for the software to load properly<br><br>";
+                                echo "Please input all the relvant information into the DCIM software by FNT <a class='fntHyperlink' href='https://singtel.fntcloud.sg/html' target = '_blank'>here</a><br>Please be reminded to enable Adobe Flash Player for the software to load properly<br><br>";
 
                                 
                                 if ($row['requestStatusAssigned'] == NULL) {
@@ -432,7 +432,7 @@
                                 if ($row['adminFileUpload'] != NULL) {
                                     echo "<div>
                                         <div style='display: inline-block'>
-                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/html' target = '_blank'>FNT Command</a>
                                             <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['id']."'>Download Layout</a>
                                         </div>
                                         
@@ -944,7 +944,6 @@
 
     </div>
 
-    <!-- <hr class='specialHr'> -->
 
 
 

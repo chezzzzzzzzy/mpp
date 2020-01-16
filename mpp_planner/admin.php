@@ -197,22 +197,5 @@ session_start();
 
 </body>
 
-<footer>
-    <div class='container-fluid'>
-        <div class='row'>
-            <div class='col-lg-4 col-xs-4'>
-                <div class='centerAlign'>
-                    <span>Made with <i class="fa fa-heart pulse"></i> by Chester Yee</a></span>
-                </div>
-            </div>
-            <div class='col-lg-4 col-xs-4'>
-                <div class='centerAlign'>&copy 2019 Singtel (Fixed Network Strategy and Evolution)</div>
-            </div>
-            <div class='col-lg-4 col-xs-4'>
-                <div class='centerAlign'>v4.0 release (Beta)</div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </html>

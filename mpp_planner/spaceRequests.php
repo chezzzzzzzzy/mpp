@@ -1,5 +1,5 @@
 <?php 
-    require 'connection.php';
+    require('../filepath.php');
     session_start();
 ?>
 

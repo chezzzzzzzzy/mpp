@@ -3,7 +3,7 @@
   ssuRequestStatus(); 
   function ssuRequestStatus() {
 
-      require 'connection.php';
+      require('../filepath.php');
       $temp = $_POST['ticketNumber']; 
       $sql = "SELECT * FROM ssuRequests WHERE `requestId` = '$temp'";
 
@@ -382,7 +382,7 @@
 
 
                                         <div style='display: inline-block'>
-                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/html' target = '_blank'>FNT Command</a>
                                             <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['requestId']."'>Download Layout</a>
                                         </div>
                                         
@@ -426,7 +426,7 @@
 
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
-                                onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')"
+                                onclick="submitForm('ssuChangeToInstallationInProgress.php?id=<?php echo $temp?>')"
                                 value="Change State" />
                                 
                         </form>
@@ -659,7 +659,7 @@
                             <input type='submit' value='Save name' name='but_upload'>
                         </form> -->
 
-                        <form method='POST' action='changeToCompleted.php?requestId=<?php echo $temp ?>'
+                        <form method='POST' action='ssuChangeToCompleted.php?requestId=<?php echo $temp ?>'
                             enctype='multipart/form-data'>
                             <h6><b>Rack Front</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'

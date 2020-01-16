@@ -1,47 +1,47 @@
 <?php
-    require '../filepath2.php';
- 
-    $id = null;
-    if ( !empty($_GET['requestId'])) {
-        $id = $_REQUEST['requestId'];
-    }
-     
-    if ( null==$id ) {
-        header("Location: spaceRequests.php");
-    }
-     
-    if ( !empty($_POST)) {
-        // keep track validation errors
-        $nameError = null;
-         
-        // keep track post values
-        $remarks = strval($_POST['remarks']);
-         
-        // validate input
-        $valid = true;
-         
-        // update data
-        if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE spaceRequests set remarks = ? , requestStatus = 'Declined' WHERE requestId = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($remarks, $id));
+require '../filepath2.php';
 
-            Database::disconnect();
-            header("Location: spaceRequests.php");
-        }
-    } else {
+$id = null;
+if (!empty($_GET['requestId'])) {
+    $id = $_REQUEST['requestId'];
+}
+
+if (null == $id) {
+    header("Location: spaceRequests.php");
+}
+
+if (!empty($_POST)) {
+    // keep track validation errors
+    $nameError = null;
+
+    // keep track post values
+    $remarks = strval($_POST['remarks']);
+
+    // validate input
+    $valid = true;
+
+    // update data
+    if ($valid) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM spaceRequests where requestId = ?";
-
+        $sql = "UPDATE spaceRequests set remarks = ? , requestStatus = 'Declined' WHERE requestId = ?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $remarks = $data['remarks'];
+        $q->execute(array($remarks, $id));
+
         Database::disconnect();
+        header("Location: spaceRequests.php");
     }
+} else {
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM spaceRequests where requestId = ?";
+
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    $remarks = $data['remarks'];
+    Database::disconnect();
+}
 ?>
 
 
@@ -98,11 +98,12 @@
 
 <body>
 
+
+    <!-- START: navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Singtel_logo.svg/1200px-Singtel_logo.svg.png"
-                    alt="singtelLogo.png">
+                <img src="./assets/singtelLogo.png">
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -145,6 +146,7 @@
             </span>
         </div>
     </nav>
+    <!-- END: navbar -->
 
 
     <div class="container-fluid">
@@ -152,12 +154,12 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="infoBoundingBox">
-                    <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id?>" method="post">
-                        <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
+                    <form class="form-horizontal" action="deleteInfo.php?requestId=<?php echo $id ?>" method="post">
+                        <div class="form-group <?php echo !empty($nameError) ? 'error' : ''; ?>">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="remarks" type="text" placeholder="remarks" required
-                                    value="<?php echo !empty($remarks)?$remarks:'';?>">
+                                    value="<?php echo !empty($remarks) ? $remarks : ''; ?>">
                             </div>
                         </div>
                         <br>

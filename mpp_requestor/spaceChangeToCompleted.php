@@ -1,7 +1,7 @@
 <?php
 header('Location: status.php');    
 
-require 'connection.php';
+require('../filepath.php');
 
 
 

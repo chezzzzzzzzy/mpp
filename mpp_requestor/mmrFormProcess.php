@@ -109,23 +109,25 @@ if (mysqli_query($conn, $sql)) {
                 <h2 class=" x0"><b>
 
                         <?php
-                    $sql2 = "SELECT * FROM mmrRequests ORDER BY requestId DESC LIMIT 1";
-                    $result = mysqli_query($conn, $sql2);
+                            $sql2 = "SELECT * FROM mmrRequests ORDER BY requestId DESC LIMIT 1";
+                            $result = mysqli_query($conn, $sql2);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo $row["requestId"];
-                            echo "<br>";
-                            echo "<br>";
-                            
+                            // START: get last inserted requestId
+                            if (mysqli_num_rows($result) > 0) {
+                                // output data of each row
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    echo $row["requestId"];
+                                    echo "<br>";
+                                    echo "<br>";
+                                    
 
-                            echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }                
-                ?>
+                                    echo "<h5>Pleaese check your email (" . $row['requestorEmail'] . ") for more information</h5>";
+                                }
+                            // END: get last inserted requestId
+                            } else {
+                                echo "0 results";
+                            }                
+                        ?>
                     </b></h2>
 
                 <br>

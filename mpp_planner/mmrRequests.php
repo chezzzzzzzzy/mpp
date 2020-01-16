@@ -1,6 +1,6 @@
 <?php 
     error_reporting (E_ALL ^ E_NOTICE);
-    require 'connection.php';
+    require('../filepath.php');
     session_start();
 ?>
 

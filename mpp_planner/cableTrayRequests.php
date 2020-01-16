@@ -1,5 +1,5 @@
 <?php 
-    require 'connection.php';
+    require('../filepath.php');
     session_start();
 ?>
 
@@ -85,7 +85,6 @@
 
 
     <div class="container-fluid fluid2">
-
 
         <h1>Cable Tray Requests</h1>
         <!-- START: row -->

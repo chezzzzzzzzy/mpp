@@ -92,6 +92,8 @@
 
 <body>
 
+
+    <!-- START: navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">
             <div class="authLogo">
@@ -137,7 +139,7 @@
             </span>
         </div>
     </nav>
-
+    <!-- END: navbar -->
 
     <div class="container-fluid">
         <h1>Decline Request</h1>

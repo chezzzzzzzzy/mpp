@@ -2,7 +2,7 @@
 
     spaceRequestStatus(); 
     function spaceRequestStatus() {
-        require 'connection.php';
+        require('../filepath.php');
         $temp = $_POST['ticketNumber']; 
     
 
@@ -418,7 +418,7 @@
                                 if ($row['adminFileUpload'] != NULL) {
                                     echo "<div>
                                         <div style='display: inline-block'>
-                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/html' target = '_blank'>FNT Command</a>
                                             <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['requestId']."'>Download Layout</a>
                                         </div>
                                         
@@ -551,9 +551,6 @@
 
 
         </div>
-
-
-
 
 
 
@@ -1023,7 +1020,6 @@
 
     </div>
 
-    <!-- <hr class='specialHr'> -->
 
 
 

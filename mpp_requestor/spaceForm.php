@@ -93,6 +93,20 @@
 
                         <label for="inputState">Department<span class="requiredField">*</span></label>
                         <input type="text" name="requestorDepartment" required />
+<!-- 
+                        <select id="dept" name="requestorDepartment" class="form-control">
+                            <option value="FISW">FISW</option>
+                            <option value="FNE/ATE">FNE/ATE</option>
+                            <option value="FNE/VE">FNE/VE</option>
+                            <option value="IAR">IAR</option>
+                            <option value="IPTV">IPTV</option>
+                            <option value="ITMC">ITMC</option>
+                            <option value="MegaPop">MegaPop</option>
+                            <option value="MNE">MNE</option>
+                            <option value="SingNet">SingNet</option>
+                            <option value="Broadcast TV">Broadcast TV</option>
+                            <option value="OSS">OSS</option>
+                        </select> -->
 
                         <label for="inputState">Reason<span class="requiredField">*</span></label>
                         <input type="text" name="requestorReason" required />

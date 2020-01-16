@@ -3,7 +3,9 @@
   generalRequestStatus(); 
   function generalRequestStatus() {
 
-      require 'connection.php';
+    
+    
+      require('../filepath.php');
       $temp = $_POST['ticketNumber']; 
       $sql = "SELECT * FROM generalRequests WHERE `id` = '$temp'";
 
@@ -12,7 +14,6 @@
               while($row = mysqli_fetch_array($result)){
 
 ?>
-
 
 
 <script src="./libraries/faKit.js"></script>
@@ -81,7 +82,7 @@
                         <br>
 
 
-                      
+
                     </div>
 
                 </div>
@@ -102,20 +103,18 @@
 
 
                     <br>
-                   
+
                 </div>
 
 
 
-
-                
 
             </div>
 
             <div class="bgcolors boundingBox2">
 
                 <div class="row">
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <div class='mlSmall'>
                             <h4><b>Planner's Query</b></h4>
                             <?php echo $row['remarks'];?>

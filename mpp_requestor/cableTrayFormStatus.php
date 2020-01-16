@@ -3,7 +3,7 @@
   cableTrayRequestStatus(); 
   function cableTrayRequestStatus() {
 
-      require 'connection.php';
+      require('../filepath.php');
       $temp = $_POST['ticketNumber']; 
       $sql = "SELECT * FROM cableTrayRequests WHERE `id` = '$temp'";
 
@@ -381,7 +381,7 @@
 
 
                                         <div style='display: inline-block'>
-                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/command.html' target = '_blank'>FNT Command</a>
+                                            <a class='btn statusCheckButton' href='https://singtel.fntcloud.sg/html' target = '_blank'>FNT Command</a>
                                             <a href=".$row['adminFileUpload']." class='btn statusCheckButton' download='layout_" . $row['id']."'>Download Layout</a>
                                         </div>
                                         
