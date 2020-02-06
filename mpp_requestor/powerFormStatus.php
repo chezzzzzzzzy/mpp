@@ -104,7 +104,6 @@
                         <div class="row">
 
                             <div class="col-lg-5 col-md-6 col-sm-12">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/city.png"> -->
                                 <i class="fal fa-warehouse-alt fa-3x mbSmall"></i>
 
                                 <h6><b>Exchange</b></h6>
@@ -471,7 +470,7 @@
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('powerChangeToInstallationInProgress.php?id=<?php echo $temp?>')"
-                                value="Change State" />
+                                value="Submit" />
                         </form>
 
                         <?php
@@ -516,7 +515,7 @@
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('powerChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
-                                value="Change State" />
+                                value="Submit" />
                             <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
                         </form>
@@ -608,8 +607,6 @@
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/google-web-search.png"
-                                    class="mlExtraSmall metricsImage"> -->
                                 <i class="fal fa-ruler-combined fa-3x mlSmall2 mtSmall"></i>
 
 
@@ -659,7 +656,6 @@
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/processor.png" class="mlExtraSmall"> -->
                                 <i class="fal fa-microchip fa-3x mlSmall2 mtSmall"></i>
 
                             </div>
@@ -762,8 +758,6 @@
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/lightning-bolt.png"
-                                    class="mlExtraSmall"> -->
                                 <i class="fal fa-bolt fa-3x mlSmall3 mtSmall"></i>
 
                             </div>

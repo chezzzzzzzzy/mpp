@@ -91,7 +91,7 @@
                         onclick="submitForm('status.php')" value="submit">Check</button>
                 </div>
                 <!-- END: submit form on click -->
-                </div>
+            </div>
         </form>
 
 
@@ -116,23 +116,30 @@
                         </ul>
                         <br>
 
-                        <h5><b>Rack</b></h5>
+                        <h5><b>Racks</b></h5>
 
 
                         <div class="row">
                             <div class="col-lg-3">
                                 <h6>Rack Front</h6>
+                                <p>Image must show the door of the rack</p>
+                                <br>
                                 <img src="./assets/rackFront.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
                                 <h6>Rack Floor</h6>
+                                <p>Image must show that perforated floor board <br>
+                                    (For PCM 2 only)
+                                </p>
                                 <img src="./assets/rackFloor.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
                                 <h6>Rack Back</h6>
+                                <p>Image must show the door of the rack</p>
+                                <br>
                                 <img src="./assets/rackBack.jpg" class="imageGuidelines">
                             </div>
-                            
+
                             <br>
                             <br>
                         </div>
@@ -141,31 +148,34 @@
 
 
                         <div class="row">
-                            <div class="col-lg-6">
-                                <h5><b>Breaker</b></h5>
-
+                            <div class="col-lg-3">
+                                <h5><b>Breakers</b></h5>
                             </div>
-
                             <div class="col-lg-6">
-                                <h5><b>Sub PDU</b></h5>
+                                <!-- <h5><b>Feed A/B</b></h5> -->
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-3">
-                                <h6>Breakers</h6>
-                                <img src="./assets/breaker2.jpg" class="imageGuidelines">
-                            </div>
-                            <div class="col-lg-3">
-                                <h6>Breaker Label</h6>
+                                <h6>Feed A Breaker</h6>
+                                <p>Image must show name of breaker labelled</p>
                                 <img src="./assets/breaker.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
-                                <h6>Sub PDU</h6>
-                                <img src="./assets/subPdu.jpg" class="imageGuidelines">
+                                <h6>Feed A Breaker Label</h6>
+                                <p>Image for Feed A/B to be uploaded </p>
+                                <img src="./assets/breaker2.jpg" class="imageGuidelines">
                             </div>
                             <div class="col-lg-3">
-
+                                <h6>Feed B Breaker</h6>
+                                <p>Image must show name of breaker labelled</p>
+                                <img src="./assets/breaker.jpg" class="imageGuidelines">
+                            </div>
+                            <div class="col-lg-3">
+                                <h6>Feed B Breaker Label</h6>
+                                <p>Image for Feed A/B to be uploaded </p>
+                                <img src="./assets/breaker2.jpg" class="imageGuidelines">
                             </div>
 
                             <br>
@@ -186,15 +196,15 @@
         <form id="form1">
             <div class="row">
                 <?php
-                    date_default_timezone_set('Asia/Singapore');
-                    error_reporting (E_ALL ^ E_NOTICE);
-                    require 'fdfFormStatus.php'; // fdfRequestStatus
-                    require 'ssuFormStatus.php'; // ssuRequestStatus
-                    require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
-                    require 'powerFormStatus.php'; // powerRequestStatus
-                    require 'generalFormStatus.php'; // generalRequestStatus
-                    require 'spaceFormStatus.php'; // spaceRequestStatus
-                ?>
+date_default_timezone_set('Asia/Singapore');
+error_reporting(E_ALL ^ E_NOTICE);
+require 'fdfFormStatus.php'; // fdfRequestStatus
+require 'ssuFormStatus.php'; // ssuRequestStatus
+require 'cableTrayFormStatus.php'; // cableTrayRequestStatus
+require 'powerFormStatus.php'; // powerRequestStatus
+require 'generalFormStatus.php'; // generalRequestStatus
+require 'spaceFormStatus.php'; // spaceRequestStatus
+?>
             </div>
         </form>
         <!-- END: query for data in respective tables -->

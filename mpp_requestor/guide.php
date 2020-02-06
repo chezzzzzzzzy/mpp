@@ -92,11 +92,18 @@
                                     <div class="card-body">
                                         <h6>Select your request type at the landing page
                                             The list of request types are as follows:
+                                            <br>
+                                            <br>
                                             Space (For new spaces)
+                                            <br>
                                             Power (For additional power)
+                                            <br>
                                             FDF
+                                            <br>
                                             SSU
+                                            <br>
                                             Cable Tray
+                                            <br>
                                             General
                                         </h6>
                                         <br>
@@ -219,14 +226,21 @@
                                             <div class="row">
                                                 <div class="col-lg-3">
                                                     <h6>Rack Front</h6>
+                                                    <p>Image must show the door of the rack</p>
+                                                    <br>
                                                     <img src="./assets/rackFront.jpg" class="imageGuidelines">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <h6>Rack Floor</h6>
+                                                    <p>Image must show that perforated floor board <br>
+                                                        (For PCM 2 only)
+                                                    </p>
                                                     <img src="./assets/rackFloor.jpg" class="imageGuidelines">
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <h6>Rack Back</h6>
+                                                    <p>Image must show the door of the rack</p>
+                                                    <br>
                                                     <img src="./assets/rackBack.jpg" class="imageGuidelines">
                                                 </div>
 
@@ -238,31 +252,34 @@
 
 
                                             <div class="row">
-                                                <div class="col-lg-6">
-                                                    <h5><b>Breaker</b></h5>
-
+                                                <div class="col-lg-3">
+                                                    <h5><b>Breakers</b></h5>
                                                 </div>
-
                                                 <div class="col-lg-6">
-                                                    <h5><b>Sub PDU</b></h5>
+                                                    <!-- <h5><b>Feed A/B</b></h5> -->
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    <h6>Breakers</h6>
-                                                    <img src="./assets/breaker2.jpg" class="imageGuidelines">
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <h6>Breaker Label</h6>
+                                                    <h6>Feed A Breaker</h6>
+                                                    <p>Image must show name of breaker labelled</p>
                                                     <img src="./assets/breaker.jpg" class="imageGuidelines">
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <h6>Sub PDU</h6>
-                                                    <img src="./assets/subPdu.jpg" class="imageGuidelines">
+                                                    <h6>Feed A Breaker Label</h6>
+                                                    <p>Image for Feed A/B to be uploaded </p>
+                                                    <img src="./assets/breaker2.jpg" class="imageGuidelines">
                                                 </div>
                                                 <div class="col-lg-3">
-
+                                                    <h6>Feed B Breaker</h6>
+                                                    <p>Image must show name of breaker labelled</p>
+                                                    <img src="./assets/breaker.jpg" class="imageGuidelines">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <h6>Feed B Breaker Label</h6>
+                                                    <p>Image for Feed A/B to be uploaded </p>
+                                                    <img src="./assets/breaker2.jpg" class="imageGuidelines">
                                                 </div>
 
                                                 <br>

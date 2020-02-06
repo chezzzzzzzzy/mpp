@@ -23,7 +23,7 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE generalRequests set remarks = ?, requestStatus = 'Declined' WHERE id = ?";
+            $sql = "UPDATE generalRequests set remarks = ?, requestStatus = 'Installation in Progress' WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 
@@ -159,6 +159,10 @@
                         <div class="form-actions">
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="generalRequests.php">Back</a>
+
+                            
+                            <button type="delete" class="btn selectorButton3" style="float: right;">Delete</button>
+
                         </div>
                         <br>
                         <br>

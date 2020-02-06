@@ -1,6 +1,14 @@
 <?php 
     require('../filepath.php');
     session_start();
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+        session_unset();
+        session_destroy();
+    }
+    
+    $_SESSION['LAST_ACTIVITY'] = time();
+    
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +45,6 @@
     <?php
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // echo "Logged in already" . $_SESSION['email'];
     ?>
 
     <!-- START: navbar -->

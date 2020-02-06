@@ -342,6 +342,8 @@ function fdfRequestStatus()
 
 
                         <h4><b>Actions</b></h4>
+
+                        
                         <?php 
 
                             if ($row['requestStatus'] == "Submitted") {
@@ -425,7 +427,7 @@ function fdfRequestStatus()
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('changeToInstallationInProgress.php?id=<?php echo $temp?>')"
-                                value="Change State" />
+                                value="Submit" />
                                 
                         </form>
 
@@ -467,14 +469,13 @@ function fdfRequestStatus()
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('fdfChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
-                                value="Change State" />
+                                value="Submit" />
                             <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
                         </form>
 
                         <?php
-                                echo $temp;
-                                echo $requestorFileUpload;
+                               
 
                             }
 
@@ -548,8 +549,6 @@ function fdfRequestStatus()
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/google-web-search.png"
-                                    class="mlExtraSmall metricsImage"> -->
                                 <i class="fal fa-ruler-combined fa-3x mlSmall2 mtSmall"></i>
 
 

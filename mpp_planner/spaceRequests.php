@@ -1,6 +1,14 @@
 <?php 
     require('../filepath.php');
     session_start();
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+        session_unset();
+        session_destroy();
+    }
+    
+    $_SESSION['LAST_ACTIVITY'] = time();
+    
 ?>
 
 <!DOCTYPE html>
@@ -568,12 +576,14 @@
                                         echo '<td>'. $row['requestStatus'] . '</td>';
 
 
-                                        echo '<td width=350>';
+                                        echo '<td width=420>';
                                         echo '<a class="btn updateInfoButton" href="updateInfo.php?requestId='.$row['requestId'].'">Update</a>';
                                         echo ' ';
                                         echo '<a class="btn readInfoButton" href="viewInfo.php?requestId='.$row['requestId'].'">View</a>';
                                         echo ' ';
                                         echo '<a class="btn deleteInfoButton" href="deleteInfo.php?requestId='.$row['requestId'].'">Decline</a>';
+                                        echo ' ';
+                                        echo '<a class="btn removeInfoButton" href="removeInfo.php?requestId='.$row['requestId'].'">X</a>';
                                         
                                         echo '</td>';
                                         echo '</tr>';

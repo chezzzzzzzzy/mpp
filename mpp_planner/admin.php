@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+    session_unset();
+    session_destroy();
+}
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +42,7 @@ session_start();
     <!-- START: check to see if planner is logged in  -->
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {?>
 
-    
+
     <!-- START: display when planner is logged in -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand">
@@ -155,6 +163,17 @@ session_start();
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="boundingBox2">
+                    <div class="mlSmall mrSmall mbSmall">
+                        <h4><b>Space Return Requests</b></h4>
+                        <p class="">For return of space</p>
+                        <a hidden href="spaceReturnRequests.php"><button class="selectorButtonFullWidth">Space Return
+                                Requests</button></a>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- END: all types of requests -->
     </div>
@@ -171,7 +190,7 @@ session_start();
                 <form action="authVerification.php" method="POST" id="authForm">
                     <img src="./assets/singtelLogo.png" class="loginLogo">
                     <h2><b>Please Login First 🚨</b></h2>
-                    <h4>Master Planner Portal (Admin)</h4>
+                    <h4>Master Planner Portal (Planner)</h4>
                     <br>
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
                     </script>
@@ -179,6 +198,7 @@ session_start();
                         background="transparent" speed="1" style="width: 600px; height: 500px;" autoplay
                         class="errorImage">
                     </lottie-player>
+                    <a href="auth.php" class='btn selectorButton2'>Login</a>
                 </form>
             </div>
             <div class="col-lg-2"></div>
@@ -187,7 +207,7 @@ session_start();
     <!-- END: display when planner is not logged in -->
 
 
-    <?php } ?>
+    <?php }?>
     <!-- END: check to see if planner is logged in  -->
 
 

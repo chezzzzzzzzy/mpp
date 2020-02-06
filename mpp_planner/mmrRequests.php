@@ -2,6 +2,14 @@
     error_reporting (E_ALL ^ E_NOTICE);
     require('../filepath.php');
     session_start();
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+        session_unset();
+        session_destroy();
+    }
+    
+    $_SESSION['LAST_ACTIVITY'] = time();
+    
 ?>
 
 <!DOCTYPE html>

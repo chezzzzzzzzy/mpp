@@ -1,52 +1,52 @@
 <?php
-    require '../filepath2.php';
- 
-    $id = null;
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    }
-     
-    if ( null==$id ) {
-        header("Location: fdfRequests.php");
-    }
-     
-    if ( !empty($_POST)) {
-        // keep track validation errors
-        $nameError = null;
+require '../filepath2.php';
 
-        // keep track post values
-        $remarks = strval($_POST['remarks']);
-         
-        // validate input
-        $valid = true;
-        if (empty($name)) {
-            $nameError = 'Please enter Name';
-            $valid = false;
-        }
-         
-        // update data
-        if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE fdfRequests set remarks = ?, requestStatus = 'Declined' WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($remarks, $id));
+$id = null;
+if (!empty($_GET['id'])) {
+    $id = $_REQUEST['id'];
+}
 
-            Database::disconnect();
-            header("Location: fdfRequests.php");
-        }
-    } else {
+if (null == $id) {
+    header("Location: fdfRequests.php");
+}
+
+if (!empty($_POST)) {
+    // keep track validation errors
+    $nameError = null;
+
+    // keep track post values
+    $remarks = strval($_POST['remarks']);
+
+    // validate input
+    $valid = true;
+    if (empty($name)) {
+        $nameError = 'Please enter Name';
+        $valid = false;
+    }
+
+    // update data
+    if ($valid) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM fdfRequests where id = ?";
-
+        $sql = "UPDATE fdfRequests set remarks = ?, requestStatus = 'Installation in Progress' WHERE id = ?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $remarks = $data['remarks'];
-       
+        $q->execute(array($remarks, $id));
+
         Database::disconnect();
+        header("Location: fdfRequests.php");
     }
+} else {
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM fdfRequests where id = ?";
+
+    $q = $pdo->prepare($sql);
+    $q->execute(array($id));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    $remarks = $data['remarks'];
+
+    Database::disconnect();
+}
 ?>
 
 
@@ -159,12 +159,12 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="infoBoundingBox">
-                    <form class="form-horizontal" action="deleteInfoFdf.php?id=<?php echo $id?>" method="post">
-                        <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
+                    <form class="form-horizontal" action="deleteInfoFdf.php?id=<?php echo $id ?>" method="post">
+                        <div class="form-group <?php echo !empty($nameError) ? 'error' : ''; ?>">
                             <label for="startDate">Remarks<span class="requiredField">*</span></label>
                             <div class="controls">
                                 <input class="form-control" name="remarks" type="text" placeholder="remarks" required
-                                    value="<?php echo !empty($remarks)?$remarks:'';?>">
+                                    value="<?php echo !empty($remarks) ? $remarks : ''; ?>">
                             </div>
                         </div>
                         <br>
@@ -172,11 +172,22 @@
                             <button type="submit" class="btn selectorButton3" style="float: right;">Update</button>
                             <a class="btn" style="float: left;" href="fdfRequests.php">Back</a>
                         </div>
+
+                        <br>
+                        <br>
+                        <br>    
                         <br>
                         <br>
                         <br>
                         <br>
+
+                        <div>
+                            <a class="btn selectorButton4" style="float: left;" href="x.php">Delete</a>
+                        </div>
+
                         <br>
+                        <br>
+                       
                     </form>
                 </div>
             </div>

@@ -22,7 +22,7 @@
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE cableTrayRequests set remarks = ?, requestStatus = 'Declined' WHERE id = ?";
+            $sql = "UPDATE cableTrayRequests set remarks = ?, requestStatus = 'Installation in Progress' WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($remarks, $id));
 

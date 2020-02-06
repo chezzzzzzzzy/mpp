@@ -619,6 +619,17 @@ a:hover {
 
 }
 
+.removeInfoButton {
+	border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50px;
+    color: #fd2755;
+    background-color: #fd275515;
+	font-weight: bold;
+	margin-left: 5px;
+}
+
 .form-control {
     height: 60px;
     display: block;
@@ -1618,6 +1629,19 @@ select {
     padding-top: 15px;
     padding-bottom: 15px;
     width: 180px;
+    color: #ffffff;
+    background-color: #da3744;
+    font-weight: bold;
+    border: #da3744 2px solid;
+
+}
+
+
+.selectorButton4 {
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px;
     color: #ffffff;
     background-color: #da3744;
     font-weight: bold;

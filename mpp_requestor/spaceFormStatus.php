@@ -382,6 +382,9 @@
 
 
                         <h4><b>Actions</b></h4>
+
+                            
+
                         <?php 
 
                             if ($row['requestStatus'] == "Submitted") {
@@ -458,7 +461,7 @@
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('spaceChangeToInstallationInProgress.php?id=<?php echo $temp?>')"
-                                value="Change State" />
+                                value="Submit" />
                                 
                         </form>
 
@@ -500,14 +503,13 @@
                         <form id="form1">
                             <input id='checkStatus' class='btn selectorButton2' type="button"
                                 onclick="submitForm('spaceChangeToCompleted.php?id=<?php echo $temp?>&requestorFileUpload=<?php echo $requestorFileUpload?>')"
-                                value="Change State" />
+                                value="Submit" />
                             <!-- <input type='submit' value='Save name' name='but_upload'> -->
 
                         </form>
 
                         <?php
-                                echo $temp;
-                                echo $requestorFileUpload;
+                        
 
                             }
 
@@ -581,8 +583,6 @@
 
                         <div class="row">
                             <div class="col-lg-2">
-                                <!-- <img src="https://img.icons8.com/nolan/64/000000/google-web-search.png"
-                                    class="mlExtraSmall metricsImage"> -->
                                 <i class="fal fa-ruler-combined fa-3x mlSmall2 mtSmall"></i>
 
 
@@ -979,20 +979,18 @@
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
                                 name="breakerLabel1" />
 
-                            <h6><b>Breakers</b></h6>
+                            <h6><b>Breaker (Feed A)</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
-                                name="breaker1" />
+                                name="breakerA1" />
 
-                            <h6><b>Sub PDU</b></h6>
+                            <h6><b>Breaker (Feed B)</b></h6>
                             <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
-                                name="subPdu1" />
+                                name="breakerB1" />
 
       
                             <!-- <div id='preview'></div> -->
-                            <input type='submit' value='Save name' name='but_upload'>
+                            <input type='submit' value='Save name'  class='btn selectorButton2' name='but_upload'>
                         </form> 
-
-
 
 
 
@@ -1380,6 +1378,359 @@
 
     <?php } ?>
     <!-- end of rack 2 -->
+
+
+    <!-- start of rack 3 -->
+    <?php if ($row['rackSizeLength3'] != NULL || $row['rackSizeBreadth3'] != NULL || $row['breakerSize3'] != NULL || $row['breakerQuantity3'] != NULL) { ?>
+
+
+    <div class="row">
+
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="bgcolors boundingBox3">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <i class="fal fa-ruler-combined fa-3x mlSmall2 mtSmall"></i>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <h4 class="mlSmall"><b>Rack 3</b></h4>
+                                <h6 class="mlSmall">Specifications</h6>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-lg-12 mlSmall">
+                        <h6><b>Rack Location</b></h6>
+                        <?php 
+                        if ($row['rackLocation3'] != NULL) {
+                            echo "<h3 class='valueEmphasis'><b>" . $row['rackLocation3'] . "</b></h3>";
+                        } else {
+                            echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                        }; ?>
+
+                        <br>
+
+                        <h6><b>Rack Type</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackType'] .  "</b></h3>"; ?>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h6><b>Rack Length</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeLength3'] .  "mm</b></h3>"; ?>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Breadth</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeBreadth3'] .  "mm</b></h3>"; ?>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6><b>Rack Height</b></h6>
+                                <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeHeight3'] .  "mm</b></h3>"; ?>
+                            </div>
+                        </div>
+
+
+
+
+                        <br>
+
+                        <h6><b>Rack Weight</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['rackSizeWeight3'] .  "kg</b></h3>"; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="bgcolors boundingBox3">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <i class="fal fa-microchip fa-3x mlSmall2 mtSmall"></i>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <h4 class="mlSmall"><b>Rack 3</b></h4>
+                                <h6 class="mlSmall">Breaker</h6>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-lg-12 mlSmall">
+
+                        <h6><b>Breaker Name</b></h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h6>Feed A
+                                    <?php 
+                                if ($row['breakerName3FeedA1'] != NULL) {
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['breakerName3FeedA1'] . "</b></h3>";
+                                } else {
+                                    if ($row['breakerName3FeedA1'] == NULL ) {
+                                        echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                    } else {
+                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                    }                                
+                                }; ?></h6>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6>Feed B
+                                    <?php 
+                                if ($row['breakerName3FeedB1'] != NULL) {
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['breakerName3FeedB1'] . "</b></h3>";
+                                } else {
+                                    if ($row['breakerName3FeedB1'] == NULL ) {
+                                        echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                    } else {
+                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                    }                                
+                                }; ?>
+                                </h6>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6>Feed A
+                                    <?php 
+                                if ($row['breakerName3FeedA2'] != NULL) {
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['breakerName3FeedA2'] . "</b></h3>";
+                                } else {
+                                    if ($row['breakerName3FeedA2'] == NULL ) {
+                                        echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                    } else {
+                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                    }
+                                }; ?></h6>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6>Feed B
+                                    <?php 
+                                if ($row['breakerName3FeedB2'] != NULL) {
+                                    echo "<h3 class='valueEmphasis'><b>" . $row['breakerName3FeedB2'] . "</b></h3>";
+                                } else {
+                                    if ($row['breakerName3FeedB2'] == NULL ) {
+                                        echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                    } else {
+                                        echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                    }
+                                }; ?>
+                                </h6>
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <h6><b>Breaker Size</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerSize3'] .  "A</b></h3>"; ?>
+                        <br>
+                        <h6><b>Breaker Quantity</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['breakerQuantity3'] .  " pair/s</b></h3>"; ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="bgcolors boundingBox3">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <i class="fal fa-bolt fa-3x mlSmall3 mtSmall"></i>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <h4 class="mlSmall"><b>Rack 3</b></h4>
+                                <h6 class="mlSmall">Power</h6>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+
+                    <div class="col-lg-12 mlSmall">
+
+                        <h6><b>Sub PDU</b></h6>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h6>Feed A
+                                    <?php 
+                                        if ($row['subPdu3FeedA1'] != NULL) {
+                                        echo "<h6 class='valueEmphasis'><b>" . $row['subPdu3FeedA1'] . "</b></h6>";
+                                        } else {
+                                            if ($row['subPdu3FeedA1'] == NULL ) {
+                                                echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                            } else {
+                                                echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                            }
+                                        }; 
+                                    ?>
+                                </h6>
+                            </div>
+
+                            <div clas="col-lg-6">
+                                <h6>Feed B
+                                    <?php 
+                                        if ($row['subPdu3FeedB1'] != NULL) {
+                                            echo "<h6 class='valueEmphasis'><b>" . $row['subPdu3FeedB1'] . "</b></h6>";
+                                        } else {
+                                            if ($row['subPdu3FeedB1'] == NULL ) {
+                                                echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                            } else {
+                                                echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                            }                                        
+                                        };
+                                    ?>
+                                </h6>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6>Feed A
+                                    <?php 
+                                        if ($row['subPdu3FeedA2'] != NULL) {
+                                        echo "<h6 class='valueEmphasis'><b>" . $row['subPdu3FeedA2'] . "</b></h6>";
+                                        } else {
+                                            if ($row['subPdu3FeedA2'] == NULL ) {
+                                                echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                            } else {
+                                                echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                            }                                        
+                                        }; 
+                                    ?>
+                                </h6>
+                            </div>
+
+                            <div clas="col-lg-6">
+                                <h6>Feed B
+                                    <?php 
+                                        if ($row['subPdu3FeedB2'] != NULL) {
+                                            echo "<h6 class='valueEmphasis'><b>" . $row['subPdu3FeedB2'] . "</b></h6>";
+                                        } else {
+                                            if ($row['subPdu3FeedB2'] == NULL ) {
+                                                echo "<h3 class='valueEmphasis'><b>NA</b></h3>";
+                                            } else {
+                                                echo "<h3 class='valueEmphasis'><b>Pending</b></h3>";
+                                            }                                        
+                                        }; 
+                                    ?>
+                                </h6>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <h6><b>Power Consumption</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['powerConsumption3'] .  "kW</b></h3>"; ?>
+
+                        <br>
+                        <h6><b>Power Type</b></h6>
+                        <?php echo "<h3 class='valueEmphasis'><b>" . $row['powerType'] .  "</b></h3>"; ?>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <?php
+
+        if ($row['requestStatus'] == "Installation in Progress") {
+        
+        ?>
+
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="bgcolors boundingBox3">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <i class="fal fa-camera-retro fa-3x mlSmall2 mtSmall"></i>
+                            </div>
+                            <div class="col-lg-10">
+                                <h4 class="mlSmall"><b>Rack 3</b></h4>
+                                <h6 class="mlSmall">Rack Verification</h6>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+
+
+                    <div class='col-lg-12 mlSmall'>
+                    <form method='POST' action='changeToCompleted.php?requestId=<?php echo $temp ?>'
+                            enctype='multipart/form-data'>
+                            <h6><b>Rack Front</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackFront3" />
+
+                            <h6><b>Rack Floor</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackFloor3" />
+
+                            <h6><b>Rack Back</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="rackBack3" />
+
+                            <h6><b>Breaker Label</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="breakerLabel3" />
+
+                            <h6><b>Breakers</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="breaker3" />
+
+                            <h6><b>Sub PDU</b></h6>
+                            <input type='file' id="browse" accept='.jpeg, .png, .jpg' onchange='previewFiles()'
+                                name="subPdu3" />
+
+    
+                            <!-- <div id='preview'></div> -->
+                            <input type='submit' value='Save name' class='btn selectorButton2' name='but_upload'>
+                        </form> 
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <?php } ?>
+
+    </div>
+
+
+
+
+
+
+    <?php } ?>
+    <!-- end of rack 3 -->
 
 
 

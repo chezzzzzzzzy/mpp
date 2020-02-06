@@ -22,7 +22,7 @@ if (!empty($_POST)) {
     if ($valid) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE ssuRequests set remarks = ?, requestStatus = 'Declined' WHERE requestId = ?";
+        $sql = "UPDATE ssuRequests set remarks = ?, requestStatus = 'Installation in Progress' WHERE requestId = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($remarks, $id));
 

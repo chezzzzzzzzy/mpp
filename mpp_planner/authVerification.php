@@ -8,6 +8,7 @@ require('../filepath.php');
 session_start();
 
 
+
 // START: check to see if email and password is filled
 if (isset($_POST['email']) and isset($_POST['password'])){
     

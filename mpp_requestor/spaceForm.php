@@ -291,7 +291,6 @@
                                         <option rel="JW" value="JW Level 2 MDF">JW Level 2 MDF</option>
 
                                         <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
-                                        <option rel="KT" value="KT Level 4 PCM 1">KT Level 4 PCM 1</option>
                                         <option rel="KT" value="KT Level 2 MDF">KT Level 2 MDF</option>
 
                                         <option rel="NT" value="NT Level 3 PCM 1">NT Level 3 PCM 1</option>
